@@ -1,0 +1,158 @@
+# ----- Constants ----- #
+
+set $super Mod4
+set $wallpaper "~/Pictures/Wallpapers/wall.jpg"
+set $layout_change "~/Sources/scripts/change_keyboard_layout.sh"
+
+# ----- Launchers ----- #
+
+set $launcher "albert show"
+set $term "alacritty"
+set $www "brave"
+set $music "spotify"
+set $mail "mailspring"
+set $tg "telegram-desktop"
+set $clipboard "diodon"
+set $suspend "systemctl suspend"
+set $screenshot "flameshot gui"
+
+# ----- Workspaces ----- #
+
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+# ----- Shortcuts ----- #
+
+# Launchers shortcuts
+bindsym Ctrl+space exec $launcher
+bindsym $super+c exec $clipboard
+bindsym $super+t exec $term
+bindsym $super+b exec $www
+bindsym $super+j exec $tg
+bindsym $super+l exec $suspend
+bindsym $super+Shift+d exec $screenshot
+
+# Kill focused window
+bindsym $super+q kill
+
+# Change keyboard layout
+bindsym $super+space exec $layout_change
+
+# Focus window
+bindsym $super+Left focus left
+bindsym $super+Down focus down
+bindsym $super+Up focus up
+bindsym $super+Right focus right
+
+# Move window
+bindsym $super+Shift+Left move left
+bindsym $super+Shift+Down move down
+bindsym $super+Shift+Up move up
+bindsym $super+Shift+Right move right
+
+# Split in horizontal
+bindsym $super+Shift+e split h
+
+# Split in vertical
+bindsym $super+Shift+o split v
+
+# Enter fullscreen mode for the focused container
+bindsym $super+Shift+f fullscreen toggle
+
+# Toggle tiling / floating
+bindsym $super+Shift+l floating toggle
+
+# Restart i3
+bindsym $super+Shift+r exec i3-msg restart
+
+# Switch to workspace
+bindsym $super+1 workspace number $ws1
+bindsym $super+2 workspace number $ws2
+bindsym $super+3 workspace number $ws3
+bindsym $super+4 workspace number $ws4
+bindsym $super+5 workspace number $ws5
+bindsym $super+6 workspace number $ws6
+bindsym $super+7 workspace number $ws7
+bindsym $super+8 workspace number $ws8
+bindsym $super+9 workspace number $ws9
+bindsym $super+0 workspace number $ws10
+
+# Move focused container to workspace
+bindsym $super+Shift+1 move container to workspace number $ws1
+bindsym $super+Shift+2 move container to workspace number $ws2
+bindsym $super+Shift+3 move container to workspace number $ws3
+bindsym $super+Shift+4 move container to workspace number $ws4
+bindsym $super+Shift+5 move container to workspace number $ws5
+bindsym $super+Shift+6 move container to workspace number $ws6
+bindsym $super+Shift+7 move container to workspace number $ws7
+bindsym $super+Shift+8 move container to workspace number $ws8
+bindsym $super+Shift+9 move container to workspace number $ws9
+bindsym $super+Shift+0 move container to workspace number $ws10
+
+# Resize window
+mode "Resize" {
+    bindsym Left resize shrink width 10 px or 10 ppt
+    bindsym Down resize grow height 10 px or 10 ppt
+    bindsym Up resize shrink height 10 px or 10 ppt
+    bindsym Right resize grow width 10 px or 10 ppt
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $super+r mode "default"
+}
+bindsym $super+r mode "Resize"
+
+# Add shortcuts to control volume
+bindsym XF86AudioRaiseVolume exec --no-startup-id pulseaudio-ctl up 5
+bindsym XF86AudioLowerVolume exec --no-startup-id pulseaudio-ctl down 5
+bindsym XF86AudioMute exec --no-startup-id pulseaudio-ctl mute
+bindsym XF86AudioMicMute exec --no-startup-id pulseaudio-ctl mute-input
+
+# ----- i3 configuration ----- #
+
+# Configure i3bar
+bar {
+    position top
+    status_command /usr/bin/moe-bar
+    tray_output none
+    font pango:Roboto Mono 12
+
+    # Gruvbox colors
+    colors {
+        background #282828
+        statusline #EBDBB2
+    
+        # Target background outline text
+        focused_workspace  #D65D0E #D65D0E #EBDBB2
+        active_workspace   #504945 #504945 #EBDBB2
+        inactive_workspace #282828 #282828 #EBDBB2
+        urgent_workspace   #CC241D #CC241D #EBDBB2
+    }
+}
+
+# Configure gaps and borders
+gaps inner 10
+default_border pixel 1
+client.focused #662B04 #662B04 #662B04 #D65D0E
+
+# Other stuff
+floating_modifier $super
+
+# ----- Startup programs ----- #
+
+exec --no-startup-id albert
+exec --no-startup-id unclutter
+exec --no-startup-id diodon
+exec --no-startup-id mega-cmd-server
+exec --no-startup-id compton -b
+exec --no-startup-id pulseaudio -D && i3-msg restart
+exec --no-startup-id betterlockscreen -w
+exec --no-startup-id xidlehook --not-when-audio --not-when-fullscreen --timer 360 "betterlockscreen -l blur" &

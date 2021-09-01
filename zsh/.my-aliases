@@ -1,0 +1,43 @@
+# Aliases #
+# ======= #
+
+## Some cool Linux commands ##
+alias cat='bat'
+alias ls='lsd'
+alias du='dust'
+alias df='duf'
+alias find='fd'
+alias curl='curlie'
+
+## Commands ##
+alias sl='ls'
+alias ll='ls -l'
+alias ..='cd .. && ls'
+alias grep='grep --color=auto'
+alias rgrep='grep -r -n'
+alias lgrep='grep -r -n -l'
+alias p='ps aux | grep '
+alias sudo='sudo '
+
+## Python ##
+alias python='python3'
+alias ipython='python3 -m IPython'
+
+## Programms ##
+alias yee='python ~/Sources/Projects/TermYeeLight/manager.py'
+alias soundcore='bash ~/Sources/scripts/connect_soundcore.sh'
+alias change_audio_output='bash ~/Sources/scripts/change_audio_profile.sh'
+alias clean_system='bash ~/Sources/scripts/clean_system.sh'
+
+# Configurations #
+# ============== #
+
+## Virtualenvs config ##
+export WORKON_HOME=/usr/local/virtualenvs
+source /usr/bin/virtualenvwrapper.sh
+
+## Env variables ##
+export PATH="$PATH:/opt/AndroidSDK"
+export ANDROID_SDK_ROOT="/opt/AndroidSDK"
+export CHROME_EXECUTABLE="/usr/bin/brave"
+export EDITOR="/usr/bin/vim"
