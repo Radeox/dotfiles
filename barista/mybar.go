@@ -12,10 +12,13 @@ import (
 	"barista.run/modules/battery"
 	"barista.run/modules/clock"
 	"barista.run/modules/cputemp"
+    "barista.run/modules/media"
 	"barista.run/modules/meminfo"
+    "barista.run/modules/netinfo"
 	"barista.run/modules/sysinfo"
 	"barista.run/modules/volume"
     "barista.run/modules/volume/pulseaudio"
+    "barista.run/modules/wlan"
 	"barista.run/outputs"
 	"barista.run/pango"
 	"barista.run/pango/icons/mdi"
@@ -26,6 +29,14 @@ import (
 )
 
 var spacer = pango.Text(" ").XXSmall()
+
+func ifLeft(dofn func()) func(bar.Event) {
+    return func(e bar.Event) {
+        if e.Button == bar.ButtonLeft {
+            dofn()
+        }
+    }
+}
 
 // Main
 func main() {
@@ -203,21 +214,21 @@ func main() {
 
     // CPU Temperature
 	temp := cputemp.New().RefreshInterval(2 * time.Second).Output(func(temp unit.Temperature) bar.Output {
-			out := outputs.Pango(
-				pango.Icon("mdi-fan"),
-                spacer,
-				pango.Textf("%2d℃", int(temp.Celsius())),
-			)
-			switch {
-                case temp.Celsius() > 90:
-                    out.Urgent(true)
-                case temp.Celsius() > 80:
-                    out.Color(colors.Scheme("bad"))
-                case temp.Celsius() > 70:
-                    out.Color(colors.Scheme("degraded"))
-			}
-			return out
-		})
+        out := outputs.Pango(
+            pango.Icon("mdi-fan"),
+            spacer,
+            pango.Textf("%2d℃", int(temp.Celsius())),
+        )
+        switch {
+            case temp.Celsius() > 90:
+                out.Urgent(true)
+            case temp.Celsius() > 80:
+                out.Color(colors.Scheme("bad"))
+            case temp.Celsius() > 70:
+                out.Color(colors.Scheme("degraded"))
+        }
+        return out
+    })
 
     // Keyboard layout
     keyboard := xkbmap.New("us", "it").Output(func(layout keyboard.Layout) bar.Output {
@@ -228,12 +239,56 @@ func main() {
         )
     })
 
-	group, _ := collapsing.Group(temp, freeMem, loadAvg)
+    // Ethernet widget
+    ethernet := netinfo.New().Output(func(s netinfo.State) bar.Output {
+        if len(s.IPs) > 0 {
+            return outputs.Pango(pango.Icon("mdi-lan-connect"))
+        } else {
+            return outputs.Pango(pango.Icon("mdi-lan-disconnect"))
+        }
+    })
+
+    // Wifi widget
+    wifi := wlan.Any().Output(func (i wlan.Info) bar.Output {
+        switch {
+            case i.Connected():
+                return outputs.Pango(pango.Icon("mdi-wifi-strength-4"))
+            case i.Connecting():
+                return outputs.Pango(pango.Icon("mdi-wifi-strength-1-alert"))
+            case !i.Connected():
+                return outputs.Pango(pango.Icon("mdi-wifi-strength-off"))
+            default:
+                return nil
+        }
+    })
+
+    // Mediaplayer widget
+    mediaplayer := media.Auto("chromium*").Output(func(m media.Info) bar.Output {
+        if !m.Connected() || m.Stopped() {
+            return nil
+        }
+
+        out := new(outputs.SegmentGroup)
+        out.Append(outputs.Pango(pango.Icon("mdi-skip-previous")).OnClick(ifLeft(m.Previous)))
+
+        if m.Playing() {
+            out.Append(outputs.Pango(pango.Icon("mdi-pause")).OnClick(ifLeft(m.Pause)))
+        } else {
+            out.Append(outputs.Pango(pango.Icon("mdi-play")).OnClick(ifLeft(m.Play)))
+        }
+
+        out.Append(outputs.Pango(pango.Icon("mdi-skip-next")).OnClick(ifLeft(m.Next)))
+        return out
+    })
+
+	group, _ := collapsing.Group(temp, freeMem, loadAvg, keyboard)
 
 	panic(barista.Run(
 		group,
-        keyboard,
+        mediaplayer,
 		volume_level,
+        wifi,
+        ethernet,
 		battery_level,
         localdate,
 		localtime,
