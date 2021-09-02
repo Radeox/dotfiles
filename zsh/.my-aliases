@@ -26,7 +26,8 @@ alias ipython='python3 -m IPython'
 ## Programms ##
 alias yee='python ~/Sources/Projects/TermYeeLight/manager.py'
 alias soundcore='bash ~/Sources/scripts/connect_soundcore.sh'
-alias change_audio_output='bash ~/Sources/scripts/change_audio_profile.sh'
+alias audio_output='bash ~/Sources/scripts/audio_profile.sh'
+alias display_layout='bash ~/Sources/scripts/display_layout.sh'
 alias clean_system='bash ~/Sources/scripts/clean_system.sh'
 
 # Configurations #

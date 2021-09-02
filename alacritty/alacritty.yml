@@ -57,3 +57,7 @@ env:
 key_bindings:
 - { key: Up, mods: Shift, action: ScrollLineUp }
 - { key: Down, mods: Shift, action: ScrollLineDown }
+- { key: Up, mods: Alt, action: ScrollPageUp }
+- { key: Down, mods: Alt, action: ScrollPageDown }
+- { key: Right, mods: Alt, action: None }
+- { key: Left, mods: Alt, action: None }

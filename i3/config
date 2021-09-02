@@ -2,7 +2,7 @@
 
 set $super Mod4
 set $wallpaper "~/Pictures/Wallpapers/wall.jpg"
-set $layout_change "~/Sources/scripts/change_keyboard_layout.sh"
+set $keyboard_layout "~/Sources/scripts/keyboard_layout.sh"
 
 # ----- Launchers ----- #
 
@@ -15,6 +15,7 @@ set $tg "telegram-desktop"
 set $clipboard "diodon"
 set $suspend "systemctl suspend"
 set $screenshot "flameshot gui"
+set $filemanager "nautilus"
 
 # ----- Workspaces ----- #
 
@@ -32,19 +33,20 @@ set $ws10 "10"
 # ----- Shortcuts ----- #
 
 # Launchers shortcuts
-bindsym Ctrl+space exec $launcher
-bindsym $super+c exec $clipboard
-bindsym $super+t exec $term
-bindsym $super+b exec $www
-bindsym $super+j exec $tg
-bindsym $super+l exec $suspend
-bindsym $super+Shift+d exec $screenshot
+bindsym Ctrl+space exec --no-startup-id $launcher
+bindsym $super+c exec --no-startup-id $clipboard
+bindsym $super+t exec --no-startup-id $term
+bindsym $super+b exec --no-startup-id $www
+bindsym $super+j exec --no-startup-id $tg
+bindsym $super+f exec --no-startup-id $filemanager
+bindsym $super+l exec --no-startup-id $suspend
+bindsym $super+Shift+d exec --no-startup-id $screenshot
 
 # Kill focused window
 bindsym $super+q kill
 
 # Change keyboard layout
-bindsym $super+space exec $layout_change
+bindsym $super+space exec --no-startup-id $keyboard_layout
 
 # Focus window
 bindsym $super+Left focus left
@@ -58,11 +60,11 @@ bindsym $super+Shift+Down move down
 bindsym $super+Shift+Up move up
 bindsym $super+Shift+Right move right
 
+# Split in vertical
+bindsym $super+Shift+w split v
+
 # Split in horizontal
 bindsym $super+Shift+e split h
-
-# Split in vertical
-bindsym $super+Shift+o split v
 
 # Enter fullscreen mode for the focused container
 bindsym $super+Shift+f fullscreen toggle
