@@ -4,6 +4,10 @@ set $super Mod4
 set $wallpaper "~/Pictures/Wallpapers/wall.jpg"
 set $keyboard_layout "~/Sources/scripts/keyboard_layout.sh"
 
+set $main_monitor "HDMI-2"
+set $second_monitor "DP-1"
+set $third_monitor "eDP-1"
+
 # ----- Launchers ----- #
 
 set $launcher "albert show"
@@ -30,6 +34,18 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
+# Bind workspace to a monitor (in my setup)
+workspace $ws1 output $main_monitor
+workspace $ws2 output $second_monitor
+workspace $ws3 output $third_monitor
+workspace $ws4 output $main_monitor
+workspace $ws5 output $main_monitor
+workspace $ws6 output $main_monitor
+workspace $ws7 output $second_monitor
+workspace $ws8 output $second_monitor
+workspace $ws9 output $second_monitor
+workspace $ws10 output $third_monitor
+
 # ----- Shortcuts ----- #
 
 # Launchers shortcuts
@@ -38,9 +54,11 @@ bindsym $super+c exec --no-startup-id $clipboard
 bindsym $super+t exec --no-startup-id $term
 bindsym $super+b exec --no-startup-id $www
 bindsym $super+j exec --no-startup-id $tg
+bindsym $super+m exec --no-startup-id $mail
+bindsym $super+n exec --no-startup-id $music
 bindsym $super+f exec --no-startup-id $filemanager
 bindsym $super+l exec --no-startup-id $suspend
-bindsym $super+Shift+d exec --no-startup-id $screenshot
+bindsym $super+Shift+s exec --no-startup-id $screenshot
 
 # Kill focused window
 bindsym $super+q kill
@@ -161,6 +179,7 @@ exec --no-startup-id unclutter
 exec --no-startup-id diodon
 exec --no-startup-id mega-cmd-server
 exec --no-startup-id compton -b
+exec --no-startup-id mailspring -b
 exec --no-startup-id pulseaudio -D && i3-msg restart
 exec --no-startup-id betterlockscreen -w
 exec --no-startup-id xidlehook --not-when-audio --not-when-fullscreen --timer 360 "betterlockscreen -l blur" &
