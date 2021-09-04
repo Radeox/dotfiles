@@ -77,9 +77,14 @@ func main() {
         battery_level := i.RemainingPct()
 
         // If no battery or full, hide widget
-		if i.Status == battery.Disconnected || i.Status == battery.Unknown || battery_level == 100 {
+		if i.Status == battery.Disconnected || i.Status == battery.Unknown {
 			return nil
 		}
+
+        // If not charging and remaining time is 0 --> Battery already full (maybe at 80% or more, ASUS stuff)
+		if i.Status != battery.Charging && i.RemainingTime() == 0 {
+			return nil
+        }
 
         // Battery icon
 		iconName := "battery"
@@ -98,6 +103,7 @@ func main() {
 		}
 
 		out := outputs.Pango(pango.Icon("mdi-" + iconName), disp)
+
         // Battery color
 		switch {
             case battery_level < 10:
@@ -189,7 +195,7 @@ func main() {
 		return out
 	})
 
-    // Free Ram
+    // Free RAM
 	freeMem := meminfo.New().Output(func(m meminfo.Info) bar.Output {
 		used_memory := 100 - ((m["MemAvailable"] / m["MemTotal"]) * 100)
 
@@ -241,10 +247,15 @@ func main() {
 
     // Ethernet widget
     ethernet := netinfo.New().Output(func(s netinfo.State) bar.Output {
-        if len(s.IPs) > 0 {
-            return outputs.Pango(pango.Icon("mdi-lan-connect"))
+        // Check only for ethernet interfaces
+        if strings.HasPrefix(s.Name, "enp") {
+            if len(s.IPs) > 0 {
+                return outputs.Pango(pango.Icon("mdi-lan-connect"))
+            } else {
+                return outputs.Pango(pango.Icon("mdi-lan-disconnect"))
+            }
         } else {
-            return outputs.Pango(pango.Icon("mdi-lan-disconnect"))
+            return nil
         }
     })
 
