@@ -142,6 +142,10 @@ bindsym XF86AudioStop exec --no-startup-id playerctl stop
 bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 bindsym XF86AudioNext exec --no-startup-id playerctl next
 
+# Brightness shortcuts
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10
+
 # ----- i3 configuration ----- #
 
 # Configure i3bar
@@ -182,4 +186,4 @@ exec --no-startup-id compton -b
 exec --no-startup-id mailspring -b
 exec --no-startup-id pulseaudio -D; i3-msg restart
 exec --no-startup-id betterlockscreen -w
-exec --no-startup-id xidlehook --not-when-audio --not-when-fullscreen --timer 360 "betterlockscreen -l blur" &
+exec --no-startup-id xidlehook --not-when-audio --not-when-fullscreen --timer 360 "betterlockscreen -l blur --off 10"
