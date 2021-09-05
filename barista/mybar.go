@@ -108,9 +108,9 @@ func main() {
 		switch {
             case battery_level < 10:
                 out.Urgent(true)
-            case battery_level <= 33:
+            case battery_level <= 20:
                 out.Color(colors.Scheme("bad"))
-            case battery_level > 33 && battery_level < 66:
+            case battery_level > 20 && battery_level < 35:
                 out.Color(colors.Scheme("degraded"))
 		}
 
@@ -148,7 +148,7 @@ func main() {
     volume_level := volume.New(pulseaudio.DefaultSink()).Output(func(v volume.Volume) bar.Output {
 		if v.Mute {
 			return outputs.
-				Pango(pango.Icon("mdi-volume-off"), spacer, "MUTE").
+				Pango(pango.Icon("mdi-volume-off")).
 				Color(colors.Scheme("degraded"))
 		}
 
