@@ -1,12 +1,16 @@
 # ----- Constants ----- #
 
 set $super Mod4
-set $wallpaper "~/Pictures/Wallpapers/wall.jpg"
-set $keyboard_layout "~/Sources/scripts/keyboard_layout.sh"
-
 set $main_monitor "HDMI-2"
 set $second_monitor "DP-1"
 set $third_monitor "eDP-1"
+
+# ----- Scripts ----- #
+
+set $wallpaper "~/Pictures/Wallpapers/wall.jpg"
+set $keyboard_layout "~/Sources/scripts/keyboard_layout.sh"
+set $display_profile "~/Sources/scripts/display_layout.sh"
+set $toggle_tray "~/Sources/scripts/toggle_tray.sh"
 
 # ----- Launchers ----- #
 
@@ -59,6 +63,7 @@ bindsym $super+n exec --no-startup-id $music
 bindsym $super+f exec --no-startup-id $filemanager
 bindsym $super+l exec --no-startup-id $suspend
 bindsym $super+Shift+s exec --no-startup-id $screenshot
+bindsym $super+Shift+t exec --no-startup-id $toggle_tray
 
 # Kill focused window
 bindsym $super+q kill
@@ -182,8 +187,11 @@ exec --no-startup-id albert
 exec --no-startup-id unclutter
 exec --no-startup-id diodon
 exec --no-startup-id mega-cmd-server
-exec --no-startup-id compton -b
 exec --no-startup-id mailspring -b
+exec --no-startup-id compton -b
+exec --no-startup-id redshift
 exec --no-startup-id pulseaudio -D; i3-msg restart
-exec --no-startup-id betterlockscreen -w
+exec --no-startup-id $display_profile
+exec --no-startup-id nm-applet
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id xidlehook --not-when-audio --not-when-fullscreen --timer 360 "betterlockscreen -l blur --off 10"
