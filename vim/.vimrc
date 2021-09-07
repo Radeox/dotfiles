@@ -1,14 +1,22 @@
 call plug#begin('~/.vim/plugged')
 
+Plug 'jiangmiao/auto-pairs'
+Plug 'itchyny/lightline.vim'
 Plug 'preservim/nerdtree'
+Plug 'luochen1990/rainbow'
+Plug 'ervandew/supertab'
 Plug 'flazz/vim-colorschemes'
 Plug 'ryanoasis/vim-devicons'
+Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sensible'
 
 call plug#end()
 
 " Nerdtree shortcut
 nnoremap <F3> :NERDTreeToggle<CR>
+
+" Enable rainbow
+let g:rainbow_active = 1
 
 " Tab settings
 set autoindent
@@ -43,7 +51,7 @@ set wrapscan
 
 " Other stuff
 set showmatch
-set showmode
+set noshowmode
 
 " Sudo save file
-cmap w!! w !sudo tee % >/dev/null
+cmap W w !sudo tee % >/dev/null
