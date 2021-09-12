@@ -195,3 +195,6 @@ exec --no-startup-id $display_profile
 exec --no-startup-id nm-applet
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id xidlehook --not-when-audio --not-when-fullscreen --timer 360 "betterlockscreen -l blur --off 10"
+
+# Restart compton when i3 reloads
+exec_always touch ~/.config/compton.conf
