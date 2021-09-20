@@ -1,6 +1,3 @@
-env:
-  TERM: alacritty
-
 # --- Font configuration --- #
 font:
   normal:
@@ -58,3 +55,6 @@ key_bindings:
 - { key: Down, mods: Alt, action: ScrollPageDown }
 - { key: Right, mods: Alt, action: None }
 - { key: Left, mods: Alt, action: None }
+
+env:
+  TERM: xterm-256color
