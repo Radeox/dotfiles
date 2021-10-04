@@ -6,7 +6,6 @@ alias cat='bat'
 alias ls='lsd'
 alias du='dust'
 alias df='duf'
-alias find='fd'
 alias curl='curlie'
 
 ## Commands ##

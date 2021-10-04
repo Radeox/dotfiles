@@ -1,28 +1,19 @@
 # ----- Constants ----- #
 
 set $super Mod4
-set $main_monitor "HDMI-2"
-set $second_monitor "DP-1"
-set $third_monitor "eDP-1"
 
 # ----- Scripts ----- #
 
-set $wallpaper "~/Pictures/Wallpapers/wall.jpg"
+set $wallpaper "~/Pictures/bg.png"
 set $keyboard_layout "~/Sources/scripts/keyboard_layout.sh"
-set $display_profile "~/Sources/scripts/display_layout.sh"
 set $toggle_tray "~/Sources/scripts/toggle_tray.sh"
 
 # ----- Launchers ----- #
 
-set $launcher "albert show"
-set $term "alacritty"
-set $www "brave"
-set $music "spotify"
-set $mail "mailspring"
-set $tg "telegram-desktop"
-set $clipboard "diodon"
-set $suspend "systemctl suspend"
-set $screenshot "flameshot gui"
+set $launcher "rofi -show run"
+set $term "sakura"
+set $www "falkon"
+set $suspend "sudo zzz"
 set $filemanager "nautilus"
 
 # ----- Workspaces ----- #
@@ -54,15 +45,10 @@ workspace $ws10 output $third_monitor
 
 # Launchers shortcuts
 bindsym Ctrl+space exec --no-startup-id $launcher
-bindsym $super+v exec --no-startup-id $clipboard
 bindsym $super+t exec --no-startup-id $term
 bindsym $super+b exec --no-startup-id $www
-bindsym $super+j exec --no-startup-id $tg
-bindsym $super+m exec --no-startup-id $mail
-bindsym $super+n exec --no-startup-id $music
 bindsym $super+f exec --no-startup-id $filemanager
 bindsym $super+l exec --no-startup-id $suspend
-bindsym $super+Shift+s exec --no-startup-id $screenshot
 bindsym $super+Shift+t exec --no-startup-id $toggle_tray
 
 # Kill focused window
@@ -156,9 +142,9 @@ bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10
 # Configure i3bar
 bar {
     position top
-    status_command /usr/bin/moe-bar
+    status_command i3status
     tray_output none
-    font pango: Roboto Mono 12
+    font pango: Roboto Mono 9
 
     # Gruvbox colors
     colors {
@@ -174,7 +160,7 @@ bar {
 }
 
 # Configure gaps and borders
-gaps inner 10
+gaps inner 5
 default_border pixel 1
 client.focused #662B04 #662B04 #662B04 #D65D0E
 
@@ -183,15 +169,9 @@ floating_modifier $super
 
 # ----- Startup programs ----- #
 
-exec --no-startup-id albert
 exec --no-startup-id unclutter
-exec --no-startup-id diodon
 exec --no-startup-id mega-cmd-server
-exec --no-startup-id mailspring -b
-exec --no-startup-id picom -b
-exec --no-startup-id redshift
-exec --no-startup-id pulseaudio -D; i3-msg restart
 exec --no-startup-id $display_profile
 exec --no-startup-id nm-applet
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id xidlehook --not-when-audio --not-when-fullscreen --timer 360 "betterlockscreen -l blur --off 5"
+exec --no-startup-id betterlockscreen -w
+exec --no-startup-id xss-lock "betterlockscreen -l blur --off 10"
