@@ -9,7 +9,7 @@ fi
 export ZSH="/home/radeox/.oh-my-zsh"
 
 # My ZSH configuration
-source ~/.my-config
+source ~/.my-zshrc
 
 # OMZ import
 source $ZSH/oh-my-zsh.sh

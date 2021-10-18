@@ -39,5 +39,5 @@ source /usr/bin/virtualenvwrapper.sh
 ## Env variables ##
 export PATH="$PATH:/opt/AndroidSDK"
 export ANDROID_SDK_ROOT="/opt/AndroidSDK"
-export CHROME_EXECUTABLE="/usr/bin/brave"
+export CHROME_EXECUTABLE="/usr/bin/vivaldi-stable"
 export EDITOR="/usr/bin/vim"

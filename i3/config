@@ -16,7 +16,7 @@ set $toggle_tray "~/Sources/scripts/toggle_tray.sh"
 
 set $launcher "albert show"
 set $term "alacritty"
-set $www "brave"
+set $www "vivaldi-stable"
 set $music "spotify"
 set $mail "mailspring"
 set $tg "telegram-desktop"
