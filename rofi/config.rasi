@@ -1,0 +1,12 @@
+configuration {
+    show-icons:         true;
+    icon-theme:         "Paper";
+    modi:               "combi";
+    combi-modi:         "window,drun,p:rofi-power-menu";
+    display-combi:      ">";
+    display-window:     "";
+    display-drun:       "";
+    font:               "Noto 13";
+}
+
+@theme "/home/radeox/.config/rofi/themes/appsmenu.rasi"

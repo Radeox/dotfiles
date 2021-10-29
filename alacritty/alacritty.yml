@@ -16,6 +16,9 @@ font:
     family: "MesloLGS NF"
     style: Bold Italic
 
+  # Laptop font size
+  # size: 9
+
 # --- Color configuration --- #
 colors:
   primary:

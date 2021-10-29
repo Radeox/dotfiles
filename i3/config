@@ -7,14 +7,14 @@ set $third_monitor "eDP-1"
 
 # ----- Scripts ----- #
 
-set $wallpaper "~/Pictures/Wallpapers/wall.jpg"
-set $keyboard_layout "~/Sources/scripts/keyboard_layout.sh"
-set $display_profile "~/Sources/scripts/display_layout.sh"
-set $toggle_tray "~/Sources/scripts/toggle_tray.sh"
+set $wallpaper "$HOME/Pictures/Wallpapers/wall.jpg"
+set $keyboard_layout "$HOME/Sources/scripts/keyboard_layout.sh"
+set $display_profile "$HOME/Sources/scripts/display_layout.sh"
+set $toggle_tray "$HOME/Sources/scripts/toggle_tray.sh"
 
 # ----- Launchers ----- #
 
-set $launcher "albert show"
+set $launcher "rofi -show combi"
 set $term "alacritty"
 set $www "vivaldi-stable"
 set $music "spotify"
@@ -153,26 +153,6 @@ bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10
 
 # ----- i3 configuration ----- #
 
-# Configure i3bar
-bar {
-    position top
-    status_command /usr/bin/moe-bar
-    tray_output none
-    font pango: Roboto Mono 12
-
-    # Gruvbox colors
-    colors {
-        background #282828
-        statusline #EBDBB2
-    
-        # Target background outline text
-        focused_workspace  #D65D0E #D65D0E #EBDBB2
-        active_workspace   #504945 #504945 #EBDBB2
-        inactive_workspace #282828 #282828 #EBDBB2
-        urgent_workspace   #CC241D #CC241D #EBDBB2
-    }
-}
-
 # Configure gaps and borders
 gaps inner 10
 default_border pixel 1
@@ -183,7 +163,6 @@ floating_modifier $super
 
 # ----- Startup programs ----- #
 
-exec --no-startup-id albert
 exec --no-startup-id unclutter
 exec --no-startup-id diodon
 exec --no-startup-id mega-cmd-server
@@ -195,3 +174,8 @@ exec --no-startup-id $display_profile
 exec --no-startup-id nm-applet
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id xidlehook --not-when-audio --not-when-fullscreen --timer 360 "betterlockscreen -l blur --off 5"
+
+# ----- Execute at restart ----- #
+
+exec_always --no-startup-id touch $HOME/.config/picom.conf
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
