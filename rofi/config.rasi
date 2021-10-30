@@ -2,7 +2,7 @@ configuration {
     show-icons:         true;
     icon-theme:         "Paper";
     modi:               "combi";
-    combi-modi:         "window,drun,p:rofi-power-menu";
+    combi-modi:         "window,drun";
     display-combi:      ">";
     display-window:     "";
     display-drun:       "";
