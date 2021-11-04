@@ -14,7 +14,8 @@ set $toggle_tray "$HOME/Sources/scripts/toggle_tray.sh"
 
 # ----- Launchers ----- #
 
-set $launcher "rofi -show combi"
+set $launcher "rofi -show drun"
+set $tasks "rofi -show window"
 set $term "alacritty"
 set $www "vivaldi-stable"
 set $music "spotify"
@@ -54,6 +55,7 @@ workspace $ws10 output $third_monitor
 
 # Launchers shortcuts
 bindsym Ctrl+space exec --no-startup-id $launcher
+bindsym Ctrl+Tab exec --no-startup-id $tasks
 bindsym $super+v exec --no-startup-id $clipboard
 bindsym $super+t exec --no-startup-id $term
 bindsym $super+b exec --no-startup-id $www
@@ -169,7 +171,7 @@ exec --no-startup-id mega-cmd-server
 exec --no-startup-id mailspring -b
 exec --no-startup-id picom -b
 exec --no-startup-id redshift
-exec --no-startup-id pulseaudio -D; i3-msg restart
+exec --no-startup-id pulseaudio -D
 exec --no-startup-id $display_profile
 exec --no-startup-id nm-applet
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1

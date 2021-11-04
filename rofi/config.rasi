@@ -1,11 +1,9 @@
 configuration {
     show-icons:         true;
     icon-theme:         "Paper";
-    modi:               "combi";
-    combi-modi:         "window,drun";
-    display-combi:      ">";
-    display-window:     "";
-    display-drun:       "";
+    modi:               "drun";
+    display-window:     "#";
+    display-drun:       ">";
     font:               "Noto 13";
 }
 
