@@ -1,9 +1,9 @@
 # ----- Constants ----- #
 
 set $super Mod4
-set $main_monitor "HDMI-2"
-set $second_monitor "DP-1"
-set $third_monitor "eDP-1"
+set $main_monitor "HDMI2"
+set $second_monitor "DP1"
+set $third_monitor "eDP1"
 
 # ----- Scripts ----- #
 
@@ -165,17 +165,17 @@ floating_modifier $super
 
 # ----- Startup programs ----- #
 
-exec --no-startup-id unclutter
-exec --no-startup-id diodon
-exec --no-startup-id mega-cmd-server
-exec --no-startup-id mailspring -b
-exec --no-startup-id picom -b
-exec --no-startup-id redshift
-exec --no-startup-id pulseaudio -D
 exec --no-startup-id $display_profile
 exec --no-startup-id nm-applet
+exec --no-startup-id picom -b
+exec --no-startup-id pulseaudio -D
+exec --no-startup-id redshift
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id xidlehook --not-when-audio --not-when-fullscreen --timer 360 "betterlockscreen -l blur --off 5"
+exec --no-startup-id unclutter
+exec --no-startup-id mega-cmd-server
+exec --no-startup-id diodon
+exec --no-startup-id mailspring -b
 
 # ----- Execute at restart ----- #
 
