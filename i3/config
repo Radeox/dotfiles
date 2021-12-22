@@ -16,7 +16,7 @@ set $toggle_tray "$HOME/Sources/scripts/toggle_tray.sh"
 
 set $launcher "rofi -show drun"
 set $tasks "rofi -show window"
-set $term "alacritty"
+set $term "kitty"
 set $www "vivaldi-stable"
 set $music "spotify"
 set $mail "mailspring"
@@ -165,7 +165,6 @@ floating_modifier $super
 
 # ----- Startup programs ----- #
 
-exec --no-startup-id $display_profile
 exec --no-startup-id nm-applet
 exec --no-startup-id picom -b
 exec --no-startup-id pulseaudio -D
@@ -179,5 +178,6 @@ exec --no-startup-id mailspring -b
 
 # ----- Execute at restart ----- #
 
+exec_always --no-startup-id $display_profile
 exec_always --no-startup-id touch $HOME/.config/picom.conf
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
