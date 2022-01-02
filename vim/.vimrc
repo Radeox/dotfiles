@@ -36,7 +36,6 @@ set clipboard=unnamedplus
 set history=1000
 set number
 colorscheme 0x7A69_dark
-colorscheme gruvbox
 
 syntax on
 set synmaxcol=2048
