@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# Create a link for CPU temp file cause the ID sometimes changes
+cpu_id=$(ls /sys/devices/platform/coretemp.0/hwmon)
+ln -s "/sys/devices/platform/coretemp.0/hwmon/$cpu_id/temp1_input" "/tmp/cpu-temp" 2>/dev/null
+
+# Wait for all monitors to wake up
+sleep 5
+
 # Terminate already running bar instances
 killall -q polybar
 
