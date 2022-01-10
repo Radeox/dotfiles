@@ -4,7 +4,6 @@ set $super Mod4
 
 # ----- Scripts ----- #
 
-set $wallpaper "~/Pictures/bg.png"
 set $keyboard_layout "~/Sources/scripts/keyboard_layout.sh"
 set $toggle_tray "~/Sources/scripts/toggle_tray.sh"
 
@@ -169,9 +168,8 @@ floating_modifier $super
 
 # ----- Startup programs ----- #
 
-exec --no-startup-id unclutter
-exec --no-startup-id mega-cmd-server
-exec --no-startup-id $display_profile
 exec --no-startup-id nm-applet
+exec --no-startup-id mega-cmd-server
 exec --no-startup-id betterlockscreen -w
+exec --no-startup-id unclutter
 exec --no-startup-id xss-lock "betterlockscreen -l blur --off 10"

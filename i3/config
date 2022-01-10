@@ -7,9 +7,8 @@ set $third_monitor "eDP1"
 
 # ----- Scripts ----- #
 
-set $wallpaper "$HOME/Pictures/Wallpapers/wall.jpg"
-set $keyboard_layout "$HOME/Sources/scripts/keyboard_layout.sh"
 set $display_profile "$HOME/Sources/scripts/display_layout.sh"
+set $keyboard_layout "$HOME/Sources/scripts/keyboard_layout.sh"
 set $toggle_tray "$HOME/Sources/scripts/toggle_tray.sh"
 
 # ----- Launchers ----- #
