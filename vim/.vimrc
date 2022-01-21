@@ -35,7 +35,7 @@ set clipboard=unnamedplus
 
 set history=1000
 set number
-colorscheme 0x7A69_dark
+colorscheme vimbrains
 
 syntax on
 set synmaxcol=2048
@@ -51,6 +51,9 @@ set wrapscan
 " Other stuff
 set showmatch
 set noshowmode
+
+" Fix issue with Kitty :3
+let &t_ut=''
 
 " Sudo save file
 cmap W w !sudo tee % >/dev/null
