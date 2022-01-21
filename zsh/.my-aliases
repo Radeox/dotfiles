@@ -1,14 +1,11 @@
-# Aliases #
-# ======= #
-
-## Some cool Linux commands ##
+## Cool Linux commands ##
 alias cat='bat'
 alias ls='lsd'
 alias du='dust'
 alias df='duf'
 alias curl='curlie'
 
-## Commands ##
+## Aliases ##
 alias sl='ls'
 alias ll='ls -l'
 alias ..='cd .. && ls'
@@ -18,25 +15,18 @@ alias lgrep='grep -r -n -l'
 alias p='ps aux | grep '
 alias sudo='sudo '
 
-## Python ##
-alias python='python3'
-alias ipython='python3 -m IPython'
-
-## Programms ##
+## Scripts ##
 alias yee='python ~/Sources/Projects/TermYeeLight/manager.py'
 alias bt_manager='bash ~/Sources/scripts/bluetooth_manager.sh'
 alias audio_output='bash ~/Sources/scripts/audio_profile.sh'
 alias display_layout='bash ~/Sources/scripts/display_layout.sh'
 alias clean_system='bash ~/Sources/scripts/clean_system.sh'
 
-# Configurations #
-# ============== #
-
-## Virtualenvs config ##
+## Python virtual envs ##
 export WORKON_HOME=/usr/local/virtualenvs
 source /usr/bin/virtualenvwrapper.sh
 
-## Env variables ##
+## Environmental variables ##
 export PATH="$PATH:/opt/AndroidSDK"
 export ANDROID_SDK_ROOT="/opt/AndroidSDK"
 export CHROME_EXECUTABLE="/usr/bin/vivaldi-stable"
