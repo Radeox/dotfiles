@@ -2,7 +2,7 @@
 
 general {
   colors = true
-  interval = 10
+  interval = 5
 }
 
 order += "ethernet _first_"
@@ -26,9 +26,9 @@ battery all {
 }
 
 load {
-  format = "%1min"
+  format = "L: %1min"
 }
 
 tztime local {
-  format = "%H:%M %d-%m-%Y"
+  format = "%d-%m-%Y %H:%M"
 }
