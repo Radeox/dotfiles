@@ -1,10 +1,9 @@
 configuration {
     show-icons:         true;
-    icon-theme:         "Paper";
     modi:               "drun";
     display-window:     "#";
     display-drun:       ">";
-    font:               "Noto 13";
+    font:               "Noto 14";
 }
 
 @theme "/home/radeox/.config/rofi/themes/appsmenu.rasi"
