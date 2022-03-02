@@ -30,7 +30,7 @@ set softtabstop=4
 vnoremap > ><CR>gv
 vnoremap < <<CR>gv
 
-" Copy to system clipboard
+" Use system clipboard
 set clipboard=unnamedplus
 
 set history=1000
