@@ -7,8 +7,10 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 ## ZSH Completion ##
 autoload -Uz compinit
 compinit
+zstyle ':completion:*' rehash true
 zstyle ':completion:*' menu select
 setopt COMPLETE_ALIASES
+setopt correct
 
 ## Plugins ##
 plugins=(autojump docker docker-compose pip python sudo virtualenvwrapper vscode)
