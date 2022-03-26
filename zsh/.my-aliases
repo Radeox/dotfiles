@@ -1,5 +1,4 @@
 ## Cool Linux commands ##
-alias ls='lsd'
 alias du='dust'
 alias df='duf'
 
@@ -16,6 +15,7 @@ alias sudo='sudo '
 ## Scripts ##
 alias yee='python ~/Sources/Projects/TermYeeLight/manager.py'
 alias clean_system='bash ~/Sources/scripts/clean_system.sh'
+alias bt_manager='bash ~/Sources/scripts/bluetooth_manager.sh'
 
 ## Python virtual envs ##
 export WORKON_HOME=/usr/local/virtualenvs
