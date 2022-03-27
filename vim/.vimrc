@@ -11,13 +11,12 @@ Plug 'tpope/vim-sensible'
 
 call plug#end()
 
-
 " ---- Shortcuts ----
 nnoremap <F1> :terminal 
 nnoremap <F3> :NERDTreeToggle<CR>
 
 " Save file using sudo
-cmap W w !sudo tee % >/dev/null
+cmap W w !sudo tee % >/dev/null<CR>
 
 " Tab settings
 set autoindent
@@ -36,9 +35,9 @@ set clipboard=unnamedplus
 
 " Set theme
 set termguicolors
-set background=dark
 colorscheme dracula
 
+" Enable syntax
 syntax on
 set synmaxcol=2048
 set backspace=indent,eol,start
@@ -51,13 +50,11 @@ set smartcase
 set wrapscan
 
 " Other stuff
+set autoread
 set showmatch
 set noshowmode
 set history=1000
 set number
-
-" Hide tiles in ruler
-hi NonText guifg=bg
 
 " Fix issue with Kitty :3
 let &t_ut=''
@@ -86,3 +83,9 @@ let g:airline#extensions#tabline#enabled = 1
 " ---- Other plugins config ----
 " Enable rainbow
 let g:rainbow_active = 1
+
+" Hide tiles in ruler
+hi NonText guifg=bg
+
+" Set darker background
+hi Normal guibg=#1E1F28
