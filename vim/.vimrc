@@ -14,6 +14,11 @@ call plug#end()
 " ---- Shortcuts ----
 nnoremap <F1> :terminal 
 nnoremap <F3> :NERDTreeToggle<CR>
+nnoremap <C-Left> :tabprevious<CR>
+nnoremap <C-Right> :tabnext<CR>
+nnoremap <C-j> :tabprevious<CR>
+nnoremap <C-k> :tabnext<CR>
+nnoremap <C-t> :tabnew<CR>
 
 " Save file using sudo
 cmap W w !sudo tee % >/dev/null<CR>
