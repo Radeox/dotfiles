@@ -1,9 +1,4 @@
-## Cool Linux commands ##
-alias du='dust'
-alias df='duf'
-
 ## Aliases ##
-alias vim='nvim'
 alias sl='ls'
 alias ll='ls -l'
 alias ..='cd .. && ls'
@@ -12,6 +7,12 @@ alias rgrep='grep -r -n'
 alias lgrep='grep -r -n -l'
 alias p='ps aux | grep '
 alias sudo='sudo '
+alias vim='nvim'
+
+### Improve basic commands ###
+alias du='dust'
+alias df='duf'
+alias ls='lsd'
 
 ## Scripts ##
 alias yee='python ~/Sources/Projects/TermYeeLight/manager.py'
