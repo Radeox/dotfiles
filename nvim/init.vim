@@ -1,5 +1,6 @@
 call plug#begin('~/.config/nvim/plugged')
 
+Plug 'dense-analysis/ale'
 Plug 'dracula/vim'
 Plug 'ervandew/supertab'
 Plug 'github/copilot.vim'
@@ -21,6 +22,7 @@ nnoremap <C-Right> :tabnext<CR>
 nnoremap <C-j> :tabprevious<CR>
 nnoremap <C-k> :tabnext<CR>
 nnoremap <C-t> :tabnew<CR>
+nnoremap <C-S-i> :ALEFix<CR>
 
 " Save file using sudo
 cmap W w !sudo tee % >/dev/null<CR>
@@ -38,7 +40,7 @@ vnoremap > ><CR>gv
 vnoremap < <<CR>gv
 
 " Use system clipboard
-set clipboard=unnamedplus
+set clipboard+=unnamedplus
 
 " Set theme
 set termguicolors
@@ -63,9 +65,6 @@ set noshowmode
 set history=1000
 set number
 
-" Fix issue with Kitty :3
-let &t_ut=''
-
 " ---- NERDTree config ----
 let g:NERDTreeMinimalUI = 1
 let g:NERDTreeShowHidden = 1
@@ -86,6 +85,15 @@ autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTr
 let g:airline_theme='dracula'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
+
+" ---- Ale config ----
+let g:ale_linters = {
+\   'python': ['flake8', 'autopep8'],
+\}
+
+let g:ale_fixers = {
+\   'python': ['autopep8'],
+\}
 
 " ---- Other plugins config ----
 " Enable rainbow
