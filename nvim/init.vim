@@ -1,8 +1,10 @@
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.config/nvim/plugged')
 
 Plug 'dracula/vim'
 Plug 'ervandew/supertab'
+Plug 'github/copilot.vim'
 Plug 'luochen1990/rainbow'
+Plug 'ryanoasis/vim-devicons'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'preservim/nerdtree'
