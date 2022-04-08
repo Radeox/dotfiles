@@ -8,7 +8,6 @@ Plug 'lambdalisue/suda.vim'
 Plug 'luochen1990/rainbow'
 Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
-Plug 'ton/vim-bufsurf'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sensible'
 Plug 'vim-airline/vim-airline'
@@ -19,9 +18,9 @@ call plug#end()
 " ---- Shortcuts ----
 nnoremap <F1> :terminal 
 nnoremap <F3> :NERDTreeToggle<CR>
-nmap <C-Right> <Plug>(buf-surf-forward)
-nmap <C-Left> <Plug>(buf-surf-back)
 nnoremap <C-S-i> :ALEFix<CR>
+nmap <C-Right> :bn<CR>
+nmap <C-Left> :bp<CR>
 
 " Tab settings
 set autoindent
