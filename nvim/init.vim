@@ -2,10 +2,10 @@ call plug#begin('~/.config/nvim/plugged')
 
 Plug 'dense-analysis/ale'
 Plug 'dracula/vim'
-Plug 'ervandew/supertab'
 Plug 'github/copilot.vim'
 Plug 'lambdalisue/suda.vim'
 Plug 'luochen1990/rainbow'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
 Plug 'tpope/vim-fugitive'
