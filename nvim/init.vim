@@ -4,28 +4,24 @@ Plug 'dense-analysis/ale'
 Plug 'dracula/vim'
 Plug 'ervandew/supertab'
 Plug 'github/copilot.vim'
+Plug 'lambdalisue/suda.vim'
 Plug 'luochen1990/rainbow'
-Plug 'ryanoasis/vim-devicons'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'preservim/nerdtree'
+Plug 'ryanoasis/vim-devicons'
+Plug 'ton/vim-bufsurf'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sensible'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
 
 " ---- Shortcuts ----
 nnoremap <F1> :terminal 
 nnoremap <F3> :NERDTreeToggle<CR>
-nnoremap <C-Left> :tabprevious<CR>
-nnoremap <C-Right> :tabnext<CR>
-nnoremap <C-j> :tabprevious<CR>
-nnoremap <C-k> :tabnext<CR>
-nnoremap <C-t> :tabnew<CR>
+nmap <C-Right> <Plug>(buf-surf-forward)
+nmap <C-Left> <Plug>(buf-surf-back)
 nnoremap <C-S-i> :ALEFix<CR>
-
-" Save file using sudo
-cmap W w !sudo tee % >/dev/null<CR>
 
 " Tab settings
 set autoindent
@@ -92,7 +88,7 @@ let g:ale_linters = {
 \}
 
 let g:ale_fixers = {
-\   'python': ['autopep8'],
+\   'python': ['autopep8', 'isort'],
 \}
 
 " ---- Other plugins config ----
