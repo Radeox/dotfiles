@@ -6,6 +6,7 @@ Plug 'github/copilot.vim'
 Plug 'lambdalisue/suda.vim'
 Plug 'luochen1990/rainbow'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'preservim/nerdcommenter'
 Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
 Plug 'tpope/vim-fugitive'
@@ -21,6 +22,8 @@ nnoremap <F3> :NERDTreeToggle<CR>
 nnoremap <C-S-i> :ALEFix<CR>
 nmap <C-Right> :bn<CR>
 nmap <C-Left> :bp<CR>
+nmap <C-s> :w<CR>
+map <C-_> :call nerdcommenter#Comment(1, 'toggle')<CR>
 
 " Tab settings
 set autoindent
@@ -88,9 +91,12 @@ let g:ale_linters = {
 
 let g:ale_fixers = {
 \   'python': ['autopep8', 'isort'],
+\   'json': ['jq'],
 \}
 
 " ---- Other plugins config ----
+filetype plugin on
+
 " Enable rainbow
 let g:rainbow_active = 1
 

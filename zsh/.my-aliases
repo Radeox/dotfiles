@@ -7,7 +7,7 @@ alias rgrep='grep -r -n'
 alias lgrep='grep -r -n -l'
 alias p='ps aux | grep '
 alias sudo='sudo '
-alias vim='nvim'
+alias vim='workon vim && nvim'
 
 ### Improve basic commands ###
 alias du='dust'
