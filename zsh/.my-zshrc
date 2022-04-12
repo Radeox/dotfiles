@@ -13,10 +13,17 @@ setopt COMPLETE_ALIASES
 setopt correct
 
 ## Plugins ##
-plugins=(autojump docker docker-compose pip python sudo virtualenvwrapper vscode)
+plugins=(autojump docker docker-compose pip python virtualenvwrapper sudo vscode)
 
 ## Fish syntax ##
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+## Python virtual envs ##
+export WORKON_HOME=/usr/local/virtualenvs
+source /usr/bin/virtualenvwrapper.sh
+
+## Set garbage virtualenv ##
+workon venv
 
 # Key bindings #
 # ============ #

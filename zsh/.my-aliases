@@ -7,7 +7,7 @@ alias rgrep='grep -r -n'
 alias lgrep='grep -r -n -l'
 alias p='ps aux | grep '
 alias sudo='sudo '
-alias vim='workon vim && nvim'
+alias vim='nvim'
 
 ### Improve basic commands ###
 alias du='dust'
@@ -18,10 +18,6 @@ alias ls='lsd'
 alias yee='python ~/Sources/Projects/TermYeeLight/manager.py'
 alias clean_system='bash ~/Sources/scripts/clean_system.sh'
 alias bt_manager='bash ~/Sources/scripts/bluetooth_manager.sh'
-
-## Python virtual envs ##
-export WORKON_HOME=/usr/local/virtualenvs
-source /usr/bin/virtualenvwrapper.sh
 
 ## Environmental variables ##
 export PATH="$PATH:/opt/AndroidSDK"
