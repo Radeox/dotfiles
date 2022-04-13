@@ -2,6 +2,7 @@ call plug#begin('~/.config/nvim/plugged')
 
 Plug 'dense-analysis/ale'
 Plug 'dracula/vim'
+Plug 'famiu/bufdelete.nvim'
 Plug 'github/copilot.vim'
 Plug 'lambdalisue/suda.vim'
 Plug 'luochen1990/rainbow'
@@ -25,6 +26,7 @@ nnoremap <F7> :make stop<CR>
 nnoremap <C-S-i> :ALEFix<CR>
 nmap <C-Right> :bn<CR>
 nmap <C-Left> :bp<CR>
+nmap <C-q> :Bdelete<CR>
 nmap <C-s> :w<CR>
 map <C-_> :call nerdcommenter#Comment(1, 'toggle')<CR>
 
