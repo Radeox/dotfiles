@@ -19,6 +19,9 @@ call plug#end()
 " ---- Shortcuts ----
 nnoremap <F1> :terminal 
 nnoremap <F3> :NERDTreeToggle<CR>
+nnoremap <F5> :make start<CR>
+nnoremap <F6> :make restart<CR>
+nnoremap <F7> :make stop<CR>
 nnoremap <C-S-i> :ALEFix<CR>
 nmap <C-Right> :bn<CR>
 nmap <C-Left> :bp<CR>
@@ -92,6 +95,8 @@ let g:ale_linters = {
 let g:ale_fixers = {
 \   'python': ['autopep8', 'isort'],
 \   'json': ['jq'],
+\   'html': ['html-beautify'],
+\   'htmldjango': ['html-beautify'],
 \}
 
 " ---- Other plugins config ----
