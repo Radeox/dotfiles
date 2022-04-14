@@ -7,6 +7,7 @@ Plug 'github/copilot.vim'
 Plug 'lambdalisue/suda.vim'
 Plug 'luochen1990/rainbow'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'preservim/nerdcommenter'
 Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
@@ -28,6 +29,7 @@ nmap <C-Right> :bn<CR>
 nmap <C-Left> :bp<CR>
 nmap <C-q> :Bdelete<CR>
 nmap <C-s> :w<CR>
+nmap <C-a> za
 map <C-_> :call nerdcommenter#Comment(1, 'toggle')<CR>
 
 " Tab settings
@@ -53,6 +55,11 @@ colorscheme dracula
 syntax on
 set synmaxcol=2048
 set backspace=indent,eol,start
+
+" Folding settings
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
+set foldlevel=99
 
 " Search settings
 set hlsearch
