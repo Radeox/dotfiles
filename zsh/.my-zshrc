@@ -25,6 +25,9 @@ source /usr/bin/virtualenvwrapper.sh
 ## Set garbage virtualenv ##
 workon venv
 
+## Enable thefuck ##
+eval $(thefuck --alias)
+
 # Key bindings #
 # ============ #
 
