@@ -15,9 +15,10 @@ alias df='duf'
 alias ls='lsd'
 
 ## Scripts ##
-alias yee='python ~/Sources/Projects/TermYeeLight/manager.py'
-alias clean_system='bash ~/Sources/scripts/clean_system.sh'
 alias bt_manager='bash ~/Sources/scripts/bluetooth_manager.sh'
+alias clean_system='bash ~/Sources/scripts/clean_system.sh'
+alias myip='bash ~/Sources/scripts/my_ip.sh'
+alias yee='python ~/Sources/Projects/TermYeeLight/manager.py'
 
 ## Environmental variables ##
 export PATH="$PATH:/opt/AndroidSDK"
