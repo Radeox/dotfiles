@@ -112,6 +112,8 @@ let g:ale_fixers = {
 \   'json': ['jq'],
 \   'html': ['html-beautify'],
 \   'htmldjango': ['html-beautify'],
+\   'scss': ['prettier'],
+\   'css': ['prettier'],
 \}
 
 " ---- Other plugins config ----
