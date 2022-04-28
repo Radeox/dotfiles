@@ -8,6 +8,7 @@ alias lgrep='grep -r -n -l'
 alias p='ps aux | grep '
 alias sudo='sudo '
 alias vim='nvim'
+alias f='vifm'
 
 ### Improve basic commands ###
 alias du='dust'

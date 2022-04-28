@@ -112,6 +112,7 @@ let g:ale_fixers = {
 \   'json': ['jq'],
 \   'html': ['html-beautify'],
 \   'htmldjango': ['html-beautify'],
+\   'javascript': ['prettier'],
 \   'scss': ['prettier'],
 \   'css': ['prettier'],
 \}
