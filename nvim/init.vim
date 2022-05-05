@@ -1,22 +1,27 @@
 call plug#begin('~/.config/nvim/plugged')
 
-Plug 'dense-analysis/ale'
+" If not running inside VSCode
+if !exists('g:vscode')
+    " Neovim extensions
+    Plug 'dense-analysis/ale'
+    Plug 'famiu/bufdelete.nvim'
+    Plug 'github/copilot.vim'
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    Plug 'preservim/nerdcommenter'
+    Plug 'preservim/nerdtree'
+    Plug 'luochen1990/rainbow'
+    Plug 'Xuyuanp/nerdtree-git-plugin'
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
+    Plug 'ryanoasis/vim-devicons'
+    Plug 'tpope/vim-fugitive'
+    Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+endif
+
+" Neovim + VSCode extension
 Plug 'dracula/vim'
-Plug 'famiu/bufdelete.nvim'
-Plug 'github/copilot.vim'
 Plug 'lambdalisue/suda.vim'
-Plug 'luochen1990/rainbow'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'preservim/nerdcommenter'
-Plug 'preservim/nerdtree'
-Plug 'ryanoasis/vim-devicons'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sensible'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'Xuyuanp/nerdtree-git-plugin'
 
 call plug#end()
 
@@ -58,11 +63,6 @@ syntax on
 set synmaxcol=2048
 set backspace=indent,eol,start
 
-" Folding settings
-set foldmethod=expr
-set foldexpr=nvim_treesitter#foldexpr()
-set foldlevel=99
-
 " Search settings
 set hlsearch
 set incsearch
@@ -71,6 +71,7 @@ set smartcase
 set wrapscan
 
 " Other stuff
+set cursorline
 set autoread
 set showmatch
 set noshowmode
