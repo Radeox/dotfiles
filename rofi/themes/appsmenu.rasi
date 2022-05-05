@@ -7,6 +7,7 @@
 
 #window {
   padding: @list-8-window-padding;
+  anchor: center;
 }
 
 inputbar,
@@ -56,7 +57,3 @@ entry {
   padding: 5;
   border-radius: 12px;
 }
-
-#error-message {
-}
-
