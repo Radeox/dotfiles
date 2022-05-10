@@ -76,8 +76,8 @@ command! -bang -nargs=? -complete=dir Files
 command! -bang -nargs=? -complete=dir AllFiles
     \ call fzf#run(fzf#wrap('allfiles', fzf#vim#with_preview({ 'dir': <q-args>, 'sink': 'e', 'source': 'rg --files --no-ignore' }), <bang>0))
 
-nmap <leader>e :Files<CR>
-nmap <leader>E :AllFiles<CR>
+nmap <leader>f :Files<CR>
+nmap <leader>F :AllFiles<CR>
 nmap <leader>b :Buffers<CR>
 nmap <leader>h :History<CR>
 
