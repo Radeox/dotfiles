@@ -24,7 +24,6 @@ if !exists('g:vscode')
     Plug 'preservim/nerdcommenter'
     Plug 'preservim/nerdtree'
     Plug 'ryanoasis/vim-devicons'
-    Plug 'sheerun/vim-polyglot'
     Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
     Plug 'tpope/vim-fugitive'
     Plug 'vim-airline/vim-airline'
@@ -181,3 +180,6 @@ hi NonText guifg=bg
 
 " Set darker background
 hi Normal guibg=#1E1F28
+
+" Python virtualenv
+let g:python3_host_prog="/usr/local/virtualenvs/\#/bin/python3"
