@@ -61,6 +61,10 @@ nnoremap <silent> <C-Right> <C-w>l
 nnoremap <silent> <C-Down> <C-w>j
 nnoremap <silent> <C-Left> <C-w>h
 
+" Resize split
+nnoremap <silent> <S-Left> :exe "vertical resize +5"<CR>
+nnoremap <silent> <S-Right> :exe "vertical resize -5"<CR>
+
 " Save and close
 nmap <C-s> :w<CR>
 nmap <silent> <C-q> :Bdelete<CR>
@@ -175,6 +179,8 @@ let g:ale_fixers = {
 let g:minimap_width = 10
 let g:minimap_auto_start = 1
 let g:minimap_auto_start_win_enter = 1
+let g:minimap_highlight_search = 1
+let g:minimap_git_colors = 1
 
 " Other plugins config
 filetype plugin on
