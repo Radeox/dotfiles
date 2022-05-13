@@ -28,6 +28,7 @@ if !exists('g:vscode')
     Plug 'tpope/vim-fugitive'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
+    Plug 'wfxr/minimap.vim'
     Plug 'Xuyuanp/nerdtree-git-plugin'
 endif
 
@@ -167,7 +168,13 @@ let g:ale_fixers = {
 \   'javascript': ['prettier'],
 \   'scss': ['prettier'],
 \   'css': ['prettier'],
+\   'sh': ['shfmt'],
 \}
+
+" Minimap config
+let g:minimap_width = 10
+let g:minimap_auto_start = 1
+let g:minimap_auto_start_win_enter = 1
 
 " Other plugins config
 filetype plugin on
