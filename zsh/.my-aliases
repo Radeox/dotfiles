@@ -2,18 +2,17 @@
 alias sl='ls'
 alias ll='ls -l'
 alias ..='cd .. && ls'
-alias grep='grep --color=auto'
-alias rgrep='grep -r -n'
-alias lgrep='grep -r -n -l'
+alias rgrep='rg'
 alias p='ps aux | grep '
 alias sudo='sudo '
 alias vim='nvim'
 alias f='vifm'
 
-### Improve basic commands ###
+### Replace basic commands ###
 alias du='dust'
 alias df='duf'
 alias ls='lsd'
+alias cat='bat -p'
 
 ## Scripts ##
 alias bt_manager='bash ~/Sources/scripts/bluetooth_manager.sh'

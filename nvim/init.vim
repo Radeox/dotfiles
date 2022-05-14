@@ -54,8 +54,8 @@ nnoremap <F7> :make stop<CR>
 nnoremap <C-S-i> :ALEFix<CR>
 
 " Move between windows and buffers
-nmap <silent> <C-l> :bn<CR>
-nmap <silent> <C-h> :bp<CR>
+nmap <silent> <A-Left> :bn<CR>
+nmap <silent> <A-Right> :bp<CR>
 nnoremap <silent> <C-Up> <C-w>k
 nnoremap <silent> <C-Right> <C-w>l
 nnoremap <silent> <C-Down> <C-w>j
@@ -69,6 +69,7 @@ nnoremap <silent> <S-Right> :exe "vertical resize -5"<CR>
 nmap <C-s> :w<CR>
 nmap <silent> <C-q> :Bdelete<CR>
 nnoremap <leader>s :SudaWrite<CR>
+nnoremap <leader>w :SudaWrite<CR>
 nnoremap <leader>q :q!<CR>
 
 " Fuzzy find
