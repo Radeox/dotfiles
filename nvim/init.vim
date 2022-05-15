@@ -127,6 +127,10 @@ set shiftwidth=4
 set tabstop=4
 set softtabstop=4
 
+" Preserve undo history
+set undofile
+set undodir=~/.cache/nvim/history/
+
 " Other stuff
 set cursorline
 set autoread
@@ -174,6 +178,7 @@ let g:ale_fixers = {
 \   'scss': ['prettier'],
 \   'css': ['prettier'],
 \   'sh': ['shfmt'],
+\   'yaml': ['prettier'],
 \}
 
 " Minimap config
