@@ -30,6 +30,7 @@ if !exists('g:vscode')
     Plug 'vim-airline/vim-airline-themes'
     Plug 'wfxr/minimap.vim'
     Plug 'Xuyuanp/nerdtree-git-plugin'
+    Plug 'Yggdroot/indentLine'
 endif
 
 " Neovim + VSCode extension
@@ -71,6 +72,12 @@ nmap <silent> <C-q> :Bdelete<CR>
 nnoremap <leader>s :SudaWrite<CR>
 nnoremap <leader>w :SudaWrite<CR>
 nnoremap <leader>q :q!<CR>
+
+" Command cuz I can't write
+:command W w
+:command Q q
+:command Wq wq
+:command WQ wq
 
 " Fuzzy find
 " Customize the Files command to use rg which respects .gitignore files
@@ -174,7 +181,7 @@ let g:ale_fixers = {
 \   'json': ['jq'],
 \   'html': ['html-beautify'],
 \   'htmldjango': ['html-beautify'],
-\   'javascript': ['prettier'],
+\   'javascript': ['prettier', 'deno'],
 \   'scss': ['prettier'],
 \   'css': ['prettier'],
 \   'sh': ['shfmt'],
@@ -187,6 +194,11 @@ let g:minimap_auto_start = 1
 let g:minimap_auto_start_win_enter = 1
 let g:minimap_highlight_search = 1
 let g:minimap_git_colors = 1
+
+" Indent guides
+let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+let g:indentLine_enabled = 0
+nmap <leader>g :IndentLinesToggle<CR>
 
 " Other plugins config
 filetype plugin on
