@@ -193,8 +193,12 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 
 " Ale config
+let g:ale_sign_error = '✘'
+let g:ale_sign_warning = '⚠'
+
 let g:ale_linters = {
 \   'python': ['flake8', 'autopep8'],
+\   'markdown': ['markdownlint'],
 \}
 
 let g:ale_fixers = {
@@ -207,6 +211,7 @@ let g:ale_fixers = {
 \   'css': ['prettier'],
 \   'sh': ['shfmt'],
 \   'yaml': ['prettier'],
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \}
 
 " Minimap config
