@@ -73,7 +73,19 @@ nnoremap <leader>s :SudaWrite<CR>
 nnoremap <leader>w :SudaWrite<CR>
 nnoremap <leader>q :q!<CR>
 
-" Command cuz I can't write
+" Toggle nerd tree but find the open file
+nnoremap <silent> <expr> <F3> g:NERDTree.IsOpen() ? ':NERDTreeClose<CR>' : @% == '' ? ':NERDTree<CR>' : ':NERDTreeFind<CR>'
+
+" Toggle comment
+map <silent> <C-_> :call nerdcommenter#Comment(1, 'toggle')<CR>
+
+" Toggle indent line
+nmap <leader>g :IndentLinesToggle<CR>
+
+" Error list
+nmap <leader>e :CocList diagnostics<CR>
+
+" Commands cuz I can't write
 :command W w
 :command Q q
 :command Wq wq
@@ -92,12 +104,6 @@ nmap <leader>f :Files<CR>
 nmap <leader>F :AllFiles<CR>
 nmap <leader>b :Buffers<CR>
 nmap <leader>h :History<CR>
-
-" Toggle nerd tree but find the open file
-nnoremap <silent> <expr> <F3> g:NERDTree.IsOpen() ? ':NERDTreeClose<CR>' : @% == '' ? ':NERDTree<CR>' : ':NERDTreeFind<CR>'
-
-" Toggle comment
-map <silent> <C-_> :call nerdcommenter#Comment(1, 'toggle')<CR>
 
 " ------------------------------------------------------------------------
 "  VIM configuration
@@ -193,9 +199,6 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 
 " Ale config
-let g:ale_sign_error = '✘'
-let g:ale_sign_warning = '⚠'
-
 let g:ale_linters = {
 \   'python': ['flake8', 'autopep8'],
 \   'markdown': ['markdownlint'],
@@ -214,6 +217,11 @@ let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \}
 
+" CoC config
+set updatetime=300
+set shortmess+=c
+set signcolumn=yes
+
 " Minimap config
 let g:minimap_width = 10
 let g:minimap_auto_start = 1
@@ -224,7 +232,6 @@ let g:minimap_git_colors = 1
 " Indent guides
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 let g:indentLine_enabled = 0
-nmap <leader>g :IndentLinesToggle<CR>
 
 " Other plugins config
 filetype plugin on
