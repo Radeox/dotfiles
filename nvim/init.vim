@@ -63,8 +63,10 @@ nnoremap <silent> <C-Down> <C-w>j
 nnoremap <silent> <C-Left> <C-w>h
 
 " Resize split
-nnoremap <silent> <S-Left> :exe "vertical resize +5"<CR>
-nnoremap <silent> <S-Right> :exe "vertical resize -5"<CR>
+nnoremap <silent> <S-Up> :exe "resize -3"<CR>
+nnoremap <silent> <S-Right> :exe "vertical resize +5"<CR>
+nnoremap <silent> <S-Down> :exe "resize +3"<CR>
+nnoremap <silent> <S-Left> :exe "vertical resize -5"<CR>
 
 " Save and close
 nmap <C-s> :w<CR>
