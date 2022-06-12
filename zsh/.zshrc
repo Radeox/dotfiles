@@ -27,9 +27,6 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 export WORKON_HOME=/usr/local/virtualenvs
 source /usr/bin/virtualenvwrapper.sh
 
-## Garbage venv ##
-workon \#
-
 ## Enable thefuck ##
 eval $(thefuck --alias)
 

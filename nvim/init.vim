@@ -55,8 +55,8 @@ nnoremap <F7> :make stop<CR>
 nnoremap <C-S-i> :ALEFix<CR>
 
 " Move between windows and buffers
-nmap <silent> <A-Left> :bn<CR>
-nmap <silent> <A-Right> :bp<CR>
+nmap <silent> <A-Left> :bp<CR>
+nmap <silent> <A-Right> :bn<CR>
 nnoremap <silent> <C-Up> <C-w>k
 nnoremap <silent> <C-Right> <C-w>l
 nnoremap <silent> <C-Down> <C-w>j
@@ -246,6 +246,3 @@ hi NonText guifg=bg
 
 " Set darker background
 hi Normal guibg=#1E1F28
-
-" Python virtualenv
-let g:python3_host_prog="/usr/local/virtualenvs/\#/bin/python3"
