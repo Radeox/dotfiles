@@ -34,7 +34,7 @@ if !exists('g:vscode')
 endif
 
 " Neovim + VSCode extension
-Plug 'dracula/vim'
+Plug 'wittyjudge/gruvbox-material.nvim'
 Plug 'lambdalisue/suda.vim'
 Plug 'tpope/vim-sensible'
 
@@ -113,7 +113,7 @@ nmap <leader>h :History<CR>
 
 " Set theme
 set termguicolors
-colorscheme dracula
+colorscheme gruvbox-material
 
 " Move text and rehighlight
 vnoremap > ><CR>gv
@@ -196,7 +196,7 @@ endfunction
 autocmd BufEnter * call CheckLeftBuffers()
 
 " Airline config
-let g:airline_theme='dracula'
+let g:airline_theme='base16_gruvbox_dark_hard'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 
@@ -207,7 +207,7 @@ let g:ale_linters = {
 \}
 
 let g:ale_fixers = {
-\   'python': ['autopep8', 'isort'],
+\   'python': ['black', 'isort'],
 \   'json': ['jq'],
 \   'html': ['html-beautify'],
 \   'htmldjango': ['html-beautify'],
@@ -218,6 +218,9 @@ let g:ale_fixers = {
 \   'yaml': ['prettier'],
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \}
+
+" ALE config
+let g:ale_fix_on_save = 1
 
 " CoC config
 set updatetime=300
@@ -240,9 +243,3 @@ filetype plugin on
 
 " Enable rainbow
 let g:rainbow_active = 1
-
-" Hide tiles in ruler
-hi NonText guifg=bg
-
-" Set darker background
-hi Normal guibg=#1E1F28
