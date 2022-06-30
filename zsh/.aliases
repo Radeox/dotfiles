@@ -7,6 +7,7 @@ alias p='ps aux | grep '
 alias sudo='sudo '
 alias vim='nvim'
 alias f='vifm'
+alias dc='docker-compose'
 
 ### Replace basic commands ###
 alias du='dust'
@@ -23,6 +24,6 @@ alias yee='python ~/Sources/Projects/TermYeeLight/manager.py'
 ## Environmental variables ##
 export PATH="$PATH:/opt/AndroidSDK"
 export ANDROID_SDK_ROOT="/opt/AndroidSDK"
-export CHROME_EXECUTABLE="/usr/bin/vivaldi-stable"
+export CHROME_EXECUTABLE="/usr/bin/google-chrome-stable"
 export EDITOR="/usr/bin/nvim"
 export TERM="xterm-256color"

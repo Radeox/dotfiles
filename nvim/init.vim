@@ -48,7 +48,7 @@ call plug#end()
 let mapleader = "\<space>"
 
 " Run commands
-nnoremap <F1> :terminal 
+nnoremap <F1> :terminal
 nnoremap <F5> :make start<CR>
 nnoremap <F6> :make restart<CR>
 nnoremap <F7> :make stop<CR>
@@ -79,7 +79,7 @@ nnoremap <leader>q :q!<CR>
 nnoremap <silent> <expr> <F3> g:NERDTree.IsOpen() ? ':NERDTreeClose<CR>' : @% == '' ? ':NERDTree<CR>' : ':NERDTreeFind<CR>'
 
 " Toggle comment
-map <silent> <C-_> :call nerdcommenter#Comment(1, 'toggle')<CR>
+map <silent> <C-/> :call nerdcommenter#Comment(1, 'toggle')<CR>
 
 " Toggle indent line
 nmap <leader>g :IndentLinesToggle<CR>
@@ -158,7 +158,7 @@ set number
 "  Plugin specific configuration
 "  ------------------------------------------------------------------------
 
-" NERDTree config 
+" NERDTree config
 let g:NERDTreeMinimalUI = 1
 let g:NERDTreeShowHidden = 1
 
