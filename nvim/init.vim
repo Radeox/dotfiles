@@ -19,13 +19,14 @@ if !exists('g:vscode')
     Plug 'github/copilot.vim'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
+    Plug 'lambdalisue/suda.vim'
     Plug 'luochen1990/rainbow'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
-    Plug 'preservim/nerdcommenter'
     Plug 'preservim/nerdtree'
     Plug 'ryanoasis/vim-devicons'
     Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
     Plug 'tpope/vim-fugitive'
+    Plug 'tpope/vim-sensible'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
     Plug 'wfxr/minimap.vim'
@@ -35,8 +36,7 @@ endif
 
 " Neovim + VSCode extension
 Plug 'wittyjudge/gruvbox-material.nvim'
-Plug 'lambdalisue/suda.vim'
-Plug 'tpope/vim-sensible'
+Plug 'preservim/nerdcommenter'
 
 call plug#end()
 
@@ -230,7 +230,6 @@ set signcolumn=yes
 " Minimap config
 let g:minimap_width = 10
 let g:minimap_auto_start = 1
-let g:minimap_auto_start_win_enter = 1
 let g:minimap_highlight_search = 1
 let g:minimap_git_colors = 1
 
