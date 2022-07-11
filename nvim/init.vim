@@ -164,6 +164,10 @@ set number
 let g:NERDTreeMinimalUI = 1
 let g:NERDTreeShowHidden = 1
 
+" Maximizer config
+let g:maximizer_set_default_mapping = 0
+let g:maximizer_set_mapping_with_bang = 1
+
 " Start NERDTree when Vim starts with a directory argument
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') |
