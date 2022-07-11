@@ -15,7 +15,6 @@ call plug#begin('~/.config/nvim/plugged')
 if !exists('g:vscode')
     " Neovim extensions
     Plug 'dense-analysis/ale'
-    Plug 'famiu/bufdelete.nvim'
     Plug 'github/copilot.vim'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
@@ -24,6 +23,7 @@ if !exists('g:vscode')
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'preservim/nerdtree'
     Plug 'ryanoasis/vim-devicons'
+    Plug 'szw/vim-maximizer'
     Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-sensible'
@@ -57,23 +57,25 @@ nnoremap <C-S-i> :ALEFix<CR>
 " Move between windows and buffers
 nmap <silent> <A-Left> :bp<CR>
 nmap <silent> <A-Right> :bn<CR>
+nmap <silent> <S-A-Left> gT
+nmap <silent> <S-A-Right> gt
 nnoremap <silent> <C-Up> <C-w>k
 nnoremap <silent> <C-Right> <C-w>l
 nnoremap <silent> <C-Down> <C-w>j
 nnoremap <silent> <C-Left> <C-w>h
 
-" Resize split
-nnoremap <silent> <S-Up> :exe "resize -3"<CR>
-nnoremap <silent> <S-Right> :exe "vertical resize +5"<CR>
-nnoremap <silent> <S-Down> :exe "resize +3"<CR>
-nnoremap <silent> <S-Left> :exe "vertical resize -5"<CR>
+" Maximize current split
+nnoremap <leader>m :MaximizerToggle<CR>
+
+" Move file to new tab
+nnoremap <leader>t :tabedit %<CR>
 
 " Save and close
 nmap <C-s> :w<CR>
-nmap <silent> <C-q> :Bdelete<CR>
+nmap <silent> <C-q> <C-W>c
 nnoremap <leader>s :SudaWrite<CR>
 nnoremap <leader>w :SudaWrite<CR>
-nnoremap <leader>q :q!<CR>
+nnoremap <leader>q :bd<CR>
 
 " Toggle nerd tree but find the open file
 nnoremap <silent> <expr> <F3> g:NERDTree.IsOpen() ? ':NERDTreeClose<CR>' : @% == '' ? ':NERDTree<CR>' : ':NERDTreeFind<CR>'
@@ -202,18 +204,19 @@ let g:airline#extensions#tabline#enabled = 1
 
 " Ale config
 let g:ale_linters = {
-\   'python': ['flake8', 'autopep8'],
+\   'html': ['tidy'],
 \   'markdown': ['markdownlint'],
+\   'python': ['flake8', 'autopep8'],
 \}
 
 let g:ale_fixers = {
-\   'python': ['black', 'isort'],
-\   'json': ['jq'],
+\   'css': ['prettier'],
 \   'html': ['html-beautify'],
 \   'htmldjango': ['html-beautify'],
 \   'javascript': ['prettier', 'deno'],
+\   'json': ['jq'],
+\   'python': ['black', 'isort'],
 \   'scss': ['prettier'],
-\   'css': ['prettier'],
 \   'sh': ['shfmt'],
 \   'yaml': ['prettier'],
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
