@@ -14,11 +14,13 @@ call plug#begin('~/.config/nvim/plugged')
 " If not running inside VSCode
 if !exists('g:vscode')
     " Neovim extensions
+    Plug 'ap/vim-css-color'
     Plug 'dense-analysis/ale'
     Plug 'github/copilot.vim'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
     Plug 'lambdalisue/suda.vim'
+    Plug 'liuchengxu/vim-which-key'
     Plug 'luochen1990/rainbow'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'preservim/nerdtree'
@@ -66,6 +68,8 @@ nnoremap <silent> <C-Left> <C-w>h
 
 " Maximize current split
 nnoremap <leader>m :MaximizerToggle<CR>
+nnoremap <leader>v :vs<CR>
+nnoremap <leader>s :sp<CR>
 
 " Move file to new tab
 nnoremap <leader>t :tabedit %<CR>
@@ -73,7 +77,6 @@ nnoremap <leader>t :tabedit %<CR>
 " Save and close
 nmap <C-s> :w<CR>
 nmap <silent> <C-q> <C-W>c
-nnoremap <leader>s :SudaWrite<CR>
 nnoremap <leader>w :SudaWrite<CR>
 nnoremap <leader>q :bd<CR>
 
@@ -95,20 +98,6 @@ nmap <leader>e :CocList diagnostics<CR>
 :command Wq wq
 :command WQ wq
 
-" Fuzzy find
-" Customize the Files command to use rg which respects .gitignore files
-command! -bang -nargs=? -complete=dir Files
-    \ call fzf#run(fzf#wrap('files', fzf#vim#with_preview({ 'dir': <q-args>, 'sink': 'e', 'source': 'rg --files --hidden' }), <bang>0))
-
-" Add and AllFiles variation that ignores .gitignore files
-command! -bang -nargs=? -complete=dir AllFiles
-    \ call fzf#run(fzf#wrap('allfiles', fzf#vim#with_preview({ 'dir': <q-args>, 'sink': 'e', 'source': 'rg --files --no-ignore' }), <bang>0))
-
-nmap <leader>f :Files<CR>
-nmap <leader>F :AllFiles<CR>
-nmap <leader>b :Buffers<CR>
-nmap <leader>h :History<CR>
-
 " ------------------------------------------------------------------------
 "  VIM configuration
 "  ------------------------------------------------------------------------
@@ -122,7 +111,7 @@ vnoremap > ><CR>gv
 vnoremap < <<CR>gv
 
 " Use system clipboard
-set clipboard+=unnamedplus
+set clipboard=unnamedplus
 
 " Search settings
 set hlsearch
@@ -156,50 +145,15 @@ set noshowmode
 set history=1000
 set number
 
+" Cursor configuration
+let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+set mouse=a
+set guicursor+=a:blinkon0
+
 " ------------------------------------------------------------------------
-"  Plugin specific configuration
+"  Plugin configuration
 "  ------------------------------------------------------------------------
-
-" NERDTree config
-let g:NERDTreeMinimalUI = 1
-let g:NERDTreeShowHidden = 1
-
-" Maximizer config
-let g:maximizer_set_default_mapping = 0
-let g:maximizer_set_mapping_with_bang = 1
-
-" Start NERDTree when Vim starts with a directory argument
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') |
-    \ execute 'NERDTree' argv()[0] | wincmd p | enew | execute 'cd '.argv()[0] | endif
-
-" If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
-autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
-    \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
-
-" Exit Vim if NERDTree or Minimap are the only windows remaining
-function! CheckLeftBuffers()
-  if tabpagenr('$') == 1
-    let i = 1
-    while i <= winnr('$')
-      if getbufvar(winbufnr(i), '&buftype') == 'help' ||
-          \ getbufvar(winbufnr(i), '&buftype') == 'quickfix' ||
-          \ exists('t:NERDTreeBufName') &&
-          \ bufname(winbufnr(i)) == t:NERDTreeBufName ||
-          \ bufname(winbufnr(i)) == '__Tag_List__' ||
-          \ bufname(winbufnr(i)) == '-MINIMAP-'
-        let i += 1
-      else
-        break
-      endif
-    endwhile
-    if i == winnr('$') + 1
-      qall
-    endif
-    unlet i
-  endif
-endfunction
-autocmd BufEnter * call CheckLeftBuffers()
 
 " Airline config
 let g:airline_theme='base16_gruvbox_dark_hard'
@@ -243,6 +197,70 @@ let g:minimap_git_colors = 1
 " Indent guides
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 let g:indentLine_enabled = 0
+
+" Fuzzy find
+" Customize the Files command to use rg which respects .gitignore files
+command! -bang -nargs=? -complete=dir Files
+    \ call fzf#run(fzf#wrap('files', fzf#vim#with_preview({ 'dir': <q-args>, 'sink': 'e', 'source': 'rg --files --hidden' }), <bang>0))
+
+" Add and AllFiles variation that ignores .gitignore files
+command! -bang -nargs=? -complete=dir AllFiles
+    \ call fzf#run(fzf#wrap('allfiles', fzf#vim#with_preview({ 'dir': <q-args>, 'sink': 'e', 'source': 'rg --files --no-ignore' }), <bang>0))
+
+nmap <leader>f :Files<CR>
+nmap <leader>F :AllFiles<CR>
+nmap <leader>b :Buffers<CR>
+nmap <leader>h :History<CR>
+
+" NERDTree config
+let g:NERDTreeMinimalUI = 1
+let g:NERDTreeShowHidden = 1
+
+" Maximizer config
+let g:maximizer_set_default_mapping = 0
+let g:maximizer_set_mapping_with_bang = 1
+
+" Start NERDTree when Vim starts with a directory argument
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') |
+    \ execute 'NERDTree' argv()[0] | wincmd p | enew | execute 'cd '.argv()[0] | endif
+
+" If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
+autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
+    \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
+
+" Exit Vim if NERDTree or Minimap are the only windows remaining
+function! CheckLeftBuffers()
+  if tabpagenr('$') == 1
+    let i = 1
+    while i <= winnr('$')
+      if getbufvar(winbufnr(i), '&buftype') == 'help' ||
+          \ getbufvar(winbufnr(i), '&buftype') == 'quickfix' ||
+          \ exists('t:NERDTreeBufName') &&
+          \ bufname(winbufnr(i)) == t:NERDTreeBufName ||
+          \ bufname(winbufnr(i)) == '__Tag_List__' ||
+          \ bufname(winbufnr(i)) == '-MINIMAP-'
+        let i += 1
+      else
+        break
+      endif
+    endwhile
+    if i == winnr('$') + 1
+      qall
+    endif
+    unlet i
+  endif
+endfunction
+autocmd BufEnter * call CheckLeftBuffers()
+
+" Shortcut helper
+nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
+set timeoutlen=500
+
+" Jump to last position in file
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
 
 " Other plugins config
 filetype plugin on
