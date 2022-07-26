@@ -92,6 +92,9 @@ nmap <leader>g :IndentLinesToggle<CR>
 " Error list
 nmap <leader>e :CocList diagnostics<CR>
 
+" Show minimap
+nnoremap <leader>n :MinimapToggle<CR>
+
 " Commands cuz I can't write
 :command W w
 :command Q q
@@ -173,6 +176,7 @@ let g:ale_fixers = {
 \   'htmldjango': ['html-beautify'],
 \   'javascript': ['prettier', 'deno'],
 \   'json': ['jq'],
+\   'php': ['php_cs_fixer'],
 \   'python': ['black', 'isort'],
 \   'scss': ['prettier'],
 \   'sh': ['shfmt'],
@@ -190,7 +194,6 @@ set signcolumn=yes
 
 " Minimap config
 let g:minimap_width = 10
-let g:minimap_auto_start = 1
 let g:minimap_highlight_search = 1
 let g:minimap_git_colors = 1
 
