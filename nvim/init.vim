@@ -11,34 +11,28 @@ endif
 " Plugin list
 call plug#begin('~/.config/nvim/plugged')
 
-" If not running inside VSCode
+" Neovim extensions
+" Don't enable plugins in vscode
 if !exists('g:vscode')
-    " Neovim extensions
     Plug 'ap/vim-css-color'
     Plug 'dense-analysis/ale'
     Plug 'github/copilot.vim'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-    Plug 'junegunn/fzf.vim'
     Plug 'lambdalisue/suda.vim'
     Plug 'liuchengxu/vim-which-key'
     Plug 'luochen1990/rainbow'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    Plug 'preservim/nerdcommenter'
     Plug 'preservim/nerdtree'
     Plug 'ryanoasis/vim-devicons'
     Plug 'szw/vim-maximizer'
-    Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-    Plug 'tpope/vim-fugitive'
-    Plug 'tpope/vim-sensible'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
     Plug 'wfxr/minimap.vim'
-    Plug 'Xuyuanp/nerdtree-git-plugin'
-    Plug 'Yggdroot/indentLine'
+    Plug 'wittyjudge/gruvbox-material.nvim'
+    Plug 'xuyuanp/nerdtree-git-plugin'
+    Plug 'yggdroot/indentline'
 endif
-
-" Neovim + VSCode extension
-Plug 'wittyjudge/gruvbox-material.nvim'
-Plug 'preservim/nerdcommenter'
 
 call plug#end()
 
@@ -88,9 +82,6 @@ map <silent> <C-/> :call nerdcommenter#Comment(1, 'toggle')<CR>
 
 " Toggle indent line
 nmap <leader>g :IndentLinesToggle<CR>
-
-" Error list
-nmap <leader>e :CocList diagnostics<CR>
 
 " Show minimap
 nnoremap <leader>n :MinimapToggle<CR>
@@ -149,8 +140,6 @@ set history=1000
 set number
 
 " Cursor configuration
-let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 set mouse=a
 set guicursor+=a:blinkon0
 
@@ -187,10 +176,16 @@ let g:ale_fixers = {
 " ALE config
 let g:ale_fix_on_save = 1
 
+" NerdTree config
+let g:NERDTreeWinSize = 22
+
 " CoC config
 set updatetime=300
 set shortmess+=c
 set signcolumn=yes
+
+" Enter to accept autocomplete
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm(): "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " Minimap config
 let g:minimap_width = 10
