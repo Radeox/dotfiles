@@ -17,6 +17,7 @@ if !exists('g:vscode')
     Plug 'ap/vim-css-color'
     Plug 'dense-analysis/ale'
     Plug 'github/copilot.vim'
+    Plug 'junegunn/fzf.vim'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'lambdalisue/suda.vim'
     Plug 'liuchengxu/vim-which-key'
@@ -30,7 +31,6 @@ if !exists('g:vscode')
     Plug 'vim-airline/vim-airline-themes'
     Plug 'wfxr/minimap.vim'
     Plug 'wittyjudge/gruvbox-material.nvim'
-    Plug 'xuyuanp/nerdtree-git-plugin'
     Plug 'yggdroot/indentline'
 endif
 
@@ -70,9 +70,8 @@ nnoremap <leader>t :tabedit %<CR>
 
 " Save and close
 nmap <C-s> :w<CR>
-nmap <silent> <C-q> <C-W>c
+nmap <silent> <C-q> :bd<CR>
 nnoremap <leader>w :SudaWrite<CR>
-nnoremap <leader>q :bd<CR>
 
 " Toggle nerd tree but find the open file
 nnoremap <silent> <expr> <F3> g:NERDTree.IsOpen() ? ':NERDTreeClose<CR>' : @% == '' ? ':NERDTree<CR>' : ':NERDTreeFind<CR>'

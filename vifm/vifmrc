@@ -492,3 +492,6 @@ nnoremap <c-u> <c-w>x
 
 " Custom bindings for filemanager
 :nmap q :q<CR>
+
+" Icons for filemanager
+source ~/.config/vifm/icons/faviicons.vifm
