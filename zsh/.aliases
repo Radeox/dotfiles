@@ -7,7 +7,6 @@ alias p='ps aux | grep '
 alias sudo='sudo '
 alias vim='nvim'
 alias f='vifm'
-alias dc='docker-compose'
 
 ### Replace basic commands ###
 alias du='dust'
