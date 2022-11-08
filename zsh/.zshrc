@@ -12,18 +12,21 @@ zstyle ':completion:*' menu select
 setopt COMPLETE_ALIASES
 setopt correct
 
-## Plugins ##
-plugins=(autojump docker docker-compose pip python virtualenvwrapper sudo vscode)
+## Install poetry and enable completions ##
+if [[ ! -f ~/.oh-my-zsh/custom/plugins/poetry/_poetry ]]; then
+    curl -sSL https://install.python-poetry.org | python3 -
+    mkdir -p ~/.oh-my-zsh/custom/plugins/poetry
+    /home/radeox/.local/bin/poetry completions zsh > ~/.oh-my-zsh/custom/plugins/poetry/_poetry
+fi
 
 ## Fish syntax ##
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-## Python virtual envs ##
-export WORKON_HOME=/usr/local/virtualenvs
-source /usr/bin/virtualenvwrapper.sh
+## Git extras ##
+source /usr/share/doc/git-extras/git-extras-completion.zsh
 
-## Enable thefuck ##
-eval $(thefuck --alias)
+## Plugins ##
+plugins=(autojump docker docker-compose pip python poetry sudo vscode)
 
 # Key bindings #
 # ============ #
@@ -75,6 +78,20 @@ source $ZSH/oh-my-zsh.sh
 
 # My aliases
 source ~/.aliases
+
+## Environmental variables ##
+export TERM="xterm-256color"
+export EDITOR="/usr/bin/nvim"
+export SUDO_EDITOR="/usr/bin/nvim"
+export VISUAL="/usr/bin/nvim"
+
+### Flutter stuff ###
+export PATH="$PATH:/opt/Android-SDK"
+export ANDROID_SDK_ROOT="/opt/Android-SDK"
+export CHROME_EXECUTABLE="/usr/bin/google-chrome-stable"
+
+# Python stuff
+export PATH="/home/radeox/.local/bin:$PATH"
 
 # Powerlevel10k theme
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

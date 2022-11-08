@@ -1,0 +1,121 @@
+{
+    "layer": "top",
+    "position": "top",
+    "modules-left": ["wlr/workspaces", "cpu", "temperature", "memory", "battery", "pulseaudio", "custom/cap-left"],
+    "modules-center": [],
+    "modules-right": ["custom/cap-right", "custom/vpn", "network", "clock", "custom/offswitch"],
+
+    "wlr/workspaces": {
+        "format": "{icon}",
+        "on-click": "activate",
+    },
+    "battery": {
+      "min-length": 5,
+      "states": {
+          "full": 90,
+          "warning": 30,
+          "critical": 15,
+      },
+      "tooltip": false,
+      "full-at": 90,
+      "format-plugged": "{icon} {capacity}%",
+      "format-charging": "{icon} {capacity}%",
+      "format-full": "",
+      "format": "{icon} {capacity}%",
+      "format-icons": ["", "", "", "", "", "", "", "", "", ""],
+    },
+    "clock": {
+      "format": " {:%a %b %d %H:%M}",
+      "tooltip": false,
+      "min-length": 18,
+    },
+    "custom/offswitch": {
+      "tooltip": false,
+      "format": "",
+      "interval": "once",
+      "on-click": "systemctl poweroff",
+    },
+    "network": {
+      "interval": 2,
+      "format-wifi": " {ipaddr}",
+      "format-ethernet": " {ipaddr}",
+      "format-linked": " {ipaddr}",
+      "format-disconnected": " Disconnected",
+      "format-disabled": "",
+      "tooltip": false,
+      "max-length": 20,
+      "min-length": 6,
+    },
+    "custom/vpn": {
+        "format": " VPN",
+        "exec": "echo '{\"class\": \"connected\"}'",
+        "exec-if": "test -d /proc/sys/net/ipv4/conf/tun0",
+        "return-type": "json",
+        "interval": 2
+    },
+    "pulseaudio": {
+      "tooltip": false,
+      "min-length": 5,
+      "format": "{icon} {volume}%",
+      "format-bluetooth": "{icon} {volume}%",
+      "format-muted": "MUTE",
+      "format-icons": {
+      "headphone": "",
+      "headset": "",
+      "default": ["", "", ""],
+      },
+    },
+    "idle_inhibitor": {
+      "tooltip": false,
+        "format": "{icon}",
+        "format-icons": {
+        "activated": "",
+        "deactivated": "",
+      },
+    },
+    "cpu": {
+      "interval": 4,
+      "min-length": 6,
+      "format": " {usage}%",
+      "tooltip": false,
+      "states": {
+      "critical": 90,
+      },
+    },
+    "temperature": {
+      "tooltip": false,
+      "min-length": 5,
+      "critical-threshold": 90,
+      "format": "{icon} {temperatureC}°C",
+      "format-critical": "{icon} {temperatureC}°C",
+      "format-icons": {
+      "default": ["", "", "", "", ""],
+      },
+    },
+    "memory": {
+      "tooltip": false,
+      "format": " {percentage}%",
+      "states": {
+        "critical":90,
+      },
+      "min-length": 5,
+    },
+    "disk": {
+      "tooltip": false,
+      "path": "/",
+      "interval": 60,
+      "min-length": 5,
+      "format": " {percentage_used}%",
+      "states": {
+      "critical": 90,
+      },
+    },
+    "custom/cap-left": {
+      "tooltip": false,
+        "format": "",
+    },
+    "custom/cap-right": {
+      "tooltip": false,
+        "format": "",
+    },
+}

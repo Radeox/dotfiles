@@ -6,6 +6,7 @@ alias rgrep='rg'
 alias p='ps aux | grep '
 alias sudo='sudo '
 alias vim='nvim'
+alias find='fd'
 alias f='vifm'
 
 ### Replace basic commands ###
@@ -19,14 +20,3 @@ alias bt_manager='bash ~/Sources/scripts/bluetooth_manager.sh'
 alias clean_system='bash ~/Sources/scripts/clean_system.sh'
 alias myip='bash ~/Sources/scripts/my_ip.sh'
 alias yee='python ~/Sources/Projects/TermYeeLight/manager.py'
-
-## Environmental variables ##
-export TERM="xterm-256color"
-export EDITOR="/usr/bin/nvim"
-export SUDO_EDITOR="/usr/bin/nvim"
-export VISUAL="/usr/bin/nvim"
-
-### Flutter stuff ###
-export PATH="$PATH:/opt/Android-SDK"
-export ANDROID_SDK_ROOT="/opt/Android-SDK"
-export CHROME_EXECUTABLE="/usr/bin/google-chrome-stable"

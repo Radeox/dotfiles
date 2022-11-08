@@ -12,7 +12,6 @@ endif
 call plug#begin('~/.config/nvim/plugged')
 Plug 'ap/vim-css-color'
 Plug 'dense-analysis/ale'
-Plug 'github/copilot.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'lambdalisue/suda.vim'
