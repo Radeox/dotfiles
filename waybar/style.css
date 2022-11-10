@@ -152,3 +152,7 @@
   animation-iteration-count: infinite;
   animation-direction: alternate;
 }
+
+#tray {
+  background: @bgcolor;
+}

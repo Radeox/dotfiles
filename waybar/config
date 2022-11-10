@@ -3,7 +3,7 @@
     "position": "top",
     "modules-left": ["wlr/workspaces", "cpu", "temperature", "memory", "battery", "pulseaudio", "custom/cap-left"],
     "modules-center": [],
-    "modules-right": ["custom/cap-right", "custom/vpn", "network", "clock", "custom/offswitch"],
+    "modules-right": ["custom/cap-right", "custom/vpn", "network", "clock", "tray", "custom/offswitch"],
 
     "wlr/workspaces": {
         "format": "{icon}",
@@ -33,7 +33,7 @@
       "tooltip": false,
       "format": "",
       "interval": "once",
-      "on-click": "systemctl poweroff",
+      "on-click": "wlogout",
     },
     "network": {
       "interval": 2,
@@ -109,6 +109,11 @@
       "states": {
       "critical": 90,
       },
+    },
+    "tray": {
+        "show-passive-items": true,
+        "icon-size": 21,
+        "spacing": 10
     },
     "custom/cap-left": {
       "tooltip": false,
