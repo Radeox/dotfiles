@@ -1,19 +1,20 @@
 ## Aliases ##
-alias sl='ls'
-alias ll='ls -l'
 alias ..='cd .. && ls'
-alias rgrep='rg'
+alias f='vifm'
+alias find='fd'
+alias ll='ls -l'
 alias p='ps aux | grep '
+alias rgrep='rg'
+alias sl='ls'
 alias sudo='sudo '
 alias vim='nvim'
-alias find='fd'
-alias f='vifm'
+alias wkill='hyprctl kill'
 
 ### Replace basic commands ###
-alias du='dust'
-alias df='duf'
-alias ls='lsd'
 alias cat='bat -p'
+alias df='duf'
+alias du='dust'
+alias ls='lsd'
 
 ## Scripts ##
 alias bt_manager='bash ~/Sources/scripts/bluetooth_manager.sh'
