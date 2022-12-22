@@ -1,9 +1,6 @@
 # ZSH Configuration #
 # ================= #
 
-## ZSH theme ##
-ZSH_THEME="powerlevel10k/powerlevel10k"
-
 ## ZSH Completion ##
 autoload -Uz compinit
 compinit
@@ -93,5 +90,5 @@ export CHROME_EXECUTABLE="/usr/bin/vivaldi-stable"
 # Python stuff
 export PATH="/home/radeox/.local/bin:$PATH"
 
-# Powerlevel10k theme
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# Starship
+eval "$(starship init zsh)"
