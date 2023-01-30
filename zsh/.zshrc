@@ -85,7 +85,7 @@ export VISUAL="/usr/bin/nvim"
 ### Flutter stuff ###
 export PATH="$PATH:/opt/Android-SDK"
 export ANDROID_SDK_ROOT="/opt/Android-SDK"
-export CHROME_EXECUTABLE="/usr/bin/vivaldi-stable"
+export CHROME_EXECUTABLE="/usr/bin/google-chrome-stable"
 
 # Python stuff
 export PATH="/home/radeox/.local/bin:$PATH"

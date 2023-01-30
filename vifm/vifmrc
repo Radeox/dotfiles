@@ -495,3 +495,6 @@ nnoremap <c-u> <c-w>x
 
 " Icons for filemanager
 source ~/.config/vifm/icons/faviicons.vifm
+
+" File opening per type
+filetype *.jpg,*.jpeg,*.png,*.gif feh %f 2>/dev/null &
