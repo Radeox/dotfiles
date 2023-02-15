@@ -81,6 +81,7 @@ export TERM="xterm-256color"
 export EDITOR="/usr/bin/nvim"
 export SUDO_EDITOR="/usr/bin/nvim"
 export VISUAL="/usr/bin/nvim"
+export PIP_DEFAULT_TIMEOUT=100
 
 ### Flutter stuff ###
 export PATH="$PATH:/opt/Android-SDK"

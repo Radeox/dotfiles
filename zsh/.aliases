@@ -8,7 +8,6 @@ alias rgrep='rg'
 alias sl='ls'
 alias sudo='sudo '
 alias vim='nvim'
-alias wkill='hyprctl kill'
 
 ### Replace basic commands ###
 alias cat='bat -p'
