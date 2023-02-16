@@ -1,5 +1,11 @@
-# Pull my configuration (cuz I'm lazy)
+# ZSH ##
 cp ~/.config/kitty/kitty.conf kitty/kitty.conf
+
+## Aliases ##
 cp ~/.aliases ~/.zshrc zsh/
-cp ~/.config/nvim/*.vim nvim/
+
+## Nvchad ##
+rm -r nvim/lua/custom && cp -r ~/.config/nvim/lua/custom nvim/lua/
+
+## Vifm ##
 rm -r vifm && cp -r ~/.config/vifm . && rm vifm/vifminfo.json
