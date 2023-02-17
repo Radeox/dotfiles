@@ -21,6 +21,22 @@ M.general = {
     -- Save file as sudo
     ["<leader>w"] = {"<cmd> :SudaWrite <CR>", "Sudo save"},
 
+    -- Toggle comment
+    ["<C-/>"] = {
+      function()
+        require("Comment.api").toggle.linewise.current()
+      end,
+      "Toggle comment",
+    },
+
+    -- Format file
+    ["<C-f>"] = {
+      function()
+        vim.lsp.buf.format { async = true }
+      end,
+      "LSP formatting",
+    },
+
     -- Close current buffer
     ["<C-q>"] = {
       function()

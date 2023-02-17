@@ -8,6 +8,7 @@ alias rgrep='rg'
 alias sl='ls'
 alias sudo='sudo '
 alias vim='nvim'
+alias tig='lazygit'
 alias chrome='google-chrome-stable'
 
 ### Replace basic commands ###
