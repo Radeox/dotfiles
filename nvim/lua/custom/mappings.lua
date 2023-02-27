@@ -1,16 +1,17 @@
--- lua/custom/mappings 
+-- lua/custom/mappings
 local M = {}
 
 M.general = {
+  -- Normal mode mappings
   n = {
     -- Open Telescope in find file mode
-    ["<C-space>"] = {"<cmd> Telescope find_files <CR>", "Find file"},
+    ["<C-space>"] = { "<cmd> Telescope find_files <CR>", "Find file" },
 
     -- Open Telescope in find file mode (without ignoring anything)
-    ["<C-S-space>"] = {"<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>", "Find all files" },
+    ["<C-S-space>"] = { "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>", "Find all files" },
 
     -- Open Telescope in buffers mode
-    ["<C-b>"] = {"<cmd> Telescope buffers <CR>", "Find buffer"},
+    ["<C-b>"] = { "<cmd> Telescope buffers <CR>", "Find buffer" },
 
     -- Switch between windows
     ["<A-left>"] = { "<C-w>h", "Window left" },
@@ -19,15 +20,7 @@ M.general = {
     ["<A-up>"] = { "<C-w>k", "Window up" },
 
     -- Save file as sudo
-    ["<leader>w"] = {"<cmd> :SudaWrite <CR>", "Sudo save"},
-
-    -- Toggle comment
-    ["<C-/>"] = {
-      function()
-        require("Comment.api").toggle.linewise.current()
-      end,
-      "Toggle comment",
-    },
+    ["<leader>w"] = { "<cmd> :SudaWrite <CR>", "Sudo save" },
 
     -- Format file
     ["<C-f>"] = {
@@ -35,6 +28,14 @@ M.general = {
         vim.lsp.buf.format { async = true }
       end,
       "LSP formatting",
+    },
+
+    -- Toggle comment
+    ["<C-/>"] = {
+      function()
+        require("Comment.api").toggle.linewise.current()
+      end,
+      "Toggle comment",
     },
 
     -- Close current buffer
@@ -45,14 +46,34 @@ M.general = {
       "Close buffer",
     },
 
-    -- Toggle floating terminal
+    -- Open floating terminal
     ["<leader>t"] = {
       function()
         require("nvterm.terminal").toggle "float"
       end,
       "Toggle terminal",
     },
-  }
+  },
+
+  -- Visual mode mappings
+  v = {
+    -- Toggle comment
+    ["<C-/>"] = {
+      "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
+      "Toggle comment",
+    },
+  },
+
+  -- Insert mode mappings
+  i = {
+    -- Toggle comment
+    ["<C-/>"] = {
+      function()
+        require("Comment.api").toggle.linewise.current()
+      end,
+      "Toggle comment",
+    },
+  },
 }
 
 return M

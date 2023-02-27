@@ -9,6 +9,7 @@ alias sl='ls'
 alias sudo='sudo '
 alias vim='nvim'
 alias tig='lazygit'
+alias xbox-pair='sudo systemctl kill -s SIGUSR1 xow'
 alias chrome='google-chrome-stable'
 
 ### Replace basic commands ###
