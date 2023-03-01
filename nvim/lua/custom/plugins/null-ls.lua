@@ -16,15 +16,11 @@ local sources = {
     extra_args = { "--preserve-blank-lines" },
   },
 
-  -- HTML
-  b.formatting.prettier,
-  b.diagnostics.stylelint,
-
   -- Javascript
   b.formatting.prettier,
 
   -- CSS
-  b.diagnostics.stylelint,
+  b.formatting.stylelint,
 
   -- Yaml
   b.diagnostics.yamllint,
