@@ -19,6 +19,9 @@ local sources = {
   -- Javascript
   b.formatting.prettier,
 
+  -- PHP
+  b.formatting.phpcbf,
+
   -- CSS
   b.formatting.stylelint,
 

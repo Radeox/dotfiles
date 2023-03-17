@@ -115,13 +115,16 @@ return {
         "tailwindcss-language-server",
 
         -- PHP
-        "phpcs",
-        "phpcbf",
+        "phpactor",
 
         -- Webdev
         "css-lsp",
         "emmet-ls",
         "html-lsp",
+
+        -- Docker
+        "docker-compose-language-service",
+        "dockerfile-language-server",
 
         -- Shell
         "shfmt",

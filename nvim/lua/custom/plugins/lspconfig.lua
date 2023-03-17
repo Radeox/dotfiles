@@ -8,6 +8,7 @@ local servers = {
   "lua_ls",
   "pyright",
   "tsserver",
+  "phpactor",
 }
 
 for _, lsp in ipairs(servers) do
