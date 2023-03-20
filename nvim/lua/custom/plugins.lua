@@ -1,24 +1,14 @@
 return {
   -- Copilot
-  ["github/copilot.vim"] = {},
-
-  -- Nerd Commenter
-  ["preservim/nerdcommenter"] = {},
-
-  -- Null-ls
-  ["jose-elias-alvarez/null-ls.nvim"] = {
-    after = "nvim-lspconfig",
-    config = function()
-      require "custom.plugins.null-ls"
-    end,
-  },
+  { "github/copilot.vim", lazy = false },
 
   -- Suda
-  ["lambdalisue/suda.vim"] = {},
+  { "lambdalisue/suda.vim" },
 
   -- Nvterm (terminal) override
-  ["NvChad/nvterm"] = {
-    override_options = function()
+  {
+    "NvChad/nvterm",
+    opts = function()
       return {
         terminals = {
           type_opts = {
@@ -35,16 +25,26 @@ return {
   },
 
   -- LSP
-  ["neovim/nvim-lspconfig"] = {
+  {
+    "neovim/nvim-lspconfig",
+
+    dependencies = {
+      "jose-elias-alvarez/null-ls.nvim",
+      config = function()
+        require "custom.configs.null-ls"
+      end,
+    },
+
     config = function()
       require "plugins.configs.lspconfig"
-      require "custom.plugins.lspconfig"
+      require "custom.configs.lspconfig"
     end,
   },
 
   -- Nvim-cmp (completion) override
-  ["hrsh7th/nvim-cmp"] = {
-    override_options = function()
+  {
+    "hrsh7th/nvim-cmp",
+    opts = function()
       local cmp = require "cmp"
 
       return {
@@ -82,8 +82,9 @@ return {
   },
 
   -- Mason default packages
-  ["williamboman/mason.nvim"] = {
-    override_options = {
+  {
+    "williamboman/mason.nvim",
+    opts = {
       ensure_installed = {
         -- Python
         "black",

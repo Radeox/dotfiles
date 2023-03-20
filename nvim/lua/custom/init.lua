@@ -10,6 +10,3 @@ vim.opt.tabstop = 4
 
 -- Copilot fix
 vim.g.copilot_assume_mapped = true
-
--- Remove toggle theme icon
-vim.g.toggle_theme_icon = ""

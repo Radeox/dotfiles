@@ -4,12 +4,27 @@ local M = {}
 M.mappings = require "custom.mappings"
 
 -- Import plugins
-M.plugins = require "custom.plugins"
+M.plugins = "custom.plugins"
 
 -- Change default theme
 M.ui = {
-  theme_toggle = { "ayu-dark", "one_light" },
-  theme = "ayu-dark",
+  theme_toggle = { "gruvbox", "ayu-light" },
+  theme = "gruvbox",
+
+  nvdash = {
+    load_on_startup = true,
+    header = {
+      "           ▄ ▄                   ",
+      "       ▄   ▄▄▄     ▄ ▄▄▄ ▄ ▄     ",
+      "       █ ▄ █▄█ ▄▄▄ █ █▄█ █ █     ",
+      "    ▄▄ █▄█▄▄▄█ █▄█▄█▄▄█▄▄█ █     ",
+      "  ▄ █▄▄█ ▄ ▄▄ ▄█ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄  ",
+      "  █▄▄▄▄ ▄▄▄ █ ▄ ▄▄▄ ▄ ▄▄▄ ▄ ▄ █ ▄",
+      "▄ █ █▄█ █▄█ █ █ █▄█ █ █▄█ ▄▄▄ █ █",
+      "█▄█ ▄ █▄▄█▄▄█ █ ▄▄█ █ ▄ █ █▄█▄█ █",
+      "    █▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█ █▄█▄▄▄█    ",
+    },
+  },
 }
 
 return M

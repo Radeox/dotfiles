@@ -1,45 +1,39 @@
-local present, null_ls = pcall(require, "null-ls")
+local null_ls = require "null-ls"
 
-if not present then
-  return
-end
-
-local b = null_ls.builtins
+local formatting = null_ls.builtins.formatting
+local lint = null_ls.builtins.diagnostics
 
 local sources = {
   -- Python
-  b.formatting.black,
-  b.formatting.isort,
+  formatting.black,
+  formatting.isort,
 
   -- Django
-  b.formatting.djlint.with {
+  formatting.djlint.with {
     extra_args = { "--preserve-blank-lines" },
   },
 
   -- Javascript
-  b.formatting.prettier,
+  formatting.prettier,
 
   -- PHP
-  b.formatting.phpcbf,
+  formatting.phpcbf,
 
   -- CSS
-  b.formatting.stylelint,
+  formatting.stylelint,
 
   -- Yaml
-  b.diagnostics.yamllint,
+  lint.yamllint,
 
   -- Json
-  b.diagnostics.jsonlint,
+  lint.jsonlint,
 
   -- Lua
-  b.formatting.stylua,
+  formatting.stylua,
 
   -- Shell
-  b.formatting.shfmt,
-  b.diagnostics.shellcheck,
-
-  -- Git
-  b.code_actions.gitsigns,
+  formatting.shfmt,
+  lint.shellcheck,
 }
 
 local lsp_formatting = function(bufnr)
@@ -72,7 +66,6 @@ end
 null_ls.setup {
   debug = true,
   sources = sources,
-  debounce = 100,
   -- Format on save
   on_attach = on_attach,
 }

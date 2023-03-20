@@ -4,11 +4,11 @@ local M = {}
 M.general = {
   -- Normal mode mappings
   n = {
-    -- Open Telescope in find file mode
-    ["<C-space>"] = { "<cmd> Telescope find_files <CR>", "Find file" },
+    -- Open Telescope in recent file mode
+    ["<C-space>"] = { "<cmd> Telescope oldfiles <CR>", "Show recent files" },
 
-    -- Open Telescope in find file mode (without ignoring anything)
-    ["<C-S-space>"] = { "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>", "Find all files" },
+    -- Open Telescope in grep mode
+    ["<C-S-space>"] = { "<cmd> Telescope live_grep <CR>", "Grep files" },
 
     -- Open Telescope in buffers mode
     ["<C-b>"] = { "<cmd> Telescope buffers <CR>", "Find buffer" },
