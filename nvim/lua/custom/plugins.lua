@@ -117,6 +117,7 @@ return {
 
         -- PHP
         "phpactor",
+        "phpcbf",
 
         -- Webdev
         "css-lsp",

@@ -10,6 +10,7 @@ local sources = {
 
   -- Django
   formatting.djlint.with {
+    filetypes = { "html", "htmldjango", "php" },
     extra_args = { "--preserve-blank-lines" },
   },
 

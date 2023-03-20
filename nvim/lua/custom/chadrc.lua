@@ -8,8 +8,8 @@ M.plugins = "custom.plugins"
 
 -- Change default theme
 M.ui = {
-  theme_toggle = { "gruvbox", "ayu-light" },
-  theme = "gruvbox",
+  theme_toggle = { "gruvchad", "everforest_light" },
+  theme = "gruvchad",
 
   nvdash = {
     load_on_startup = true,
