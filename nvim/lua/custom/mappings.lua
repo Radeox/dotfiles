@@ -5,13 +5,19 @@ M.general = {
   -- Normal mode mappings
   n = {
     -- Open Telescope in recent file mode
-    ["<C-space>"] = { "<cmd> Telescope oldfiles <CR>", "Show recent files" },
+    ["<C-space>"] = { "<cmd> Telescope find_files <CR>", "Find file" },
+
+    -- Open Telescope in recent file mode
+    ["<C-S-space>"] = { "<cmd> Telescope oldfiles <CR>", "Show recent files" },
 
     -- Open Telescope in grep mode
-    ["<C-S-space>"] = { "<cmd> Telescope live_grep <CR>", "Grep files" },
+    ["<C-S-r>"] = { "<cmd> Telescope live_grep <CR>", "Grep files" },
+
+    -- Open Telescope in bookmarks mode
+    ["<C-b>"] = { "<cmd> Telescope marks <CR>", "Check bookmarks" },
 
     -- Open Telescope in buffers mode
-    ["<C-b>"] = { "<cmd> Telescope buffers <CR>", "Find buffer" },
+    ["<C-S-b>"] = { "<cmd> Telescope buffers <CR>", "Find buffer" },
 
     -- Switch between windows
     ["<A-left>"] = { "<C-w>h", "Window left" },
