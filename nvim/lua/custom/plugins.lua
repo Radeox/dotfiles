@@ -53,10 +53,8 @@ return {
           ["<Tab>"] = cmp.mapping(function(fallback)
             local copilot_keys = vim.fn["copilot#Accept"]()
             if copilot_keys ~= "" and type(copilot_keys) == "string" then
-              print "copilot"
               vim.api.nvim_feedkeys(copilot_keys, "n", true)
             else
-              print "fallback"
               fallback()
             end
           end, {
@@ -79,6 +77,37 @@ return {
         },
       }
     end,
+  },
+
+  -- Autosave
+  {
+    "pocco81/auto-save.nvim",
+    lazy = false,
+    opts = {
+      enabled = true, -- start auto-save when the plugin is loaded (i.e. when your package manager loads it)
+      execution_message = {
+        message = function() -- message to print on save
+          return ("AutoSave [" .. vim.fn.strftime "%H:%M:%S" .. "]")
+        end,
+        dim = 0.08, -- dim the color of `message`
+        cleaning_interval = 1000, -- (milliseconds) automatically clean MsgArea after displaying `message`. See :h MsgArea
+      },
+      trigger_events = { "InsertLeave" }, -- vim events that trigger auto-save. See :h events
+      -- function that determines whether to save the current buffer or not
+      -- return true: if buffer is ok to be saved
+      -- return false: if it's not ok to be saved
+      condition = function(buf)
+        local fn = vim.fn
+        local utils = require "auto-save.utils.data"
+
+        if fn.getbufvar(buf, "&modifiable") == 1 and utils.not_in(fn.getbufvar(buf, "&filetype"), {}) then
+          return true -- met condition(s), can save
+        end
+        return false -- can't save
+      end,
+      write_all_buffers = false, -- write all buffers when the current one meets `condition`
+      debounce_delay = 5000, -- saves the file at most every `debounce_delay` milliseconds
+    },
   },
 
   -- Marks

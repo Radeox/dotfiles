@@ -1,5 +1,7 @@
+#!/usr/bin/bash
+
 # ZSH ##
-cp ~/.config/kitty/kitty.conf kitty/kitty.conf
+cp ~/.config/alacritty/alacritty.yml alacritty/alacritty.yml
 
 ## Aliases ##
 cp ~/.aliases ~/.zshrc zsh/

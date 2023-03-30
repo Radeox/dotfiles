@@ -5,8 +5,8 @@ local lint = null_ls.builtins.diagnostics
 
 local sources = {
   -- Python
-  formatting.black,
   formatting.isort,
+  formatting.black,
 
   -- Django
   formatting.djlint.with {
