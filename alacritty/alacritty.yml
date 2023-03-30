@@ -41,4 +41,7 @@ colors:
     cyan: "0x8ec07c"
     white: "0xebdbb2"
 
+mouse:
+  hide_when_typing: true
+
 live_config_reload: true

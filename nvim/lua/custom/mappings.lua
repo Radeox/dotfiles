@@ -11,13 +11,13 @@ M.general = {
     ["<C-S-space>"] = { "<cmd> Telescope oldfiles <CR>", "Show recent files" },
 
     -- Open Telescope in grep mode
-    ["<C-S-r>"] = { "<cmd> Telescope live_grep <CR>", "Grep files" },
+    ["<leader>r"] = { "<cmd> Telescope live_grep <CR>", "Grep files" },
 
     -- Open Telescope in bookmarks mode
     ["<C-b>"] = { "<cmd> Telescope marks <CR>", "Check bookmarks" },
 
     -- Open Telescope in buffers mode
-    ["<C-S-b>"] = { "<cmd> Telescope buffers <CR>", "Find buffer" },
+    ["<leader>b"] = { "<cmd> Telescope buffers <CR>", "Find buffer" },
 
     -- Switch between windows
     ["<A-left>"] = { "<C-w>h", "Window left" },
