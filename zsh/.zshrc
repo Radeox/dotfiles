@@ -86,7 +86,7 @@ export PIP_DEFAULT_TIMEOUT=100
 ### Flutter stuff ###
 export PATH="$PATH:/opt/Android-SDK"
 export ANDROID_SDK_ROOT="/opt/Android-SDK"
-export CHROME_EXECUTABLE="/usr/bin/google-chrome-stable"
+export CHROME_EXECUTABLE="/usr/bin/vivaldi-stable"
 
 # Python stuff
 export PATH="/home/radeox/.local/bin:$PATH"

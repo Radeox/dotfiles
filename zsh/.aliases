@@ -1,10 +1,10 @@
 ## Aliases ##
 alias ..="cd .. && ls"
-alias chrome="google-chrome-stable"
 alias f="vifm"
 alias find="fd"
 alias ll="ls -l"
 alias p="ps aux | grep "
+alias pr="poetry run python"
 alias rgrep="rg"
 alias sl="ls"
 alias sudo="sudo "

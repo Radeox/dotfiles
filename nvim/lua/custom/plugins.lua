@@ -127,8 +127,8 @@ return {
         "tailwindcss-language-server",
 
         -- PHP
-        "phpactor",
         "phpcbf",
+        "phpactor",
 
         -- Webdev
         "css-lsp",
