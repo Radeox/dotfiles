@@ -19,6 +19,12 @@ M.general = {
     -- Open Telescope in buffers mode
     ["<C-S-b>"] = { "<cmd> Telescope buffers <CR>", "Find buffer" },
 
+    -- Open lazygit
+    ["<C-g>"] = { "<cmd> :terminal lazygit <CR>", "Open lazygit" },
+
+    -- Open new tab
+    ["<C-t>"] = { "<cmd> :tabnew <CR>", "New tab" },
+
     -- Switch between windows
     ["<A-left>"] = { "<C-w>h", "Window left" },
     ["<A-right>"] = { "<C-w>l", "Window right" },
