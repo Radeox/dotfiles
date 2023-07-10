@@ -3,7 +3,7 @@ return {
   { "github/copilot.vim", lazy = false },
 
   -- Suda
-  { "lambdalisue/suda.vim" },
+  { "lambdalisue/suda.vim", lazy = false },
 
   -- Nvterm (terminal) override
   {
@@ -127,8 +127,7 @@ return {
         "tailwindcss-language-server",
 
         -- PHP
-        "phpcbf",
-        "phpactor",
+        "intelephense",
 
         -- Webdev
         "css-lsp",

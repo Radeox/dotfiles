@@ -17,9 +17,6 @@ local sources = {
   -- Javascript
   formatting.prettier,
 
-  -- PHP
-  formatting.phpcbf,
-
   -- CSS
   formatting.stylelint,
 
@@ -37,16 +34,6 @@ local sources = {
   lint.shellcheck,
 }
 
-local lsp_formatting = function(bufnr)
-  vim.lsp.buf.format {
-    filter = function(client)
-      -- Apply whatever logic you want (in this example, we'll only use null-ls)
-      return client.name == "null-ls"
-    end,
-    bufnr = bufnr,
-  }
-end
-
 -- Setup formatting on save, you can use this as a callback
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
@@ -58,14 +45,14 @@ local on_attach = function(client, bufnr)
       group = augroup,
       buffer = bufnr,
       callback = function()
-        lsp_formatting(bufnr)
+        vim.lsp.buf.format { async = false }
       end,
     })
   end
 end
 
 null_ls.setup {
-  debug = true,
+  debug = false,
   sources = sources,
   -- Format on save
   on_attach = on_attach,
