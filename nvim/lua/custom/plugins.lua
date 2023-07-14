@@ -79,19 +79,6 @@ return {
     end,
   },
 
-  -- Marks
-  {
-    "chentoast/marks.nvim",
-    lazy = false,
-    opts = {
-      config = function()
-        require("marks").setup {
-          refresh_interval = 250,
-        }
-      end,
-    },
-  },
-
   -- Mason default packages
   {
     "williamboman/mason.nvim",

@@ -52,7 +52,7 @@ local on_attach = function(client, bufnr)
 end
 
 null_ls.setup {
-  debug = false,
+  debug = true,
   sources = sources,
   -- Format on save
   on_attach = on_attach,

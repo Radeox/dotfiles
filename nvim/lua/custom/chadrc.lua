@@ -26,7 +26,7 @@ M.ui = {
       { "  Find File", "C Spc", "Telescope find_files" },
       { "  Recent Files", "C-S Spc", "Telescope oldfiles" },
       { "  Find Word", "C-S r", "Telescope live_grep" },
-      { "  Bookmarks", "C b", "Telescope marks" },
+      { "  Buffers", "C b", "Find buffer" },
       { "  Mappings", "Spc c h", "NvCheatsheet" },
     },
   },

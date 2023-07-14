@@ -13,11 +13,8 @@ M.general = {
     -- Open Telescope in grep mode
     ["<C-S-r>"] = { "<cmd> Telescope live_grep <CR>", "Grep files" },
 
-    -- Open Telescope in bookmarks mode
-    ["<C-b>"] = { "<cmd> Telescope marks <CR>", "Check bookmarks" },
-
     -- Open Telescope in buffers mode
-    ["<C-S-b>"] = { "<cmd> Telescope buffers <CR>", "Find buffer" },
+    ["<C-b>"] = { "<cmd> Telescope buffers <CR>", "Find buffer" },
 
     -- Open lazygit
     ["<C-g>"] = { "<cmd> :terminal lazygit <CR>", "Open lazygit" },
