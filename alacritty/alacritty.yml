@@ -13,35 +13,6 @@ window:
   decorations: none
   startup_mode: Maximized
 
-# Colors (Gruvbox dark)
-colors:
-  # Default colors
-  primary:
-    background: "0x282828"
-    foreground: "0xebdbb2"
-
-  # Normal colors
-  normal:
-    black: "0x282828"
-    blue: "0x458588"
-    cyan: "0x689d6a"
-    green: "0x98971a"
-    magenta: "0xb16286"
-    red: "0xcc241d"
-    white: "0xa89984"
-    yellow: "0xd79921"
-
-  # Bright colors
-  bright:
-    black: "0x928374"
-    blue: "0x83a598"
-    cyan: "0x8ec07c"
-    green: "0xb8bb26"
-    magenta: "0xd3869b"
-    red: "0xfb4934"
-    white: "0xebdbb2"
-    yellow: "0xfabd2f"
-
 # Mouse configuration
 mouse:
   hide_when_typing: true
@@ -54,3 +25,87 @@ key_bindings:
   - { key: Space, mods: Control|Shift, chars: "\x1b[32;6u" }
 
 live_config_reload: true
+
+env:
+  TERM: xterm-256color
+
+# Catppuccin Frappe theme
+colors:
+  # Default colors
+  primary:
+    background: "#303446"
+    foreground: "#C6D0F5"
+    # Bright and dim foreground colors
+    dim_foreground: "#C6D0F5"
+    bright_foreground: "#C6D0F5"
+
+  # Cursor colors
+  cursor:
+    text: "#303446"
+    cursor: "#F2D5CF"
+  vi_mode_cursor:
+    text: "#303446"
+    cursor: "#BABBF1"
+
+  # Search colors
+  search:
+    matches:
+      foreground: "#303446"
+      background: "#A5ADCE"
+    focused_match:
+      foreground: "#303446"
+      background: "#A6D189"
+    footer_bar:
+      foreground: "#303446"
+      background: "#A5ADCE"
+
+  # Keyboard regex hints
+  hints:
+    start:
+      foreground: "#303446"
+      background: "#E5C890"
+    end:
+      foreground: "#303446"
+      background: "#A5ADCE"
+
+  # Selection colors
+  selection:
+    text: "#303446"
+    background: "#F2D5CF"
+
+  # Normal colors
+  normal:
+    black: "#51576D"
+    red: "#E78284"
+    green: "#A6D189"
+    yellow: "#E5C890"
+    blue: "#8CAAEE"
+    magenta: "#F4B8E4"
+    cyan: "#81C8BE"
+    white: "#B5BFE2"
+
+  # Bright colors
+  bright:
+    black: "#626880"
+    red: "#E78284"
+    green: "#A6D189"
+    yellow: "#E5C890"
+    blue: "#8CAAEE"
+    magenta: "#F4B8E4"
+    cyan: "#81C8BE"
+    white: "#A5ADCE"
+
+  # Dim colors
+  dim:
+    black: "#51576D"
+    red: "#E78284"
+    green: "#A6D189"
+    yellow: "#E5C890"
+    blue: "#8CAAEE"
+    magenta: "#F4B8E4"
+    cyan: "#81C8BE"
+    white: "#B5BFE2"
+
+  indexed_colors:
+    - { index: 16, color: "#EF9F76" }
+    - { index: 17, color: "#F2D5CF" }

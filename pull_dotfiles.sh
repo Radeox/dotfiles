@@ -1,5 +1,3 @@
-#!/usr/bin/bash
-
 # ZSH ##
 cp ~/.config/alacritty/alacritty.yml alacritty/alacritty.yml
 
