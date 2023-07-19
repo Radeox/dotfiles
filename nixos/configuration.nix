@@ -40,7 +40,6 @@
       authenticator
       black
       cargo
-      cpupower-gui
       filezilla
       gimp
       heroic
@@ -63,7 +62,6 @@
       vifm
       virtualbox
       vscode
-      xow_dongle-firmware
       yamllint
       yuzu-mainline
     ];
@@ -73,7 +71,6 @@
   environment.systemPackages = with pkgs; [
     autojump
     bat
-    clevis
     docker
     docker-compose
     du-dust
@@ -82,7 +79,10 @@
     gcc
     git
     gnumake
+    gparted
     htop
+    linuxPackages_latest.cpupower
+    linuxPackages_latest.xone
     lsd
     neofetch
     neovim
@@ -231,11 +231,15 @@
       # Driver version
       package = config.boot.kernelPackages.nvidiaPackages.latest;
     };
+
+    # Enable the Xbox One driver
+    xone = { enable = true; };
   };
 
   # Firewall configuration
   networking.firewall = {
     enable = true;
+    allowedTCPPorts = [ 8080 8082 9080 ];
     allowedTCPPortRanges = [{
       from = 1714;
       to = 1764;

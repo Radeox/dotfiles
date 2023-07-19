@@ -11,6 +11,7 @@
       shellAliases = {
         # NixOS commands
         nix-update = "sudo nixos-rebuild switch";
+        nix-config = "cd /etc/nixos && vim configuration.nix";
 
         # Aliases
         ".." = "cd .. && ls";
