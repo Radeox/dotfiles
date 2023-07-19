@@ -26,6 +26,9 @@ local sources = {
   -- Json
   lint.jsonlint,
 
+  -- Nix
+  formatting.nixfmt,
+
   -- Lua
   formatting.stylua,
 

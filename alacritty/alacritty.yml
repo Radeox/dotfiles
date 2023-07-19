@@ -11,7 +11,6 @@ font:
 # Window configuration
 window:
   decorations: none
-  startup_mode: Maximized
 
 # Mouse configuration
 mouse:
