@@ -1,5 +1,8 @@
 # My dotfiles #
 
+## NixOS ##
+cp -r /etc/nixos .
+
 ## Alacritty ##
 cp ~/.config/alacritty/alacritty.yml alacritty/alacritty.yml
 
