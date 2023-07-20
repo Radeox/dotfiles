@@ -10,8 +10,9 @@
 
       shellAliases = {
         # NixOS commands
-        nix-update = "sudo nixos-rebuild switch";
+        nix-clean = "bash ~/Sources/scripts/clean_system.sh";
         nix-config = "cd /etc/nixos && vim configuration.nix";
+        nix-update = "sudo nixos-rebuild switch";
 
         # Aliases
         ".." = "cd .. && ls";
@@ -26,7 +27,6 @@
         tig = "lazygit";
         v = "vim";
         vim = "nvim";
-        xbox-pair = "sudo systemctl kill -s SIGUSR1 xow";
 
         # Basic commands
         cat = "bat -p";
@@ -36,7 +36,6 @@
 
         # Scripts
         bt_manager = "bash ~/Sources/scripts/bluetooth_manager.sh";
-        clean_system = "bash ~/Sources/scripts/clean_system.sh";
         myip = "bash ~/Sources/scripts/my_ip.sh";
         yee = "python ~/Sources/Projects/TermYeeLight/manager.py";
       };

@@ -48,10 +48,12 @@
       libsForQt5.kdeconnect-kde
       lutris
       megasync
+      mongodb-tools
       nodePackages.stylelint
       nodejs_20
       poetry
       prismlauncher
+      rpi-imager
       spotify
       steam
       stylua
@@ -61,6 +63,7 @@
       veracrypt
       vifm
       virtualbox
+      vlc
       vscode
       yamllint
       yuzu-mainline
@@ -193,13 +196,7 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Enable docker
-  virtualisation.docker = {
-    enable = true;
-    rootless = {
-      enable = true;
-      setSocketVariable = true;
-    };
-  };
+  virtualisation.docker = { enable = true; };
 
   # Tell Wayland to use the nvidia driver
   services.xserver.videoDrivers = [ "nvidia" ];
@@ -222,7 +219,7 @@
       # Disable prime offloading
       prime.offload.enable = false;
 
-      # Use the open source version
+      # Don't use the open source version
       open = false;
 
       # Enable the nvidia settings menu
