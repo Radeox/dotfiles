@@ -204,6 +204,9 @@
   # Tell Wayland to use the nvidia driver
   services.xserver.videoDrivers = [ "nvidia" ];
 
+  # Enable XWayland
+  programs.xwayland.enable = true;
+
   hardware = {
     # Make sure opengl is enabled
     opengl = {
