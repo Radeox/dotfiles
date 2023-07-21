@@ -8,7 +8,7 @@ M.plugins = "custom.plugins"
 
 -- Change default theme
 M.ui = {
-  theme_toggle = { "catppuccin", "everforest_light" },
+  theme_toggle = { "catppuccin", "one_light" },
   theme = "catppuccin",
 
   nvdash = {
