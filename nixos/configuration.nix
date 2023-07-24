@@ -8,8 +8,8 @@
 
   # Bootloader
   boot = {
-    # Use latest kernel
-    kernelPackages = pkgs.linuxPackages_latest;
+    # Use latest xanmod kernel
+    kernelPackages = pkgs.linuxPackages_xanmod_latest;
 
     loader.systemd-boot.enable = lib.mkForce false;
     lanzaboote = {
@@ -33,19 +33,22 @@
   users.users.radeox = {
     isNormalUser = true;
     description = "Radeox";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "vboxusers" ];
     packages = with pkgs; [
       alacritty
-      anydesk
+      ansible
       authenticator
       black
       cargo
+      cudatoolkit
+      ffmpeg
       filezilla
       gimp
       heroic
       lazygit
       libreoffice-fresh
       libsForQt5.kdeconnect-kde
+      libsForQt5.ktorrent
       lutris
       megasync
       mongodb-tools
@@ -53,6 +56,7 @@
       nodejs_20
       poetry
       prismlauncher
+      remmina
       rpi-imager
       spotify
       steam
@@ -62,7 +66,6 @@
       tree-sitter
       veracrypt
       vifm
-      virtualbox
       vlc
       vscode
       yamllint
@@ -78,14 +81,15 @@
     docker-compose
     du-dust
     duf
+    epson-escpr
     fd
     gcc
     git
     gnumake
     gparted
     htop
-    linuxPackages_latest.cpupower
     linuxPackages_latest.xone
+    linuxPackages_latest.zenpower
     lsd
     neofetch
     neovim
@@ -141,8 +145,17 @@
     # Enable flatpak
     flatpak.enable = true;
 
-    # Enable CUPS
-    printing.enable = true;
+    # Enable printing services
+    printing = {
+      enable = true;
+      drivers = [ pkgs.epson-escpr ];
+    };
+
+    # Enable network discovery
+    avahi = {
+      enable = true;
+      nssmdns = true;
+    };
 
     # Pipewire configuration
     pipewire = {
@@ -154,12 +167,41 @@
 
     # Enable touchpad support
     xserver.libinput.enable = true;
+
+    # Disable power profiles
+    power-profiles-daemon.enable = false;
+
+    # TLP configuration
+    tlp = {
+      enable = true;
+
+      settings = {
+        # CPU frequency scaling (AC)
+        CPU_SCALING_MIN_FREQ_ON_AC = 1200000;
+        CPU_SCALING_MAX_FREQ_ON_AC = 3200000;
+
+        # CPU frequency scaling (BAT)
+        CPU_SCALING_MIN_FREQ_ON_BAT = 1200000;
+        CPU_SCALING_MAX_FREQ_ON_BAT = 1200000;
+
+        # Charge thresholds
+        START_CHARGE_THRESH_BAT0 = 0;
+        STOP_CHARGE_THRESH_BAT0 = 1;
+      };
+    };
   };
 
   # Flatpak portals
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 
-  # Enable sound with pipewire.
+  # Install steam
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
+  };
+
+  # Enable sound with pipewire
   sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -173,6 +215,10 @@
   # Set ZSH as default shell
   users.defaultUserShell = pkgs.zsh;
   environment.shells = with pkgs; [ zsh ];
+
+  # Set NeoVim as default editor
+  programs.neovim.enable = true;
+  programs.neovim.defaultEditor = true;
 
   # Configure extra fonts
   fonts.fonts = with pkgs;
@@ -195,16 +241,31 @@
   # Enable flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  # Enable docker
-  virtualisation.docker = { enable = true; };
+  virtualisation = {
+    # Enable docker
+    docker = {
+      enable = true;
+      enableNvidia = true;
+      liveRestore = false;
+    };
+
+    # Enable virtualbox
+    virtualbox.host = {
+      enable = true;
+      enableExtensionPack = true;
+    };
+  };
 
   # Tell Wayland to use the nvidia driver
   services.xserver.videoDrivers = [ "nvidia" ];
 
-  # Enable XWayland
-  programs.xwayland.enable = true;
+  # Enable Gamemode
+  programs.gamemode.enable = true;
 
   hardware = {
+    # Enable bluetooth
+    bluetooth.enable = true;
+
     # Make sure opengl is enabled
     opengl = {
       enable = true;
@@ -216,17 +277,17 @@
       # Modesetting is needed for most wayland compositors
       modesetting.enable = true;
 
-      # Disable prime offloading
-      prime.offload.enable = false;
-
       # Don't use the open source version
       open = false;
 
-      # Enable the nvidia settings menu
-      nvidiaSettings = true;
+      # Disable the nvidia settings menu (not working on wayland)
+      nvidiaSettings = false;
 
       # Enable power management
       powerManagement.enable = true;
+
+      # Enable nvidia persistence daemon
+      nvidiaPersistenced = true;
 
       # Driver version
       package = config.boot.kernelPackages.nvidiaPackages.latest;

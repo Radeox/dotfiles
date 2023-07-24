@@ -10,7 +10,7 @@
 
       shellAliases = {
         # NixOS commands
-        nix-clean = "bash ~/Sources/scripts/clean_system.sh";
+        nix-clean = "sudo nix-collect-garbage -d";
         nix-config = "cd /etc/nixos && vim configuration.nix";
         nix-update = "sudo nixos-rebuild switch";
 
