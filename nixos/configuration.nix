@@ -38,7 +38,6 @@
       alacritty
       ansible
       authenticator
-      black
       cargo
       cudatoolkit
       ffmpeg
@@ -49,10 +48,11 @@
       libreoffice-fresh
       libsForQt5.kdeconnect-kde
       libsForQt5.ktorrent
+      luajitPackages.luarocks
       lutris
       megasync
       mongodb-tools
-      nodePackages.stylelint
+      ngrok
       nodejs_20
       poetry
       prismlauncher
@@ -60,7 +60,6 @@
       rpi-imager
       spotify
       steam
-      stylua
       telegram-desktop
       thunderbird
       tree-sitter
@@ -68,7 +67,6 @@
       vifm
       vlc
       vscode
-      yamllint
       yuzu-mainline
     ];
   };
@@ -77,11 +75,12 @@
   environment.systemPackages = with pkgs; [
     autojump
     bat
+    cifs-utils
+    cmake
     docker
     docker-compose
     du-dust
     duf
-    epson-escpr
     fd
     gcc
     git
@@ -93,7 +92,6 @@
     lsd
     neofetch
     neovim
-    nixfmt
     pciutils
     python311
     python311Packages.pip
@@ -146,16 +144,16 @@
     flatpak.enable = true;
 
     # Enable printing services
-    printing = {
-      enable = true;
-      drivers = [ pkgs.epson-escpr ];
-    };
+    printing = { enable = true; };
 
     # Enable network discovery
     avahi = {
       enable = true;
       nssmdns = true;
     };
+
+    # Enable Samba shares
+    gvfs.enable = true;
 
     # Pipewire configuration
     pipewire = {
@@ -227,6 +225,9 @@
         fonts = [ "FiraCode" "DroidSansMono" "JetBrainsMono" ];
       })
     ];
+
+  # Enable GTK themes in wayland
+  programs.dconf.enable = true;
 
   # Auto system update
   system.autoUpgrade = { enable = true; };
