@@ -89,11 +89,13 @@
       userEmail = "dawid.weglarz95@gmail.com";
     };
 
+    home-manager.enable = true;
   };
 
   # Home configuration
-  home.username = "radeox";
-  home.homeDirectory = "/home/radeox";
-  home.stateVersion = "23.05";
-  programs.home-manager.enable = true;
+  home = {
+    username = "radeox";
+    homeDirectory = "/home/radeox";
+    stateVersion = "23.05";
+  };
 }

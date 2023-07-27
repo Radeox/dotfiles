@@ -6,7 +6,7 @@
   # Include external configuration
   imports = [ ./hardware-configuration.nix ];
 
-  # Bootloader
+  # Bootloader configuration
   boot = {
     # Use latest xanmod kernel
     kernelPackages = pkgs.linuxPackages_xanmod_latest;
@@ -19,8 +19,12 @@
 
     # Setup keyfile
     initrd.secrets = { "/crypto_keyfile.bin" = null; };
+
+    # NTFS support
+    supportedFilesystems = [ "ntfs" ];
   };
 
+  # Networking configuration
   networking = {
     # Define your hostname
     hostName = "Radeox-Nix";
@@ -29,7 +33,22 @@
     networkmanager.enable = true;
   };
 
-  # User account
+  # Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
+
+  nix = {
+    # Automatic Garbage Collection
+    gc = {
+      automatic = true;
+      dates = "daily";
+      options = "--delete-older-than 7d";
+    };
+
+    # Enable flakes
+    settings.experimental-features = [ "nix-command" "flakes" ];
+  };
+
+  # User packages
   users.users.radeox = {
     isNormalUser = true;
     description = "Radeox";
@@ -53,6 +72,7 @@
       megasync
       mongodb-tools
       ngrok
+      nixfmt
       nodejs_20
       poetry
       prismlauncher
@@ -108,24 +128,6 @@
     zsh
   ];
 
-  # Set your time zone.
-  time.timeZone = "Europe/Rome";
-
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "it_IT.UTF-8";
-    LC_IDENTIFICATION = "it_IT.UTF-8";
-    LC_MEASUREMENT = "it_IT.UTF-8";
-    LC_MONETARY = "it_IT.UTF-8";
-    LC_NAME = "it_IT.UTF-8";
-    LC_NUMERIC = "it_IT.UTF-8";
-    LC_PAPER = "it_IT.UTF-8";
-    LC_TELEPHONE = "it_IT.UTF-8";
-    LC_TIME = "it_IT.UTF-8";
-  };
-
   services = {
     # Enable X11
     xserver.enable = true;
@@ -133,6 +135,9 @@
     # Enable the KDE Plasma
     xserver.displayManager.sddm.enable = true;
     xserver.desktopManager.plasma5.enable = true;
+
+    # Tell Wayland to use the nvidia driver
+    xserver.videoDrivers = [ "nvidia" ];
 
     # Configure keymap in X11
     xserver = {
@@ -192,55 +197,57 @@
   # Flatpak portals
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 
-  # Install steam
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true;
-  };
-
   # Enable sound with pipewire
   sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
+  programs = {
+    # Enable ZSH
+    zsh.enable = true;
 
-  # Enable ZSH
-  programs.zsh.enable = true;
+    # Neovim as default editor
+    neovim.enable = true;
+    neovim.defaultEditor = true;
+
+    # Configure Steam
+    steam = {
+      enable = true;
+      remotePlay.openFirewall = true;
+      dedicatedServer.openFirewall = true;
+    };
+
+    # Enable Gamemode
+    gamemode.enable = true;
+
+    # Enable GTK themes in Wayland
+    dconf.enable = true;
+  };
 
   # Set ZSH as default shell
   users.defaultUserShell = pkgs.zsh;
   environment.shells = with pkgs; [ zsh ];
 
-  # Set NeoVim as default editor
-  programs.neovim.enable = true;
-  programs.neovim.defaultEditor = true;
+  system = {
+    # Auto system update
+    autoUpgrade = { enable = true; };
 
-  # Configure extra fonts
-  fonts.fonts = with pkgs;
-    [
-      (nerdfonts.override {
-        fonts = [ "FiraCode" "DroidSansMono" "JetBrainsMono" ];
-      })
-    ];
+    # Pretty rebuild messages
+    activationScripts.diff = {
+      supportsDryActivation = true;
+      text = ''
+        ${pkgs.nvd}/bin/nvd --nix-bin-dir=${pkgs.nix}/bin diff /run/current-system "$systemConfig"
+      '';
+    };
 
-  # Enable GTK themes in wayland
-  programs.dconf.enable = true;
-
-  # Auto system update
-  system.autoUpgrade = { enable = true; };
-
-  # Automatic Garbage Collection
-  nix.gc = {
-    automatic = true;
-    dates = "daily";
-    options = "--delete-older-than 7d";
+    # This value determines the NixOS release from which the default
+    # settings for stateful data, like file locations and database versions
+    # on your system were taken. It‘s perfectly fine and recommended to leave
+    # this value at the release version of the first install of this system.
+    # Before changing this value read the documentation for this option
+    # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
+    stateVersion = "23.05"; # Did you read the comment?
   };
-
-  # Enable flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   virtualisation = {
     # Enable docker
@@ -257,13 +264,24 @@
     };
   };
 
-  # Tell Wayland to use the nvidia driver
-  services.xserver.videoDrivers = [ "nvidia" ];
-
-  # Enable Gamemode
-  programs.gamemode.enable = true;
-
   hardware = {
+    nvidia = {
+      # Modesetting is needed for most wayland compositors
+      modesetting.enable = true;
+
+      # Use the open source version
+      open = true;
+
+      # Disable the nvidia settings menu (not working on wayland)
+      nvidiaSettings = false;
+
+      # Enable power management
+      powerManagement.enable = true;
+
+      # Driver version
+      package = config.boot.kernelPackages.nvidiaPackages.latest;
+    };
+
     # Enable bluetooth
     bluetooth.enable = true;
 
@@ -272,26 +290,6 @@
       enable = true;
       driSupport = true;
       driSupport32Bit = true;
-    };
-
-    nvidia = {
-      # Modesetting is needed for most wayland compositors
-      modesetting.enable = true;
-
-      # Don't use the open source version
-      open = false;
-
-      # Disable the nvidia settings menu (not working on wayland)
-      nvidiaSettings = false;
-
-      # Enable power management
-      powerManagement.enable = true;
-
-      # Enable nvidia persistence daemon
-      nvidiaPersistenced = true;
-
-      # Driver version
-      package = config.boot.kernelPackages.nvidiaPackages.latest;
     };
 
     # Enable the Xbox One driver
@@ -314,14 +312,30 @@
       ];
   };
 
-  # NTFS support
-  boot.supportedFilesystems = [ "ntfs" ];
+  # Set your time zone.
+  time.timeZone = "Europe/Rome";
 
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "23.05"; # Did you read the comment?
+  # Select internationalisation properties.
+  i18n.defaultLocale = "en_US.UTF-8";
+
+  i18n.extraLocaleSettings = {
+    LC_ADDRESS = "it_IT.UTF-8";
+    LC_IDENTIFICATION = "it_IT.UTF-8";
+    LC_MEASUREMENT = "it_IT.UTF-8";
+    LC_MONETARY = "it_IT.UTF-8";
+    LC_NAME = "it_IT.UTF-8";
+    LC_NUMERIC = "it_IT.UTF-8";
+    LC_PAPER = "it_IT.UTF-8";
+    LC_TELEPHONE = "it_IT.UTF-8";
+    LC_TIME = "it_IT.UTF-8";
+  };
+
+  # Configure extra fonts
+  fonts.fonts = with pkgs;
+    [
+      (nerdfonts.override {
+        fonts = [ "FiraCode" "DroidSansMono" "JetBrainsMono" ];
+      })
+    ];
+
 }
