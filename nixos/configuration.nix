@@ -56,6 +56,7 @@
     packages = with pkgs; [
       alacritty
       ansible
+      anytype
       authenticator
       cargo
       cudatoolkit
@@ -269,14 +270,17 @@
       # Modesetting is needed for most wayland compositors
       modesetting.enable = true;
 
-      # Use the open source version
-      open = true;
+      # Don't use the open source version
+      open = false;
 
       # Disable the nvidia settings menu (not working on wayland)
       nvidiaSettings = false;
 
       # Enable power management
       powerManagement.enable = true;
+
+      # Enable nvidia persistence daemon
+      nvidiaPersistenced = true;
 
       # Driver version
       package = config.boot.kernelPackages.nvidiaPackages.latest;
@@ -295,6 +299,9 @@
     # Enable the Xbox One driver
     xone = { enable = true; };
   };
+
+  # Set wayland ozone backend
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   # Firewall configuration
   networking.firewall = {
