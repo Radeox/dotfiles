@@ -62,6 +62,7 @@
       cudatoolkit
       ffmpeg
       filezilla
+      fwupd
       gimp
       heroic
       lazygit
@@ -75,6 +76,7 @@
       ngrok
       nixfmt
       nodejs_20
+      openfortivpn
       poetry
       prismlauncher
       remmina
