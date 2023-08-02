@@ -15,7 +15,7 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.radeox = import ./radeox-home.nix;
+          home-manager.users.radeox = import ./home.nix;
         }
         ./configuration.nix
       ];
