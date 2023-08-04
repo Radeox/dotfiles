@@ -54,12 +54,12 @@
     description = "Radeox";
     extraGroups = [ "networkmanager" "wheel" "docker" "vboxusers" ];
     packages = with pkgs; [
+      # cudatoolkit
       alacritty
       ansible
       anytype
       authenticator
       cargo
-      cudatoolkit
       ffmpeg
       filezilla
       fwupd
@@ -88,6 +88,8 @@
       tree-sitter
       veracrypt
       vifm
+      vivaldi
+      vivaldi-ffmpeg-codecs
       vlc
       vscode
       yuzu-mainline
@@ -108,12 +110,10 @@
     gcc
     git
     gnumake
-    gparted
     htop
     linuxPackages_latest.xone
     linuxPackages_latest.zenpower
     lsd
-    neofetch
     neovim
     pciutils
     python311
@@ -121,8 +121,6 @@
     ripgrep
     sbctl
     unzip
-    vivaldi
-    vivaldi-ffmpeg-codecs
     vorta
     wayland-utils
     wget
@@ -132,20 +130,23 @@
   ];
 
   services = {
-    # Enable X11
-    xserver.enable = true;
-
-    # Enable the KDE Plasma
-    xserver.displayManager.sddm.enable = true;
-    xserver.desktopManager.plasma5.enable = true;
-
-    # Tell Wayland to use the nvidia driver
-    xserver.videoDrivers = [ "nvidia" ];
-
-    # Configure keymap in X11
     xserver = {
+      # Enable X11
+      enable = true;
+
+      # Enable the KDE Plasma
+      displayManager.sddm.enable = true;
+      desktopManager.plasma5.enable = true;
+
+      # Tell Wayland to use the nvidia driver
+      videoDrivers = [ "nvidia" ];
+
+      # Configure keymap in X11
       layout = "us";
       xkbVariant = "";
+
+      # Enable touchpad support
+      libinput.enable = true;
     };
 
     # Enable flatpak
@@ -171,9 +172,6 @@
       pulse.enable = true;
     };
 
-    # Enable touchpad support
-    xserver.libinput.enable = true;
-
     # Disable power profiles
     power-profiles-daemon.enable = false;
 
@@ -182,6 +180,10 @@
       enable = true;
 
       settings = {
+        # CPU Govenor = schedutil
+        CPU_SCALING_GOVERNOR_ON_AC = "schedutil";
+        CPU_SCALING_GOVERNOR_ON_BAT = "schedutil";
+
         # CPU frequency scaling (AC)
         CPU_SCALING_MIN_FREQ_ON_AC = 1200000;
         CPU_SCALING_MAX_FREQ_ON_AC = 3200000;
@@ -191,7 +193,6 @@
         CPU_SCALING_MAX_FREQ_ON_BAT = 1200000;
 
         # Charge thresholds
-        START_CHARGE_THRESH_BAT0 = 0;
         STOP_CHARGE_THRESH_BAT0 = 1;
       };
     };
@@ -275,14 +276,14 @@
       # Don't use the open source version
       open = false;
 
-      # Disable the nvidia settings menu (not working on wayland)
-      nvidiaSettings = false;
+      # Nvidia settings GUI
+      nvidiaSettings = true;
 
       # Enable power management
       powerManagement.enable = true;
 
       # Enable nvidia persistence daemon
-      nvidiaPersistenced = true;
+      # nvidiaPersistenced = true;
 
       # Driver version
       package = config.boot.kernelPackages.nvidiaPackages.latest;
