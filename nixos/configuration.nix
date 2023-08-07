@@ -44,6 +44,9 @@
       options = "--delete-older-than 7d";
     };
 
+    # Optimize store
+    settings.auto-optimise-store = true;
+
     # Enable flakes
     settings.experimental-features = [ "nix-command" "flakes" ];
   };
@@ -54,7 +57,6 @@
     description = "Radeox";
     extraGroups = [ "networkmanager" "wheel" "docker" "vboxusers" ];
     packages = with pkgs; [
-      # cudatoolkit
       alacritty
       ansible
       anytype
@@ -62,6 +64,7 @@
       cargo
       ffmpeg
       filezilla
+      firefox
       fwupd
       gimp
       heroic
@@ -88,8 +91,6 @@
       tree-sitter
       veracrypt
       vifm
-      vivaldi
-      vivaldi-ffmpeg-codecs
       vlc
       vscode
       yuzu-mainline
@@ -172,9 +173,6 @@
       pulse.enable = true;
     };
 
-    # Disable power profiles
-    power-profiles-daemon.enable = false;
-
     # TLP configuration
     tlp = {
       enable = true;
@@ -196,6 +194,12 @@
         STOP_CHARGE_THRESH_BAT0 = 1;
       };
     };
+
+    # Enable thermald
+    thermald.enable = lib.mkDefault true;
+
+    # Disable power profiles
+    power-profiles-daemon.enable = false;
   };
 
   # Flatpak portals
@@ -282,9 +286,6 @@
       # Enable power management
       powerManagement.enable = true;
 
-      # Enable nvidia persistence daemon
-      # nvidiaPersistenced = true;
-
       # Driver version
       package = config.boot.kernelPackages.nvidiaPackages.latest;
     };
@@ -297,14 +298,13 @@
       enable = true;
       driSupport = true;
       driSupport32Bit = true;
+
+      extraPackages = with pkgs; [ nvidia-vaapi-driver vaapiVdpau ];
     };
 
     # Enable the Xbox One driver
     xone = { enable = true; };
   };
-
-  # Set wayland ozone backend
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   # Firewall configuration
   networking.firewall = {
@@ -348,4 +348,6 @@
       })
     ];
 
+  # Set wayland ozone backend
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 }

@@ -1,4 +1,5 @@
 [ActivityManager][Global Shortcuts]
+switch-to-activity-a6b72443-db75-40b2-84fb-1c9c548fef6c=
 switch-to-activity-e43f3dc5-df2e-4b86-ac9b-35dfaea89c79=
 
 [Alacritty.desktop][Global Shortcuts]
@@ -14,10 +15,10 @@ Switch to Next Keyboard Layout=
 AboutApp=
 AboutKDE=
 Activate Next Tab=Ctrl+PgDown; Ctrl+]
-Activate Previous Tab=Ctrl+[; Ctrl+PgUp
+Activate Previous Tab=Ctrl+PgUp; Ctrl+[
 ActualSize=Ctrl+0
 AddBookmark=Ctrl+B
-Back=Back; Alt+Left
+Back=Alt+Left; Back
 BackwardWord=Ctrl+Left
 Begin=Ctrl+Home
 BeginningOfLine=Home
@@ -60,7 +61,7 @@ Next=PgDown
 NextCompletion=Ctrl+Down
 Open=Ctrl+O
 OpenRecent=
-Paste=Shift+Ins; Ctrl+V
+Paste=Ctrl+V; Shift+Ins
 Paste Selection=Ctrl+Shift+Ins
 Preferences=Ctrl+Shift+,
 PrevCompletion=Ctrl+Up
@@ -80,7 +81,7 @@ Save=Ctrl+S
 SaveAs=Ctrl+Shift+S
 SaveOptions=
 SelectAll=Ctrl+A
-ShowHideHiddenFiles=Alt+.; Ctrl+H
+ShowHideHiddenFiles=Ctrl+H; Alt+.
 ShowMenubar=
 ShowStatusbar=
 ShowToolbar=
@@ -139,6 +140,12 @@ toggle_window_floating=
 [com.spotify.Client.desktop][Global Shortcuts]
 _launch=Meta+N
 
+[firefox.desktop][Global Shortcuts]
+_launch=Meta+B
+new-private-window=
+new-window=
+profile-manager-window=
+
 [kaccess][Global Shortcuts]
 Toggle Screen Reader On and Off=
 
@@ -149,7 +156,7 @@ Toggle Touchpad=Meta+Ctrl+Zenkaku Hankaku; Touchpad Toggle
 
 [kded5][Global Shortcuts]
 Show System Activity=Ctrl+Esc
-display=Meta+P; Display
+display=Display; Meta+P
 
 [khotkeys][Global Shortcuts]
 {d03619b6-9b3c-48cc-9d9c-a2aadb485550}=
@@ -159,7 +166,7 @@ decrease_microphone_volume=Microphone Volume Down
 decrease_volume=Volume Down
 increase_microphone_volume=Microphone Volume Up
 increase_volume=Volume Up
-mic_mute=Microphone Mute; Meta+Volume Mute
+mic_mute=Meta+Volume Mute; Microphone Mute
 mute=Volume Mute
 
 [ksmserver][Global Shortcuts]
@@ -277,18 +284,18 @@ Walk Through Windows=Alt+Tab
 Walk Through Windows (Reverse)=Alt+Shift+Backtab
 Walk Through Windows Alternative=
 Walk Through Windows Alternative (Reverse)=
-Walk Through Windows of Current Application=
-Walk Through Windows of Current Application (Reverse)=
+Walk Through Windows of Current Application=Alt+`
+Walk Through Windows of Current Application (Reverse)=Alt+~
 Walk Through Windows of Current Application Alternative=
 Walk Through Windows of Current Application Alternative (Reverse)=
 Window Above Other Windows=
 Window Below Other Windows=
 Window Close=Meta+Q
-Window Fullscreen=
+Window Fullscreen=Meta+Shift+F
 Window Grow Horizontal=
 Window Grow Vertical=
 Window Lower=
-Window Maximize=Meta+Shift+F
+Window Maximize=
 Window Maximize Horizontal=
 Window Maximize Vertical=
 Window Minimize=Meta+PgDown
@@ -369,7 +376,7 @@ previousmedia=Media Previous
 stopmedia=Media Stop
 
 [org.kde.dolphin.desktop][Global Shortcuts]
-_launch=Meta+F
+_launch=Meta+E; Meta+F
 
 [org.kde.konsole.desktop][Global Shortcuts]
 NewTab=
@@ -377,20 +384,20 @@ NewWindow=
 _launch=Ctrl+Alt+T
 
 [org.kde.krunner.desktop][Global Shortcuts]
-RunClipboard=
-_launch=
+RunClipboard=Alt+Shift+F2
+_launch=Meta+Space; Search
 
 [org.kde.plasma.emojier.desktop][Global Shortcuts]
-_launch=
+_launch=Meta+Ctrl+Alt+Shift+Space; Meta+.
 
 [org.kde.spectacle.desktop][Global Shortcuts]
 ActiveWindowScreenShot=Meta+Print
 CurrentMonitorScreenShot=
 FullScreenScreenShot=Shift+Print
-OpenWithoutScreenshot=Print
-RectangularRegionScreenShot=Meta+Shift+S
+OpenWithoutScreenshot=
+RectangularRegionScreenShot=Meta+Shift+Print; Meta+Shift+S
 WindowUnderCursorScreenShot=Meta+Ctrl+Print
-_launch=
+_launch=Print
 
 [org.mozilla.Thunderbird.desktop][Global Shortcuts]
 _launch=Meta+M
@@ -423,6 +430,9 @@ activate task manager entry 7=
 activate task manager entry 8=
 activate task manager entry 9=
 activate widget 10=
+activate widget 26=
+activate widget 3=
+activate widget 35=
 activate widget 5=
 clear-history=
 clipboard_action=
@@ -442,6 +452,9 @@ switch to next activity=
 switch to previous activity=
 toggle do not disturb=
 
+[spotify.desktop][Global Shortcuts]
+_launch=Meta+N
+
 [systemsettings.desktop][Global Shortcuts]
 _launch=Tools
 kcm-kscreen=
@@ -449,6 +462,10 @@ kcm-lookandfeel=
 kcm-users=
 powerdevilprofilesconfig=
 screenlocker=
+
+[thunderbird.desktop][Global Shortcuts]
+_launch=
+profile-manager-window=
 
 [vivaldi-stable.desktop][Global Shortcuts]
 _launch=
