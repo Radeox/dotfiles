@@ -11,19 +11,20 @@
       # NixOS commands
       nix-clean = "sudo nix-collect-garbage -d";
       nix-config = "cd /etc/nixos && vim configuration.nix";
-      nix-update = "sudo nixos-rebuild switch";
+      nix-update = "sudo nixos-rebuild switch --upgrade";
 
       # Aliases
       ".." = "cd .. && ls";
+      d = "lazydocker";
       f = "vifm";
       find = "fd";
+      g = "lazygit";
       ll = "ls -l";
       p = "ps aux | grep ";
       pr = "poetry run python";
       rgrep = "rg";
       sl = "ls";
       sudo = "sudo ";
-      tig = "lazygit";
       v = "vim";
       vim = "nvim";
 
@@ -34,7 +35,6 @@
       ls = "lsd";
 
       # Scripts
-      bt_manager = "bash ~/Sources/scripts/bluetooth_manager.sh";
       myip = "bash ~/Sources/scripts/my_ip.sh";
       yee = "python ~/Sources/Projects/TermYeeLight/manager.py";
     };

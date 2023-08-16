@@ -68,6 +68,7 @@
       fwupd
       gimp
       heroic
+      lazydocker
       lazygit
       libreoffice-fresh
       libsForQt5.kdeconnect-kde
@@ -309,17 +310,18 @@
   # Firewall configuration
   networking.firewall = {
     enable = true;
+    # Dev ports
     allowedTCPPorts = [ 8080 8082 9080 ];
+
+    # KDE Connect
     allowedTCPPortRanges = [{
       from = 1714;
       to = 1764;
-    } # KDE Connect
-      ];
+    }];
     allowedUDPPortRanges = [{
       from = 1714;
       to = 1764;
-    } # KDE Connect
-      ];
+    }];
   };
 
   # Set your time zone.
