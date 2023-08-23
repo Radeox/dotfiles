@@ -4,19 +4,19 @@ local formatting = null_ls.builtins.formatting
 local lint = null_ls.builtins.diagnostics
 
 local sources = {
-    -- Python
-    formatting.isort, formatting.black, -- Django
+    formatting.isort, formatting.black, -- Python
     formatting.djlint.with {
         filetypes = {"html", "htmldjango"},
         extra_args = {"--preserve-blank-lines"}
-    }, -- Javascript
-    formatting.prettier, -- CSS
-    formatting.stylelint, -- Yaml
-    lint.yamllint, -- Json
-    lint.jsonlint, -- Nix
-    formatting.nixfmt, -- Lua
-    formatting.lua_format, -- Shell
+    }, -- Django
+    formatting.prettier, -- Javascript
+    formatting.stylelint, -- CSS
+    lint.yamllint, -- Yaml
+    lint.jsonlint, -- Json
+    formatting.nixfmt, -- Nix
+    formatting.lua_format, -- Lua
     formatting.shfmt, lint.shellcheck
+    -- Shell
 }
 
 -- Setup formatting on save, you can use this as a callback

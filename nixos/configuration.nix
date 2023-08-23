@@ -65,22 +65,26 @@
       ffmpeg
       filezilla
       firefox
-      fwupd
       gimp
       heroic
+      imagemagick
+      inkscape
       lazydocker
       lazygit
       libreoffice-fresh
+      libsForQt5.kcolorchooser
       libsForQt5.kdeconnect-kde
       libsForQt5.ktorrent
       luajitPackages.luarocks
       lutris
       megasync
+      mongodb-compass
       mongodb-tools
       ngrok
       nixfmt
       nodejs_20
       openfortivpn
+      php82
       poetry
       prismlauncher
       remmina
@@ -311,7 +315,7 @@
   networking.firewall = {
     enable = true;
     # Dev ports
-    allowedTCPPorts = [ 8080 8082 9080 ];
+    allowedTCPPorts = [ 8080 8082 9003 9080 ];
 
     # KDE Connect
     allowedTCPPortRanges = [{
