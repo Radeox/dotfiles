@@ -7,35 +7,27 @@
   imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
   boot.initrd.availableKernelModules =
-    [ "nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
+    [ "xhci_pci" "thunderbolt" "nvme" "usbhid" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-amd" ];
-  boot.kernelParams = [ "module_blacklist=amdgpu" ];
+  boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/fd3ffffc-3351-4d71-b811-243655e983a2";
+    device = "/dev/disk/by-uuid/e72d3b8b-21f6-4c6b-8d34-d8c81058c11f";
     fsType = "ext4";
   };
 
-  boot.initrd.luks.devices."luks-7f78ada2-9e04-474f-8ca8-d7f33438dd58".device =
-    "/dev/disk/by-uuid/7f78ada2-9e04-474f-8ca8-d7f33438dd58";
+  boot.initrd.luks.devices."luks-fcad8b10-4e2c-4c06-a569-8c173f8bfe96".device =
+    "/dev/disk/by-uuid/fcad8b10-4e2c-4c06-a569-8c173f8bfe96";
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/4859-14ED";
+    device = "/dev/disk/by-uuid/2B82-40B3";
     fsType = "vfat";
   };
 
-  fileSystems."/home/radeox/Storage" = {
-    device = "/dev/disk/by-uuid/5BD22DF07CA8F1DA";
-    fsType = "ntfs";
-    options = [ "uid=1000" "gid=100" "dmask=022" "fmask=113" "umask=0022" ];
-  };
-
   fileSystems."/home/radeox/Vault" = {
-    device = "/dev/disk/by-uuid/4E3A2F9E4FF50795";
-    fsType = "ntfs";
-    options = [ "uid=1000" "gid=100" "dmask=022" "fmask=113" "umask=0022" ];
+    device = "/dev/disk/by-uuid/a42f6618-4d8c-4b16-8ce4-a5ed5d39ad42";
+    fsType = "ext4";
   };
 
   swapDevices = [ ];
@@ -45,10 +37,11 @@
   # still possible to use this option, but it's recommended to use it in conjunction
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
-  # networking.interfaces.eno1.useDHCP = lib.mkDefault true;
-  # networking.interfaces.wlp4s0.useDHCP = lib.mkDefault true;
+  # networking.interfaces.enp52s0.useDHCP = lib.mkDefault true;
+  # networking.interfaces.wlp0s20f3.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.amd.updateMicrocode =
+  # powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
+  hardware.cpu.intel.updateMicrocode =
     lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

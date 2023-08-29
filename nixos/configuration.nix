@@ -118,7 +118,6 @@
     gnumake
     htop
     linuxPackages_latest.xone
-    linuxPackages_latest.zenpower
     lsd
     neovim
     pciutils
@@ -184,16 +183,16 @@
 
       settings = {
         # CPU Govenor = schedutil
-        CPU_SCALING_GOVERNOR_ON_AC = "schedutil";
-        CPU_SCALING_GOVERNOR_ON_BAT = "schedutil";
+        CPU_SCALING_GOVERNOR_ON_AC = "performance";
+        CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
 
         # CPU frequency scaling (AC)
-        CPU_SCALING_MIN_FREQ_ON_AC = 1200000;
-        CPU_SCALING_MAX_FREQ_ON_AC = 3200000;
+        CPU_SCALING_MIN_FREQ_ON_AC = 400000;
+        CPU_SCALING_MAX_FREQ_ON_AC = 4600000;
 
         # CPU frequency scaling (BAT)
-        CPU_SCALING_MIN_FREQ_ON_BAT = 1200000;
-        CPU_SCALING_MAX_FREQ_ON_BAT = 1200000;
+        CPU_SCALING_MIN_FREQ_ON_BAT = 400000;
+        CPU_SCALING_MAX_FREQ_ON_BAT = 1800000;
 
         # Charge thresholds
         STOP_CHARGE_THRESH_BAT0 = 1;
@@ -303,7 +302,6 @@
       enable = true;
       driSupport = true;
       driSupport32Bit = true;
-
       extraPackages = with pkgs; [ nvidia-vaapi-driver vaapiVdpau ];
     };
 
