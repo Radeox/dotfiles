@@ -1,23 +1,13 @@
-{ pkgs, config, ... }: {
-  # GTK configuration
+{ pkgs, ... }: {
+  # GTK theme
   gtk = {
     enable = true;
 
-    font = {
-      name = "Roboto";
-      package = pkgs.roboto;
-    };
-
-    iconTheme = {
-      name = "Papirus-Dark";
-      package = pkgs.papirus-icon-theme;
-    };
-
     theme = {
-      name = "Catppuccin-Frappe-Compact-Mauve-dark";
+      name = "Catppuccin";
       package = pkgs.catppuccin-gtk.override {
-        accents = [ "mauve" ];
-        size = "compact";
+        accents = [ "lavender" ];
+        size = "standard";
         variant = "frappe";
       };
     };

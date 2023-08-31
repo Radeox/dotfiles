@@ -9,7 +9,7 @@
   # Bootloader configuration
   boot = {
     # Use latest xanmod kernel
-    kernelPackages = pkgs.linuxPackages_xanmod_latest;
+    kernelPackages = pkgs.linuxPackages_latest;
 
     loader.systemd-boot.enable = lib.mkForce false;
     lanzaboote = {
@@ -20,8 +20,16 @@
     # Setup keyfile
     initrd.secrets = { "/crypto_keyfile.bin" = null; };
 
+    # Use nvidia driver
+    initrd.kernelModules = [ "nvidia" ];
+
     # NTFS support
     supportedFilesystems = [ "ntfs" ];
+
+    extraModulePackages = [
+      config.boot.kernelPackages.lenovo-legion-module
+      config.boot.kernelPackages.nvidia_x11
+    ];
   };
 
   # Networking configuration
@@ -56,25 +64,26 @@
     isNormalUser = true;
     description = "Radeox";
     extraGroups = [ "networkmanager" "wheel" "docker" "vboxusers" ];
-    packages = with pkgs; [
+    packages = (with pkgs; [
       alacritty
       ansible
       anytype
       authenticator
       cargo
+      drill
       ffmpeg
       filezilla
       firefox
       gimp
+      gnome.gnome-tweaks
       heroic
+      home-manager
       imagemagick
       inkscape
+      killall
       lazydocker
       lazygit
       libreoffice-fresh
-      libsForQt5.kcolorchooser
-      libsForQt5.kdeconnect-kde
-      libsForQt5.ktorrent
       luajitPackages.luarocks
       lutris
       megasync
@@ -87,6 +96,7 @@
       php82
       poetry
       prismlauncher
+      qogir-icon-theme
       remmina
       rpi-imager
       spotify
@@ -97,9 +107,18 @@
       veracrypt
       vifm
       vlc
+      vorta
       vscode
       yuzu-mainline
-    ];
+    ]) ++ (with pkgs.gnomeExtensions; [
+      appindicator
+      clipboard-indicator
+      dash-to-dock
+      forge
+      gsconnect
+      replace-activities-label
+      user-themes
+    ]);
   };
 
   # System packages
@@ -126,7 +145,6 @@
     ripgrep
     sbctl
     unzip
-    vorta
     wayland-utils
     wget
     wl-clipboard
@@ -134,14 +152,28 @@
     zsh
   ];
 
+  # Exclude some Gnome packages
+  environment.gnome.excludePackages =
+    (with pkgs; [ gnome-console gnome-photos gnome-tour xterm ])
+    ++ (with pkgs.gnome; [
+      epiphany
+      geary
+      gedit
+      gnome-calendar
+      gnome-music
+      gnome-software
+      gnome-terminal
+      totem
+    ]);
+
   services = {
     xserver = {
       # Enable X11
       enable = true;
 
-      # Enable the KDE Plasma
-      displayManager.sddm.enable = true;
-      desktopManager.plasma5.enable = true;
+      # Enable Gnome
+      displayManager.gdm.enable = true;
+      desktopManager.gnome.enable = true;
 
       # Tell Wayland to use the nvidia driver
       videoDrivers = [ "nvidia" ];
@@ -205,9 +237,6 @@
     # Disable power profiles
     power-profiles-daemon.enable = false;
   };
-
-  # Flatpak portals
-  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 
   # Enable sound with pipewire
   sound.enable = true;
@@ -281,14 +310,14 @@
       # Modesetting is needed for most wayland compositors
       modesetting.enable = true;
 
+      # Enable power management
+      powerManagement.enable = true;
+
       # Don't use the open source version
       open = false;
 
       # Nvidia settings GUI
       nvidiaSettings = true;
-
-      # Enable power management
-      powerManagement.enable = true;
 
       # Driver version
       package = config.boot.kernelPackages.nvidiaPackages.latest;
@@ -352,6 +381,15 @@
       })
     ];
 
-  # Set wayland ozone backend
+  # Set Wayland ozone backend
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
+  # Nvidia prime offload
+  environment.sessionVariables.__NV_PRIME_RENDER_OFFLOAD = "1";
+  environment.sessionVariables.__GLX_VENDOR_LIBRARY_NAME = "nvidia";
+  environment.sessionVariables.__VK_LAYER_NV_optimus = "NVIDIA_only";
+  environment.sessionVariables.__NV_PRIME_RENDER_OFFLOAD_PROVIDER = "NVIDIA-G0";
+
+  # Hardware acceleration
+  environment.sessionVariables.VDPAU_DRIVER = "va_gl";
 }

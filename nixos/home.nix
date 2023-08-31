@@ -1,5 +1,6 @@
 { pkgs, ... }: {
-  imports = [ ./home.nix.d/alacritty.nix ./home.nix.d/zsh.nix ];
+  imports =
+    [ ./home.nix.d/alacritty.nix ./home.nix.d/gtk.nix ./home.nix.d/zsh.nix ];
 
   programs = {
     # Git Configuration
@@ -8,6 +9,7 @@
       userName = "Dawid Weglarz";
       userEmail = "dawid.weglarz95@gmail.com";
     };
+
   };
 
   # Home configuration
