@@ -99,6 +99,7 @@
       qogir-icon-theme
       remmina
       rpi-imager
+      scrcpy
       spotify
       steam
       telegram-desktop
@@ -114,7 +115,6 @@
       appindicator
       clipboard-indicator
       dash-to-dock
-      forge
       gsconnect
       replace-activities-label
       user-themes
@@ -139,6 +139,7 @@
     linuxPackages_latest.xone
     lsd
     neovim
+    noto-fonts
     pciutils
     python311
     python311Packages.pip
@@ -171,12 +172,15 @@
       # Enable X11
       enable = true;
 
-      # Enable Gnome
-      displayManager.gdm.enable = true;
-      desktopManager.gnome.enable = true;
-
-      # Tell Wayland to use the nvidia driver
+      # Use the nvidia driver
       videoDrivers = [ "nvidia" ];
+
+      # Enable Gnome
+      desktopManager.gnome.enable = true;
+      displayManager.gdm = {
+        enable = true;
+        wayland = true;
+      };
 
       # Configure keymap in X11
       layout = "us";
@@ -224,7 +228,7 @@
 
         # CPU frequency scaling (BAT)
         CPU_SCALING_MIN_FREQ_ON_BAT = 400000;
-        CPU_SCALING_MAX_FREQ_ON_BAT = 1800000;
+        CPU_SCALING_MAX_FREQ_ON_BAT = 1000000;
 
         # Charge thresholds
         STOP_CHARGE_THRESH_BAT0 = 1;
@@ -313,11 +317,11 @@
       # Enable power management
       powerManagement.enable = true;
 
-      # Don't use the open source version
+      # Use the open source version
       open = false;
 
       # Nvidia settings GUI
-      nvidiaSettings = true;
+      nvidiaSettings = false;
 
       # Driver version
       package = config.boot.kernelPackages.nvidiaPackages.latest;
@@ -331,7 +335,11 @@
       enable = true;
       driSupport = true;
       driSupport32Bit = true;
-      extraPackages = with pkgs; [ nvidia-vaapi-driver vaapiVdpau ];
+      extraPackages = with pkgs; [
+        libvdpau-va-gl
+        nvidia-vaapi-driver
+        vaapiVdpau
+      ];
     };
 
     # Enable the Xbox One driver
@@ -383,13 +391,4 @@
 
   # Set Wayland ozone backend
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
-
-  # Nvidia prime offload
-  environment.sessionVariables.__NV_PRIME_RENDER_OFFLOAD = "1";
-  environment.sessionVariables.__GLX_VENDOR_LIBRARY_NAME = "nvidia";
-  environment.sessionVariables.__VK_LAYER_NV_optimus = "NVIDIA_only";
-  environment.sessionVariables.__NV_PRIME_RENDER_OFFLOAD_PROVIDER = "NVIDIA-G0";
-
-  # Hardware acceleration
-  environment.sessionVariables.VDPAU_DRIVER = "va_gl";
 }
