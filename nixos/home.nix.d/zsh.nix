@@ -36,7 +36,6 @@
 
       # Scripts
       myip = "bash ~/Sources/scripts/my_ip.sh";
-      yee = "python ~/Sources/Projects/TermYeeLight/manager.py";
     };
 
     # Oh My ZSH Configuration

@@ -114,6 +114,7 @@
     ]) ++ (with pkgs.gnomeExtensions; [
       appindicator
       clipboard-indicator
+      color-picker
       dash-to-dock
       gsconnect
       replace-activities-label
