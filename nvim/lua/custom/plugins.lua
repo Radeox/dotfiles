@@ -1,7 +1,11 @@
 return {
     -- Copilot
-    {"github/copilot.vim", lazy = false}, -- Suda
-    {"lambdalisue/suda.vim", lazy = false}, -- Nvterm (terminal) override
+    {"github/copilot.vim", lazy = false},
+
+    -- Suda
+    {"lambdalisue/suda.vim", lazy = false},
+
+    -- Nvterm (terminal) override
     {
         "NvChad/nvterm",
         opts = function()
@@ -18,7 +22,9 @@ return {
                 }
             }
         end
-    }, -- LSP
+    },
+
+    -- LSP
     {
         "neovim/nvim-lspconfig",
 
@@ -31,7 +37,9 @@ return {
             require "plugins.configs.lspconfig"
             require "custom.configs.lspconfig"
         end
-    }, -- Nvim-cmp (completion) override
+    },
+
+  -- Nvim-cmp (completion) override
     {
         "hrsh7th/nvim-cmp",
         opts = function()
@@ -64,27 +72,56 @@ return {
                 }
             }
         end
-    }, -- Mason default packages
+    },
+
+    -- Mason default packages
     {
         "williamboman/mason.nvim",
         opts = {
             ensure_installed = {
                 -- Python
-                "black", "isort", "pyright", "python-lsp-server", -- Django
-                "djlint", -- Javascript
-                "prettier", "typescript-language-server", -- CSS
-                "stylelint-lsp", -- Json
-                "json-lsp", "jsonlint", -- Yaml
-                "yamllint", -- Markdown
-                "markdownlint", -- Tailwind
-                "tailwindcss-language-server", -- PHP
-                "intelephense", -- Webdev
-                "css-lsp", "emmet-ls", "html-lsp", -- Docker
-                "docker-compose-language-service", "dockerfile-language-server",
+                "black",
+                "isort",
+                "pyright",
+                "python-lsp-server",
+
+                -- Django
+                "djlint",
+        
+                -- Javascript
+                "prettier",
+                "typescript-language-server",
+
+                -- CSS
+                "stylelint-lsp",
+        
+                -- JSON
+                "json-lsp", "jsonlint",
+        
+                -- YAML
+                "yamllint",
+        
+                -- Markdown
+                "markdownlint",
+        
+                -- Tailwind
+                "tailwindcss-language-server",
+
+                -- PHP
+                "intelephense",
+
+                -- Webdev
+                "css-lsp",
+                "emmet-ls",
+                "html-lsp",
+
+                -- Docker
+                "docker-compose-language-service",
+                "dockerfile-language-server",
 
                 -- Shell
-                "shfmt", "shellcheck", -- Lua
-                "lua-language-server", "luaformatter"
+                "shfmt",
+                "shellcheck"
             }
         }
     }
