@@ -8,8 +8,8 @@
 
   # Bootloader configuration
   boot = {
-    # Use latest xanmod kernel
-    kernelPackages = pkgs.linuxPackages_latest;
+    # Use latest kernel
+    kernelPackages = pkgs.linuxPackages_xanmod_latest;
 
     loader.systemd-boot.enable = lib.mkForce false;
     lanzaboote = {
@@ -26,10 +26,7 @@
     # NTFS support
     supportedFilesystems = [ "ntfs" ];
 
-    extraModulePackages = [
-      config.boot.kernelPackages.lenovo-legion-module
-      config.boot.kernelPackages.nvidia_x11
-    ];
+    extraModulePackages = [ config.boot.kernelPackages.lenovo-legion-module ];
   };
 
   # Networking configuration
@@ -69,13 +66,20 @@
       ansible
       anytype
       authenticator
+      autojump
+      bat
       cargo
+      discord
       drill
+      du-dust
+      duf
+      fd
       ffmpeg
       filezilla
       firefox
       gimp
       gnome.gnome-tweaks
+      google-chrome
       heroic
       home-manager
       imagemagick
@@ -84,7 +88,7 @@
       lazydocker
       lazygit
       libreoffice-fresh
-      luajitPackages.luarocks
+      lsd
       lutris
       megasync
       mongodb-compass
@@ -104,7 +108,6 @@
       steam
       telegram-desktop
       thunderbird
-      tree-sitter
       veracrypt
       vifm
       vlc
@@ -116,7 +119,9 @@
       clipboard-indicator
       color-picker
       dash-to-dock
+      espresso
       gsconnect
+      quick-settings-tweaker
       replace-activities-label
       user-themes
     ]);
@@ -124,22 +129,15 @@
 
   # System packages
   environment.systemPackages = with pkgs; [
-    autojump
-    bat
     cifs-utils
     cmake
     docker
     docker-compose
-    du-dust
-    duf
-    fd
     gcc
     git
     gnumake
     htop
-    linuxPackages_latest.xone
-    lsd
-    neovim
+    linuxPackages_xanmod_latest.xone
     noto-fonts
     pciutils
     python311
@@ -156,7 +154,7 @@
 
   # Exclude some Gnome packages
   environment.gnome.excludePackages =
-    (with pkgs; [ gnome-console gnome-photos gnome-tour xterm ])
+    (with pkgs; [ gnome-console gnome-photos gnome-tour ])
     ++ (with pkgs.gnome; [
       epiphany
       geary
@@ -189,6 +187,9 @@
 
       # Enable touchpad support
       libinput.enable = true;
+
+      # Remove xterm from gnome-terminal
+      excludePackages = [ pkgs.xterm ];
     };
 
     # Enable flatpak
@@ -229,7 +230,7 @@
 
         # CPU frequency scaling (BAT)
         CPU_SCALING_MIN_FREQ_ON_BAT = 400000;
-        CPU_SCALING_MAX_FREQ_ON_BAT = 1000000;
+        CPU_SCALING_MAX_FREQ_ON_BAT = 1200000;
 
         # Charge thresholds
         STOP_CHARGE_THRESH_BAT0 = 1;
@@ -253,8 +254,14 @@
     zsh.enable = true;
 
     # Neovim as default editor
-    neovim.enable = true;
-    neovim.defaultEditor = true;
+    neovim = {
+      enable = true;
+      defaultEditor = true;
+
+      # Alias to neovim
+      viAlias = true;
+      vimAlias = true;
+    };
 
     # Configure Steam
     steam = {
@@ -319,13 +326,16 @@
       powerManagement.enable = true;
 
       # Use the open source version
-      open = false;
+      open = true;
 
       # Nvidia settings GUI
       nvidiaSettings = false;
 
+      # Should fix tearing issues
+      forceFullCompositionPipeline = true;
+
       # Driver version
-      package = config.boot.kernelPackages.nvidiaPackages.latest;
+      package = config.boot.kernelPackages.nvidiaPackages.production;
     };
 
     # Enable bluetooth
@@ -350,6 +360,7 @@
   # Firewall configuration
   networking.firewall = {
     enable = true;
+
     # Dev ports
     allowedTCPPorts = [ 8080 8082 9003 9080 ];
 

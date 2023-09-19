@@ -10,7 +10,7 @@
     shellAliases = {
       # NixOS commands
       nix-clean = "sudo nix-collect-garbage -d";
-      nix-config = "cd /etc/nixos && vim configuration.nix";
+      nix-config = "cd /etc/nixos && nvim configuration.nix";
       nix-update = "sudo nixos-rebuild switch --upgrade";
 
       # Aliases
@@ -26,7 +26,6 @@
       sl = "ls";
       sudo = "sudo ";
       v = "vim";
-      vim = "nvim";
 
       # Basic commands
       cat = "bat -p";

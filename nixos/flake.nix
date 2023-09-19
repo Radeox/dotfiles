@@ -5,12 +5,14 @@
     home-manager.url = "github:nix-community/home-manager";
   };
 
-  # Lanzaboote is a tool to sign NixOS builds for secure boot
   outputs = { self, nixpkgs, lanzaboote, home-manager, ... }: {
     nixosConfigurations."Radeox-Nix" = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
+        # Lanzaboote is a tool to sign NixOS builds for secure boot
         lanzaboote.nixosModules.lanzaboote
+
+        # Home manager is used to generate dotfiles automatically
         home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
