@@ -8,7 +8,7 @@ let
     variant = "macchiato";
   };
 in {
-  # gtk settings
+  # GTK settings
   gtk = {
     enable = true;
     theme = {

@@ -9,7 +9,7 @@
 
     shellAliases = {
       # NixOS commands
-      nix-clean = "sudo nix-collect-garbage -d";
+      nix-clean = "sudo nix-collect-garbage -d && sudo nixos-rebuild boot";
       nix-config = "cd /etc/nixos && nvim configuration.nix";
       nix-update = "sudo nixos-rebuild switch --upgrade";
 

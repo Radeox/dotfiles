@@ -11,7 +11,10 @@
     # Use latest kernel
     kernelPackages = pkgs.linuxPackages_xanmod_latest;
 
+    # Enable secure boot
+    bootspec.enable = true;
     loader.systemd-boot.enable = lib.mkForce false;
+
     lanzaboote = {
       enable = true;
       pkiBundle = "/etc/secureboot";
@@ -60,7 +63,7 @@
   users.users.radeox = {
     isNormalUser = true;
     description = "Radeox";
-    extraGroups = [ "networkmanager" "wheel" "docker" "vboxusers" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = (with pkgs; [
       alacritty
       ansible
@@ -93,6 +96,7 @@
       megasync
       mongodb-compass
       mongodb-tools
+      newsflash
       ngrok
       nixfmt
       nodejs_20
@@ -100,6 +104,7 @@
       php82
       poetry
       prismlauncher
+      protonup-qt
       qogir-icon-theme
       remmina
       rpi-imager
@@ -108,6 +113,7 @@
       steam
       telegram-desktop
       thunderbird
+      tuba
       veracrypt
       vifm
       vlc
@@ -122,7 +128,6 @@
       espresso
       gsconnect
       quick-settings-tweaker
-      replace-activities-label
       user-themes
     ]);
   };
@@ -176,9 +181,11 @@
 
       # Enable Gnome
       desktopManager.gnome.enable = true;
-      displayManager.gdm = {
-        enable = true;
-        wayland = true;
+      displayManager = {
+        gdm = {
+          enable = true;
+          wayland = true;
+        };
       };
 
       # Configure keymap in X11
@@ -299,7 +306,7 @@
     # this value at the release version of the first install of this system.
     # Before changing this value read the documentation for this option
     # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-    stateVersion = "23.05"; # Did you read the comment?
+    stateVersion = "23.05";
   };
 
   virtualisation = {
@@ -308,12 +315,6 @@
       enable = true;
       enableNvidia = true;
       liveRestore = false;
-    };
-
-    # Enable virtualbox
-    virtualbox.host = {
-      enable = true;
-      enableExtensionPack = true;
     };
   };
 
@@ -325,14 +326,11 @@
       # Enable power management
       powerManagement.enable = true;
 
-      # Use the open source version
-      open = true;
+      # Don't use the open source version
+      open = false;
 
       # Nvidia settings GUI
       nvidiaSettings = false;
-
-      # Should fix tearing issues
-      forceFullCompositionPipeline = true;
 
       # Driver version
       package = config.boot.kernelPackages.nvidiaPackages.production;
@@ -394,7 +392,7 @@
   };
 
   # Configure extra fonts
-  fonts.fonts = with pkgs;
+  fonts.packages = with pkgs;
     [
       (nerdfonts.override {
         fonts = [ "FiraCode" "DroidSansMono" "JetBrainsMono" ];

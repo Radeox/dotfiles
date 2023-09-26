@@ -1,8 +1,8 @@
 {
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     lanzaboote.url = "github:nix-community/lanzaboote";
-    home-manager.url = "github:nix-community/home-manager";
+    home-manager.url = "github:nix-community/home-manager/master";
   };
 
   outputs = { self, nixpkgs, lanzaboote, home-manager, ... }: {

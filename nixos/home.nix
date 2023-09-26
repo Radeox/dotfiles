@@ -2,6 +2,7 @@
   imports = [
     ./home.nix.d/alacritty.nix
     ./home.nix.d/gtk.nix
+    ./home.nix.d/helix.nix
     ./home.nix.d/zsh.nix
   ];
 
@@ -12,12 +13,15 @@
       userName = "Dawid Weglarz";
       userEmail = "dawid.weglarz95@gmail.com";
     };
+
+    # Enable Home Manager
+    home-manager.enable = true;
   };
 
   # Home configuration
   home = {
     username = "radeox";
     homeDirectory = "/home/radeox";
-    stateVersion = "23.05";
+    stateVersion = "23.11";
   };
 }
