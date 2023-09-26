@@ -26,8 +26,9 @@
   };
 
   fileSystems."/home/radeox/Vault" = {
-    device = "/dev/disk/by-uuid/a42f6618-4d8c-4b16-8ce4-a5ed5d39ad42";
-    fsType = "ext4";
+    device = "/dev/disk/by-uuid/380A89A23839E500";
+    fsType = "ntfs";
+    options = [ "uid=1000" "gid=100" "dmask=022" "fmask=113" "umask=0022" ];
   };
 
   swapDevices = [ ];
