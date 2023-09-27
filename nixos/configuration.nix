@@ -79,10 +79,10 @@
       fd
       ffmpeg
       filezilla
-      firefox
       gimp
       gnome.gnome-tweaks
       google-chrome
+      guake
       heroic
       home-manager
       imagemagick
@@ -121,14 +121,22 @@
       vscode
       yuzu-mainline
     ]) ++ (with pkgs.gnomeExtensions; [
+      advanced-alttab-window-switcher
       appindicator
-      clipboard-indicator
       color-picker
       dash-to-dock
       espresso
+      focus-changer
       gsconnect
+      pano
       quick-settings-tweaker
       user-themes
+    ]) ++ (with pkgs.nodePackages; [
+      bash-language-server
+      intelephense
+      tailwindcss
+      typescript-language-server
+      vscode-langservers-extracted
     ]);
   };
 
