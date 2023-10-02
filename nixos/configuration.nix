@@ -63,7 +63,7 @@
   users.users.radeox = {
     isNormalUser = true;
     description = "Radeox";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = [ "docker" "networkmanager" "video" "wheel" ];
     packages = (with pkgs; [
       alacritty
       ansible
@@ -79,10 +79,9 @@
       fd
       ffmpeg
       filezilla
+      firefox
       gimp
       gnome.gnome-tweaks
-      google-chrome
-      guake
       heroic
       home-manager
       imagemagick
@@ -146,6 +145,7 @@
     cmake
     docker
     docker-compose
+    egl-wayland
     gcc
     git
     gnumake
@@ -338,10 +338,10 @@
       open = false;
 
       # Nvidia settings GUI
-      nvidiaSettings = false;
+      nvidiaSettings = true;
 
       # Driver version
-      package = config.boot.kernelPackages.nvidiaPackages.production;
+      package = config.boot.kernelPackages.nvidiaPackages.beta;
     };
 
     # Enable bluetooth
@@ -351,9 +351,9 @@
     opengl = {
       enable = true;
       driSupport = true;
-      driSupport32Bit = true;
+
       extraPackages = with pkgs; [
-        libvdpau-va-gl
+        libva1
         nvidia-vaapi-driver
         vaapiVdpau
       ];
