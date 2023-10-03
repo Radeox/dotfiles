@@ -65,58 +65,25 @@
     description = "Radeox";
     extraGroups = [ "docker" "networkmanager" "video" "wheel" ];
     packages = (with pkgs; [
-      alacritty
-      ansible
       anytype
       authenticator
-      autojump
-      bat
-      cargo
       discord
-      drill
-      du-dust
-      duf
-      fd
-      ffmpeg
-      filezilla
-      firefox
-      gimp
-      gnome.gnome-tweaks
       heroic
-      home-manager
-      imagemagick
-      inkscape
-      killall
-      lazydocker
-      lazygit
-      libreoffice-fresh
-      lsd
       lutris
       megasync
-      mongodb-compass
       mongodb-tools
       newsflash
       ngrok
-      nixfmt
-      nodejs_20
       openfortivpn
-      php82
-      poetry
       prismlauncher
       protonup-qt
-      qogir-icon-theme
       remmina
       rpi-imager
-      scrcpy
       spotify
       steam
-      telegram-desktop
       thunderbird
       tuba
       veracrypt
-      vifm
-      vlc
-      vorta
       vscode
       yuzu-mainline
     ]) ++ (with pkgs.gnomeExtensions; [
@@ -130,40 +97,74 @@
       pano
       quick-settings-tweaker
       user-themes
-    ]) ++ (with pkgs.nodePackages; [
+    ]);
+  };
+
+  # System packages
+  environment.systemPackages = with pkgs;
+    [
+      alacritty
+      ansible
+      autojump
+      bat
+      cargo
+      cifs-utils
+      cmake
+      docker
+      docker-compose
+      drill
+      du-dust
+      duf
+      egl-wayland
+      fd
+      ffmpeg
+      filezilla
+      firefox
+      gcc
+      gimp
+      git
+      gnome.gnome-tweaks
+      gnumake
+      home-manager
+      htop
+      imagemagick
+      inkscape
+      killall
+      lazydocker
+      lazygit
+      libreoffice-fresh
+      linuxPackages_xanmod_latest.xone
+      lsd
+      nil
+      nixfmt
+      nodejs_20
+      noto-fonts
+      pciutils
+      php82
+      poetry
+      python311
+      python311Packages.pip
+      qogir-icon-theme
+      ripgrep
+      sbctl
+      telegram-desktop
+      unzip
+      vifm
+      vlc
+      vorta
+      wayland-utils
+      wget
+      wl-clipboard
+      yaml-language-server
+      zip
+      zsh
+    ] ++ (with pkgs.nodePackages; [
       bash-language-server
       intelephense
       tailwindcss
       typescript-language-server
       vscode-langservers-extracted
     ]);
-  };
-
-  # System packages
-  environment.systemPackages = with pkgs; [
-    cifs-utils
-    cmake
-    docker
-    docker-compose
-    egl-wayland
-    gcc
-    git
-    gnumake
-    htop
-    linuxPackages_xanmod_latest.xone
-    noto-fonts
-    pciutils
-    python311
-    python311Packages.pip
-    ripgrep
-    sbctl
-    unzip
-    wayland-utils
-    wget
-    wl-clipboard
-    zip
-    zsh
-  ];
 
   # Exclude some Gnome packages
   environment.gnome.excludePackages =
@@ -352,11 +353,7 @@
       enable = true;
       driSupport = true;
 
-      extraPackages = with pkgs; [
-        libva1
-        nvidia-vaapi-driver
-        vaapiVdpau
-      ];
+      extraPackages = with pkgs; [ libva1 nvidia-vaapi-driver vaapiVdpau ];
     };
 
     # Enable the Xbox One driver
