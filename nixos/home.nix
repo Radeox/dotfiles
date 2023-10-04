@@ -1,8 +1,8 @@
-{ pkgs, ... }: {
+{ ... }: {
   imports = [
     ./home.nix.d/alacritty.nix
     ./home.nix.d/gtk.nix
-    ./home.nix.d/helix.nix
+    ./home.nix.d/nvim.nix
     ./home.nix.d/zsh.nix
   ];
 
