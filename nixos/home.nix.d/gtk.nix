@@ -1,11 +1,11 @@
 { pkgs, ... }:
 let
-  catppuccin_name = "Catppuccin-Macchiato-Standard-Green-dark";
+  catppuccin_name = "Catppuccin-Mocha-Standard-Lavender-dark";
   catppuccin = pkgs.catppuccin-gtk.override {
-    accents = [ "green" ];
+    accents = [ "lavender" ];
     size = "standard";
     tweaks = [ "normal" ];
-    variant = "macchiato";
+    variant = "mocha";
   };
 in {
   # GTK settings

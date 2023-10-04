@@ -110,6 +110,7 @@
       cargo
       cifs-utils
       cmake
+      code-minimap
       docker
       docker-compose
       drill
@@ -148,6 +149,7 @@
       ripgrep
       sbctl
       telegram-desktop
+      tree-sitter
       unzip
       vifm
       vlc
@@ -158,13 +160,7 @@
       yaml-language-server
       zip
       zsh
-    ] ++ (with pkgs.nodePackages; [
-      bash-language-server
-      intelephense
-      tailwindcss
-      typescript-language-server
-      vscode-langservers-extracted
-    ]);
+    ];
 
   # Exclude some Gnome packages
   environment.gnome.excludePackages =
@@ -268,16 +264,6 @@
   programs = {
     # Enable ZSH
     zsh.enable = true;
-
-    # Neovim as default editor
-    neovim = {
-      enable = true;
-      defaultEditor = true;
-
-      # Alias to neovim
-      viAlias = true;
-      vimAlias = true;
-    };
 
     # Configure Steam
     steam = {
@@ -406,4 +392,7 @@
 
   # Set Wayland ozone backend
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
+  # Add ./local/bin to PATH
+  environment.localBinInPath = true;
 }

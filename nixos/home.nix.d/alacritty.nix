@@ -47,85 +47,95 @@
       # Colors (Catpuccin Macchiato - Green)
       colors = {
         primary = {
-          background = "#2A363B";
-          foreground = "#C3E88D";
-          dim_foreground = "#C3E88D";
-          bright_foreground = "#C3E88D";
+          background = "#1E1E2E";
+          foreground = "#CDD6F4";
+
+          dim_foreground = "#CDD6F4";
+          bright_foreground = "#CDD6F4";
         };
+
         cursor = {
-          text = "#2A363B";
-          cursor = "#C3E88D";
+          text = "#1E1E2E";
+          cursor = "#F5E0DC";
         };
+
         vi_mode_cursor = {
-          text = "#2A363B";
-          cursor = "#C3E88D";
+          text = "#1E1E2E";
+          cursor = "#B4BEFE";
         };
+
         search = {
           matches = {
-            foreground = "#2A363B";
-            background = "#A5ADCE";
+            foreground = "#1E1E2E";
+            background = "#A6ADC8";
           };
           focused_match = {
-            foreground = "#2A363B";
-            background = "#A6D189";
+            foreground = "#1E1E2E";
+            background = "#A6E3A1";
           };
           footer_bar = {
-            foreground = "#2A363B";
-            background = "#A5ADCE";
+            foreground = "#1E1E2E";
+            background = "#A6ADC8";
           };
         };
+
         hints = {
           start = {
-            foreground = "#2A363B";
-            background = "#E5C890";
+            foreground = "#1E1E2E";
+            background = "#F9E2AF";
           };
           end = {
-            foreground = "#2A363B";
-            background = "#A5ADCE";
+            foreground = "#1E1E2E";
+            background = "#A6ADC8";
           };
         };
+
         selection = {
-          text = "#2A363B";
-          background = "#F2D5CF";
+          text = "#1E1E2E";
+          background = "#F5E0DC";
         };
+
         normal = {
-          black = "#1B2B34";
-          red = "#EC5f67";
-          green = "#99C794";
-          yellow = "#FAC863";
-          blue = "#6699CC";
-          magenta = "#C594C5";
-          cyan = "#5FB3B3";
-          white = "#C7C7C7";
+          black = "#45475A";
+          red = "#F38BA8";
+          green = "#A6E3A1";
+          yellow = "#F9E2AF";
+          blue = "#89B4FA";
+          magenta = "#F5C2E7";
+          cyan = "#94E2D5";
+          white = "#BAC2DE";
         };
+
         bright = {
-          black = "#405B67";
-          red = "#D08770";
-          green = "#A3BE8C";
-          yellow = "#EBCB8B";
-          blue = "#88C0D0";
-          magenta = "#C594C5";
-          cyan = "#5FB3B3";
-          white = "#D0D0D0";
+          black = "#585B70";
+          red = "#F38BA8";
+          green = "#A6E3A1";
+          yellow = "#F9E2AF";
+          blue = "#89B4FA";
+          magenta = "#F5C2E7";
+          cyan = "#94E2D5";
+          white = "#A6ADC8";
         };
+
         dim = {
-          black = "#1B2B34";
-          red = "#EC5f67";
-          green = "#99C794";
-          yellow = "#FAC863";
-          blue = "#6699CC";
-          magenta = "#C594C5";
-          cyan = "#5FB3B3";
-          white = "#C7C7C7";
+          black = "#45475A";
+          red = "#F38BA8";
+          green = "#A6E3A1";
+          yellow = "#F9E2AF";
+          blue = "#89B4FA";
+          magenta = "#F5C2E7";
+          cyan = "#94E2D5";
+          white = "#BAC2DE";
         };
+
         indexed_colors = [
           {
             index = 16;
-            color = "#EF9F76";
+            color = "#FAB387";
           }
           {
             index = 17;
-            color = "#F2D5CF";
+            color = "#F5E0DC";
           }
         ];
       };
