@@ -3,8 +3,8 @@
 ## NixOS ##
 cp -r /etc/nixos .
 
-## Nvchad ##
-rm -r nvim/lua/custom && cp -r ~/.config/nvim/lua/custom nvim/lua/
+## LunarVim ##
+rm -r lvim && cp -r ~/.config/lvim . && rm lvim/lazy-lock.json
 
 ## Vifm ##
 rm -r vifm && cp -r ~/.config/vifm . && rm vifm/vifminfo.json
