@@ -41,43 +41,51 @@ lvim.builtin.terminal.open_mapping = "<C-t>"
 -- Plugins --
 
 lvim.plugins = {
-  -- Catppuccin theme
-  { 
-    "catppuccin/nvim", name = "catppuccin",
-    opts = {
-      flavour = "mocha",
+    -- Copilot
+     {
+        "zbirenbaum/copilot-cmp",
+        event = "InsertEnter",
+        dependencies = { "zbirenbaum/copilot.lua" },
+        config = function()
+            vim.defer_fn(function()
+                require("copilot").setup()
+                require("copilot_cmp").setup()
+            end, 100)
+        end,
     },
-  },
 
-  -- Bracket rainbow
-  {
-    "mrjones2014/nvim-ts-rainbow",
-  },
+    -- Catppuccin theme
+    {
+        "catppuccin/nvim", name = "catppuccin",
+        opts = {
+            flavour = "mocha",
+        },
+    },
+
+    -- Bracket rainbow
+    {
+        "mrjones2014/nvim-ts-rainbow",
+    },
+
+    -- Poetry virtual env
+    {
+        "petobens/poet-v",
+        init = function()
+            vim.g.poetv_auto_activate = 1
+        end
+    },
+
+    -- Minimap!
+    {
+        'wfxr/minimap.vim',
+        build = "cargo install --locked code-minimap",
+        init = function()
+            vim.g.minimap_width = 10
+            vim.g.minimap_auto_start = 1
+            vim.g.minimap_auto_start_win_enter = 1
+        end
+    },
 }
-
--- Copilot
-table.insert(lvim.plugins, {
-    "zbirenbaum/copilot-cmp",
-    event = "InsertEnter",
-    dependencies = { "zbirenbaum/copilot.lua" },
-    config = function()
-        vim.defer_fn(function()
-            require("copilot").setup()
-            require("copilot_cmp").setup()
-        end, 100)
-    end,
-})
-
--- Minimap!
-table.insert(lvim.plugins, {
-    'wfxr/minimap.vim',
-    build = "cargo install --locked code-minimap",
-    init = function()
-        vim.g.minimap_width = 10
-        vim.g.minimap_auto_start = 1
-        vim.g.minimap_auto_start_win_enter = 1
-    end
-})
 
 -- Plugin specific configs
 lvim.builtin.treesitter.rainbow.enable = true
@@ -92,3 +100,27 @@ vim.opt.tabstop = 4
 
 -- Default theme
 lvim.colorscheme = "catppuccin-mocha"
+
+-- LSP --
+
+-- Setup formatters
+local formatters = require "lvim.lsp.null-ls.formatters"
+formatters.setup {
+    -- Python
+    { name = "black" },
+
+    -- SASS
+    { name = "prettier" },
+}
+
+-- Setup linters
+local linters = require "lvim.lsp.null-ls.linters"
+linters.setup {
+    -- Python
+    { 
+        command = "flake8",
+        args= {
+            filetypes = { "python" }
+        }
+    }
+}
