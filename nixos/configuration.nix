@@ -28,8 +28,6 @@
 
     # NTFS support
     supportedFilesystems = [ "ntfs" ];
-
-    extraModulePackages = [ config.boot.kernelPackages.lenovo-legion-module ];
   };
 
   # Networking configuration
@@ -45,16 +43,6 @@
   nixpkgs.config.allowUnfree = true;
 
   nix = {
-    # Automatic Garbage Collection
-    gc = {
-      automatic = true;
-      dates = "daily";
-      options = "--delete-older-than 7d";
-    };
-
-    # Optimize store
-    settings.auto-optimise-store = true;
-
     # Enable flakes
     settings.experimental-features = [ "nix-command" "flakes" ];
   };
@@ -72,7 +60,6 @@
       lutris
       megasync
       mongodb-tools
-      newsflash
       ngrok
       openfortivpn
       prismlauncher
@@ -82,7 +69,6 @@
       spotify
       steam
       thunderbird
-      tuba
       veracrypt
       vscode
       yuzu-mainline
@@ -101,66 +87,66 @@
   };
 
   # System packages
-  environment.systemPackages = with pkgs;
-    [
-      alacritty
-      ansible
-      autojump
-      bat
-      cargo
-      cifs-utils
-      cmake
-      code-minimap
-      docker
-      docker-compose
-      drill
-      du-dust
-      duf
-      egl-wayland
-      fd
-      ffmpeg
-      filezilla
-      firefox
-      gcc
-      gimp
-      git
-      gnome.gnome-tweaks
-      gnumake
-      home-manager
-      htop
-      imagemagick
-      inkscape
-      killall
-      lazydocker
-      lazygit
-      libreoffice-fresh
-      linuxPackages_xanmod_latest.xone
-      lsd
-      nil
-      nixfmt
-      nodejs_20
-      noto-fonts
-      pciutils
-      php82
-      poetry
-      python311
-      python311Packages.pip
-      qogir-icon-theme
-      ripgrep
-      sbctl
-      telegram-desktop
-      tree-sitter
-      unzip
-      vifm
-      vlc
-      vorta
-      wayland-utils
-      wget
-      wl-clipboard
-      yaml-language-server
-      zip
-      zsh
-    ];
+  environment.systemPackages = with pkgs; [
+    alacritty
+    ansible
+    autojump
+    bat
+    cargo
+    catppuccin-gtk
+    cifs-utils
+    cmake
+    code-minimap
+    docker
+    docker-compose
+    drill
+    du-dust
+    duf
+    egl-wayland
+    fd
+    ffmpeg
+    filezilla
+    firefox
+    gcc
+    gimp
+    git
+    gnome.gnome-tweaks
+    gnumake
+    home-manager
+    htop
+    imagemagick
+    inkscape
+    killall
+    lazydocker
+    lazygit
+    libreoffice-fresh
+    linuxPackages_xanmod_latest.xone
+    lsd
+    nil
+    nixfmt
+    nodejs_20
+    noto-fonts
+    pciutils
+    php82
+    poetry
+    python311
+    python311Packages.ipython
+    qogir-icon-theme
+    ripgrep
+    sbctl
+    telegram-desktop
+    tree-sitter
+    unzip
+    vifm
+    vlc
+    vorta
+    wayland-utils
+    wget
+    wl-clipboard
+    yaml-language-server
+    zip
+    zsh
+  ];
 
   # Exclude some Gnome packages
   environment.gnome.excludePackages =
@@ -254,6 +240,9 @@
 
     # Disable power profiles
     power-profiles-daemon.enable = false;
+
+    # Enable firmware updates
+    fwupd.enable = true;
   };
 
   # Enable sound with pipewire
@@ -284,9 +273,6 @@
   environment.shells = with pkgs; [ zsh ];
 
   system = {
-    # Auto system update
-    autoUpgrade = { enable = true; };
-
     # Pretty rebuild messages
     activationScripts.diff = {
       supportsDryActivation = true;
@@ -383,12 +369,11 @@
   };
 
   # Configure extra fonts
-  fonts.packages = with pkgs;
-    [
-      (nerdfonts.override {
-        fonts = [ "FiraCode" "DroidSansMono" "JetBrainsMono" ];
-      })
-    ];
+  fonts.fonts = with pkgs; [
+    (nerdfonts.override {
+      fonts = [ "FiraCode" "DroidSansMono" "JetBrainsMono" ];
+    })
+  ];
 
   # Set Wayland ozone backend
   environment.sessionVariables.NIXOS_OZONE_WL = "1";

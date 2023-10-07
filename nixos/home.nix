@@ -1,7 +1,6 @@
 { ... }: {
   imports = [
     ./home.nix.d/alacritty.nix
-    ./home.nix.d/gtk.nix
     ./home.nix.d/nvim.nix
     ./home.nix.d/zsh.nix
   ];
@@ -22,6 +21,6 @@
   home = {
     username = "radeox";
     homeDirectory = "/home/radeox";
-    stateVersion = "23.11";
+    stateVersion = "23.05";
   };
 }

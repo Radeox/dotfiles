@@ -1,11 +1,11 @@
 {
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    lanzaboote.url = "github:nix-community/lanzaboote";
-    home-manager.url = "github:nix-community/home-manager/master";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.05";
+    lanzaboote.url = "github:Nix-Community/lanzaboote";
+    home-manager.url = "github:Nix-Community/home-manager/release-23.05";
   };
 
-  outputs = { self, nixpkgs, lanzaboote, home-manager, ... }: {
+  outputs = { nixpkgs, lanzaboote, home-manager, ... }: {
     nixosConfigurations."Radeox-Nix" = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
@@ -19,6 +19,8 @@
           home-manager.useUserPackages = true;
           home-manager.users.radeox = import ./home.nix;
         }
+
+        # My NixOS configuration
         ./configuration.nix
       ];
     };
