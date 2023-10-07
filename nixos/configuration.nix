@@ -96,7 +96,6 @@
     catppuccin-gtk
     cifs-utils
     cmake
-    code-minimap
     docker
     docker-compose
     drill

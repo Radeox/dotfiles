@@ -67,22 +67,27 @@ lvim.plugins = {
         "mrjones2014/nvim-ts-rainbow",
     },
 
+    -- Colorizer
+    {
+        "norcalli/nvim-colorizer.lua",
+        config = function()
+            require("colorizer").setup({ "css", "scss", "html", "javascript" }, {
+                RGB = true,
+                RRGGBB = true,
+                RRGGBBAA = true,
+                rgb_fn = true,
+                hsl_fn = true,
+                css = true,
+                css_fn = true,
+            })
+        end,
+    },
+
     -- Poetry virtual env
     {
         "petobens/poet-v",
         init = function()
             vim.g.poetv_auto_activate = 1
-        end
-    },
-
-    -- Minimap!
-    {
-        'wfxr/minimap.vim',
-        build = "cargo install --locked code-minimap",
-        init = function()
-            vim.g.minimap_width = 10
-            vim.g.minimap_auto_start = 1
-            vim.g.minimap_auto_start_win_enter = 1
         end
     },
 }
@@ -95,8 +100,8 @@ lvim.format_on_save.enabled = true
 
 -- Use spaces instead of tabs
 vim.opt.expandtab = true
-vim.opt.shiftwidth = 4
-vim.opt.tabstop = 4
+vim.opt.shiftwidth = 2
+vim.opt.tabstop = 2
 
 -- Default theme
 lvim.colorscheme = "catppuccin-mocha"
@@ -111,6 +116,12 @@ formatters.setup {
 
     -- SASS
     { name = "prettier" },
+
+    -- Django
+    {
+      name = "djlint",
+      args = { "--preserve-blank-lines" },
+    },
 }
 
 -- Setup linters
