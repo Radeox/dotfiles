@@ -1,6 +1,6 @@
 # Radeox - Nix #
 
-{ config, lib, pkgs, ... }:
+{ lib, pkgs, ... }:
 
 {
   # Include external configuration
@@ -66,7 +66,6 @@
       protonup-qt
       remmina
       rpi-imager
-      spotify
       steam
       thunderbird
       veracrypt
@@ -75,7 +74,6 @@
     ]) ++ (with pkgs.gnomeExtensions; [
       advanced-alttab-window-switcher
       appindicator
-      color-picker
       dash-to-dock
       espresso
       focus-changer
@@ -106,6 +104,7 @@
     ffmpeg
     filezilla
     firefox
+    google-chrome
     gcc
     gimp
     git
@@ -130,6 +129,7 @@
     poetry
     python311
     python311Packages.ipython
+    python311Packages.pip
     qogir-icon-theme
     ripgrep
     sbctl
@@ -300,20 +300,24 @@
 
   hardware = {
     nvidia = {
+      # Nvidia Prime
+      prime = {
+        intelBusId = "PCI:0:2:0";
+        nvidiaBusId = "PCI:1:0:0";
+        sync.enable = true;
+      };
+
       # Modesetting is needed for most wayland compositors
       modesetting.enable = true;
 
       # Enable power management
       powerManagement.enable = true;
 
-      # Don't use the open source version
-      open = false;
+      # Use the open source version
+      open = true;
 
       # Nvidia settings GUI
       nvidiaSettings = true;
-
-      # Driver version
-      package = config.boot.kernelPackages.nvidiaPackages.beta;
     };
 
     # Enable bluetooth
@@ -323,8 +327,15 @@
     opengl = {
       enable = true;
       driSupport = true;
+      driSupport32Bit = true;
 
-      extraPackages = with pkgs; [ libva1 nvidia-vaapi-driver vaapiVdpau ];
+      extraPackages = with pkgs; [
+        intel-media-driver
+        libvdpau-va-gl
+        nvidia-vaapi-driver
+        vaapiIntel
+        vaapiVdpau
+      ];
     };
 
     # Enable the Xbox One driver
@@ -373,6 +384,11 @@
       fonts = [ "FiraCode" "DroidSansMono" "JetBrainsMono" ];
     })
   ];
+
+  # Intel hybrid driver
+  nixpkgs.config.packageOverrides = pkgs: {
+    vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
+  };
 
   # Set Wayland ozone backend
   environment.sessionVariables.NIXOS_OZONE_WL = "1";

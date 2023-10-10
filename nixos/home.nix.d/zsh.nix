@@ -11,7 +11,7 @@
       # NixOS commands
       nix-clean = "sudo nix-collect-garbage -d && sudo nixos-rebuild boot";
       nix-config = "cd /etc/nixos && vim configuration.nix";
-      nix-update = "sudo nixos-rebuild switch --upgrade";
+      nix-update = "nix flake update /etc/nixos && sudo nixos-rebuild switch";
 
       # Aliases
       ".." = "cd .. && ls";
