@@ -36,7 +36,7 @@
       ls = "lsd";
 
       # Scripts
-      myip = "bash ~/Sources/scripts/my_ip.sh";
+      my-ip = "bash ~/Sources/scripts/my-ip.sh";
     };
 
     # Oh My ZSH Configuration

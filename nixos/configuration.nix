@@ -72,13 +72,12 @@
       vscode
       yuzu-mainline
     ]) ++ (with pkgs.gnomeExtensions; [
-      advanced-alttab-window-switcher
       appindicator
       dash-to-dock
       espresso
-      focus-changer
       gsconnect
       pano
+      paperwm
       quick-settings-tweaker
       user-themes
     ]);
@@ -104,12 +103,13 @@
     ffmpeg
     filezilla
     firefox
-    google-chrome
     gcc
+    gcolor3
     gimp
     git
     gnome.gnome-tweaks
     gnumake
+    google-chrome
     home-manager
     htop
     imagemagick
@@ -148,18 +148,19 @@
   ];
 
   # Exclude some Gnome packages
-  environment.gnome.excludePackages =
-    (with pkgs; [ gnome-console gnome-photos gnome-tour ])
-    ++ (with pkgs.gnome; [
-      epiphany
-      geary
-      gedit
-      gnome-calendar
-      gnome-music
-      gnome-software
-      gnome-terminal
-      totem
-    ]);
+  environment.gnome.excludePackages = (with pkgs; [
+    gnome-console
+    gnome-photos
+    gnome-tour
+    gnome.epiphany
+    gnome.geary
+    gnome.gedit
+    gnome.gnome-calendar
+    gnome.gnome-music
+    gnome.gnome-software
+    gnome.gnome-terminal
+    gnome.totem
+  ]);
 
   services = {
     xserver = {
@@ -304,14 +305,14 @@
       prime = {
         intelBusId = "PCI:0:2:0";
         nvidiaBusId = "PCI:1:0:0";
-        sync.enable = true;
+        reverseSync.enable = true;
       };
 
       # Modesetting is needed for most wayland compositors
       modesetting.enable = true;
 
       # Enable power management
-      powerManagement.enable = true;
+      powerManagement.enable = false;
 
       # Use the open source version
       open = true;
@@ -379,11 +380,12 @@
   };
 
   # Configure extra fonts
-  fonts.fonts = with pkgs; [
-    (nerdfonts.override {
-      fonts = [ "FiraCode" "DroidSansMono" "JetBrainsMono" ];
-    })
-  ];
+  fonts.fonts = with pkgs;
+    [
+      (nerdfonts.override {
+        fonts = [ "FiraCode" "DroidSansMono" "JetBrainsMono" ];
+      })
+    ];
 
   # Intel hybrid driver
   nixpkgs.config.packageOverrides = pkgs: {

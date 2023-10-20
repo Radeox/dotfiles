@@ -122,6 +122,11 @@ formatters.setup {
       name = "djlint",
       args = { "--preserve-blank-lines" },
     },
+
+    -- Bash
+    {
+      name = "shfmt",
+    },
 }
 
 -- Setup linters
