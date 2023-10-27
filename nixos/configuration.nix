@@ -53,7 +53,6 @@
     description = "Radeox";
     extraGroups = [ "docker" "networkmanager" "video" "wheel" ];
     packages = (with pkgs; [
-      anytype
       authenticator
       discord
       heroic
@@ -80,7 +79,7 @@
       paperwm
       quick-settings-tweaker
       user-themes
-    ]);
+    ]) ++ (with pkgs.unstable; [ anytype ]);
   };
 
   # System packages
@@ -228,7 +227,7 @@
 
         # CPU frequency scaling (BAT)
         CPU_SCALING_MIN_FREQ_ON_BAT = 400000;
-        CPU_SCALING_MAX_FREQ_ON_BAT = 1200000;
+        CPU_SCALING_MAX_FREQ_ON_BAT = 2400000;
 
         # Charge thresholds
         STOP_CHARGE_THRESH_BAT0 = 1;
