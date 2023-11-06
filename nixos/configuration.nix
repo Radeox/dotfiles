@@ -79,7 +79,7 @@
       paperwm
       quick-settings-tweaker
       user-themes
-    ]) ++ (with pkgs.unstable; [ anytype ]);
+    ]) ++ (with pkgs.unstable; [ anytype papirus-icon-theme ]);
   };
 
   # System packages
@@ -92,7 +92,6 @@
     catppuccin-gtk
     cifs-utils
     cmake
-    docker
     docker-compose
     drill
     du-dust
@@ -290,7 +289,7 @@
   };
 
   virtualisation = {
-    # Enable docker
+    # Enable Docker
     docker = {
       enable = true;
       enableNvidia = true;

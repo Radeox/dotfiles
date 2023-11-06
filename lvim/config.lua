@@ -157,12 +157,5 @@ lvim.builtin.telescope = {
     active = true,
     defaults = {
         layout_strategy = "horizontal",
-        path_display = { truncate = 2 },
-    },
-    extensions = {
-        fzf = {
-            fuzzy = true,
-            case_mode = "smart_case",
-        },
     },
 }
