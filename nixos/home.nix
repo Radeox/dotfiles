@@ -1,9 +1,6 @@
 { ... }: {
-  imports = [
-    ./home.nix.d/alacritty.nix
-    ./home.nix.d/nvim.nix
-    ./home.nix.d/zsh.nix
-  ];
+  imports =
+    [ ./home.nix.d/alacritty.nix ./home.nix.d/nvim.nix ./home.nix.d/zsh.nix ];
 
   programs = {
     # Git Configuration

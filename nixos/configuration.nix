@@ -1,6 +1,6 @@
 # Radeox - Nix #
 
-{ lib, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   # Include external configuration
@@ -79,7 +79,7 @@
       paperwm
       quick-settings-tweaker
       user-themes
-    ]) ++ (with pkgs.unstable; [ anytype papirus-icon-theme ]);
+    ]) ++ (with pkgs.unstable; [ anytype ]);
   };
 
   # System packages
@@ -100,7 +100,6 @@
     fd
     ffmpeg
     filezilla
-    firefox
     gcc
     gcolor3
     gimp
@@ -122,6 +121,7 @@
     nixfmt
     nodejs_20
     noto-fonts
+    papirus-icon-theme
     pciutils
     php82
     poetry
@@ -304,6 +304,7 @@
         intelBusId = "PCI:0:2:0";
         nvidiaBusId = "PCI:1:0:0";
         reverseSync.enable = true;
+        allowExternalGpu = false;
       };
 
       # Modesetting is needed for most wayland compositors
@@ -312,11 +313,14 @@
       # Enable power management
       powerManagement.enable = false;
 
-      # Use the open source version
-      open = true;
+      # Don't use the open source version
+      open = false;
 
       # Nvidia settings GUI
       nvidiaSettings = true;
+
+      # Use lastest drivers
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
     };
 
     # Enable bluetooth
