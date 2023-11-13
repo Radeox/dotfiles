@@ -72,6 +72,7 @@
       yuzu-mainline
     ]) ++ (with pkgs.gnomeExtensions; [
       appindicator
+      blur-my-shell
       dash-to-dock
       espresso
       gsconnect
@@ -133,6 +134,7 @@
     sbctl
     telegram-desktop
     tree-sitter
+    ulauncher
     unzip
     vifm
     vlc
