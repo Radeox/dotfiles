@@ -51,7 +51,7 @@
   users.users.radeox = {
     isNormalUser = true;
     description = "Radeox";
-    extraGroups = [ "docker" "networkmanager" "video" "wheel" ];
+    extraGroups = [ "docker" "lp" "networkmanager" "scanner" "video" "wheel" ];
     packages = (with pkgs; [
       authenticator
       discord
@@ -72,15 +72,19 @@
       yuzu-mainline
     ]) ++ (with pkgs.gnomeExtensions; [
       appindicator
+      battery-health-charging
       blur-my-shell
       dash-to-dock
       espresso
+      grand-theft-focus
       gsconnect
+      no-overview
       pano
       paperwm
       quick-settings-tweaker
+      super-key
       user-themes
-    ]) ++ (with pkgs.unstable; [ anytype ]);
+    ]) ++ (with pkgs.unstable; [ anytype gcc poetry python312 ]);
   };
 
   # System packages
@@ -116,19 +120,15 @@
     lazydocker
     lazygit
     libreoffice-fresh
-    linuxPackages_xanmod_latest.xone
     lsd
     nil
     nixfmt
+    nmap
     nodejs_20
     noto-fonts
     papirus-icon-theme
     pciutils
     php82
-    poetry
-    python311
-    python311Packages.ipython
-    python311Packages.pip
     qogir-icon-theme
     ripgrep
     sbctl
@@ -148,7 +148,7 @@
   ];
 
   # Exclude some Gnome packages
-  environment.gnome.excludePackages = (with pkgs; [
+  environment.gnome.excludePackages = with pkgs; [
     gnome-console
     gnome-photos
     gnome-tour
@@ -160,7 +160,7 @@
     gnome.gnome-software
     gnome.gnome-terminal
     gnome.totem
-  ]);
+  ];
 
   services = {
     xserver = {
@@ -194,12 +194,13 @@
     flatpak.enable = true;
 
     # Enable printing services
-    printing = { enable = true; };
+    printing.enable = true;
 
     # Enable network discovery
     avahi = {
       enable = true;
       nssmdns = true;
+      openFirewall = true;
     };
 
     # Enable Samba shares
@@ -223,9 +224,7 @@
     fwupd.enable = true;
   };
 
-  # Enable sound with pipewire
-  sound.enable = true;
-  hardware.pulseaudio.enable = false;
+  # For pipewire
   security.rtkit.enable = true;
 
   programs = {
@@ -305,6 +304,15 @@
     # Enable bluetooth
     bluetooth.enable = true;
 
+    # Disable pulseaudio
+    pulseaudio.enable = false;
+
+    # Enable support for SANE scanners
+    sane = {
+      enable = true;
+      extraBackends = [ pkgs.sane-airscan ];
+    };
+
     # Make sure opengl is enabled
     opengl = {
       enable = true;
@@ -368,8 +376,16 @@
       })
     ];
 
-  # Intel hybrid driver
   nixpkgs.config.packageOverrides = pkgs: {
+    # Chrome flags
+    google-chrome = pkgs.google-chrome.override {
+      commandLineArgs = [
+        "--enable-features=UseOzonePlatform,TouchpadOverscrollHistoryNavigation"
+        "--ozone-platform=wayland"
+      ];
+    };
+
+    # Intel hybrid driver
     vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
   };
 
