@@ -9,7 +9,7 @@
   # Bootloader configuration
   boot = {
     # Use latest kernel
-    kernelPackages = pkgs.linuxPackages_xanmod_latest;
+    kernelPackages = pkgs.linuxPackages_latest;
 
     # Enable secure boot
     bootspec.enable = true;
@@ -28,6 +28,9 @@
 
     # NTFS support
     supportedFilesystems = [ "ntfs" ];
+
+    # Add legion module
+    extraModulePackages = [ config.boot.kernelPackages.lenovo-legion-module ];
   };
 
   # Networking configuration
@@ -53,10 +56,16 @@
     description = "Radeox";
     extraGroups = [ "docker" "lp" "networkmanager" "scanner" "video" "wheel" ];
     packages = (with pkgs; [
+      airgeddon
+      anytype
       authenticator
       discord
+      hashcat
+      hcxtools
       heroic
+      iw
       lutris
+      macchanger
       megasync
       mongodb-tools
       ngrok
@@ -65,14 +74,13 @@
       protonup-qt
       remmina
       rpi-imager
-      steam
       thunderbird
       veracrypt
       vscode
+      wifite2
       yuzu-mainline
     ]) ++ (with pkgs.gnomeExtensions; [
       appindicator
-      battery-health-charging
       blur-my-shell
       dash-to-dock
       espresso
@@ -84,7 +92,8 @@
       quick-settings-tweaker
       super-key
       user-themes
-    ]) ++ (with pkgs.unstable; [ anytype gcc poetry python312 ]);
+    ]);
+    # ++ (with pkgs.unstable; [   ]);
   };
 
   # System packages
@@ -129,6 +138,8 @@
     papirus-icon-theme
     pciutils
     php82
+    poetry
+    python312
     qogir-icon-theme
     ripgrep
     sbctl
@@ -232,11 +243,7 @@
     zsh.enable = true;
 
     # Configure Steam
-    steam = {
-      enable = true;
-      remotePlay.openFirewall = true;
-      dedicatedServer.openFirewall = true;
-    };
+    steam.enable = true;
 
     # Enable Gamemode
     gamemode.enable = true;
@@ -257,13 +264,6 @@
         ${pkgs.nvd}/bin/nvd --nix-bin-dir=${pkgs.nix}/bin diff /run/current-system "$systemConfig"
       '';
     };
-
-    # This value determines the NixOS release from which the default
-    # settings for stateful data, like file locations and database versions
-    # on your system were taken. It‘s perfectly fine and recommended to leave
-    # this value at the release version of the first install of this system.
-    # Before changing this value read the documentation for this option
-    # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
     stateVersion = "23.05";
   };
 
@@ -282,14 +282,15 @@
       prime = {
         intelBusId = "PCI:0:2:0";
         nvidiaBusId = "PCI:1:0:0";
-        reverseSync.enable = true;
+        sync.enable = true;
+        # reverseSync.enable = true;
       };
 
       # Modesetting is needed for most wayland compositors
       modesetting.enable = true;
 
       # Power management
-      powerManagement.enable = true;
+      powerManagement.enable = false;
 
       # Open source driver
       open = false;
@@ -369,7 +370,7 @@
   };
 
   # Configure extra fonts
-  fonts.fonts = with pkgs;
+  fonts.packages = with pkgs;
     [
       (nerdfonts.override {
         fonts = [ "FiraCode" "DroidSansMono" "JetBrainsMono" ];
@@ -389,9 +390,11 @@
     vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
   };
 
-  # Set Wayland ozone backend
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  environment = {
+    # Set Wayland ozone backend
+    sessionVariables.NIXOS_OZONE_WL = "1";
 
-  # Add ./local/bin to PATH
-  environment.localBinInPath = true;
+    # Add ./local/bin to PATH
+    localBinInPath = true;
+  };
 }
