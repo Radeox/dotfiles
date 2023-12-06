@@ -57,16 +57,19 @@
     extraGroups = [ "docker" "lp" "networkmanager" "scanner" "video" "wheel" ];
     packages = (with pkgs; [
       airgeddon
-      anytype
+      appflowy
       authenticator
       discord
       hashcat
       hcxtools
       heroic
+      inkscape
       iw
-      lutris
+      lazydocker
+      lazygit
       macchanger
       megasync
+      mongodb-compass
       mongodb-tools
       ngrok
       openfortivpn
@@ -74,6 +77,8 @@
       protonup-qt
       remmina
       rpi-imager
+      spotify
+      telegram-desktop
       thunderbird
       veracrypt
       vscode
@@ -114,6 +119,7 @@
     fd
     ffmpeg
     filezilla
+    firefox
     gcc
     gcolor3
     gimp
@@ -124,10 +130,7 @@
     home-manager
     htop
     imagemagick
-    inkscape
     killall
-    lazydocker
-    lazygit
     libreoffice-fresh
     lsd
     nil
@@ -143,7 +146,6 @@
     qogir-icon-theme
     ripgrep
     sbctl
-    telegram-desktop
     tree-sitter
     ulauncher
     unzip
@@ -153,7 +155,6 @@
     wayland-utils
     wget
     wl-clipboard
-    yaml-language-server
     zip
     zsh
   ];
@@ -200,9 +201,6 @@
       # Remove xterm from gnome-terminal
       excludePackages = [ pkgs.xterm ];
     };
-
-    # Enable flatpak
-    flatpak.enable = true;
 
     # Enable printing services
     printing.enable = true;
