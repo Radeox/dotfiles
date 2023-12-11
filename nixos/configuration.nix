@@ -86,6 +86,7 @@
       yuzu-mainline
     ]) ++ (with pkgs.gnomeExtensions; [
       appindicator
+      battery-health-charging
       blur-my-shell
       dash-to-dock
       espresso
