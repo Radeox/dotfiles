@@ -56,18 +56,13 @@
     description = "Radeox";
     extraGroups = [ "docker" "lp" "networkmanager" "scanner" "video" "wheel" ];
     packages = (with pkgs; [
-      airgeddon
       appflowy
       authenticator
       discord
-      hashcat
-      hcxtools
       heroic
       inkscape
-      iw
       lazydocker
       lazygit
-      macchanger
       megasync
       mongodb-compass
       mongodb-tools
@@ -82,7 +77,6 @@
       thunderbird
       veracrypt
       vscode
-      wifite2
       yuzu-mainline
     ]) ++ (with pkgs.gnomeExtensions; [
       appindicator
@@ -90,7 +84,6 @@
       blur-my-shell
       dash-to-dock
       espresso
-      grand-theft-focus
       gsconnect
       no-overview
       pano
@@ -112,7 +105,6 @@
     catppuccin-gtk
     cifs-utils
     cmake
-    docker-compose
     drill
     du-dust
     duf
@@ -121,6 +113,12 @@
     ffmpeg
     filezilla
     firefox
+    fishPlugins.done
+    fishPlugins.fzf-fish
+    fishPlugins.grc
+    fishPlugins.hydro
+    fishPlugins.sponge
+    fzf
     gcc
     gcolor3
     gimp
@@ -128,6 +126,7 @@
     gnome.gnome-tweaks
     gnumake
     google-chrome
+    grc
     home-manager
     htop
     imagemagick
@@ -157,7 +156,6 @@
     wget
     wl-clipboard
     zip
-    zsh
   ];
 
   # Exclude some Gnome packages
@@ -238,8 +236,8 @@
   security.rtkit.enable = true;
 
   programs = {
-    # Enable ZSH
-    zsh.enable = true;
+    # Enable FISH
+    fish.enable = true;
 
     # Configure Steam
     steam.enable = true;
@@ -251,9 +249,9 @@
     dconf.enable = true;
   };
 
-  # Set ZSH as default shell
-  users.defaultUserShell = pkgs.zsh;
-  environment.shells = with pkgs; [ zsh ];
+  # Set FISH as default shell
+  users.defaultUserShell = pkgs.fish;
+  environment.shells = with pkgs; [ fish ];
 
   system = {
     # Pretty rebuild messages
@@ -377,14 +375,6 @@
     ];
 
   nixpkgs.config.packageOverrides = pkgs: {
-    # Chrome flags
-    google-chrome = pkgs.google-chrome.override {
-      commandLineArgs = [
-        "--enable-features=UseOzonePlatform,TouchpadOverscrollHistoryNavigation"
-        "--ozone-platform=wayland"
-      ];
-    };
-
     # Intel hybrid driver
     vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
   };
@@ -395,5 +385,40 @@
 
     # Add ./local/bin to PATH
     localBinInPath = true;
+
+    # My shell aliases
+    shellAliases = {
+      # NixOS commands
+      nix-clean = "sudo nix-collect-garbage -d && sudo nixos-rebuild boot";
+      nix-config = "cd /etc/nixos && vim configuration.nix";
+      nix-update = "nix flake update /etc/nixos && sudo nixos-rebuild switch";
+
+      # Aliases
+      ".." = "cd .. && ls";
+      d = "lazydocker";
+      dc = "docker compose";
+      docker-compose = "docker compose";
+      f = "vifm";
+      find = "fd";
+      g = "lazygit";
+      ll = "ls -l";
+      nvim = "lvim";
+      p = "ps aux | grep ";
+      pr = "poetry run python";
+      rgrep = "rg";
+      sl = "ls";
+      sudo = "sudo ";
+      v = "lvim";
+      vim = "lvim";
+
+      # Basic commands
+      cat = "bat -p";
+      df = "duf";
+      du = "dust";
+      ls = "lsd";
+
+      # Scripts
+      my-ip = "bash ~/Sources/scripts/my-ip.sh";
+    };
   };
 }

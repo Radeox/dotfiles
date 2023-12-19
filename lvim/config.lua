@@ -142,7 +142,7 @@ linters.setup {
 }
 
 -- Import lspconfig module
-local lspconfig = require'lspconfig'
+local lspconfig = require 'lspconfig'
 
 -- Configure Intelephense LSP
 lspconfig.intelephense.setup {
@@ -151,6 +151,7 @@ lspconfig.intelephense.setup {
     globalStoragePath = vim.fn.stdpath('data') .. '/intelephense',
   },
 }
+
 
 -- Setup Telescope
 lvim.builtin.telescope = {
