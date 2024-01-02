@@ -56,6 +56,7 @@
     description = "Radeox";
     extraGroups = [ "docker" "lp" "networkmanager" "scanner" "video" "wheel" ];
     packages = (with pkgs; [
+      android-tools
       appflowy
       authenticator
       discord
@@ -77,6 +78,7 @@
       thunderbird
       veracrypt
       vscode
+      warp
       yuzu-mainline
     ]) ++ (with pkgs.gnomeExtensions; [
       appindicator
@@ -166,7 +168,6 @@
     gnome.epiphany
     gnome.geary
     gnome.gedit
-    gnome.gnome-calendar
     gnome.gnome-music
     gnome.gnome-software
     gnome.gnome-terminal
@@ -280,7 +281,6 @@
         intelBusId = "PCI:0:2:0";
         nvidiaBusId = "PCI:1:0:0";
         sync.enable = true;
-        # reverseSync.enable = true;
       };
 
       # Modesetting is needed for most wayland compositors
