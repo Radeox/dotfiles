@@ -22,8 +22,13 @@ lvim.keys.normal_mode["<C-Tab>"] = ":BufferLineCyclePrev<CR>"
 -- Show NvimTree Explorer
 lvim.keys.normal_mode["<C-n>"] = "<cmd>NvimTreeToggle<CR>"
 
+-- Bookmarks management
+lvim.keys.normal_mode["<C-a>"] = ":lua require 'ezbookmarks'.OpenBookmark()<CR>"
+lvim.keys.normal_mode["<C-x>"] = ":lua require 'ezbookmarks'.AddBookmark()<CR>"
+lvim.keys.normal_mode["<C-y>"] = ":lua require 'ezbookmarks'.RemoveBookmark()<CR>"
+
 -- Close buffer
-lvim.keys.normal_mode["<C-q>"] = ":BufferKill<CR>"
+lvim.keys.normal_mode["<C-q>"] = ":bd<CR>"
 
 -- Switch between windows
 lvim.keys.normal_mode["<A-up>"] = "<C-w>k"
@@ -65,6 +70,19 @@ lvim.plugins = {
     -- Bracket rainbow
     {
         "mrjones2014/nvim-ts-rainbow",
+    },
+
+    -- EzBookmarks
+    {
+      "radeox/ezbookmarks.nvim"
+    },
+
+    {
+      "nvim-lua/plenary.nvim",
+    },
+
+    {
+      "nvim-lua/popup.nvim",
     },
 
     -- Colorizer
@@ -156,6 +174,5 @@ lspconfig.intelephense.setup {
 lvim.builtin.telescope = {
   defaults = {
     layout_strategy = "horizontal",
-    treesitter = false,
   },
 }
