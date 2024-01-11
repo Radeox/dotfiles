@@ -41,7 +41,6 @@
       # Window
       window = {
         decorations = "None";
-        startup_mode = "Maximized";
       };
 
       # Colors (Catpuccin Macchiato)

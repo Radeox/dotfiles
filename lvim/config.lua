@@ -152,11 +152,10 @@ lspconfig.intelephense.setup {
   },
 }
 
-
 -- Setup Telescope
 lvim.builtin.telescope = {
-    active = true,
-    defaults = {
-        layout_strategy = "horizontal",
-    },
+  defaults = {
+    layout_strategy = "horizontal",
+    treesitter = false,
+  },
 }

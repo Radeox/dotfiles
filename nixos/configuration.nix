@@ -64,6 +64,7 @@
       inkscape
       lazydocker
       lazygit
+      mariadb.client
       megasync
       mongodb-compass
       mongodb-tools
@@ -73,13 +74,14 @@
       protonup-qt
       remmina
       rpi-imager
+      rpiboot
       spotify
       telegram-desktop
       thunderbird
       veracrypt
       vscode
       warp
-      yuzu-mainline
+      yuzu-early-access
     ]) ++ (with pkgs.gnomeExtensions; [
       appindicator
       battery-health-charging
@@ -125,6 +127,7 @@
     gcolor3
     gimp
     git
+    gnome-extension-manager
     gnome.gnome-tweaks
     gnumake
     google-chrome
@@ -378,7 +381,7 @@
     # Intel hybrid driver
     vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
   };
-
+  
   environment = {
     # Set Wayland ozone backend
     sessionVariables.NIXOS_OZONE_WL = "1";
