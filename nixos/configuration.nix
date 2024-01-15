@@ -109,7 +109,7 @@
     catppuccin-gtk
     cifs-utils
     cmake
-    drill
+    dig
     du-dust
     duf
     egl-wayland
@@ -400,7 +400,6 @@
       ".." = "cd .. && ls";
       d = "lazydocker";
       dc = "docker compose";
-      docker-compose = "docker compose";
       f = "vifm";
       find = "fd";
       g = "lazygit";
