@@ -40,11 +40,13 @@ lvim.keys.normal_mode["<A-left>"] = "<C-w>h"
 lvim.keys.normal_mode["<C-/>"] = "<Plug>(comment_toggle_linewise_current)"
 lvim.keys.visual_mode["<C-/>"] = "<Plug>(comment_toggle_linewise_visual)"
 
+-- Clear search
+lvim.keys.normal_mode["<esc>"] = ":noh<CR>"
+
 -- Toggle terminal
 lvim.builtin.terminal.open_mapping = "<C-t>"
 
 -- Plugins --
-
 lvim.plugins = {
     -- Copilot
      {
