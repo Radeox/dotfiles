@@ -24,9 +24,9 @@ return {
         filetypes = { "sh", "zsh" },
       }),
 
-      -- Lua
-      null_ls.builtins.formatting.stylua.with({
-        filetypes = { "lua" },
+      -- Javascript (ESLint)
+      null_ls.builtins.formatting.prettierd.with({
+        filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
       }),
     }
     return config

@@ -8,11 +8,11 @@ return {
         -- Python
         "pyright",
 
-        -- Lua
-        "lua_ls",
-
         -- PHP
         "intelephense",
+
+        -- Javascript
+        "tsserver",
       })
     end,
   },
@@ -33,12 +33,12 @@ return {
 
         -- SCSS
         "prettier",
+
+        -- Javascript
+        "prettierd",
         
         -- SSH
         "shfmt",
-
-        -- Lua
-        "stylua",
       })
     end,
   },
