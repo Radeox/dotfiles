@@ -3,8 +3,8 @@
 ## NixOS ##
 cp -r /etc/nixos .
 
-## LunarVim ##
-rm -r lvim && cp -r ~/.config/lvim . && rm lvim/lazy-lock.json
+## AstroVim ##
+rm -r astrovim && mkdir astrovim && cp -r ~/.config/nvim/lua/user astrovim
 
 ## Vifm ##
 rm -r vifm && cp -r ~/.config/vifm . && rm vifm/vifminfo.json
