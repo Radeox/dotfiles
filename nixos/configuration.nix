@@ -57,7 +57,6 @@
     extraGroups = [ "docker" "lp" "networkmanager" "scanner" "video" "wheel" ];
     packages = (with pkgs; [
       android-tools
-      appflowy
       authenticator
       discord
       heroic
@@ -95,8 +94,7 @@
       quick-settings-tweaker
       super-key
       user-themes
-    ]);
-    # ++ (with pkgs.unstable; [   ]);
+    ]) ++ (with pkgs.unstable; [ appflowy ]);
   };
 
   # System packages
@@ -105,6 +103,7 @@
     ansible
     autojump
     bat
+    bottom
     cargo
     catppuccin-gtk
     cifs-utils
@@ -381,7 +380,7 @@
     # Intel hybrid driver
     vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
   };
-  
+
   environment = {
     # Set Wayland ozone backend
     sessionVariables.NIXOS_OZONE_WL = "1";
@@ -404,14 +403,12 @@
       find = "fd";
       g = "lazygit";
       ll = "ls -l";
-      nvim = "lvim";
       p = "ps aux | grep ";
       pr = "poetry run python";
       rgrep = "rg";
       sl = "ls";
       sudo = "sudo ";
-      v = "lvim";
-      vim = "lvim";
+      v = "vim";
 
       # Basic commands
       cat = "bat -p";
