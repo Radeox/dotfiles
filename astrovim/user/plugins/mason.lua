@@ -26,7 +26,7 @@ return {
         "flake8",
 
         -- PHP
-        "intelephense",
+        "php-cs-fixer",
         
         -- Django
         "djlint",
