@@ -63,6 +63,7 @@
       inkscape
       lazydocker
       lazygit
+      localsend
       mariadb.client
       megasync
       mongodb-compass
@@ -337,7 +338,9 @@
     enable = true;
 
     # Dev ports
-    allowedTCPPorts = [ 8080 8082 9003 9080 ];
+    # LocalSend = 53317
+    allowedTCPPorts = [ 8080 8082 9003 9080 53317 ];
+    allowedUDPPorts = [ 53317 ];
 
     # KDE Connect
     allowedTCPPortRanges = [{
