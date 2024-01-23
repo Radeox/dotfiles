@@ -1,6 +1,9 @@
 -- Custom keybindings
 return {
     n = {
+        -- Save file
+        ["<C-s>"] = {"<cmd>w<cr>", desc = "Save file"},
+
         -- Find files
         ["<C-Space>"] = {"<cmd>Telescope find_files<cr>", desc = "Find files"},
 
@@ -23,10 +26,10 @@ return {
         -- Toggle Terminal
         ["<C-t>"] = {"<cmd>ToggleTerm<cr>", desc = "Toggle Terminal"},
 
-        -- Bookmarks management
-        ["<C-a>"] = {"<cmd>lua require 'ezbookmarks'.OpenBookmark()<cr>", desc = "Open bookmark"},
-        ["<C-x>"] = {"<cmd>lua require 'ezbookmarks'.AddBookmark()<cr>", desc = "Add bookmark"},
-        ["<C-y>"] = {"<cmd>lua require 'ezbookmarks'.RemoveBookmark()<cr>", desc = "Remove bookmark"},
+        -- Session manager
+        ["<leader>ss"] = {"<cmd>lua require 'resession'.save()<cr>", desc = "Save session"},
+        ["<leader>sf"] = {"<cmd>lua require 'resession'.load()<cr>", desc = "Load session"},
+        ["<leader>sd"] = {"<cmd>lua require 'resession'.delete()<cr>", desc = "Delete session"},
 
         -- Close buffer
         ["<C-q>"] = {"<cmd>bd<cr>", desc = "Close buffer"},
@@ -39,5 +42,17 @@ return {
 
         -- Clear search
         ["<esc>"] = {"<cmd>noh<cr>", desc = "Clear search"},
+    },
+
+    -- Insert mode
+    i = {
+        -- Save file
+        ["<C-s>"] = {"<cmd>w<cr>", desc = "Save file"},
+    },
+    
+    -- Visual mode
+    v = {
+        -- Save file
+        ["<C-s>"] = {"<cmd>w<cr>", desc = "Save file"},
     },
 }

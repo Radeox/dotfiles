@@ -34,9 +34,4 @@ return {
 
   -- Bracket Rainbow
   { import = "astrocommunity.editing-support.rainbow-delimiters-nvim" },
-
-  -- EzBookmarks
-  {
-    "radeox/ezbookmarks.nvim"
-  },
 }
