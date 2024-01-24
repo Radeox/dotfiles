@@ -42,6 +42,9 @@ return {
 
         -- Clear search
         ["<esc>"] = {"<cmd>noh<cr>", desc = "Clear search"},
+
+        -- Custom scripts
+        ["<F5>"] = {"<cmd>! bash ~/Sources/scripts/reload-left-page.sh<cr><cr>", desc="Reload browser page"},
     },
 
     -- Insert mode
