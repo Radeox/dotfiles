@@ -127,6 +127,7 @@
     gcolor3
     gimp
     git
+    git-extras
     gnome-extension-manager
     gnome.gnome-tweaks
     gnumake
@@ -160,6 +161,7 @@
     wayland-utils
     wget
     wl-clipboard
+    ydotool
     zip
   ];
 
