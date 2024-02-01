@@ -9,9 +9,7 @@ return {
       null_ls.builtins.diagnostics.flake8,
 
       -- Django
-      null_ls.builtins.formatting.djlint.with({
-        args = { "--reformat --preserve-blank-lines" },
-      }),
+      null_ls.builtins.formatting.djlint,
     }
     return config
   end,

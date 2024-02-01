@@ -1,4 +1,4 @@
--- customize mason plugins
+-- Customize Mason Plugins
 return {
   -- Use mason-lspconfig to configure LSP installations
   {
@@ -24,6 +24,7 @@ return {
         -- Python
         "black",
         "flake8",
+        "isort",
 
         -- PHP
         "php-cs-fixer",

@@ -387,8 +387,13 @@
   };
 
   environment = {
-    # Set Wayland ozone backend
-    sessionVariables.NIXOS_OZONE_WL = "1";
+    sessionVariables = {
+      # Set Wayland ozone backend
+      NIXOS_OZONE_WL = "1";
+
+      # Set GIT editor
+      GIT_EDITOR = "nvim";
+    };
 
     # Add ./local/bin to PATH
     localBinInPath = true;
@@ -422,7 +427,8 @@
       ls = "lsd";
 
       # Scripts
-      my-ip = "bash ~/Sources/scripts/my-ip.sh";
+      myip = "fish ~/Sources/scripts/my-ip.sh";
+      venv = "source ~/Sources/scripts/activate_poetry.fish";
     };
   };
 }
