@@ -8,8 +8,8 @@
 
   # Bootloader configuration
   boot = {
-    # Use latest kernel
-    kernelPackages = pkgs.linuxPackages_latest;
+    # Use latest unstable Xanmod kernel
+    kernelPackages = pkgs.unstable.linuxKernel.packages.linux_xanmod_latest;
 
     # Enable secure boot
     bootspec.enable = true;
@@ -58,7 +58,6 @@
     packages = (with pkgs; [
       android-tools
       authenticator
-      discord
       heroic
       inkscape
       lazydocker
@@ -69,6 +68,7 @@
       mongodb-compass
       mongodb-tools
       ngrok
+      notion-app-enhanced
       openfortivpn
       prismlauncher
       protonup-qt
@@ -301,11 +301,18 @@
       nvidiaSettings = true;
 
       # Use lastest drivers
-      package = config.boot.kernelPackages.nvidiaPackages.stable;
+      package = config.boot.kernelPackages.nvidiaPackages.beta;
     };
 
-    # Enable bluetooth
-    bluetooth.enable = true;
+    # Bluetooth setup
+    bluetooth = {
+      enable = true;
+
+      # Show battery levels for more devices
+      settings = {
+        General = { Experimental = true; };
+      };
+    };
 
     # Disable pulseaudio
     pulseaudio.enable = false;
