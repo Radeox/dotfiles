@@ -58,6 +58,7 @@
     packages = (with pkgs; [
       android-tools
       authenticator
+      code-minimap
       heroic
       inkscape
       lazydocker
@@ -95,7 +96,8 @@
       quick-settings-tweaker
       super-key
       user-themes
-    ]) ++ (with pkgs.unstable; [ appflowy ]);
+    ]);
+    # ++ (with pkgs.unstable; [ ]);
   };
 
   # System packages
@@ -309,9 +311,7 @@
       enable = true;
 
       # Show battery levels for more devices
-      settings = {
-        General = { Experimental = true; };
-      };
+      settings = { General = { Experimental = true; }; };
     };
 
     # Disable pulseaudio

@@ -34,4 +34,7 @@ return {
 
   -- Bracket Rainbow
   { import = "astrocommunity.editing-support.rainbow-delimiters-nvim" },
+
+  -- Minimap
+  { import = "astrocommunity.split-and-window.minimap-vim" },
 }
