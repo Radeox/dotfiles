@@ -139,13 +139,13 @@
     htop
     imagemagick
     killall
-    libreoffice-fresh
     lsd
     nil
     nixfmt
     nmap
     nodejs_20
     noto-fonts
+    onlyoffice-bin_7_5
     papirus-icon-theme
     pciutils
     php82
