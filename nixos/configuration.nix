@@ -58,7 +58,6 @@
     packages = (with pkgs; [
       android-tools
       authenticator
-      code-minimap
       heroic
       inkscape
       lazydocker
