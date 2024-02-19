@@ -14,7 +14,7 @@ return {
   },
 
   -- Set colorscheme to use
-  colorscheme = "kanagawa",
+  colorscheme = "gruvbox-baby",
 
   -- Diagnostics configuration
   diagnostics = {

@@ -2,7 +2,7 @@ return {
   "AstroNvim/astrocommunity",
 
   -- Kanagawa colorscheme
-  { import = "astrocommunity.colorscheme.kanagawa-nvim" },
+  { import = "astrocommunity.colorscheme.gruvbox-baby" },
   
   -- Copilot
   { import = "astrocommunity.completion.copilot-lua" },
