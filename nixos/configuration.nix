@@ -8,8 +8,8 @@
 
   # Bootloader configuration
   boot = {
-    # Use latest unstable Xanmod kernel
-    kernelPackages = pkgs.unstable.linuxKernel.packages.linux_xanmod_latest;
+    # Use latest kernel
+    kernelPackages = pkgs.linuxPackages_latest;
 
     # Enable secure boot
     bootspec.enable = true;
@@ -55,39 +55,94 @@
     isNormalUser = true;
     description = "Radeox";
     extraGroups = [ "docker" "lp" "networkmanager" "scanner" "video" "wheel" ];
-    packages = (with pkgs; [
+  };
+
+  # System packages
+  environment.systemPackages = with pkgs;
+    [
+      alacritty
       android-tools
+      ansible
       authenticator
-      heroic
+      autojump
+      bat
+      bottom
+      cargo
+      cifs-utils
+      cmake
+      dig
+      du-dust
+      duf
+      fd
+      ffmpeg
+      firefox
+      fzf
+      gcc
+      gcolor3
+      gimp
+      git
+      git-extras
+      gnome-extension-manager
+      gnome.gnome-tweaks
+      gnumake
+      google-chrome
+      grc
+      gruvbox-gtk-theme
+      home-manager
+      htop
+      imagemagick
       inkscape
+      killall
       lazydocker
       lazygit
       localsend
+      lsd
       mariadb.client
       megasync
       mongodb-compass
       mongodb-tools
-      ngrok
-      notion-app-enhanced
+      nil
+      nixfmt
+      nmap
+      nodejs_20
+      noto-fonts
+      onlyoffice-bin_7_5
       openfortivpn
+      pciutils
+      php82
+      poetry
       prismlauncher
       protonup-qt
+      python312
+      qogir-icon-theme
       remmina
+      ripgrep
       rpi-imager
       rpiboot
+      sbctl
       spotify
+      tela-icon-theme
       telegram-desktop
       thunderbird
+      tree-sitter
+      ulauncher
+      unzip
       veracrypt
-      vscode
-      warp
-      yuzu-early-access
-    ]) ++ (with pkgs.gnomeExtensions; [
+      vifm
+      vlc
+      vorta
+      wget
+      wl-clipboard
+      ydotool
+      yuzu
+      zip
+    ] ++ (with pkgs.gnomeExtensions; [
       appindicator
       battery-health-charging
       blur-my-shell
       dash-to-dock
       espresso
+      fly-pie
       gsconnect
       no-overview
       pano
@@ -95,76 +150,7 @@
       quick-settings-tweaker
       super-key
       user-themes
-    ]);
-    # ++ (with pkgs.unstable; [ ]);
-  };
-
-  # System packages
-  environment.systemPackages = with pkgs; [
-    alacritty
-    ansible
-    autojump
-    bat
-    bottom
-    cargo
-    catppuccin-gtk
-    cifs-utils
-    cmake
-    dig
-    du-dust
-    duf
-    egl-wayland
-    fd
-    ffmpeg
-    filezilla
-    firefox
-    fishPlugins.done
-    fishPlugins.fzf-fish
-    fishPlugins.grc
-    fishPlugins.hydro
-    fishPlugins.sponge
-    fzf
-    gcc
-    gcolor3
-    gimp
-    git
-    git-extras
-    gnome-extension-manager
-    gnome.gnome-tweaks
-    gnumake
-    google-chrome
-    grc
-    home-manager
-    htop
-    imagemagick
-    killall
-    lsd
-    nil
-    nixfmt
-    nmap
-    nodejs_20
-    noto-fonts
-    onlyoffice-bin_7_5
-    papirus-icon-theme
-    pciutils
-    php82
-    poetry
-    python312
-    qogir-icon-theme
-    ripgrep
-    sbctl
-    tree-sitter
-    ulauncher
-    unzip
-    vifm
-    vlc
-    vorta
-    wayland-utils
-    wget
-    wl-clipboard
-    ydotool
-    zip
-  ];
+    ]) ++ (with pkgs.fishPlugins; [ done fzf-fish grc hydro sponge ]);
 
   # Exclude some Gnome packages
   environment.gnome.excludePackages = with pkgs; [
@@ -407,7 +393,8 @@
     # My shell aliases
     shellAliases = {
       # NixOS commands
-      nix-clean = "sudo nix-collect-garbage -d && sudo nixos-rebuild boot";
+      nix-clean =
+        "sudo nix-collect-garbage -d && nix-collect-garbage -d && sudo nixos-rebuild boot";
       nix-config = "cd /etc/nixos && vim configuration.nix";
       nix-update = "nix flake update /etc/nixos && sudo nixos-rebuild switch";
 
