@@ -120,7 +120,6 @@
       rpi-imager
       rpiboot
       sbctl
-      spotify
       tela-icon-theme
       telegram-desktop
       thunderbird
