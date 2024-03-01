@@ -107,7 +107,6 @@
       nodejs_20
       noto-fonts
       onlyoffice-bin_7_5
-      openfortivpn
       pciutils
       php82
       poetry
@@ -115,6 +114,7 @@
       protonup-qt
       python312
       qogir-icon-theme
+      quickemu
       remmina
       ripgrep
       rpi-imager
