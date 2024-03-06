@@ -63,7 +63,6 @@
       alacritty
       android-tools
       ansible
-      authenticator
       autojump
       bat
       bottom
@@ -132,7 +131,6 @@
       vorta
       wget
       wl-clipboard
-      ydotool
       yuzu
       zip
     ] ++ (with pkgs.gnomeExtensions; [
@@ -419,7 +417,7 @@
       ls = "lsd";
 
       # Scripts
-      myip = "fish ~/Sources/scripts/my-ip.sh";
+      myip = "bash ~/Sources/scripts/my-ip.sh";
       venv = "source ~/Sources/scripts/activate_poetry.fish";
     };
   };
