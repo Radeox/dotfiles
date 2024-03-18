@@ -4,30 +4,6 @@
     enable = true;
 
     settings = {
-      # Keybindings
-      key_bindings = [
-        {
-          key = "B";
-          mods = "Control|Shift";
-          chars = "\\x1b[66;5u";
-        }
-        {
-          key = "R";
-          mods = "Control|Shift";
-          chars = "\\x1b[82;5u";
-        }
-        {
-          key = "Slash";
-          mods = "Control";
-          chars = "\\x1b[47;5u";
-        }
-        {
-          key = "Space";
-          mods = "Control|Shift";
-          chars = "\\x1b[32;6u";
-        }
-      ];
-
       # Fonts
       font = {
         size = 13.0;

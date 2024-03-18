@@ -87,6 +87,7 @@
       google-chrome
       grc
       gruvbox-gtk-theme
+      heroic
       home-manager
       htop
       imagemagick
@@ -105,7 +106,7 @@
       nmap
       nodejs_20
       noto-fonts
-      onlyoffice-bin_7_5
+      onlyoffice-bin_latest
       pciutils
       php82
       poetry
@@ -131,7 +132,6 @@
       vorta
       wget
       wl-clipboard
-      yuzu
       zip
     ] ++ (with pkgs.gnomeExtensions; [
       appindicator
@@ -156,7 +156,6 @@
     gnome-tour
     gnome.epiphany
     gnome.geary
-    gnome.gedit
     gnome.gnome-music
     gnome.gnome-software
     gnome.gnome-terminal
@@ -181,14 +180,16 @@
       };
 
       # Configure keymap in X11
-      layout = "us";
-      xkbVariant = "";
+      xkb = {
+        layout = "us";
+        variant = "";
+      };
 
       # Enable touchpad support
       libinput.enable = true;
 
       # Remove xterm from gnome-terminal
-      excludePackages = [ pkgs.xterm ];
+      excludePackages = [ pkgs.xterm pkgs.gedit ];
     };
 
     # Enable printing services
@@ -197,7 +198,7 @@
     # Enable network discovery
     avahi = {
       enable = true;
-      nssmdns = true;
+      nssmdns4 = true;
       openFirewall = true;
     };
 
@@ -321,7 +322,7 @@
     };
 
     # Enable the Xbox One driver
-    xone = { enable = true; };
+    # xone = { enable = true; };
   };
 
   # Firewall configuration
@@ -374,6 +375,10 @@
     # Intel hybrid driver
     vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
   };
+
+  # Override insecure packages
+  nixpkgs.config.permittedInsecurePackages =
+    [ "freeimage-unstable-2021-11-01" ];
 
   environment = {
     sessionVariables = {
