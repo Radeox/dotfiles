@@ -81,8 +81,6 @@
       gimp
       git
       git-extras
-      gnome-extension-manager
-      gnome.gnome-tweaks
       gnumake
       google-chrome
       grc
@@ -92,6 +90,7 @@
       htop
       imagemagick
       inkscape
+      kdePackages.kdeconnect-kde
       killall
       lazydocker
       lazygit
@@ -111,7 +110,6 @@
       php82
       poetry
       prismlauncher
-      protonup-qt
       python312
       qogir-icon-theme
       quickemu
@@ -120,11 +118,9 @@
       rpi-imager
       rpiboot
       sbctl
-      tela-icon-theme
       telegram-desktop
       thunderbird
       tree-sitter
-      ulauncher
       unzip
       veracrypt
       vifm
@@ -133,36 +129,12 @@
       wget
       wl-clipboard
       zip
-    ] ++ (with pkgs.gnomeExtensions; [
-      appindicator
-      battery-health-charging
-      blur-my-shell
-      dash-to-dock
-      espresso
-      fly-pie
-      gsconnect
-      no-overview
-      pano
-      paperwm
-      quick-settings-tweaker
-      super-key
-      user-themes
-    ]) ++ (with pkgs.fishPlugins; [ done fzf-fish grc hydro sponge ]);
-
-  # Exclude some Gnome packages
-  environment.gnome.excludePackages = with pkgs; [
-    gnome-console
-    gnome-photos
-    gnome-tour
-    gnome.epiphany
-    gnome.geary
-    gnome.gnome-music
-    gnome.gnome-software
-    gnome.gnome-terminal
-    gnome.totem
-  ];
+    ] ++ (with pkgs.fishPlugins; [ done fzf-fish grc hydro sponge ]);
 
   services = {
+    # Enable KDE Plasma
+    desktopManager.plasma6.enable = true;
+
     xserver = {
       # Enable X11
       enable = true;
@@ -170,12 +142,10 @@
       # Use the nvidia driver
       videoDrivers = [ "nvidia" ];
 
-      # Enable Gnome
-      desktopManager.gnome.enable = true;
       displayManager = {
-        gdm = {
+        sddm = {
           enable = true;
-          wayland = true;
+          wayland.enable = true;
         };
       };
 
@@ -187,9 +157,6 @@
 
       # Enable touchpad support
       libinput.enable = true;
-
-      # Remove xterm from gnome-terminal
-      excludePackages = [ pkgs.xterm pkgs.gedit ];
     };
 
     # Enable printing services
@@ -227,7 +194,7 @@
   security.rtkit.enable = true;
 
   programs = {
-    # Enable FISH
+    # Enable Fish
     fish.enable = true;
 
     # Configure Steam
@@ -268,8 +235,8 @@
     nvidia = {
       # Nvidia Prime
       prime = {
-        intelBusId = "PCI:0:2:0";
         nvidiaBusId = "PCI:1:0:0";
+        intelBusId = "PCI:0:2:0";
         sync.enable = true;
       };
 
@@ -294,7 +261,7 @@
       enable = true;
 
       # Show battery levels for more devices
-      settings = { General = { Experimental = true; }; };
+      settings.General = { Experimental = true; };
     };
 
     # Disable pulseaudio
@@ -322,7 +289,7 @@
     };
 
     # Enable the Xbox One driver
-    # xone = { enable = true; };
+    xone = { enable = true; };
   };
 
   # Firewall configuration
