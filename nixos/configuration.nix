@@ -91,6 +91,7 @@
       imagemagick
       inkscape
       kdePackages.kdeconnect-kde
+      kdePackages.powerdevil
       killall
       lazydocker
       lazygit
@@ -311,6 +312,11 @@
       to = 1764;
     }];
   };
+
+  networking.extraHosts = ''
+    94.76.230.120 cablart.it
+  '';
+
 
   # Set your time zone.
   time.timeZone = "Europe/Rome";
