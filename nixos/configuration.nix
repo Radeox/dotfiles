@@ -313,11 +313,6 @@
     }];
   };
 
-  networking.extraHosts = ''
-    94.76.230.120 cablart.it
-  '';
-
-
   # Set your time zone.
   time.timeZone = "Europe/Rome";
 
