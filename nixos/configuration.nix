@@ -112,8 +112,8 @@
       poetry
       prismlauncher
       python312
-      qogir-icon-theme
       quickemu
+      rar
       remmina
       ripgrep
       rpi-imager
@@ -369,7 +369,6 @@
       nix-update = "nix flake update /etc/nixos && sudo nixos-rebuild switch";
 
       # Aliases
-      ".." = "cd .. && ls";
       d = "lazydocker";
       dc = "docker compose";
       f = "vifm";

@@ -23,9 +23,6 @@ return {
         -- Toggle Explorer
         ["<C-n>"] = {"<cmd>Neotree toggle<cr>", desc = "Toggle Explorer"},
 
-        -- Toggle Terminal
-        ["<C-t>"] = {"<cmd>ToggleTerm<cr>", desc = "Toggle Terminal"},
-
         -- Session manager
         ["<leader>ss"] = {"<cmd>lua require 'resession'.save()<cr>", desc = "Save session"},
         ["<leader>sf"] = {"<cmd>lua require 'resession'.load()<cr>", desc = "Load session"},

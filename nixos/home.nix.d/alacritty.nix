@@ -4,6 +4,27 @@
     enable = true;
 
     settings = {
+      # Key bindings
+      keyboard = {
+        bindings = [
+          {
+            key = "T";
+            mods = "Control";
+            action = "CreateNewWindow";
+          }
+          {
+            key = "Space";
+            mods = "Control|Shift";
+            action = "ReceiveChar";
+          }
+          {
+            key = "B";
+            mods = "Control|Shift";
+            action = "ReceiveChar";
+          }
+        ];
+      };
+
       # Fonts
       font = {
         size = 13.0;
