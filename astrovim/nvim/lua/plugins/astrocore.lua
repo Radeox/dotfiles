@@ -1,6 +1,42 @@
--- Custom keybindings
+---@type LazySpec
 return {
-    n = {
+  "AstroNvim/astrocore",
+  ---@type AstroCoreOpts
+  opts = {
+    -- Configure core features of AstroNvim
+    features = {
+      large_buf = { size = 1024 * 500, lines = 10000 },
+      autopairs = true,
+      cmp = true,
+      diagnostics_mode = 3,
+      highlighturl = true,
+      notifications = true,
+    },
+
+    -- Diagnostics configuration
+    diagnostics = {
+      virtual_text = true,
+      underline = true,
+    },
+
+    -- Vim options can be configured here
+    options = {
+      opt = {
+        relativenumber = false,
+        number = true,
+        spell = false,
+        signcolumn = "auto",
+        wrap = false,
+      },
+      
+      -- Global mappings
+      g = {},
+    },
+
+    -- Mappings
+    mappings = {
+      -- Normal
+      n = {
         -- Save file
         ["<C-s>"] = {"<cmd>w<cr>", desc = "Save file"},
 
@@ -39,17 +75,19 @@ return {
 
         -- Clear search
         ["<esc>"] = {"<cmd>noh<cr>", desc = "Clear search"},
+      },
+      
+      -- Insert mode
+      i = {
+          -- Save file
+          ["<C-s>"] = {"<cmd>w<cr>", desc = "Save file"},
+      },
+      
+      -- Visual mode
+      v = {
+          -- Save file
+          ["<C-s>"] = {"<cmd>w<cr>", desc = "Save file"},
+      },
     },
-
-    -- Insert mode
-    i = {
-        -- Save file
-        ["<C-s>"] = {"<cmd>w<cr>", desc = "Save file"},
-    },
-    
-    -- Visual mode
-    v = {
-        -- Save file
-        ["<C-s>"] = {"<cmd>w<cr>", desc = "Save file"},
-    },
+  },
 }

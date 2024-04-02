@@ -1,5 +1,6 @@
+---@type LazySpec
 return {
-  "jose-elias-alvarez/null-ls.nvim",
+  "nvimtools/none-ls.nvim",
   opts = function(_, config)
     local null_ls = require "null-ls"
 
