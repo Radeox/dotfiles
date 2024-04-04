@@ -12,11 +12,3 @@ lspconfig.intelephense.setup {
     globalStoragePath = vim.fn.stdpath('data') .. '/intelephense',
   },
 }
-
--- Change filetype for php files to phtml
-vim.cmd [[
-  augroup php_filetype
-    autocmd!
-    autocmd BufNewFile,BufRead *.php set filetype=phtml
-  augroup END
-]]

@@ -31,18 +31,19 @@ return {
         "isort",
 
         -- PHP
-        "php-cs-fixer",
+        -- "php-cs-fixer",
         
         -- Django
         "djlint",
 
-        -- SCSS
+        -- SCSS, Javascript
         "prettier",
 
-        -- Javascript
-        "prettierd",
+        -- Nix
+        "nil",
+        "nixpkgs-fmt",
         
-        -- SSH
+        -- Shell
         "shfmt",
 
         -- Lua
