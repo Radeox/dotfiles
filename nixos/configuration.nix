@@ -92,9 +92,11 @@
       inkscape
       kdePackages.kdeconnect-kde
       kdePackages.powerdevil
+      kdePackages.qtwayland
       killall
       lazydocker
       lazygit
+      libGL
       localsend
       lsd
       mariadb.client
@@ -102,7 +104,7 @@
       mongodb-compass
       mongodb-tools
       nil
-      nixfmt
+      nixfmt-classic
       nmap
       nodejs_20
       noto-fonts
@@ -286,6 +288,7 @@
         nvidia-vaapi-driver
         vaapiIntel
         vaapiVdpau
+        mesa.drivers
       ];
     };
 
@@ -355,6 +358,9 @@
 
       # Set GIT editor
       GIT_EDITOR = "nvim";
+
+      # GCC libs
+      LD_LIBRARY_PATH = lib.mkForce "/run/opengl-driver/lib:/run/opengl-driver-32/lib:/etc/sane-libs";
     };
 
     # Add ./local/bin to PATH
@@ -386,7 +392,7 @@
       cat = "bat -p";
       df = "duf";
       du = "dust";
-      ls = "lsd";
+      ls = "lsd --group-directories-first";
 
       # Scripts
       myip = "bash ~/Sources/scripts/my-ip.sh";
