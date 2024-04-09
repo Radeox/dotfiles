@@ -13,6 +13,9 @@ return {
       -- Python
       none_ls.builtins.formatting.black,
 
+      -- SCSS
+      none_ls.builtins.formatting.prettier,
+
       -- Django
       none_ls.builtins.formatting.djlint.with({
         args = {
