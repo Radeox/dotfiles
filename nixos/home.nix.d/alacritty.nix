@@ -9,8 +9,13 @@
         bindings = [
           {
             key = "T";
-            mods = "Control";
+            mods = "Control|Shift";
             action = "CreateNewWindow";
+          }
+          {
+            key = "T";
+            mods = "Control";
+            action = "ReceiveChar";
           }
           {
             key = "Space";

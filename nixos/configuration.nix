@@ -347,10 +347,6 @@
     vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
   };
 
-  # Override insecure packages
-  nixpkgs.config.permittedInsecurePackages =
-    [ "freeimage-unstable-2021-11-01" ];
-
   environment = {
     sessionVariables = {
       # Set Wayland ozone backend
@@ -360,7 +356,8 @@
       GIT_EDITOR = "nvim";
 
       # GCC libs
-      LD_LIBRARY_PATH = lib.mkForce "/run/opengl-driver/lib:/run/opengl-driver-32/lib:/etc/sane-libs";
+      LD_LIBRARY_PATH = lib.mkForce
+        "/run/opengl-driver/lib:/run/opengl-driver-32/lib:/etc/sane-libs";
     };
 
     # Add ./local/bin to PATH
