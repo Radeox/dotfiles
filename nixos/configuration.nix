@@ -138,19 +138,20 @@
     # Enable KDE Plasma
     desktopManager.plasma6.enable = true;
 
+    # SDDM configuration
+    displayManager = {
+      sddm = {
+        enable = true;
+        wayland.enable = true;
+      };
+    };
+
     xserver = {
       # Enable X11
       enable = true;
 
       # Use the nvidia driver
       videoDrivers = [ "nvidia" ];
-
-      displayManager = {
-        sddm = {
-          enable = true;
-          wayland.enable = true;
-        };
-      };
 
       # Configure keymap in X11
       xkb = {
@@ -281,6 +282,7 @@
       enable = true;
       driSupport = true;
       driSupport32Bit = true;
+      setLdLibraryPath = true;
 
       extraPackages = with pkgs; [
         intel-media-driver
@@ -354,10 +356,6 @@
 
       # Set GIT editor
       GIT_EDITOR = "nvim";
-
-      # GCC libs
-      LD_LIBRARY_PATH = lib.mkForce
-        "/run/opengl-driver/lib:/run/opengl-driver-32/lib:/etc/sane-libs";
     };
 
     # Add ./local/bin to PATH
