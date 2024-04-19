@@ -300,7 +300,7 @@
 
   # Firewall configuration
   networking.firewall = {
-    enable = true;
+    enable = false;
 
     # Dev ports
     # LocalSend = 53317
