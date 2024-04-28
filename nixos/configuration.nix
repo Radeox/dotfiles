@@ -9,7 +9,7 @@
   # Bootloader configuration
   boot = {
     # Use latest kernel
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages_xanmod_latest;
 
     # Enable secure boot
     bootspec.enable = true;
@@ -30,7 +30,10 @@
     supportedFilesystems = [ "ntfs" ];
 
     # Add legion module
-    extraModulePackages = [ config.boot.kernelPackages.lenovo-legion-module ];
+    extraModulePackages = [
+      config.boot.kernelPackages.lenovo-legion-module
+      config.boot.kernelPackages.nvidia_x11
+    ];
   };
 
   # Networking configuration
@@ -60,6 +63,42 @@
   # System packages
   environment.systemPackages = with pkgs;
     [
+      # New stuff
+      acpi
+      adwaita-qt
+      adwaita-qt6
+      brightnessctl
+      fuseiso
+      gnome.adwaita-icon-theme
+      gnome.gnome-themes-extra
+      grimblast
+      gsettings-desktop-schemas
+      hyprcursor
+      hypridle
+      hyprland-protocols
+      hyprlock
+      hyprpicker
+      kanshi
+      libva-utils
+      nvidia-vaapi-driver
+      pavucontrol
+      playerctl
+      polkit_gnome
+      qt5.qtwayland
+      qt6.qmake
+      qt6.qtwayland
+      swaynotificationcenter
+      swww
+      udiskie
+      waybar
+      wl-clipboard
+      wofi
+      xdg-desktop-portal
+      xdg-desktop-portal-gtk
+      xdg-desktop-portal-hyprland
+      xdg-utils
+
+      # OLD
       alacritty
       android-tools
       ansible
@@ -90,9 +129,9 @@
       htop
       imagemagick
       inkscape
-      kdePackages.kdeconnect-kde
-      kdePackages.powerdevil
-      kdePackages.qtwayland
+      # kdePackages.kdeconnect-kde
+      # kdePackages.powerdevil
+      # kdePackages.qtwayland
       killall
       lazydocker
       lazygit
@@ -110,8 +149,8 @@
       noto-fonts
       onlyoffice-bin_latest
       pciutils
-      php82
-      poetry
+      php83
+      # poetry
       prismlauncher
       python312
       quickemu
@@ -136,19 +175,28 @@
 
   services = {
     # Enable KDE Plasma
-    desktopManager.plasma6.enable = true;
-
-    # SDDM configuration
-    displayManager = {
-      sddm = {
-        enable = true;
-        wayland.enable = true;
-      };
-    };
+    # desktopManager.plasma6.enable = true;
+    #
+    # # SDDM configuration
+    # displayManager = {
+    #   sddm = {
+    #     enable = true;
+    #     wayland.enable = true;
+    #   };
+    # };
 
     xserver = {
       # Enable X11
       enable = true;
+
+      displayManager =
+        {
+          # Enable GDM
+          gdm = {
+            enable = true;
+            wayland = true;
+          };
+        };
 
       # Use the nvidia driver
       videoDrivers = [ "nvidia" ];
@@ -158,10 +206,10 @@
         layout = "us";
         variant = "";
       };
-
-      # Enable touchpad support
-      libinput.enable = true;
     };
+
+    # Enable touchpad support
+    libinput.enable = true;
 
     # Enable printing services
     printing.enable = true;
@@ -173,8 +221,14 @@
       openFirewall = true;
     };
 
-    # Enable Samba shares
+    # Enable Samba shares and other stuff
     gvfs.enable = true;
+    dbus.enable = true;
+    tumbler.enable = true;
+
+    gnome = {
+      gnome-keyring.enable = true;
+    };
 
     # Pipewire configuration
     pipewire = {
@@ -198,6 +252,21 @@
   security.rtkit.enable = true;
 
   programs = {
+    # Enable Hyprland
+    hyprland = {
+      enable = true;
+      xwayland.enable = true;
+    };
+
+    # Enable Thunar with plugins
+    thunar = {
+      enable = true;
+      plugins = with pkgs.xfce; [
+        thunar-archive-plugin
+        thunar-volman
+      ];
+    };
+
     # Enable Fish
     fish.enable = true;
 
@@ -223,11 +292,11 @@
         ${pkgs.nvd}/bin/nvd --nix-bin-dir=${pkgs.nix}/bin diff /run/current-system "$systemConfig"
       '';
     };
-    stateVersion = "23.05";
+    stateVersion = "24.05";
   };
 
+  # Enable Docker
   virtualisation = {
-    # Enable Docker
     docker = {
       enable = true;
       enableNvidia = true;
@@ -235,20 +304,28 @@
     };
   };
 
+  # XDG Portals
+  xdg = {
+    autostart.enable = true;
+    portal = {
+      enable = true;
+      extraPortals = [
+        pkgs.xdg-desktop-portal
+        pkgs.xdg-desktop-portal-gtk
+      ];
+    };
+  };
+
   hardware = {
     nvidia = {
-      # Nvidia Prime
-      prime = {
-        nvidiaBusId = "PCI:1:0:0";
-        intelBusId = "PCI:0:2:0";
-        sync.enable = true;
-      };
-
       # Modesetting is needed for most wayland compositors
       modesetting.enable = true;
 
       # Power management
-      powerManagement.enable = false;
+      powerManagement.enable = true;
+
+      # Force full composition pipeline
+      forceFullCompositionPipeline = true;
 
       # Open source driver
       open = false;
@@ -257,7 +334,7 @@
       nvidiaSettings = true;
 
       # Use lastest drivers
-      package = config.boot.kernelPackages.nvidiaPackages.beta;
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
     };
 
     # Bluetooth setup
@@ -285,12 +362,8 @@
       setLdLibraryPath = true;
 
       extraPackages = with pkgs; [
-        intel-media-driver
         libvdpau-va-gl
-        nvidia-vaapi-driver
-        vaapiIntel
         vaapiVdpau
-        mesa.drivers
       ];
     };
 
@@ -344,11 +417,6 @@
       })
     ];
 
-  nixpkgs.config.packageOverrides = pkgs: {
-    # Intel hybrid driver
-    vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
-  };
-
   environment = {
     sessionVariables = {
       # Set Wayland ozone backend
@@ -356,6 +424,24 @@
 
       # Set GIT editor
       GIT_EDITOR = "nvim";
+
+      # NEW
+      POLKIT_AUTH_AGENT = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+      GSETTINGS_SCHEMA_DIR = "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}/glib-2.0/schemas";
+      LIBVA_DRIVER_NAME = "nvidia";
+      XDG_SESSION_TYPE = "wayland";
+      GBM_BACKEND = "nvidia-drm";
+      __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+      WLR_NO_HARDWARE_CURSORS = "1";
+      MOZ_ENABLE_WAYLAND = "1";
+      SDL_VIDEODRIVER = "wayland";
+      _JAVA_AWT_WM_NONREPARENTING = "1";
+      CLUTTER_BACKEND = "wayland";
+      WLR_RENDERER = "vulkan";
+      XDG_CURRENT_DESKTOP = "Hyprland";
+      XDG_SESSION_DESKTOP = "Hyprland";
+      GTK_USE_PORTAL = "1";
+      NIXOS_XDG_OPEN_USE_PORTAL = "1";
     };
 
     # Add ./local/bin to PATH
