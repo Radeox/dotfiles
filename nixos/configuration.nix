@@ -80,7 +80,6 @@
       hyprpicker
       kanshi
       libva-utils
-      nvidia-vaapi-driver
       pavucontrol
       playerctl
       polkit_gnome
@@ -360,7 +359,10 @@
       setLdLibraryPath = true;
 
       extraPackages = with pkgs; [
+        egl-wayland
+        libglvnd
         libvdpau-va-gl
+        nvidia-vaapi-driver
         vaapiVdpau
       ];
     };
