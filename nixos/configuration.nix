@@ -142,7 +142,7 @@
       nmap
       nodejs_20
       noto-fonts
-      onlyoffice-bin_latest
+      libreoffice-fresh
       pciutils
       php83
       # poetry
