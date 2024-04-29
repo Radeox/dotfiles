@@ -121,7 +121,6 @@
       git
       git-extras
       gnumake
-      google-chrome
       grc
       gruvbox-gtk-theme
       heroic
@@ -129,9 +128,6 @@
       htop
       imagemagick
       inkscape
-      # kdePackages.kdeconnect-kde
-      # kdePackages.powerdevil
-      # kdePackages.qtwayland
       killall
       lazydocker
       lazygit
@@ -171,27 +167,28 @@
       wget
       wl-clipboard
       zip
+
+      (google-chrome.override
+        {
+          commandLineArgs = [
+            "--use-gl=egl"
+            "--enable-zero-copy"
+            "--enable-features=VaapiVideoDecodeLinuxGL"
+            "--ignore-gpu-blocklist"
+            "--enable-gpu-rasterization"
+            "--ozone-platform=wayland"
+          ];
+        })
     ] ++ (with pkgs.fishPlugins; [ done fzf-fish grc hydro sponge ]);
 
   services = {
-    # Enable KDE Plasma
-    # desktopManager.plasma6.enable = true;
-    #
-    # # SDDM configuration
-    # displayManager = {
-    #   sddm = {
-    #     enable = true;
-    #     wayland.enable = true;
-    #   };
-    # };
-
     xserver = {
       # Enable X11
       enable = true;
 
+      # Enable GDM
       displayManager =
         {
-          # Enable GDM
           gdm = {
             enable = true;
             wayland = true;
@@ -214,6 +211,20 @@
     # Enable printing services
     printing.enable = true;
 
+    # Enable Samba shares and other stuff
+    gvfs.enable = true;
+    dbus.enable = true;
+    tumbler.enable = true;
+
+    # Thermald
+    thermald.enable = true;
+
+    # Power profiles
+    power-profiles-daemon.enable = true;
+
+    # Enable firmware updates
+    fwupd.enable = true;
+
     # Enable network discovery
     avahi = {
       enable = true;
@@ -221,11 +232,7 @@
       openFirewall = true;
     };
 
-    # Enable Samba shares and other stuff
-    gvfs.enable = true;
-    dbus.enable = true;
-    tumbler.enable = true;
-
+    # Enable GNOME keyring
     gnome = {
       gnome-keyring.enable = true;
     };
@@ -237,21 +244,24 @@
       alsa.support32Bit = true;
       pulse.enable = true;
     };
-
-    # Thermald
-    thermald.enable = true;
-
-    # Power profiles
-    power-profiles-daemon.enable = true;
-
-    # Enable firmware updates
-    fwupd.enable = true;
   };
 
   # For pipewire
   security.rtkit.enable = true;
 
   programs = {
+    # Enable Fish
+    fish.enable = true;
+
+    # Configure Steam
+    steam.enable = true;
+
+    # Enable Gamemode
+    gamemode.enable = true;
+
+    # Enable GTK themes in Wayland
+    dconf.enable = true;
+
     # Enable Hyprland
     hyprland = {
       enable = true;
@@ -266,21 +276,9 @@
         thunar-volman
       ];
     };
-
-    # Enable Fish
-    fish.enable = true;
-
-    # Configure Steam
-    steam.enable = true;
-
-    # Enable Gamemode
-    gamemode.enable = true;
-
-    # Enable GTK themes in Wayland
-    dconf.enable = true;
   };
 
-  # Set FISH as default shell
+  # Set Fish as default shell
   users.defaultUserShell = pkgs.fish;
   environment.shells = with pkgs; [ fish ];
 
@@ -373,7 +371,7 @@
 
   # Firewall configuration
   networking.firewall = {
-    enable = false;
+    enable = true;
 
     # Dev ports
     # LocalSend = 53317
@@ -442,6 +440,7 @@
       XDG_SESSION_DESKTOP = "Hyprland";
       GTK_USE_PORTAL = "1";
       NIXOS_XDG_OPEN_USE_PORTAL = "1";
+      ELECTRON_OZONE_PLATFORM_HINT = "wayland";
     };
 
     # Add ./local/bin to PATH
