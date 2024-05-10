@@ -1,0 +1,130 @@
+{ pkgs, ... }:
+{
+  environment.systemPackages = with pkgs;
+    [
+      adwaita-qt
+      adwaita-qt6
+      alacritty
+      android-tools
+      ansible
+      autojump
+      bat
+      bleachbit
+      bottom
+      brightnessctl
+      cargo
+      cifs-utils
+      cliphist
+      cmake
+      dig
+      du-dust
+      duf
+      fd
+      ffmpeg
+      firefox
+      fuseiso
+      fzf
+      gcc
+      gimp
+      git
+      git-extras
+      gnome.adwaita-icon-theme
+      gnome.file-roller
+      gnome.gnome-themes-extra
+      gnumake
+      gparted
+      grc
+      grimblast
+      gsettings-desktop-schemas
+      heroic
+      home-manager
+      htop
+      hyprcursor
+      hyprland-protocols
+      hyprlock
+      hyprpicker
+      imagemagick
+      inkscape
+      kanshi
+      killall
+      lazydocker
+      lazygit
+      libreoffice-fresh
+      libva-utils
+      localsend
+      loupe
+      lsd
+      mariadb.client
+      megasync
+      mongodb-compass
+      mongodb-tools
+      nmap
+      nodejs_20
+      noto-fonts
+      pavucontrol
+      pciutils
+      php83
+      playerctl
+      poetry
+      polkit_gnome
+      prismlauncher
+      python312
+      qt5.qtwayland
+      qt6.qmake
+      qt6.qtwayland
+      quickemu
+      ranger
+      rar
+      remmina
+      ripgrep
+      rpi-imager
+      rpiboot
+      sbctl
+      spotify
+      swaynotificationcenter
+      swww
+      telegram-desktop
+      thunderbird
+      tree-sitter
+      udiskie
+      unzip
+      veracrypt
+      vlc
+      vorta
+      waybar
+      wget
+      wl-clipboard
+      wl-clipboard
+      xdg-desktop-portal
+      xdg-desktop-portal-gtk
+      xdg-desktop-portal-hyprland
+      xdg-utils
+      zip
+
+      (google-chrome.override
+        {
+          commandLineArgs = [
+            "--use-gl=egl"
+            "--enable-zero-copy"
+            "--enable-features=VaapiVideoDecodeLinuxGL"
+            "--ignore-gpu-blocklist"
+            "--enable-gpu-rasterization"
+            "--ozone-platform=wayland"
+          ];
+        })
+    ] ++ (with pkgs.fishPlugins; [
+      done
+      fzf-fish
+      grc
+      hydro
+      sponge
+    ]);
+
+  # Configure extra fonts
+  fonts.packages = with pkgs;
+    [
+      (nerdfonts.override {
+        fonts = [ "FiraCode" "DroidSansMono" "JetBrainsMono" ];
+      })
+    ];
+}

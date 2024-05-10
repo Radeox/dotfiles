@@ -1,8 +1,9 @@
-{ ... }: {
-  # Neovim configuration
+{ ... }:
+{
   programs.neovim = {
     enable = true;
     defaultEditor = true;
+    catppuccin.enable = false;
 
     # Enable aliases
     viAlias = true;
