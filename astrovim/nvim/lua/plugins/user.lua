@@ -3,7 +3,7 @@ return {
   "AstroNvim/astrocommunity",
 
   -- Kanagawa colorscheme
-  { import = "astrocommunity.colorscheme.gruvbox-baby" },
+  { import = "astrocommunity.colorscheme.catppuccin" },
   
   -- Copilot
   { import = "astrocommunity.completion.copilot-lua" },
