@@ -5,6 +5,7 @@
     ./hypridle.nix
     ./hyprland.nix
     ./neovim.nix
+    ./ranger.nix
     ./tofi.nix
     ./wlogout.nix
   ];

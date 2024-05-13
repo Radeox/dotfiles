@@ -73,7 +73,6 @@
       qt6.qmake
       qt6.qtwayland
       quickemu
-      ranger
       rar
       remmina
       ripgrep
@@ -87,6 +86,7 @@
       thunderbird
       tree-sitter
       udiskie
+      ueberzugpp
       unzip
       veracrypt
       vlc
