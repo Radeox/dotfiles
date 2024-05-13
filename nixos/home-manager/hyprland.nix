@@ -10,15 +10,15 @@
       bind = Super, B, exec, firefox
       bind = Super, F, exec, thunar
       bind = Super, N, exec, spotify
+      bind = Super, J, exec, telegram-desktop
+      bind = Super, M, exec, thunderbird
       bind = Super, L, exec, pidof hyprlock || hyprlock
-      bind = Super, J, exec, pkill telegram-desktop || telegram-desktop
-      bind = Super, M, exec, pkill thunderbird || thunderbird
       bind = Super, Space, exec, pkill tofi || tofi-drun --drun-launch=true
-      bind = Super, V, exec, cliphist list | tofi --horizontal false --height 50% --width 50% --anchor center | cliphist decode | wl-copy
+      bind = Super, V, exec, pkill tofi || cliphist list | tofi --horizontal false --height 50% --width 50% --anchor center | cliphist decode | wl-copy
 
       # System management
-      bind = Super+Shift, A, exec, [floating] pavucontrol
       bind = Super+Shift, B, exec, [floating] blueman-manager
+      bind = Super+Shift, A, exec, [floating] pkill pavucontrol || pavucontrol
 
       # Window management
       bind = Super, Q, killactive, 
