@@ -13,16 +13,16 @@
       };
 
       listener = [
-        # Dim screen after 2.5min
+        # Dim screen after 5min
         {
-          timeout = "150";
+          timeout = "300";
           on-timeout = "brightnessctl -s set 10";
           on-resume = "brightnessctl -r";
         }
 
-        # Lock screen after 5min
+        # Lock screen after 7min
         {
-          timeout = "300";
+          timeout = "420";
           on-timeout = "loginctl lock-session";
         }
 

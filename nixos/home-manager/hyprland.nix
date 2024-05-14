@@ -27,6 +27,7 @@
       bind = Super, PAGE_UP, togglesplit
       bind = Super, F1, exit, 
       bind = Super SHIFT, S, exec, grimblast copy area
+      bind = , Print, exec, grimblast copysave area
 
       # Lid switch - suspend
       bindl = ,switch:317ff70, exec, systemctl suspend

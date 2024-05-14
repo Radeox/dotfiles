@@ -99,6 +99,7 @@
       xdg-desktop-portal-gtk
       xdg-desktop-portal-hyprland
       xdg-utils
+      zed-editor
       zip
 
       (google-chrome.override
