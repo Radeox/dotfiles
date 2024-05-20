@@ -4,6 +4,7 @@
     ./git.nix
     ./hypridle.nix
     ./hyprland.nix
+    ./kanshi.nix
     ./neovim.nix
     ./ranger.nix
     ./tofi.nix
