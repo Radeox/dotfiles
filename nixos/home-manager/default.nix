@@ -25,14 +25,15 @@
     enable = true;
 
     # Flavour
-    flavour = "macchiato";
+    flavor = "macchiato";
     accent = "lavender";
   };
 
-  # GTK
+  # Cattpuccin GTK
   gtk.catppuccin = {
     enable = true;
-    flavour = "macchiato";
+
+    flavor = "macchiato";
     accent = "lavender";
   };
 }
