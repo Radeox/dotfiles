@@ -12,6 +12,7 @@
       bind = Super, N, exec, spotify
       bind = Super, J, exec, telegram-desktop
       bind = Super, M, exec, thunderbird
+      bind = Super, F1, exec, pkill wlogout || wlogout
       bind = Super, L, exec, pidof hyprlock || hyprlock
       bind = Super, Space, exec, pkill tofi || tofi-drun --drun-launch=true
       bind = Super, V, exec, pkill tofi || cliphist list | tofi --horizontal false --height 50% --width 50% --anchor center | cliphist decode | wl-copy
@@ -25,7 +26,7 @@
       bind = Super, HOME, fullscreen
       bind = Super, END, togglefloating, 
       bind = Super, PAGE_UP, togglesplit
-      bind = Super, F1, exit, 
+      bind = Super, F12, exit,
       bind = Super SHIFT, S, exec, grimblast copy area
       bind = , Print, exec, grimblast copysave area
 
@@ -106,20 +107,25 @@
       monitor=HDMI-A-1,preferred,auto,1
       monitor=DP-2,preferred,auto,1
       monitor=eDP-1,2560x1600@165,auto,1.6,vrr,1
+      monitor=Unknown-1,disable
 
       # Autostart apps
       exec-once = swww-daemon
       exec-once = kanshi
       exec-once = wl-paste --type text --watch cliphist store
 
-      # some default env vars.
+      exec-once = nm-applet
+      exec-once = megasync
+      exec-once = waybar
+
+      # Environment variables
       env = XCURSOR_SIZE,24
-      env = QT_QPA_PLATFORMTHEME,qt6ct # change to qt6ct if you have that
+      env = QT_QPA_PLATFORMTHEME,qt6ct
 
       # Window rules
       windowrulev2 = suppressevent maximize, class:.*
 
-      # For all categories, see https://wiki.hyprland.org/Configuring/Variables/
+      # Input configuration
       input {
           kb_layout = us,it
           kb_variant =
@@ -137,8 +143,6 @@
       }
 
       general {
-          # See https://wiki.hyprland.org/Configuring/Variables/ for more
-
           gaps_in = 5
           gaps_out = 20
           border_size = 2
