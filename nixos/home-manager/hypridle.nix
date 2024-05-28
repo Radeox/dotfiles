@@ -20,15 +20,15 @@
           on-resume = "brightnessctl -r";
         }
 
-        # Lock screen after 7min
+        # Lock screen after 10min
         {
-          timeout = "420";
+          timeout = "600";
           on-timeout = "loginctl lock-session";
         }
 
-        # Suspend after 10min
+        # Suspend after 15min
         {
-          timeout = "600";
+          timeout = "900";
           on-timeout = "systemctl suspend";
         }
       ];
