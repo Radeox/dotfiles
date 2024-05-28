@@ -58,6 +58,7 @@
       megasync
       mongodb-compass
       mongodb-tools
+      networkmanagerapplet
       nmap
       nodejs_20
       noto-fonts
