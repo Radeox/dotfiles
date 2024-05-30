@@ -18,7 +18,7 @@
   home = {
     username = "radeox";
     homeDirectory = "/home/radeox";
-    stateVersion = "24.05";
+    stateVersion = "24.11";
   };
 
   catppuccin = {

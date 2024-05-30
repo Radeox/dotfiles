@@ -28,6 +28,7 @@
       gimp
       git
       git-extras
+      gnome-text-editor
       gnome.adwaita-icon-theme
       gnome.file-roller
       gnome.gnome-themes-extra
@@ -47,6 +48,7 @@
       inkscape
       kanshi
       killall
+      lapce
       lazydocker
       lazygit
       libreoffice-fresh
@@ -100,17 +102,16 @@
       xdg-desktop-portal-gtk
       xdg-desktop-portal-hyprland
       xdg-utils
-      zed-editor
       zip
 
       (google-chrome.override
         {
           commandLineArgs = [
-            "--use-gl=egl"
+            "--use-gl=angle"
             "--enable-zero-copy"
+            "--enable-gpu-rasterization"
             "--enable-features=VaapiVideoDecodeLinuxGL"
             "--ignore-gpu-blocklist"
-            "--enable-gpu-rasterization"
             "--ozone-platform=wayland"
           ];
         })

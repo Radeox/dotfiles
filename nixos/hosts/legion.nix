@@ -5,26 +5,27 @@
   # Hostname
   networking.hostName = "Radeox-Nix";
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "thunderbolt" "nvme" "usbhid" ];
+  boot = {
+    # Kernel modules
+    kernelModules = [ "kvm-intel" ];
 
-  # Use Nvidia drivers
-  services.xserver.videoDrivers = [ "nvidia" ];
-  boot.initrd.kernelModules = [ "nvidia" ];
+    # Add legion module
+    extraModulePackages = [ config.boot.kernelPackages.lenovo-legion-module ];
 
-  boot.kernelModules = [ "kvm-intel" ];
+    initrd = {
+      # Kernel modules
+      availableKernelModules = [ "xhci_pci" "thunderbolt" "nvme" "usbhid" ];
+      kernelModules = [ "nvidia" ];
 
-  # Add legion module
-  boot.extraModulePackages = [
-    config.boot.kernelPackages.lenovo-legion-module
-    config.boot.kernelPackages.nvidia_x11
-  ];
+      # LUKS
+      luks.devices."luks-fcad8b10-4e2c-4c06-a569-8c173f8bfe96".device = "/dev/disk/by-uuid/fcad8b10-4e2c-4c06-a569-8c173f8bfe96";
+    };
+  };
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/e72d3b8b-21f6-4c6b-8d34-d8c81058c11f";
     fsType = "ext4";
   };
-
-  boot.initrd.luks.devices."luks-fcad8b10-4e2c-4c06-a569-8c173f8bfe96".device = "/dev/disk/by-uuid/fcad8b10-4e2c-4c06-a569-8c173f8bfe96";
 
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/2B82-40B3";
@@ -56,7 +57,8 @@
       powerManagement.enable = true;
 
       # Force full composition pipeline
-      forceFullCompositionPipeline = true;
+      # forceFullCompositionPipeline = true;
+      forceFullCompositionPipeline = false;
 
       # Open source driver
       open = false;
@@ -65,7 +67,7 @@
       nvidiaSettings = true;
 
       # Use lastest drivers
-      package = config.boot.kernelPackages.nvidiaPackages.stable;
+      package = config.boot.kernelPackages.nvidiaPackages.beta;
     };
 
     # Add nvidia vaapi driver
@@ -78,4 +80,7 @@
       vaapiVdpau
     ];
   };
+
+  # Use Nvidia drivers
+  services.xserver.videoDrivers = [ "nvidia" ];
 }
