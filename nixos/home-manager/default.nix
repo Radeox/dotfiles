@@ -7,6 +7,7 @@
     ./kanshi.nix
     ./neovim.nix
     ./ranger.nix
+    ./theme.nix
     ./tofi.nix
     ./wlogout.nix
   ];
@@ -19,21 +20,5 @@
     username = "radeox";
     homeDirectory = "/home/radeox";
     stateVersion = "24.11";
-  };
-
-  catppuccin = {
-    enable = true;
-
-    # Flavour
-    flavor = "macchiato";
-    accent = "lavender";
-  };
-
-  # Cattpuccin GTK
-  gtk.catppuccin = {
-    enable = true;
-
-    flavor = "macchiato";
-    accent = "lavender";
   };
 }
