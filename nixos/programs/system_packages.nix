@@ -39,10 +39,7 @@
       heroic
       home-manager
       htop
-      hyprcursor
       hyprland-protocols
-      hyprlock
-      hyprpicker
       imagemagick
       inkscape
       kanshi

@@ -4,6 +4,7 @@
     ./git.nix
     ./hypridle.nix
     ./hyprland.nix
+    ./hyprlock.nix
     ./kanshi.nix
     ./neovim.nix
     ./ranger.nix
