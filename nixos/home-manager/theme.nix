@@ -4,23 +4,23 @@
     enable = true;
 
     # Flavour
-    flavor = "macchiato";
-    accent = "lavender";
+    flavor = "mocha";
+    accent = "green";
   };
 
   # Cattpuccin GTK
   gtk.catppuccin = {
     enable = true;
 
-    flavor = "macchiato";
-    accent = "lavender";
+    flavor = "mocha";
+    accent = "green";
   };
 
   # Catppuccin cursor
   home.pointerCursor = {
     gtk.enable = true;
-    name = "Catppuccin-Macchiato-Lavender-Cursors";
-    package = pkgs.catppuccin-cursors.macchiatoLavender;
-    size = 18;
+    name = "Catppuccin-Mocha-Green-Cursors";
+    package = pkgs.catppuccin-cursors.mochaGreen;
+    size = 22;
   };
 }

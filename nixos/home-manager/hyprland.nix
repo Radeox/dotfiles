@@ -1,7 +1,7 @@
 { ... }:
 {
+  # Hyprland configuration
   wayland.windowManager.hyprland = {
-    # Enable Home-manager module
     enable = true;
 
     extraConfig = ''
@@ -112,10 +112,10 @@
       # Autostart apps
       exec-once = swww-daemon
       exec-once = kanshi
+      exec-once = waybar
       exec-once = wl-paste --type text --watch cliphist store
       exec-once = nm-applet
       exec-once = megasync
-      exec-once = waybar
 
       # Environment variables
       env = XCURSOR_SIZE,24
@@ -123,7 +123,7 @@
 
       # Window rules
       windowrulev2 = suppressevent maximize, class:.*
-      windowrulev2 = float,class:(MEGAsync),title:(MEGAsync)
+      windowrulev2 = float,title:(MEGAsync)
 
       # Input configuration
       input {
@@ -143,11 +143,11 @@
       }
 
       general {
-          gaps_in = 5
-          gaps_out = 20
+          gaps_in = 8
+          gaps_out = 16
           border_size = 2
-          col.active_border = $lavender $mauve 45deg
-          col.inactive_border = $surface1
+          col.active_border = $green $teal 45deg
+          col.inactive_border = $surface0
           layout = dwindle
           allow_tearing = false
       }
@@ -169,13 +169,12 @@
       animations {
           enabled = yes
 
-          bezier = myBezier, 0.05, 0.9, 0.1, 1.05
-          animation = windows, 1, 7, myBezier
-          animation = windowsOut, 1, 7, default, popin 80%
+          bezier = overshot, 0.15, 0.95, 0.30, 1
+          animation = windows, 1, 4, overshot, slide
           animation = border, 1, 10, default
-          animation = borderangle, 1, 8, default
-          animation = fade, 1, 7, default
-          animation = workspaces, 1, 6, default
+          animation = borderangle, 1, 200, default, loop
+          animation = fade, 1, 6, default
+          animation = workspaces, 1, 6, overshot, slidevert
       }
 
       dwindle {
