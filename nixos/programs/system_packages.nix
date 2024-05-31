@@ -19,7 +19,6 @@
       dig
       du-dust
       duf
-      fd
       ffmpeg
       firefox
       fuseiso

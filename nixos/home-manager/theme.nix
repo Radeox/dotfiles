@@ -9,11 +9,17 @@
   };
 
   # Cattpuccin GTK
-  gtk.catppuccin = {
+  gtk = {
     enable = true;
 
-    flavor = "mocha";
-    accent = "green";
+    catppuccin = {
+      enable = true;
+
+      flavor = "mocha";
+      accent = "green";
+      size = "standard";
+      tweaks = [ "normal" ];
+    };
   };
 
   # Catppuccin cursor

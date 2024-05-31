@@ -10,7 +10,6 @@
     # Aliases
     d = "lazydocker";
     dc = "docker compose";
-    find = "fd";
     g = "lazygit";
     ll = "ls -l";
     p = "ps aux | grep ";
