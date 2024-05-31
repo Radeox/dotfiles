@@ -9,6 +9,7 @@
   };
 
   outputs = { nixpkgs, home-manager, lanzaboote, catppuccin, ... }: {
+    # --- Radeox-Nix ---
     nixosConfigurations."Radeox-Nix" = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
@@ -40,6 +41,41 @@
 
         # Host specific configuration
         ./hosts/legion.nix
+      ];
+    };
+
+    # --- B-Dell ---
+    nixosConfigurations."B-Dell" = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = [
+        # Lanzaboote - Secure boot
+        lanzaboote.nixosModules.lanzaboote
+
+        # Catppuccin NixOS module
+        catppuccin.nixosModules.catppuccin
+
+        # Setup Home Manager
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.radeox = {
+            imports = [
+              ./home-manager
+              catppuccin.homeManagerModules.catppuccin
+            ];
+          };
+        }
+
+        # My NixOS configuration
+        ./environment
+        ./hardware
+        ./programs
+        ./services
+        ./users
+
+        # Host specific configuration
+        ./hosts/b-dell.nix
       ];
     };
   };
