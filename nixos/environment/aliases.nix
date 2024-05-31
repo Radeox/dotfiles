@@ -5,6 +5,7 @@
     nix-clean = "sudo nix-collect-garbage -d && nix-collect-garbage -d && sudo nixos-rebuild boot";
     nix-config = "vim /etc/nixos";
     nix-update = "sudo nix flake update /etc/nixos && sudo nixos-rebuild switch --flake /etc/nixos";
+    nix-rebuild = "sudo nixos-rebuild switch --flake /etc/nixos";
 
     # Aliases
     d = "lazydocker";

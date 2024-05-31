@@ -113,7 +113,6 @@
       exec-once = swww-daemon
       exec-once = kanshi
       exec-once = wl-paste --type text --watch cliphist store
-
       exec-once = nm-applet
       exec-once = megasync
       exec-once = waybar
@@ -124,6 +123,7 @@
 
       # Window rules
       windowrulev2 = suppressevent maximize, class:.*
+      windowrulev2 = float,class:(MEGAsync),title:(MEGAsync)
 
       # Input configuration
       input {
