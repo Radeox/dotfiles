@@ -21,18 +21,11 @@
     XDG_SESSION_DESKTOP = "Hyprland";
     XDG_SESSION_TYPE = "wayland";
 
-    # Nvidia variables
-    GBM_BACKEND = "nvidia-drm";
-    LIBVA_DRIVER_NAME = "nvidia";
-    VDPAU_DRIVER = "nvidia";
-
     # Miscellaneous variables
     GSETTINGS_SCHEMA_DIR = "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}/glib-2.0/schemas";
     GTK_USE_PORTAL = "1";
-    NVD_BACKEND = "direct";
     POLKIT_AUTH_AGENT = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
     WLR_NO_HARDWARE_CURSORS = "1";
     _JAVA_AWT_WM_NONREPARENTING = "1";
-    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
   };
 }

@@ -57,8 +57,7 @@
       powerManagement.enable = true;
 
       # Force full composition pipeline
-      # forceFullCompositionPipeline = true;
-      forceFullCompositionPipeline = false;
+      forceFullCompositionPipeline = true;
 
       # Open source driver
       open = false;
@@ -83,4 +82,13 @@
 
   # Use Nvidia drivers
   services.xserver.videoDrivers = [ "nvidia" ];
+
+  # Nvidia env variables
+  environment.sessionVariables = {
+    GBM_BACKEND = "nvidia-drm";
+    LIBVA_DRIVER_NAME = "nvidia";
+    NVD_BACKEND = "direct";
+    VDPAU_DRIVER = "nvidia";
+    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+  };
 }
