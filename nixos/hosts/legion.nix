@@ -22,15 +22,15 @@
     };
   };
 
-  fileSystems."/" = {
-    device = "/dev/disk/by-uuid/e72d3b8b-21f6-4c6b-8d34-d8c81058c11f";
-    fsType = "ext4";
-  };
-
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/2B82-40B3";
     fsType = "vfat";
     options = [ "fmask=0022" "dmask=0022" ];
+  };
+
+  fileSystems."/" = {
+    device = "/dev/disk/by-uuid/e72d3b8b-21f6-4c6b-8d34-d8c81058c11f";
+    fsType = "ext4";
   };
 
   fileSystems."/home/radeox/Vault" = {
