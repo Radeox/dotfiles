@@ -8,6 +8,7 @@
   boot = {
     # Kernel modules
     kernelModules = [ "kvm-intel" ];
+    kernelParams = [ "nvidia_drm.fbdev=1" ];
 
     # Add legion module
     extraModulePackages = [ config.boot.kernelPackages.lenovo-legion-module ];

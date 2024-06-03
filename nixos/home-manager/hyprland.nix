@@ -107,7 +107,6 @@
       monitor=HDMI-A-1,preferred,auto,1
       monitor=DP-2,preferred,auto,1
       monitor=eDP-1,2560x1600@165,auto,1.6,vrr,1
-      monitor=Unknown-1,disable
 
       # Autostart apps
       exec-once = swww-daemon
@@ -118,6 +117,9 @@
       exec-once = megasync
 
       # Environment variables
+      env = XDG_CURRENT_DESKTOP,Hyprland
+      env = XDG_SESSION_DESKTOP,Hyprland
+      env = XDG_SESSION_TYPE,wayland
       env = XCURSOR_SIZE,24
       env = QT_QPA_PLATFORMTHEME,qt6ct
 

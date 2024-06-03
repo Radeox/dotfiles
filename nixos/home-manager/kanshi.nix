@@ -20,11 +20,6 @@
               criteria = "eDP-1";
               position = "3840,0";
             }
-            {
-              # Bug in Hyprland/Nvidia driver
-              criteria = "Unknown-1";
-              status = "disable";
-            }
           ];
         }
         {
@@ -38,11 +33,6 @@
             {
               criteria = "HDMI-A-1";
               position = "1600,0";
-            }
-            {
-              # Bug in Hyprland/Nvidia driver
-              criteria = "Unknown-1";
-              status = "disable";
             }
           ];
         }
