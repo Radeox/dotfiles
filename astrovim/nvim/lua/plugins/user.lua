@@ -2,7 +2,7 @@
 return {
   "AstroNvim/astrocommunity",
 
-  -- Kanagawa colorscheme
+  -- Catppuccin colorscheme
   { import = "astrocommunity.colorscheme.catppuccin" },
   
   -- Copilot
@@ -22,19 +22,6 @@ return {
       },
     },
   },
-
-  -- Smartcolumns
-  { import = "astrocommunity.bars-and-lines.smartcolumn-nvim" },
-  {
-    "m4xshen/smartcolumn.nvim",
-    opts = {
-      colorcolumn = 120,
-      disabled_filetypes = { "help" },
-    },
-  },
-
-  -- Bracket Rainbow
-  { import = "astrocommunity.editing-support.rainbow-delimiters-nvim" },
 
   -- Override splash
   {
@@ -61,4 +48,7 @@ return {
       return opts
     end,
   },
+
+  -- Bracket Rainbow
+  { import = "astrocommunity.editing-support.rainbow-delimiters-nvim" },
 }

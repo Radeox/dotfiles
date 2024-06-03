@@ -13,9 +13,6 @@ return {
 
         -- Javascript
         "tsserver",
-
-        -- Lua
-        "lua_ls",
       })
     end,
   },
@@ -29,9 +26,6 @@ return {
         -- Python
         "black",
         "isort",
-
-        -- PHP
-        -- "php-cs-fixer",
         
         -- Django
         "djlint",
