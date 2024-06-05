@@ -65,7 +65,7 @@ return {
         ["<leader>sd"] = {"<cmd>lua require 'resession'.delete()<cr>", desc = "Delete session"},
 
         -- Close buffer
-        ["<C-q>"] = {"<cmd>bd<cr>", desc = "Close buffer"},
+        ["<C-q>"] = {"<cmd>bdelete<cr>", desc = "Close buffer"},
 
         -- Switch between windows
         ["<A-up>"] = {"<C-w>k", desc = "Switch between windows"},
