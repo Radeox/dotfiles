@@ -16,6 +16,7 @@
       cifs-utils
       cliphist
       cmake
+      deluge
       dig
       du-dust
       duf

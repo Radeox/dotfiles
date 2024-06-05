@@ -58,7 +58,7 @@
       powerManagement.enable = true;
 
       # Force full composition pipeline
-      forceFullCompositionPipeline = true;
+      forceFullCompositionPipeline = false;
 
       # Open source driver
       open = false;

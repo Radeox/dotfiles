@@ -1,8 +1,7 @@
-{ pkgs, ... }:
+{ ... }:
 {
   services.hypridle = {
     enable = true;
-    package = pkgs.hypridle;
 
     settings = {
       # Screenlock
@@ -20,15 +19,15 @@
           on-resume = "brightnessctl -r";
         }
 
-        # Lock screen after 10min
+        # Lock screen after 15min
         {
-          timeout = "600";
+          timeout = "900";
           on-timeout = "loginctl lock-session";
         }
 
-        # Suspend after 15min
+        # Suspend after 30min
         {
-          timeout = "900";
+          timeout = "1800";
           on-timeout = "systemctl suspend";
         }
       ];

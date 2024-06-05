@@ -116,13 +116,6 @@
       exec-once = nm-applet
       exec-once = megasync
 
-      # Environment variables
-      env = XDG_CURRENT_DESKTOP,Hyprland
-      env = XDG_SESSION_DESKTOP,Hyprland
-      env = XDG_SESSION_TYPE,wayland
-      env = XCURSOR_SIZE,24
-      env = QT_QPA_PLATFORMTHEME,qt6ct
-
       # Window rules
       windowrulev2 = suppressevent maximize, class:.*
       windowrulev2 = float,title:(MEGAsync)
