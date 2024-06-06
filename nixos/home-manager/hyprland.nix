@@ -5,15 +5,24 @@
     enable = true;
 
     extraConfig = ''
-      # Keybindings
+      # Launchers
       bind = Super, T, exec, alacritty
       bind = Super, B, exec, firefox
       bind = Super, F, exec, thunar
       bind = Super, N, exec, spotify
       bind = Super, J, exec, telegram-desktop
       bind = Super, M, exec, thunderbird
+      bind = Super, P, exec, hyprpicker -a
+
+      # Lock screen
       bind = Super, F1, exec, pkill wlogout || wlogout
       bind = Super, L, exec, pidof hyprlock || hyprlock
+
+      # Screenshot
+      bind = Super SHIFT, S, exec, grimblast copy area
+      bind = , Print, exec, grimblast copysave area
+
+      # Tofi
       bind = Super, Space, exec, pkill tofi || tofi-drun --drun-launch=true
       bind = Super, V, exec, pkill tofi || cliphist list | tofi --horizontal false --height 50% --width 50% --anchor center | cliphist decode | wl-copy
 
@@ -27,8 +36,6 @@
       bind = Super, END, togglefloating, 
       bind = Super, PAGE_UP, togglesplit
       bind = Super, F12, exit,
-      bind = Super SHIFT, S, exec, grimblast copy area
-      bind = , Print, exec, grimblast copysave area
 
       # Lid switch - suspend
       bindl = ,switch:317ff70, exec, systemctl suspend

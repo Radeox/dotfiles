@@ -41,6 +41,7 @@
       home-manager
       htop
       hyprland-protocols
+      hyprpicker
       imagemagick
       inkscape
       kanshi
