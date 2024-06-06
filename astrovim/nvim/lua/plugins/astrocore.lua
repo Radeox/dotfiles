@@ -28,9 +28,6 @@ return {
         signcolumn = "auto",
         wrap = false,
       },
-      
-      -- Global mappings
-      g = {},
     },
 
     -- Mappings
@@ -65,7 +62,7 @@ return {
         ["<leader>sd"] = {"<cmd>lua require 'resession'.delete()<cr>", desc = "Delete session"},
 
         -- Close buffer
-        ["<C-q>"] = {"<cmd>bdelete<cr>", desc = "Close buffer"},
+        Q = { function() require("astrocore.buffer").close() end, desc = "Close buffer" },
 
         -- Switch between windows
         ["<A-up>"] = {"<C-w>k", desc = "Switch between windows"},
