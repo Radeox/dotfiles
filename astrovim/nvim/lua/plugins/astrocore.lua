@@ -61,9 +61,6 @@ return {
         ["<leader>sf"] = {"<cmd>lua require 'resession'.load()<cr>", desc = "Load session"},
         ["<leader>sd"] = {"<cmd>lua require 'resession'.delete()<cr>", desc = "Delete session"},
 
-        -- Close buffer
-        Q = { function() require("astrocore.buffer").close() end, desc = "Close buffer" },
-
         -- Switch between windows
         ["<A-up>"] = {"<C-w>k", desc = "Switch between windows"},
         ["<A-right>"] = {"<C-w>l", desc = "Switch between windows"},
@@ -72,6 +69,12 @@ return {
 
         -- Clear search
         ["<esc>"] = {"<cmd>noh<cr>", desc = "Clear search"},
+
+        -- Toggle terminal
+        ["<F1>"] = {"<Cmd>execute v:count . 'ToggleTerm'<CR>", desc = "Toggle terminal" },
+
+        -- Close buffer
+        ["<C-q>"] = { function() require("astrocore.buffer").close() end, desc = "Close buffer" },
       },
       
       -- Insert mode
@@ -85,6 +88,15 @@ return {
           -- Save file
           ["<C-s>"] = {"<cmd>w<cr>", desc = "Save file"},
       },
+
+      -- Terminal mode
+      t = {
+        -- Toggle terminal
+        ["<F1>"] = {"<Cmd>execute v:count . 'ToggleTerm'<CR>", desc = "Toggle terminal" },
+
+        -- Close buffer
+        ["<C-q>"] = { function() require("astrocore.buffer").close() end, desc = "Close buffer" },
+      }
     },
   },
 }
