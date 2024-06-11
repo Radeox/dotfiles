@@ -46,7 +46,6 @@
       inkscape
       kanshi
       killall
-      lapce
       lazydocker
       lazygit
       libreoffice-fresh

@@ -31,11 +31,11 @@
       bind = Super+Shift, A, exec, [floating] pkill pavucontrol || pavucontrol
 
       # Window management
-      bind = Super, Q, killactive, 
+      bind = Super, Q, killactive
       bind = Super, HOME, fullscreen
-      bind = Super, END, togglefloating, 
+      bind = Super, END, togglefloating
       bind = Super, PAGE_UP, togglesplit
-      bind = Super, F12, exit,
+      bind = Super, F12, exit
 
       # Lid switch - suspend
       bindl = ,switch:317ff70, exec, systemctl suspend
@@ -79,6 +79,7 @@
       # Move/resize windows
       bindm = Super, mouse:272, movewindow
       bindm = Super, mouse:273, resizewindow
+      bind = Super, mouse:274, togglefloating
 
       # Volume control
       bindl = ,XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
