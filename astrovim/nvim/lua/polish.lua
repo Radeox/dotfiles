@@ -3,9 +3,16 @@ vim.opt.expandtab = true
 vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
 
-local lspconfig = require 'lspconfig'
+-- Remove auto-commenting on newline
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "*",
+  callback = function()
+    vim.opt_local.formatoptions:remove({ 'r', 'o' })
+  end,
+})
 
 -- Configure Intelephense LSP
+local lspconfig = require 'lspconfig'
 lspconfig.intelephense.setup {
   -- You can set any specific configuration options here if needed
   init_options = {
