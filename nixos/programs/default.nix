@@ -1,7 +1,7 @@
 { ... }:
 {
   imports = [
-    ./system_packages.nix
+    ./system-packages.nix
     ./programs.nix
   ];
 }

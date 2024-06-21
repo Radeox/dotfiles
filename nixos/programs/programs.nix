@@ -2,20 +2,20 @@
 {
   programs = {
     # Enable Hyprland
-    hyprland = {
-      enable = true;
-      xwayland.enable = true;
-    };
-
-    # Enable Thunar filemanager
-    thunar = {
-      enable = true;
-      plugins = with pkgs.xfce; [
-        thunar-archive-plugin
-        thunar-media-tags-plugin
-        thunar-volman
-      ];
-    };
+    # hyprland = {
+    #   enable = true;
+    #   xwayland.enable = true;
+    # };
+    #
+    # # Enable Thunar filemanager
+    # thunar = {
+    #   enable = true;
+    #   plugins = with pkgs.xfce; [
+    #     thunar-archive-plugin
+    #     thunar-media-tags-plugin
+    #     thunar-volman
+    #   ];
+    # };
 
     # Configure Steam
     steam = {

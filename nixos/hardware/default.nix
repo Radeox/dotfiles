@@ -6,16 +6,11 @@
   ];
 
   hardware = {
+    # Enable graphics drivers
+    graphics.enable = true;
+
     # Enable the Xbox One controller driver
     xone.enable = true;
-
-    # Make sure opengl is enabled
-    opengl = {
-      enable = true;
-      driSupport = true;
-      driSupport32Bit = true;
-      setLdLibraryPath = true;
-    };
 
     # Enable support for SANE scanners
     sane = {

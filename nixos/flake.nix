@@ -16,7 +16,7 @@
         # Lanzaboote - Secure boot
         lanzaboote.nixosModules.lanzaboote
 
-        # Catppuccin NixOS module
+        # Catppuccin module
         catppuccin.nixosModules.catppuccin
 
         # Setup Home Manager
@@ -52,7 +52,7 @@
         # Lanzaboote - Secure boot
         lanzaboote.nixosModules.lanzaboote
 
-        # Catppuccin NixOS module
+        # Catppuccin module
         catppuccin.nixosModules.catppuccin
 
         # Setup Home Manager
@@ -60,6 +60,7 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
+          home-manager.backupFileExtension = "backup";
           home-manager.users.radeox = {
             imports = [
               ./home-manager

@@ -2,15 +2,10 @@
   imports = [
     ./alacritty.nix
     ./git.nix
-    ./hypridle.nix
-    ./hyprland.nix
-    ./hyprlock.nix
-    ./kanshi.nix
+    ./gnome.nix
     ./neovim.nix
     ./ranger.nix
     ./theme.nix
-    ./tofi.nix
-    ./wlogout.nix
   ];
 
   # Enable Home Manager

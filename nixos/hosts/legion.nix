@@ -48,6 +48,9 @@
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
+  # Use Nvidia drivers
+  services.xserver.videoDrivers = [ "nvidia" ];
+
   # Setup nvidia
   hardware = {
     nvidia = {
@@ -61,7 +64,7 @@
       forceFullCompositionPipeline = false;
 
       # Open source driver
-      open = false;
+      open = true;
 
       # Nvidia settings GUI
       nvidiaSettings = true;
@@ -71,25 +74,10 @@
     };
 
     # Add nvidia vaapi driver
-    opengl.extraPackages = with pkgs; [
-      egl-wayland
-      libGL
-      libglvnd
+    graphics.extraPackages = with pkgs; [
       libvdpau-va-gl
       nvidia-vaapi-driver
       vaapiVdpau
     ];
-  };
-
-  # Use Nvidia drivers
-  services.xserver.videoDrivers = [ "nvidia" ];
-
-  # Nvidia env variables
-  environment.sessionVariables = {
-    GBM_BACKEND = "nvidia-drm";
-    LIBVA_DRIVER_NAME = "nvidia";
-    NVD_BACKEND = "direct";
-    VDPAU_DRIVER = "nvidia";
-    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
   };
 }
