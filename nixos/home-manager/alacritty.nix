@@ -12,6 +12,11 @@
             action = "CreateNewWindow";
           }
           {
+            key = "F";
+            mods = "Control";
+            action = "ToggleFullScreen";
+          }
+          {
             key = "T";
             mods = "Control";
             action = "ReceiveChar";
