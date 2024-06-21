@@ -2,8 +2,6 @@
 {
   environment.systemPackages = with pkgs;
     [
-      adwaita-qt
-      adwaita-qt6
       alacritty
       android-tools
       ansible
@@ -11,10 +9,7 @@
       bat
       bleachbit
       bottom
-      brightnessctl
       cargo
-      cifs-utils
-      cliphist
       cmake
       deluge
       dig
@@ -22,34 +17,27 @@
       duf
       ffmpeg
       firefox
-      fuseiso
       fzf
       gcc
       gimp
       git
       git-extras
       gnome-text-editor
-      gnome.adwaita-icon-theme
-      gnome.file-roller
-      gnome.gnome-themes-extra
+      gnome.gnome-shell-extensions
+      gnome.gnome-tweaks
+      gnome.nautilus
       gnumake
       gparted
       grc
-      grimblast
-      gsettings-desktop-schemas
       heroic
       home-manager
       htop
-      hyprland-protocols
-      hyprpicker
       imagemagick
       inkscape
-      kanshi
       killall
       lazydocker
       lazygit
       libreoffice-fresh
-      libva-utils
       localsend
       loupe
       lsd
@@ -57,21 +45,14 @@
       megasync
       mongodb-compass
       mongodb-tools
-      networkmanagerapplet
       nmap
       nodejs_20
       noto-fonts
-      pavucontrol
       pciutils
       php83
-      playerctl
       poetry
-      polkit_gnome
       prismlauncher
       python312
-      qt5.qtwayland
-      qt6.qmake
-      qt6.qtwayland
       quickemu
       rar
       remmina
@@ -80,8 +61,6 @@
       rpiboot
       sbctl
       spotify
-      swaynotificationcenter
-      swww
       telegram-desktop
       thunderbird
       tree-sitter
@@ -91,14 +70,9 @@
       veracrypt
       vlc
       vorta
-      waybar
+      vscode
       wget
       wl-clipboard
-      wl-clipboard
-      xdg-desktop-portal
-      xdg-desktop-portal-gtk
-      xdg-desktop-portal-hyprland
-      xdg-utils
       zip
 
       (google-chrome.override
@@ -127,4 +101,19 @@
         fonts = [ "FiraCode" "DroidSansMono" "JetBrainsMono" ];
       })
     ];
+
+  # Remove GNOME apps
+  environment.gnome.excludePackages = (with pkgs; [
+    gnome-photos
+    gnome-tour
+    gnome.atomix
+    gnome.epiphany
+    gnome.geary
+    gnome.gnome-music
+    gnome.gnome-terminal
+    gnome.hitori
+    gnome.iagno
+    gnome.tali
+    gnome.totem
+  ]);
 }
