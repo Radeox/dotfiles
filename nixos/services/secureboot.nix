@@ -1,4 +1,5 @@
 { ... }: {
+  # Secure boot
   boot = {
     lanzaboote = {
       enable = true;

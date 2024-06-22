@@ -3,7 +3,7 @@
   imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
   # Hostname
-  networking.hostName = "Radeox-Nix";
+  networking.hostName = "Legion-Nix";
 
   boot = {
     # Kernel modules
@@ -14,33 +14,40 @@
     extraModulePackages = [ config.boot.kernelPackages.lenovo-legion-module ];
 
     initrd = {
+      # TPM2
+      systemd = {
+        enable = true;
+        enableTpm2 = true;
+      };
+
       # Kernel modules
-      availableKernelModules = [ "xhci_pci" "thunderbolt" "nvme" "usbhid" ];
+      availableKernelModules = [ "xhci_pci" "thunderbolt" "nvme" "usbhid" "usb_storage" "sd_mod" ];
       kernelModules = [ "nvidia" ];
 
-      # LUKS
-      luks.devices."luks-fcad8b10-4e2c-4c06-a569-8c173f8bfe96".device = "/dev/disk/by-uuid/fcad8b10-4e2c-4c06-a569-8c173f8bfe96";
+      # LUKS Partition
+      luks.devices."luks-69acb90d-0127-4ce8-a157-a8abb1fe7ed3".device = "/dev/disk/by-uuid/69acb90d-0127-4ce8-a157-a8abb1fe7ed3";
     };
   };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/2B82-40B3";
+    device = "/dev/disk/by-uuid/8D2A-3CC3";
     fsType = "vfat";
     options = [ "fmask=0022" "dmask=0022" ];
   };
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/e72d3b8b-21f6-4c6b-8d34-d8c81058c11f";
+    device = "/dev/disk/by-uuid/15e389cf-cb14-4e88-baa8-5bfe2de490ee";
     fsType = "ext4";
   };
 
-  fileSystems."/home/radeox/Vault" = {
-    device = "/dev/disk/by-uuid/380A89A23839E500";
-    fsType = "ntfs";
-    options = [ "uid=1000" "gid=100" "dmask=022" "fmask=113" "umask=0022" ];
-  };
+  # fileSystems."/home/radeox/Vault" = {
+  #   device = "/dev/disk/by-uuid/380A89A23839E500";
+  #   fsType = "ntfs";
+  #   options = [ "uid=1000" "gid=100" "dmask=022" "fmask=113" "umask=0022" ];
+  # };
 
-  swapDevices = [{ device = "/dev/disk/by-uuid/7d4d0b1f-fcc1-441e-bea2-b65034dccd38"; }];
+  # swapDevices = [{ device = "/dev/disk/by-uuid/7d4d0b1f-fcc1-441e-bea2-b65034dccd38"; }];
+  swapDevices = [ ];
 
   # Enables DHCP on each ethernet and wireless interface
   networking.useDHCP = lib.mkDefault true;

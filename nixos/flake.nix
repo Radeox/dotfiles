@@ -10,7 +10,7 @@
 
   outputs = { nixpkgs, home-manager, lanzaboote, catppuccin, ... }: {
     # --- Radeox-Nix ---
-    nixosConfigurations."Radeox-Nix" = nixpkgs.lib.nixosSystem {
+    nixosConfigurations."Legion-Nix" = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
         # Lanzaboote - Secure boot
