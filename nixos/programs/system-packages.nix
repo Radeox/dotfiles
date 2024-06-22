@@ -63,6 +63,8 @@
       spotify
       telegram-desktop
       thunderbird
+      tpm2-tools
+      tpm2-tss
       tree-sitter
       udiskie
       ueberzugpp
