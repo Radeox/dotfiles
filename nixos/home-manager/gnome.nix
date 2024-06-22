@@ -2,6 +2,7 @@
   # Install GNOME extensions
   home.packages = with pkgs.gnomeExtensions; [
     appindicator
+    battery-health-charging
     blur-my-shell
     clipboard-indicator
     color-picker
@@ -21,6 +22,7 @@
         disable-user-extensions = false;
         enabled-extensions = with pkgs.gnomeExtensions; [
           appindicator.extensionUuid
+          battery-health-charging.extensionUuid
           blur-my-shell.extensionUuid
           clipboard-indicator.extensionUuid
           color-picker.extensionUuid
