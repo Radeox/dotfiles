@@ -40,14 +40,13 @@
     fsType = "ext4";
   };
 
-  # fileSystems."/home/radeox/Vault" = {
-  #   device = "/dev/disk/by-uuid/380A89A23839E500";
-  #   fsType = "ntfs";
-  #   options = [ "uid=1000" "gid=100" "dmask=022" "fmask=113" "umask=0022" ];
-  # };
+  fileSystems."/home/radeox/Vault" = {
+    device = "/dev/disk/by-uuid/6EF497832FF9AE12";
+    fsType = "ntfs";
+    options = [ "uid=1000" "gid=100" "dmask=022" "fmask=113" "umask=0022" ];
+  };
 
-  # swapDevices = [{ device = "/dev/disk/by-uuid/7d4d0b1f-fcc1-441e-bea2-b65034dccd38"; }];
-  swapDevices = [ ];
+  swapDevices = [{ device = "/dev/disk/by-uuid/098a4c16-20fd-4ed3-90d0-2a0d6c67785a"; }];
 
   # Enables DHCP on each ethernet and wireless interface
   networking.useDHCP = lib.mkDefault true;
