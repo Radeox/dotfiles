@@ -5,8 +5,14 @@ return {
   -- Catppuccin colorscheme
   { import = "astrocommunity.colorscheme.catppuccin" },
   
-  -- Copilot
-  { import = "astrocommunity.completion.copilot-cmp" },
+  -- Tabnine
+  { import = "astrocommunity.completion.tabnine-nvim" },
+
+  -- Tabnine completion key
+  {
+    "codota/tabnine-nvim",
+    opts = { accept_keymap = "<C-l>" },
+  },
 
   -- Override splash
   {
