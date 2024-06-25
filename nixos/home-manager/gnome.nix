@@ -64,6 +64,9 @@
         switch-to-workspace-4 = [ ];
       };
       "org/gnome/shell/keybindings" = {
+        show-screenshot-ui = [ "<Shift><Super>s" ];
+        screenshot = [ "<Print>" ];
+
         open-application-menu = [ ];
         toggle-message-tray = [ ];
         toggle-overview = [ ];
@@ -98,13 +101,7 @@
       "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
         name = "Telegram";
         command = "telegram-desktop";
-        binding = "<super>j";
-      };
-      # Tofi launcher
-      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3" = {
-        name = "Tofi";
-        command = "pkill tofi || tofi-drun --drun-launch=true";
-        binding = "<Super>space";
+        binding = "<Super>j";
       };
       "org/gnome/mutter" = {
         workspaces-only-on-primary = false;
