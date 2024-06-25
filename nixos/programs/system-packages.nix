@@ -68,6 +68,7 @@
       tree-sitter
       udiskie
       ueberzugpp
+      ulauncher
       unzip
       veracrypt
       vlc

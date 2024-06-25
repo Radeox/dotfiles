@@ -91,17 +91,51 @@
         # Disable
         rotate-video-lock-static = [ ];
       };
+      # Pop-shell keybinds
+      "org/gnome/shell/extensions/pop-shell" = {
+        toggle-floating = [ "<super>g" ];
+        search = [ ];
+
+        focus-left = [ "<super>Left" ];
+        focus-right = [ "<super>Right" ];
+        focus-up = [ "<super>Up" ];
+        focus-down = [ "<super>Down" ];
+
+        # Tile mode
+        tile-enter = [ "<super>r" ];
+
+        tile-resize-left = [ "Left" ];
+        tile-resize-right = [ "Right" ];
+        tile-resize-up = [ "Up" ];
+        tile-resize-down = [ "Down" ];
+
+        tile-swap-left = [ "<Shift>Left" ];
+        tile-swap-right = [ "<Shift>Right" ];
+        tile-swap-up = [ "<Shift>Up" ];
+        tile-swap-down = [ "<Shift>Down" ];
+
+        tile-move-left = [ "<Ctrl>Left" ];
+        tile-move-right = [ "<Ctrl>Right" ];
+        tile-move-up = [ "<Ctrl>Up" ];
+        tile-move-down = [ "<Ctrl>Down" ];
+      };
       # Alacritty custom keybind
       "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
         name = "Terminal";
         command = "alacritty";
-        binding = "<Super>t";
+        binding = "<super>t";
       };
       # Telegram custom keybind
       "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
+        name = "Launcher";
+        command = "ulauncher-toggle";
+        binding = "<super>space";
+      };
+      # Telegram custom keybind
+      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2" = {
         name = "Telegram";
         command = "telegram-desktop";
-        binding = "<Super>j";
+        binding = "<super>j";
       };
       "org/gnome/mutter" = {
         workspaces-only-on-primary = false;
