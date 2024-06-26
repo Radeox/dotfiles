@@ -22,7 +22,7 @@
 
       # Kernel modules
       availableKernelModules = [ "xhci_pci" "thunderbolt" "nvme" "usbhid" "usb_storage" "sd_mod" ];
-      kernelModules = [ "nvidia" ];
+      kernelModules = [ ];
 
       # LUKS Partition
       luks.devices."luks-69acb90d-0127-4ce8-a157-a8abb1fe7ed3".device = "/dev/disk/by-uuid/69acb90d-0127-4ce8-a157-a8abb1fe7ed3";

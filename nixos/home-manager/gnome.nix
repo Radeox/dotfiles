@@ -39,10 +39,10 @@
         switch-to-workspace-down = [ "<Ctrl><Alt>down" ];
         move-to-workspace-up = [ "<Ctrl><Shift><Alt>up" ];
         move-to-workspace-down = [ "<Ctrl><Shift><Alt>down" ];
-        toggle-maximized = [ "<super>Home" ];
+        toggle-maximized = [ "<Super>Home" ];
         switch-input-source = [ "<Alt>space" ];
         switch-input-source-backward = [ "<Shift><Alt>space" ];
-        close = [ "<super>q" "<alt>f4" ];
+        close = [ "<Super>q" "<alt>f4" ];
 
         # Disable some default keybinds
         maximize = [ ];
@@ -69,7 +69,7 @@
 
         open-application-menu = [ ];
         toggle-message-tray = [ ];
-        toggle-overview = [ ];
+        toggle-overview = [ "<Super>space" ];
       };
       "org/gnome/desktop/peripherals/touchpad" = {
         tap-to-click = true;
@@ -77,32 +77,32 @@
       };
       "org/gnome/settings-daemon/plugins/media-keys" = {
         # Lock screen
-        screensaver = [ "<super>l" ];
+        screensaver = [ "<Super>l" ];
 
         # Filemanager
-        home = [ "<super>f" ];
+        home = [ "<Super>f" ];
 
         # Thunderbird
-        email = [ "<super>m" ];
+        email = [ "<Super>m" ];
 
         # Firefox
-        www = [ "<super>b" ];
+        www = [ "<Super>b" ];
 
         # Disable
         rotate-video-lock-static = [ ];
       };
       # Pop-shell keybinds
       "org/gnome/shell/extensions/pop-shell" = {
-        toggle-floating = [ "<super>g" ];
+        toggle-floating = [ "<Super>g" ];
         search = [ ];
 
-        focus-left = [ "<super>Left" ];
-        focus-right = [ "<super>Right" ];
-        focus-up = [ "<super>Up" ];
-        focus-down = [ "<super>Down" ];
+        focus-left = [ "<Super>Left" ];
+        focus-right = [ "<Super>Right" ];
+        focus-up = [ "<Super>Up" ];
+        focus-down = [ "<Super>Down" ];
 
         # Tile mode
-        tile-enter = [ "<super>r" ];
+        tile-enter = [ "<Super>r" ];
 
         tile-resize-left = [ "Left" ];
         tile-resize-right = [ "Right" ];
@@ -119,30 +119,25 @@
         tile-move-up = [ "<Ctrl>Up" ];
         tile-move-down = [ "<Ctrl>Down" ];
       };
-      # Alacritty custom keybind
+      # Alacritty
       "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
         name = "Terminal";
         command = "alacritty";
-        binding = "<super>t";
+        binding = "<Super>t";
       };
-      # Telegram custom keybind
+      # Telegram
       "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
-        name = "Launcher";
-        command = "ulauncher-toggle";
-        binding = "<super>space";
-      };
-      # Telegram custom keybind
-      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2" = {
         name = "Telegram";
         command = "telegram-desktop";
-        binding = "<super>j";
+        binding = "<Super>j";
       };
       "org/gnome/mutter" = {
         workspaces-only-on-primary = false;
         edge-tiling = false;
+        overlay-key = "";
       };
       "org/gnome/mutter/wayland/keybindings" = {
-        # Restore the keyboard shortcuts: disable <super>escape
+        # Restore the keyboard shortcuts: disable <Super>escape
         restore-shortcuts = [ ];
       };
       "org/gnome/desktop/interface" = {

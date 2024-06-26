@@ -61,6 +61,7 @@
       rpiboot
       sbctl
       spotify
+      sshfs
       telegram-desktop
       thunderbird
       tpm2-tools
@@ -68,7 +69,6 @@
       tree-sitter
       udiskie
       ueberzugpp
-      ulauncher
       unzip
       veracrypt
       vlc
