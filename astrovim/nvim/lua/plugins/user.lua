@@ -6,7 +6,7 @@ return {
   { import = "astrocommunity.colorscheme.catppuccin" },
   
   -- Tabnine
-  { import = "astrocommunity.completion.tabnine-nvim" },
+  { import = "astrocommunity.completion.tabnine-nvim", lazy=false},
 
   -- Tabnine completion key
   {
