@@ -9,6 +9,8 @@
     dash-to-dock
     gsconnect
     pop-shell
+    quick-settings-tweaker
+    user-themes
     vertical-workspaces
   ];
 
@@ -29,6 +31,8 @@
           dash-to-dock.extensionUuid
           gsconnect.extensionUuid
           pop-shell.extensionUuid
+          quick-settings-tweaker.extensionUuid
+          user-themes.extensionUuid
           vertical-workspaces.extensionUuid
         ];
       };

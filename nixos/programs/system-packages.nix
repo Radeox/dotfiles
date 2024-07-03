@@ -48,11 +48,13 @@
       nmap
       nodejs_20
       noto-fonts
+      orchis-theme
       pciutils
       php83
       poetry
       prismlauncher
       python312
+      qogir-icon-theme
       quickemu
       rar
       remmina
