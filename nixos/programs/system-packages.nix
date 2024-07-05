@@ -22,9 +22,8 @@
     git
     git-extras
     gnome-text-editor
+    gnome-tweaks
     gnome.gnome-shell-extensions
-    gnome.gnome-tweaks
-    gnome.nautilus
     gnumake
     gparted
     grc
@@ -44,6 +43,7 @@
     megasync
     mongodb-compass
     mongodb-tools
+    nautilus
     nmap
     nodejs_20
     noto-fonts
@@ -108,16 +108,16 @@
 
   # Remove GNOME apps
   environment.gnome.excludePackages = (with pkgs; [
+    epiphany
+    geary
     gnome-photos
+    gnome-terminal
     gnome-tour
     gnome.atomix
-    gnome.epiphany
-    gnome.geary
     gnome.gnome-music
-    gnome.gnome-terminal
     gnome.hitori
     gnome.iagno
     gnome.tali
-    gnome.totem
+    totem
   ]);
 }
