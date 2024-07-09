@@ -54,7 +54,6 @@
     prismlauncher
     python312
     qogir-icon-theme
-    quickemu
     rar
     remmina
     ripgrep

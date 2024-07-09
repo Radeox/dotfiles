@@ -40,6 +40,9 @@
         ./services
         ./users
 
+        # Flutter
+        ./home-manager/flutter.nix
+
         # Host specific configuration
         ./hosts/legion.nix
       ];
