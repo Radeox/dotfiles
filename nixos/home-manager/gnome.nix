@@ -123,10 +123,10 @@
         tile-move-up = [ "<Ctrl>Up" ];
         tile-move-down = [ "<Ctrl>Down" ];
       };
-      # Alacritty
+      # Kitty
       "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
         name = "Terminal";
-        command = "alacritty";
+        command = "kitty";
         binding = "<Super>t";
       };
       # Telegram

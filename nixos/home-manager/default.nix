@@ -1,8 +1,8 @@
 { ... }: {
   imports = [
-    ./alacritty.nix
     ./git.nix
     ./gnome.nix
+    ./kitty.nix
     ./neovim.nix
     ./ranger.nix
     ./theme.nix
