@@ -26,6 +26,9 @@
       "ctrl+left" = "resize_window narrower";
       "ctrl+right" = "resize_window wider";
       "ctrl+up" = "resize_window taller";
+
+      # Unbind some key
+      "ctrl+shift+r" = "";
     };
 
     settings = {
