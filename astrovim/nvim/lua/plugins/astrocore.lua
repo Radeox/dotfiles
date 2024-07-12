@@ -22,10 +22,11 @@ return {
     -- Vim options can be configured here
     options = {
       opt = {
-        relativenumber = false,
+        mousescroll = "ver:1,hor:4",
         number = true,
-        spell = false,
+        relativenumber = false,
         signcolumn = "auto",
+        spell = false,
         wrap = false,
       },
     },
