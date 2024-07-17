@@ -32,6 +32,7 @@
     };
 
     settings = {
+      enabled_layouts = "splits";
       hide_window_decorations = "yes";
       wheel_scroll_multiplier = "2.0";
     };

@@ -1,7 +1,6 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
-    alacritty
     android-tools
     ansible
     autojump
@@ -37,7 +36,6 @@
     lazygit
     libreoffice-fresh
     localsend
-    loupe
     lsd
     mariadb.client
     megasync
