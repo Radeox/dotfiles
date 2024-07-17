@@ -41,6 +41,7 @@
     megasync
     mongodb-compass
     mongodb-tools
+    moonlight-qt
     nautilus
     nmap
     nodejs_20
