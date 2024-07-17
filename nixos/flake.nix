@@ -40,6 +40,9 @@
         ./services
         ./users
 
+        # Sunshine streaming server
+        ./services/sunshine.nix
+
         # Host specific configuration
         ./hosts/legion.nix
       ];
