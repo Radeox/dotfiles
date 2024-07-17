@@ -1,4 +1,4 @@
-{ config, lib, modulesPath, ... }:
+{ pkgs, config, lib, modulesPath, ... }:
 
 {
   # Hostname
@@ -41,4 +41,11 @@
   networking.useDHCP = lib.mkDefault true;
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+
+  # Add vaapi driver
+  hardware.graphics.extraPackages = with pkgs; [
+    intel-vaapi-driver
+    libvdpau-va-gl
+    vaapiVdpau
+  ];
 }
