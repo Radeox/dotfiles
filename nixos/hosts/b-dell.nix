@@ -48,7 +48,4 @@
     libvdpau-va-gl
     vaapiVdpau
   ];
-
-  # Enable flatpak
-  services.flatpak.enable = true;
 }

@@ -2,6 +2,7 @@
 {
   imports = [
     ./display-manager.nix
+    ./flatpak.nix
     ./kernel.nix
     ./misc.nix
     ./networking.nix
