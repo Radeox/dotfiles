@@ -24,7 +24,7 @@
     cat = "bat -p";
     df = "duf";
     du = "dust";
-    ls = "lsd --group-directories-first";
+    ls = "eza --icons --group-directories-first";
 
     # Scripts
     myip = "bash ~/Sources/scripts/my-ip.sh";

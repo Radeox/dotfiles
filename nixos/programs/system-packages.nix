@@ -13,6 +13,7 @@
     dig
     du-dust
     duf
+    eza
     ffmpeg
     firefox
     fzf
@@ -36,7 +37,6 @@
     lazygit
     libreoffice-fresh
     localsend
-    lsd
     mariadb.client
     megasync
     mongodb-compass
