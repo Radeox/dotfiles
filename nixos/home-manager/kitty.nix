@@ -11,8 +11,8 @@
       # Window management
       "ctrl+f" = "toggle_fullscreen";
       "f5" = "new_tab_with_cwd";
-      "f6" = "launch --location=vsplit";
-      "f7" = "launch --location=hsplit";
+      "f6" = "launch --location=vsplit --cwd=current";
+      "f7" = "launch --location=hsplit --cwd=current";
       "f9" = "set_window_title";
 
       # Move focus
