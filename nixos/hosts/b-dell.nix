@@ -48,4 +48,24 @@
     libvdpau-va-gl
     vaapiVdpau
   ];
+
+  # SSH server
+  services.openssh = {
+    enable = true;
+    ports = [ 2222 ];
+
+    settings = {
+      PasswordAuthentication = false;
+      AllowUsers = [ "radeox" ];
+      UseDns = true;
+      X11Forwarding = false;
+      PermitRootLogin = "no";
+    };
+  };
+
+  # SSH firewall exception
+  networking.firewall.allowedTCPPorts = [ 2222 ];
+
+  # Fail2Ban
+  services.fail2ban.enable = true;
 }
