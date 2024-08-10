@@ -32,6 +32,7 @@
     htop
     imagemagick
     inkscape
+    jan
     killall
     lazydocker
     lazygit
