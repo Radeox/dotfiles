@@ -46,6 +46,9 @@
         # Sunshine streaming server
         ./services/sunshine.nix
 
+        # Nvidia CUDA driver
+        ./services/cuda.nix
+
         # Host specific configuration
         ./hosts/legion.nix
       ];

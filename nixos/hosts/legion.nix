@@ -79,9 +79,6 @@
       package = config.boot.kernelPackages.nvidiaPackages.beta;
     };
 
-    # Nvidia toolkit
-    nvidia-container-toolkit.enable = true;
-
     # Nvidia vaapi driver
     graphics.extraPackages = with pkgs; [
       libvdpau-va-gl

@@ -8,7 +8,7 @@
     nix-rebuild = "sudo nixos-rebuild switch --flake /etc/nixos";
 
     # Aliases
-    d = "lazydocker";
+    d = "podman-tui";
     dc = "docker compose";
     g = "lazygit";
     ll = "ls -l";

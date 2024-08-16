@@ -1,9 +1,21 @@
-{ ... }: {
-  # Enable Docker
+{ pkgs, ... }: {
   virtualisation = {
-    docker = {
+    # Podman
+    podman = {
       enable = true;
-      liveRestore = false;
+      dockerCompat = true;
+      defaultNetwork.settings.dns_enabled = true;
+    };
+
+    # Containers config
+    containers = {
+      enable = true;
     };
   };
+
+  # Podman utils
+  environment.systemPackages = with pkgs; [
+    podman-compose
+    podman-tui
+  ];
 }
