@@ -7,6 +7,7 @@
     bat
     bleachbit
     bottom
+    cachix
     cargo
     cmake
     deluge
@@ -32,9 +33,7 @@
     htop
     imagemagick
     inkscape
-    jan
     killall
-    lazydocker
     lazygit
     libreoffice-fresh
     localsend
@@ -69,7 +68,6 @@
     tpm2-tss
     tree-sitter
     udiskie
-    ueberzugpp
     unzip
     veracrypt
     vlc

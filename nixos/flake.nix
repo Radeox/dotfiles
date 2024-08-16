@@ -33,6 +33,9 @@
           };
         }
 
+        # Cachix setup
+        ./cachix.nix
+
         # My NixOS configuration
         ./environment
         ./hardware
@@ -71,6 +74,9 @@
             ];
           };
         }
+
+        # Cachix setup
+        ./cachix.nix
 
         # My NixOS configuration
         ./environment
