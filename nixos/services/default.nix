@@ -1,6 +1,7 @@
 { ... }:
 {
   imports = [
+    # ./cachix.nix
     ./display-manager.nix
     ./flatpak.nix
     ./kernel.nix
