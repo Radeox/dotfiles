@@ -106,16 +106,16 @@
 
   # Remove GNOME apps
   environment.gnome.excludePackages = (with pkgs; [
+    atomix
     epiphany
     geary
+    gnome-music
     gnome-photos
     gnome-terminal
     gnome-tour
-    gnome.atomix
-    gnome.gnome-music
-    gnome.hitori
-    gnome.iagno
-    gnome.tali
+    hitori
+    iagno
+    tali
     totem
   ]);
 }
