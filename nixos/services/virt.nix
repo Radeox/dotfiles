@@ -8,9 +8,8 @@
     };
 
     # Containers config
-    containers = {
-      enable = true;
-    };
+    containers.enable = true;
+    oci-containers.backend = "podman";
   };
 
   # Podman utils

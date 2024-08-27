@@ -85,5 +85,14 @@
       nvidia-vaapi-driver
       vaapiVdpau
     ];
+
+    # Nvidia toolkit
+    nvidia-container-toolkit.enable = true;
   };
+
+  # Cuda packages
+  environment.systemPackages = with pkgs; [
+    cudaPackages.cudatoolkit
+    cudaPackages.cudnn
+  ];
 }
