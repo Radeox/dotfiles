@@ -55,6 +55,9 @@
         # Sunshine streaming server
         ./services/sunshine.nix
 
+        # Nvidia drivers
+        ./hardware/nvidia.nix
+
         # Host specific configuration
         ./hosts/legion.nix
       ];

@@ -1,4 +1,4 @@
-{ config, lib, modulesPath, pkgs, ... }:
+{ config, lib, modulesPath, ... }:
 {
   imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
@@ -7,7 +7,15 @@
 
   boot = {
     # Kernel modules
-    kernelModules = [ "kvm-intel" ];
+    kernelModules = [
+      "kvm-intel"
+      "nvidia"
+      "nvidia_drm"
+      "nvidia_modeset"
+      "nvidia_uvm"
+      "i2c-nvidia_gpu"
+    ];
+
     kernelParams = [ "nvidia_drm.fbdev=1" ];
 
     # Add legion module
@@ -53,46 +61,4 @@
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-
-  # Use Nvidia drivers
-  services.xserver.videoDrivers = [ "nvidia" ];
-
-  # Setup nvidia
-  hardware = {
-    nvidia = {
-      # Modesetting is needed for most wayland compositors
-      modesetting.enable = true;
-
-      # Power management
-      powerManagement.enable = true;
-
-      # Force full composition pipeline
-      forceFullCompositionPipeline = false;
-
-      # Open source driver
-      open = false;
-
-      # Nvidia settings GUI
-      nvidiaSettings = true;
-
-      # Use lastest drivers
-      package = config.boot.kernelPackages.nvidiaPackages.beta;
-    };
-
-    # Nvidia vaapi driver
-    graphics.extraPackages = with pkgs; [
-      libvdpau-va-gl
-      nvidia-vaapi-driver
-      vaapiVdpau
-    ];
-
-    # Nvidia toolkit
-    nvidia-container-toolkit.enable = true;
-  };
-
-  # Cuda packages
-  environment.systemPackages = with pkgs; [
-    cudaPackages.cudatoolkit
-    cudaPackages.cudnn
-  ];
 }

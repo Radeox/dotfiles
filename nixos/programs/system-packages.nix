@@ -22,9 +22,9 @@
     gimp
     git
     git-extras
+    gnome-shell-extensions
     gnome-text-editor
     gnome-tweaks
-    gnome.gnome-shell-extensions
     gnumake
     gparted
     grc
