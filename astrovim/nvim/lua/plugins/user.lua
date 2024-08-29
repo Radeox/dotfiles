@@ -5,13 +5,22 @@ return {
   -- Catppuccin colorscheme
   { import = "astrocommunity.colorscheme.catppuccin" },
   
-  -- Tabnine
-  { import = "astrocommunity.completion.tabnine-nvim", lazy=false},
-
-  -- Tabnine completion key
+  -- Tabby
   {
-    "codota/tabnine-nvim",
-    opts = { accept_keymap = "<C-l>" },
+    "TabbyML/vim-tabby",
+    lazy = false,
+    dependencies = {
+      "AstroNvim/astrocore",
+      ---@type AstroCoreOpts
+      opts = {
+        options = {
+          g = {
+            tabby_keybinding_accept = "<C-l>",
+            tabby_keybinding_trigger_or_dismiss = "<C-\\>",
+          },
+        },
+      },
+    },
   },
 
   -- Override splash
