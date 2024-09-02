@@ -136,9 +136,10 @@
         binding = "<Super>j";
       };
       "org/gnome/mutter" = {
-        workspaces-only-on-primary = false;
         edge-tiling = false;
+        experimental-features = [ "scale-monitor-framebuffer" ];
         overlay-key = "";
+        workspaces-only-on-primary = false;
       };
       "org/gnome/mutter/wayland/keybindings" = {
         # Restore the keyboard shortcuts: disable <Super>escape
