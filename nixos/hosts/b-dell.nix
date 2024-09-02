@@ -63,9 +63,6 @@
     };
   };
 
-  # SSH firewall exception
-  networking.firewall.allowedTCPPorts = [ 2222 ];
-
-  # Fail2Ban
-  services.fail2ban.enable = true;
+  # Turn off firewall
+  networking.firewall.enable = lib.mkForce false;
 }
