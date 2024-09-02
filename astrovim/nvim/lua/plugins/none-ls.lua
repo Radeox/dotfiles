@@ -5,16 +5,14 @@ return {
     local none_ls = require "null-ls"
 
     config.sources = {
-      -- PHP
+      -- PHP, HTML, CSS, SCSS, Django
       none_ls.builtins.formatting.prettier.with({
-        filetypes = { "php" },
+        filetypes = { "php", "html", "css", "scss", "django" },
+        disabled_filetypes = { "js" },
       }),
 
       -- Python
       none_ls.builtins.formatting.black,
-
-      -- SCSS
-      none_ls.builtins.formatting.prettier,
 
       -- Django
       none_ls.builtins.formatting.djlint.with({
