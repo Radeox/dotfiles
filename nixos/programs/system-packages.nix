@@ -16,7 +16,6 @@
     duf
     eza
     ffmpeg
-    firefox
     fzf
     gcc
     gimp
@@ -43,6 +42,7 @@
     mongodb-tools
     moonlight-qt
     nautilus
+    neovide
     nmap
     nodejs_20
     noto-fonts
@@ -70,6 +70,7 @@
     udiskie
     unzip
     veracrypt
+    vivaldi-ffmpeg-codecs
     vlc
     vorta
     vscode
@@ -77,15 +78,15 @@
     wl-clipboard
     zip
 
-    (google-chrome.override
+    (vivaldi.override
       {
         commandLineArgs = [
-          "--use-gl=angle"
-          "--enable-zero-copy"
+          "--enable-features=vaapivideodecodelinuxgl"
+          "--enable-font-antialiasing"
           "--enable-gpu-rasterization"
-          "--enable-features=VaapiVideoDecodeLinuxGL"
-          "--ignore-gpu-blocklist"
+          "--enable-zero-copy"
           "--ozone-platform=wayland"
+          "--use-gl=angle"
         ];
       })
   ] ++ (with pkgs.fishPlugins; [
