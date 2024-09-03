@@ -81,12 +81,9 @@
     (vivaldi.override
       {
         commandLineArgs = [
-          "--enable-features=vaapivideodecodelinuxgl"
           "--enable-font-antialiasing"
-          "--enable-gpu-rasterization"
-          "--enable-zero-copy"
+          "--force-device-scale-factor=1"
           "--ozone-platform=wayland"
-          "--use-gl=angle"
         ];
       })
   ] ++ (with pkgs.fishPlugins; [
