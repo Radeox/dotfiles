@@ -7,6 +7,7 @@
     bat
     bleachbit
     bottom
+    brave
     cachix
     cargo
     cmake
@@ -70,22 +71,12 @@
     udiskie
     unzip
     veracrypt
-    vivaldi-ffmpeg-codecs
     vlc
     vorta
     vscode
     wget
     wl-clipboard
     zip
-
-    (vivaldi.override
-      {
-        commandLineArgs = [
-          "--enable-font-antialiasing"
-          "--force-device-scale-factor=1"
-          "--ozone-platform=wayland"
-        ];
-      })
   ] ++ (with pkgs.fishPlugins; [
     done
     fzf-fish

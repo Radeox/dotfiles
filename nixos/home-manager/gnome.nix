@@ -135,6 +135,12 @@
         command = "telegram-desktop";
         binding = "<Super>j";
       };
+      # Spotify
+      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2" = {
+        name = "Spotify";
+        command = "spotify";
+        binding = "<Super>n";
+      };
       "org/gnome/mutter" = {
         edge-tiling = false;
         experimental-features = [ "scale-monitor-framebuffer" ];
