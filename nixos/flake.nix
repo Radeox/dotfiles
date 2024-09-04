@@ -56,6 +56,9 @@
         # Sunshine streaming server
         ./services/sunshine.nix
 
+        # Tabby - Local AI model
+        ./podman/tabby.nix
+
         # Nvidia drivers
         ./hardware/nvidia.nix
 
