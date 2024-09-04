@@ -43,7 +43,6 @@
     mongodb-tools
     moonlight-qt
     nautilus
-    neovide
     nmap
     nodejs_20
     noto-fonts
