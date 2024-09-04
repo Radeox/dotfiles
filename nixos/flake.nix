@@ -48,6 +48,7 @@
         # My NixOS configuration
         ./environment
         ./hardware
+        ./podman
         ./programs
         ./services
         ./users
@@ -90,6 +91,7 @@
         # My NixOS configuration
         ./environment
         ./hardware
+        ./podman
         ./programs
         ./services
         ./users

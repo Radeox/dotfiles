@@ -8,6 +8,5 @@
     ./networking.nix
     ./nixos.nix
     ./secureboot.nix
-    ./virt.nix
   ];
 }
