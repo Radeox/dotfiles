@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
   services = {
     # Enable touchpad support
     libinput.enable = true;
