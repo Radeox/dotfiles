@@ -21,7 +21,7 @@
     fwupd.enable = true;
 
     # Enable gnome-settings-daemon udev rules
-    udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
+    udev.packages = with pkgs; [ gnome-settings-daemon ];
 
     # Enable network discovery
     avahi = {
@@ -31,9 +31,7 @@
     };
 
     # Enable GNOME keyring
-    gnome = {
-      gnome-keyring.enable = true;
-    };
+    gnome.gnome-keyring.enable = true;
   };
 
   # Enable polkit
