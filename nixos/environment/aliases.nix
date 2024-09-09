@@ -18,7 +18,7 @@
     rgrep = "rg";
     sl = "ls";
     sudo = "sudo ";
-    v = "neovide && exit";
+    v = "vim";
 
     # Basic commands
     cat = "bat -p";

@@ -12,7 +12,7 @@ return {
         "intelephense",
 
         -- Javascript
-        "tsserver",
+        "ts_ls",
       })
     end,
   },
