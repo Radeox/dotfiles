@@ -16,6 +16,7 @@
     du-dust
     duf
     eza
+    fastfetch
     ffmpeg
     fzf
     gcc
