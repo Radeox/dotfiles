@@ -51,6 +51,7 @@
     pciutils
     php83
     poetry
+    postman
     prismlauncher
     python312
     qogir-icon-theme
