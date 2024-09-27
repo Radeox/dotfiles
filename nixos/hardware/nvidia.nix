@@ -11,13 +11,13 @@
       forceFullCompositionPipeline = false;
 
       # Open source driver
-      open = false;
+      open = true;
 
       # Nvidia settings GUI
-      nvidiaSettings = true;
+      nvidiaSettings = false;
 
       # Use lastest drivers
-      package = config.boot.kernelPackages.nvidiaPackages.beta;
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
     };
 
     # Nvidia vaapi driver
