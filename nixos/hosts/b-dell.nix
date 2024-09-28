@@ -14,7 +14,7 @@
       # TPM2
       systemd = {
         enable = true;
-        enableTpm2 = true;
+        tpm2.enable = true;
       };
 
       # LUKS2
