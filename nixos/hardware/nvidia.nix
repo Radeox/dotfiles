@@ -14,7 +14,7 @@
       open = false;
 
       # Nvidia settings GUI
-      nvidiaSettings = false;
+      nvidiaSettings = true;
 
       # Use lastest drivers
       package = config.boot.kernelPackages.nvidiaPackages.stable;

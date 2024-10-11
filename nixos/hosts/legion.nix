@@ -13,13 +13,10 @@
       "nvidia_drm"
       "nvidia_modeset"
       "nvidia_uvm"
-      "i2c-nvidia_gpu"
     ];
 
-    kernelParams = [ "nvidia_drm.fbdev=1" "nvidia_drm.modeset=1" ];
-
     # Add legion module
-    # extraModulePackages = [ config.boot.kernelPackages.lenovo-legion-module ];
+    extraModulePackages = [ config.boot.kernelPackages.lenovo-legion-module ];
 
     initrd = {
       # TPM2
