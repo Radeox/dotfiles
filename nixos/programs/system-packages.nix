@@ -73,7 +73,7 @@
     unzip
     veracrypt
     vlc
-    vorta
+    # vorta
     vscode
     wget
     wl-clipboard
