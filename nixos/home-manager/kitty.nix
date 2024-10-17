@@ -9,11 +9,10 @@
 
     keybindings = {
       # Window management
-      "ctrl+f" = "toggle_fullscreen";
-      "f5" = "new_tab_with_cwd";
-      "f6" = "launch --location=vsplit --cwd=current";
-      "f7" = "launch --location=hsplit --cwd=current";
-      "f9" = "set_window_title";
+      "f5" = "launch --location=vsplit --cwd=current";
+      "f6" = "launch --location=hsplit --cwd=current";
+      "f7" = "new_tab_with_cwd";
+      "f8" = "set_window_title";
 
       # Move focus
       "alt+down" = "neighboring_window down";
