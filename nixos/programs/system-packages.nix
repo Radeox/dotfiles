@@ -74,7 +74,6 @@
     veracrypt
     vlc
     # vorta
-    vscode
     wget
     wl-clipboard
     zip

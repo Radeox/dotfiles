@@ -6,6 +6,7 @@
     ./neovim.nix
     ./ranger.nix
     ./theme.nix
+    ./vscodium.nix
   ];
 
   # Enable Home Manager
