@@ -46,11 +46,13 @@
     ];
 
     userSettings = {
-      "editor.fontSize" = 15;
-      "editor.fontFamily" = "'Jetbrains Mono', 'Droid Sans Mono', monospace";
+      "editor.fontSize" = 14;
+      "editor.fontWeight" = 600;
+      "editor.fontFamily" = "'Jetbrains Mono', 'JetBrainsMono Nerd Font', 'Droid Sans Mono', monospace";
       "editor.semanticHighlighting.enabled" = true;
       "editor.smoothScrolling" = false;
       "editor.fontLigatures" = true;
+      "editor.letterSpacing" = 0.4;
 
       "terminal.integrated.fontSize" = 14;
       "terminal.integrated.fontFamily" = "'JetBrainsMono Nerd Font', 'Droid Sans Mono', monospace";
