@@ -46,6 +46,7 @@
     ];
 
     userSettings = {
+      # Editor style
       "editor.fontSize" = 14;
       "editor.fontWeight" = 600;
       "editor.fontFamily" = "'Jetbrains Mono', 'JetBrainsMono Nerd Font', 'Droid Sans Mono', monospace";
@@ -54,21 +55,34 @@
       "editor.fontLigatures" = true;
       "editor.letterSpacing" = 0.4;
 
+      # Formatting config
+      "editor.formatOnPaste" = true;
+      "editor.formatOnSave" = true;
+
+      # Terminal
       "terminal.integrated.fontSize" = 14;
       "terminal.integrated.fontFamily" = "'JetBrainsMono Nerd Font', 'Droid Sans Mono', monospace";
       "terminal.integrated.minimumContrastRatio" = 1;
 
+      # Theme
       "workbench.startupEditor" = "none";
       "workbench.colorTheme" = "Catppuccin Mocha";
       "workbench.iconTheme" = "catppuccin-mocha";
 
+      # Window style
       "window.zoomLevel" = 1;
       "window.menuBarVisibility" = "toggle";
       "window.restoreFullscreen" = true;
       "window.titleBarStyle" = "custom";
 
+      # Extra
       "zenMode.centerLayout" = false;
       "redhat.telemetry.enabled" = false;
+
+      # Editor config
+      "[javascript]" = {
+        "editor.defaultFormatter" = "esbenp.prettier-vscode";
+      };
     };
 
     # Configure extensions
