@@ -63,6 +63,7 @@
       "terminal.integrated.fontSize" = 14;
       "terminal.integrated.fontFamily" = "'JetBrainsMono Nerd Font', 'Droid Sans Mono', monospace";
       "terminal.integrated.minimumContrastRatio" = 1;
+      "terminal.integrated.copyOnSelection" = true;
 
       # Theme
       "workbench.startupEditor" = "none";
@@ -75,8 +76,18 @@
       "window.restoreFullscreen" = true;
       "window.titleBarStyle" = "custom";
 
-      # Extra
+      # Git
+      "git.autofetch" = true;
+
+      # Zen
       "zenMode.centerLayout" = false;
+      "zenMode.hideLineNumbers" = false;
+      "zenMode.hideStatusBar" = false;
+
+      # Vim
+      "vim.useSystemClipboard" = true;
+
+      # Extra
       "redhat.telemetry.enabled" = false;
 
       # Editor config
