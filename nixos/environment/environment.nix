@@ -2,10 +2,10 @@
 {
   environment.sessionVariables = {
     # Program variables
-    BROWSER = "firefox";
+    BROWSER = "brave";
     EDITOR = "nvim";
     GIT_EDITOR = "nvim";
-    TERMINAL = "alacritty";
+    TERMINAL = "kitty";
 
     # NixOS variables
     NIXOS_OZONE_WL = "1";

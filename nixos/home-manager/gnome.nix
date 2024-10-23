@@ -67,6 +67,7 @@
         move-to-workspace-4 = [ ];
         switch-to-workspace-4 = [ ];
       };
+
       "org/gnome/shell/keybindings" = {
         show-screenshot-ui = [ "<Shift><Super>s" ];
         screenshot = [ "<Print>" ];
@@ -75,10 +76,12 @@
         toggle-message-tray = [ ];
         toggle-overview = [ "<Super>space" ];
       };
+
       "org/gnome/desktop/peripherals/touchpad" = {
         tap-to-click = true;
         two-finger-scrolling-enabled = true;
       };
+
       "org/gnome/settings-daemon/plugins/media-keys" = {
         # Lock screen
         screensaver = [ "<Super>l" ];
@@ -95,6 +98,7 @@
         # Disable
         rotate-video-lock-static = [ ];
       };
+
       # Pop-shell keybinds
       "org/gnome/shell/extensions/pop-shell" = {
         toggle-floating = [ "<Super>g" ];
@@ -123,34 +127,40 @@
         tile-move-up = [ "<Ctrl>Up" ];
         tile-move-down = [ "<Ctrl>Down" ];
       };
+
       # Kitty
       "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
         name = "Terminal";
         command = "kitty";
         binding = "<Super>t";
       };
+
       # Telegram
       "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
         name = "Telegram";
         command = "telegram-desktop";
         binding = "<Super>j";
       };
+
       # Spotify
       "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2" = {
         name = "Spotify";
         command = "spotify";
         binding = "<Super>n";
       };
+
       "org/gnome/mutter" = {
         edge-tiling = false;
         experimental-features = [ "scale-monitor-framebuffer" ];
         overlay-key = "";
         workspaces-only-on-primary = false;
       };
+
       "org/gnome/mutter/wayland/keybindings" = {
         # Restore the keyboard shortcuts: disable <Super>escape
         restore-shortcuts = [ ];
       };
+
       "org/gnome/desktop/interface" = {
         clock-show-seconds = true;
         clock-show-weekday = false;
@@ -160,6 +170,7 @@
         font-hinting = "slight";
         toolkit-accessibility = true;
       };
+
       "org/gnome/mutter/keybindings" = {
         # Disable tiling to left / right of screen
         toggle-tiled-left = [ ];

@@ -8,7 +8,6 @@
     bleachbit
     bottom
     brave
-    cachix
     cargo
     cmake
     deluge
@@ -20,7 +19,6 @@
     ffmpeg
     fzf
     gcc
-    gimp
     git
     git-extras
     gnome-shell-extensions
@@ -33,11 +31,9 @@
     home-manager
     htop
     imagemagick
-    inkscape
     killall
     lazygit
     libreoffice-fresh
-    localsend
     mariadb.client
     megasync
     mongodb-compass
@@ -73,7 +69,6 @@
     unzip
     veracrypt
     vlc
-    # vorta
     wget
     wl-clipboard
     zip
@@ -86,12 +81,11 @@
   ]);
 
   # Configure extra fonts
-  fonts.packages = with pkgs;
-    [
-      (nerdfonts.override {
-        fonts = [ "FiraCode" "DroidSansMono" "JetBrainsMono" ];
-      })
-    ];
+  fonts.packages = with pkgs; [
+    (nerdfonts.override {
+      fonts = [ "DroidSansMono" "FiraCode" "JetBrainsMono" ];
+    })
+  ];
 
   # Remove GNOME apps
   environment.gnome.excludePackages = (with pkgs; [

@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
   # Users definition
   users.users.radeox = {
     isNormalUser = true;
