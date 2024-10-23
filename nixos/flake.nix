@@ -3,12 +3,14 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+
+    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.4.1";
+
     catppuccin.url = "github:catppuccin/nix";
     catppuccin-vsc.url = "https://flakehub.com/f/catppuccin/vscode/*.tar.gz";
 
-
-    nix-vscode-extensions = {
-      url = "github:nix-community/nix-vscode-extensions";
+    home-manager = {
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -17,13 +19,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    home-manager = {
-      url = "github:nix-community/home-manager";
+    nix-vscode-extensions = {
+      url = "github:nix-community/nix-vscode-extensions";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { nixpkgs, home-manager, lanzaboote, catppuccin, catppuccin-vsc, nix-vscode-extensions, ... }: {
+  outputs = { nixpkgs, home-manager, lanzaboote, nix-flatpak, nix-vscode-extensions, catppuccin, catppuccin-vsc, ... }: {
     nixosConfigurations = {
       Legion-Nix = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -31,6 +33,9 @@
         modules = [
           # Lanzaboote - Secure boot
           lanzaboote.nixosModules.lanzaboote
+
+          # Flatpak module
+          nix-flatpak.nixosModules.nix-flatpak
 
           # Catppuccin module
           catppuccin.nixosModules.catppuccin
@@ -40,6 +45,9 @@
             nixpkgs.overlays = [
               nix-vscode-extensions.overlays.default
               catppuccin-vsc.overlays.default
+
+              # Temporary fix
+              (self: super: { utillinux = super.util-linux; })
             ];
           }
 
@@ -84,6 +92,9 @@
         modules = [
           # Lanzaboote - Secure boot
           lanzaboote.nixosModules.lanzaboote
+
+          # Flatpak module
+          nix-flatpak.nixosModules.nix-flatpak
 
           # Catppuccin module
           catppuccin.nixosModules.catppuccin
