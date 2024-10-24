@@ -37,13 +37,13 @@
 
       "org/gnome/desktop/wm/keybindings" = {
         # Set keybinds
-        switch-to-workspace-up = [ "<Ctrl><Alt>up" ];
-        switch-to-workspace-down = [ "<Ctrl><Alt>down" ];
         switch-input-source = [ "<Alt>space" ];
         switch-input-source-backward = [ "<Shift><Alt>space" ];
         close = [ "<Super>q" "<alt>f4" ];
 
         # Disable some default keybinds
+        switch-to-workspace-up = [ ];
+        switch-to-workspace-down = [ ];
         toggle-maximized = [ ];
         move-to-workspace-up = [ ];
         move-to-workspace-down = [ ];
@@ -125,12 +125,12 @@
         move-up = [ "<Shift><Super>Up" ];
         move-up-workspace = [ "<Shift><Control><Alt>Up" ];
         paper-toggle-fullscreen = [ "<Super>Home" ];
-        switch-down-workspace = [ "<Control><Alt>Down" ];
         switch-global-down = [ "<Super>Down" ];
         switch-global-left = [ "<Super>Left" ];
         switch-global-right = [ "<Super>Right" ];
         switch-global-up = [ "<Super>Up" ];
         switch-up-workspace = [ "<Control><Alt>Up" ];
+        switch-down-workspace = [ "<Control><Alt>Down" ];
         toggle-maximize-width = [ "<Super>y" ];
         toggle-scratch = [ "<Super>grave" ];
         toggle-scratch-layer = [ "<Super>Escape" ];
