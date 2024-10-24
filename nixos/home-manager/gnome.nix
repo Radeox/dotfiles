@@ -6,9 +6,8 @@
     blur-my-shell
     clipboard-indicator
     color-picker
-    dash-to-dock
     gsconnect
-    pop-shell
+    paperwm
     quick-settings-tweaker
     user-themes
     vertical-workspaces
@@ -28,9 +27,8 @@
           blur-my-shell.extensionUuid
           clipboard-indicator.extensionUuid
           color-picker.extensionUuid
-          dash-to-dock.extensionUuid
           gsconnect.extensionUuid
-          pop-shell.extensionUuid
+          paperwm.extensionUuid
           quick-settings-tweaker.extensionUuid
           user-themes.extensionUuid
           vertical-workspaces.extensionUuid
@@ -41,14 +39,14 @@
         # Set keybinds
         switch-to-workspace-up = [ "<Ctrl><Alt>up" ];
         switch-to-workspace-down = [ "<Ctrl><Alt>down" ];
-        move-to-workspace-up = [ "<Ctrl><Shift><Alt>up" ];
-        move-to-workspace-down = [ "<Ctrl><Shift><Alt>down" ];
-        toggle-maximized = [ "<Super>Home" ];
         switch-input-source = [ "<Alt>space" ];
         switch-input-source-backward = [ "<Shift><Alt>space" ];
         close = [ "<Super>q" "<alt>f4" ];
 
         # Disable some default keybinds
+        toggle-maximized = [ ];
+        move-to-workspace-up = [ ];
+        move-to-workspace-down = [ ];
         maximize = [ ];
         minimize = [ ];
         unmaximize = [ ];
@@ -99,33 +97,84 @@
         rotate-video-lock-static = [ ];
       };
 
-      # Pop-shell keybinds
-      "org/gnome/shell/extensions/pop-shell" = {
-        toggle-floating = [ "<Super>g" ];
-        search = [ ];
+      # PaperWM config
+      "org/gnome/shell/extensions/paperwm" = {
+        disable-topbar-styling = false;
+        edge-preview-scale = 0.14;
+        horizontal-margin = 12;
+        last-used-display-server = "Wayland";
+        restore-attach-modal-dialogs = false;
+        restore-edge-tiling = false;
+        restore-workspaces-only-on-primary = false;
+        selection-border-radius-bottom = 4;
+        selection-border-radius-top = 4;
+        selection-border-size = 6;
+        show-window-position-bar = false;
+        show-workspace-indicator = false;
+        vertical-margin-bottom = 12;
+        vertical-margin = 12;
+        window-gap = 16;
+      };
 
-        focus-left = [ "<Super>Left" ];
-        focus-right = [ "<Super>Right" ];
-        focus-up = [ "<Super>Up" ];
-        focus-down = [ "<Super>Down" ];
+      # PaperWM keybindings
+      "org/gnome/shell/extensions/paperwm/keybindings" = {
+        move-down = [ "<Shift><Super>Down" ];
+        move-down-workspace = [ "<Shift><Control><Alt>Down" ];
+        move-left = [ "<Shift><Super>Left" ];
+        move-right = [ "<Shift><Super>Right" ];
+        move-up = [ "<Shift><Super>Up" ];
+        move-up-workspace = [ "<Shift><Control><Alt>Up" ];
+        paper-toggle-fullscreen = [ "<Super>Home" ];
+        switch-down-workspace = [ "<Control><Alt>Down" ];
+        switch-global-down = [ "<Super>Down" ];
+        switch-global-left = [ "<Super>Left" ];
+        switch-global-right = [ "<Super>Right" ];
+        switch-global-up = [ "<Super>Up" ];
+        switch-up-workspace = [ "<Control><Alt>Up" ];
+        toggle-maximize-width = [ "<Super>y" ];
+        toggle-scratch = [ "<Super>grave" ];
+        toggle-scratch-layer = [ "<Super>Escape" ];
 
-        # Tile mode
-        tile-enter = [ "<Super>r" ];
-
-        tile-resize-left = [ "Left" ];
-        tile-resize-right = [ "Right" ];
-        tile-resize-up = [ "Up" ];
-        tile-resize-down = [ "Down" ];
-
-        tile-swap-left = [ "<Shift>Left" ];
-        tile-swap-right = [ "<Shift>Right" ];
-        tile-swap-up = [ "<Shift>Up" ];
-        tile-swap-down = [ "<Shift>Down" ];
-
-        tile-move-left = [ "<Ctrl>Left" ];
-        tile-move-right = [ "<Ctrl>Right" ];
-        tile-move-up = [ "<Ctrl>Up" ];
-        tile-move-down = [ "<Ctrl>Down" ];
+        # Disabled default keybindings
+        barf-out-active = [ ];
+        barf-out = [ ];
+        center-horizontally = [ ];
+        close-window = [ ];
+        cycle-height-backwards = [ ];
+        cycle-height = [ ];
+        live-alt-tab-backward = [ ];
+        live-alt-tab-scratch-backward = [ ];
+        live-alt-tab-scratch = [ ];
+        live-alt-tab = [ ];
+        move-monitor-above = [ ];
+        move-monitor-below = [ ];
+        move-monitor-left = [ ];
+        move-monitor-right = [ ];
+        move-space-monitor-above = [ ];
+        move-space-monitor-below = [ ];
+        new-window = [ ];
+        previous-workspace-backward = [ ];
+        previous-workspace = [ ];
+        slurp-in = [ ];
+        swap-monitor-above = [ ];
+        swap-monitor-below = [ ];
+        swap-monitor-left = [ ];
+        swap-monitor-right = [ ];
+        switch-down = [ ];
+        switch-first = [ ];
+        switch-focus-mode = [ ];
+        switch-last = [ ];
+        switch-left = [ ];
+        switch-monitor-above = [ ];
+        switch-monitor-below = [ ];
+        switch-monitor-left = [ ];
+        switch-monitor-right = [ ];
+        switch-open-window-position = [ ];
+        switch-right = [ ];
+        switch-up = [ ];
+        take-window = [ ];
+        toggle-scratch-window = [ ];
+        toggle-top-and-position-bar = [ ];
       };
 
       # Kitty
