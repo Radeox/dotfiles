@@ -4,10 +4,12 @@
     # NixOS commands
     nix-clean = "sudo nix-collect-garbage -d && nix-collect-garbage -d && sudo nixos-rebuild boot";
     nix-config = "cd /etc/nixos && vim";
-    nix-update = "flatpak update && sudo nix flake update --flake /etc/nixos && sudo nixos-rebuild switch --accept-flake-config --flake /etc/nixos";
+    nix-update = "sudo nix flake update --flake /etc/nixos && sudo nixos-rebuild switch --accept-flake-config --flake /etc/nixos && flatpak update -y";
     nix-rebuild = "sudo nixos-rebuild switch --flake /etc/nixos";
 
     # Aliases
+    c = "codium .";
+    code = "codium";
     d = "podman-tui";
     dc = "docker compose";
     g = "lazygit";
@@ -19,7 +21,6 @@
     sl = "ls";
     ssh = "kitten ssh";
     sudo = "sudo ";
-    v = "vim";
 
     # Basic commands
     cat = "bat -p";

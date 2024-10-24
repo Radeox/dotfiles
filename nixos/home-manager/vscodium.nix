@@ -78,6 +78,7 @@
 
       # Git
       "git.autofetch" = true;
+      "git.confirmSync" = false;
 
       # Zen
       "zenMode.centerLayout" = false;
