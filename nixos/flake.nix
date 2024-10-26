@@ -40,14 +40,18 @@
           # Catppuccin module
           catppuccin.nixosModules.catppuccin
 
-          # VSCode extensions overlay
+          # Custom overlays
           {
             nixpkgs.overlays = [
               nix-vscode-extensions.overlays.default
               catppuccin-vsc.overlays.default
 
-              # Temporary fix
-              (self: super: { utillinux = super.util-linux; })
+              # Brave override
+              (self: super: {
+                brave = super.brave.override {
+                  commandLineArgs = "--enable-features=TouchpadOverscrollHistoryNavigation --ozone-platform=wayland";
+                };
+              })
             ];
           }
 
@@ -99,10 +103,18 @@
           # Catppuccin module
           catppuccin.nixosModules.catppuccin
 
-          # VSCode extensions overlay
+          # Custom overlays
           {
             nixpkgs.overlays = [
               nix-vscode-extensions.overlays.default
+              catppuccin-vsc.overlays.default
+
+              # Brave override
+              (self: super: {
+                brave = super.brave.override {
+                  commandLineArgs = "--enable-features=TouchpadOverscrollHistoryNavigation --ozone-platform=wayland";
+                };
+              })
             ];
           }
 

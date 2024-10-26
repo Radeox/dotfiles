@@ -99,6 +99,11 @@
       "[scss]" = {
         "editor.defaultFormatter" = "esbenp.prettier-vscode";
       };
+
+      # Extensions
+      "projectManager.git.baseFolders" = [
+        "/home/radeox/Sources"
+      ];
     };
 
     # Configure extensions
