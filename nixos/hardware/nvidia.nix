@@ -11,7 +11,7 @@
       forceFullCompositionPipeline = false;
 
       # Open source driver
-      open = false;
+      open = true;
 
       # Nvidia settings GUI
       nvidiaSettings = true;
