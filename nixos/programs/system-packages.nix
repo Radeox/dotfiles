@@ -58,7 +58,6 @@
     rpiboot
     sbctl
     scrcpy
-    spotify
     sshfs
     telegram-desktop
     thunderbird
