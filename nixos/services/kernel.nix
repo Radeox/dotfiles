@@ -1,8 +1,7 @@
 { pkgs, ... }: {
   boot = {
-    # Use latest xanmod kernel
-    # kernelPackages = pkgs.linuxPackages_latest;
-    kernelPackages = pkgs.linuxPackages_6_10;
+    # Use latest stock kernel
+    kernelPackages = pkgs.linuxPackages_latest;
 
     # NTFS support
     supportedFilesystems = [ "ntfs" ];
