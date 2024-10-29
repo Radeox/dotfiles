@@ -43,6 +43,14 @@
         key = "f6";
         command = "workbench.action.splitEditorDown";
       }
+      {
+        key = "ctrl+shift+q";
+        command = "workbench.action.quit";
+      }
+      {
+        key = "ctrl+q";
+        command = "workbench.action.closeActiveEditor";
+      }
     ];
 
     userSettings = {
