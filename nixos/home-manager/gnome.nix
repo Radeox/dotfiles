@@ -194,7 +194,7 @@
       # Spotify
       "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2" = {
         name = "Spotify";
-        command = "spotify";
+        command = "flatpak run com.spotify.Client";
         binding = "<Super>n";
       };
 
