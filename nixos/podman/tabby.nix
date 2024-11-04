@@ -12,8 +12,7 @@
 
       cmd = [
         "serve"
-        # "--model=DeepseekCoder-1.3B"
-        "--model=StarCoder-3B"
+        "--model=DeepseekCoder-1.3B"
         "--chat-model=Qwen2-1.5B-Instruct"
         "--device=cuda"
       ];
