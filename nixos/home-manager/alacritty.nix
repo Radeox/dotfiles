@@ -46,6 +46,11 @@
 
       # Remove window decorations
       window = { decorations = "None"; };
+
+      # SSH fix
+      env = {
+        TERM = "xterm-256color";
+      };
     };
   };
 }

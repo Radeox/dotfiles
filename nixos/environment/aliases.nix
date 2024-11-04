@@ -19,7 +19,6 @@
     r = "ranger";
     rgrep = "rg";
     sl = "ls";
-    ssh = "kitten ssh";
     sudo = "sudo ";
 
     # Basic commands
