@@ -15,7 +15,7 @@ return {
       opts = {
         options = {
           g = {
-            tabby_inline_completion_keybinding_accept = "<Tab>",
+            tabby_inline_completion_keybinding_accept = "<C-l>",
           },
         },
       },
