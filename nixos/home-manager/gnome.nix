@@ -134,11 +134,13 @@
         toggle-maximize-width = [ "<Super>y" ];
         toggle-scratch = [ "<Super>grave" ];
         toggle-scratch-layer = [ "<Super>Escape" ];
+        barf-out-active = [ "<Super>e" ];
+        slurp-in = [ "<Super>c" ];
 
         # Disabled default keybindings
-        barf-out-active = [ ];
         barf-out = [ ];
         center-horizontally = [ ];
+        center-vertically = [ ];
         close-window = [ ];
         cycle-height-backwards = [ ];
         cycle-height = [ ];
@@ -155,7 +157,6 @@
         new-window = [ ];
         previous-workspace-backward = [ ];
         previous-workspace = [ ];
-        slurp-in = [ ];
         swap-monitor-above = [ ];
         swap-monitor-below = [ ];
         swap-monitor-left = [ ];
