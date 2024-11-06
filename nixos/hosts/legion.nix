@@ -1,9 +1,9 @@
 { config, lib, modulesPath, ... }:
 {
-  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
-
   # Hostname
   networking.hostName = "Legion-Nix";
+
+  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
   boot = {
     # Kernel modules

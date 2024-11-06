@@ -49,7 +49,7 @@
     poetry
     postman
     prismlauncher
-    python312
+    python313
     qogir-icon-theme
     rar
     remmina
