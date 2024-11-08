@@ -5,12 +5,10 @@
     ansible
     autojump
     bat
-    bleachbit
     bottom
     brave
     cargo
     cmake
-    deluge
     dig
     du-dust
     duf

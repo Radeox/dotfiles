@@ -11,11 +11,12 @@
     # Packages list
     packages = [
       "com.bitwarden.desktop"
-      "com.borgbase.Vorta"
       "com.github.tchx84.Flatseal"
       "com.spotify.Client"
       "io.ente.auth"
       "io.github.hmlendea.geforcenow-electron"
+      "org.bleachbit.BleachBit"
+      "org.deluge_torrent.deluge"
       "org.gimp.GIMP"
       "org.inkscape.Inkscape"
       "org.localsend.localsend_app"
