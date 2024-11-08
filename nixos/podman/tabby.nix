@@ -12,8 +12,8 @@
 
       cmd = [
         "serve"
-        "--model=DeepseekCoder-1.3B"
-        "--chat-model=Qwen2.5-Coder-1.5B-Instruct"
+        "--model=StarCoder2-3B"
+        "--chat-model=Qwen2.5-Coder-1.5B"
         "--device=cuda"
       ];
     };
