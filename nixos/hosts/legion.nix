@@ -7,13 +7,7 @@
 
   boot = {
     # Kernel modules
-    kernelModules = [
-      "kvm-intel"
-      "nvidia"
-      "nvidia_drm"
-      "nvidia_modeset"
-      "nvidia_uvm"
-    ];
+    kernelModules = [ "nvidia" ];
 
     # Add legion module
     extraModulePackages = [ config.boot.kernelPackages.lenovo-legion-module ];
