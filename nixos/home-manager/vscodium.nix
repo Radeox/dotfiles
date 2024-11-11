@@ -112,6 +112,8 @@
       "projectManager.git.baseFolders" = [
         "/home/radeox/Sources"
       ];
+
+      "hediet.vscode-drawio.resizeImages" = null;
     };
 
     # Configure extensions
@@ -125,6 +127,7 @@
       dreamcatcher45.podmanager
       eamodio.gitlens
       esbenp.prettier-vscode
+      hediet.vscode-drawio
       jnoortheen.nix-ide
       mongodb.mongodb-vscode
       monosans.djlint
