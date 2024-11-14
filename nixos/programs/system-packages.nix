@@ -43,7 +43,7 @@
     noto-fonts
     orchis-theme
     pciutils
-    php83
+    php84
     poetry
     postman
     prismlauncher

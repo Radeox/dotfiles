@@ -13,7 +13,7 @@
       cmd = [
         "serve"
         "--model=StarCoder2-3B"
-        "--chat-model=Qwen2.5-Coder-1.5B"
+        "--chat-model=Qwen2.5-Coder-1.5B-Instruct"
         "--device=cuda"
       ];
     };
