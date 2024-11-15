@@ -133,6 +133,7 @@
       monosans.djlint
       ms-python.black-formatter
       ms-python.isort
+      ms-python.python
       naumovs.color-highlight
       postman.postman-for-vscode
       redhat.vscode-xml
