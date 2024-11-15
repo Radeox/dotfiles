@@ -77,9 +77,6 @@
           ./services
           ./users
 
-          # Sunshine streaming server
-          ./services/sunshine.nix
-
           # Tabby - Local AI model
           ./podman/tabby.nix
 

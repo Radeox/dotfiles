@@ -36,7 +36,6 @@
     megasync
     mongodb-compass
     mongodb-tools
-    moonlight-qt
     nautilus
     nmap
     nodejs_20
@@ -47,7 +46,7 @@
     poetry
     postman
     prismlauncher
-    python313
+    python312
     qogir-icon-theme
     rar
     remmina
