@@ -130,6 +130,12 @@
           ./services
           ./users
 
+          # Home Assistant + Lets encrypt
+          ./podman/home-assistant.nix
+
+          # DuckDns
+          ./podman/duckdns.nix
+
           # Host specific configuration
           ./hosts/b-dell.nix
         ];
