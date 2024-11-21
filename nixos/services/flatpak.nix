@@ -19,7 +19,9 @@
       "org.deluge_torrent.deluge"
       "org.gimp.GIMP"
       "org.inkscape.Inkscape"
+      "org.libreoffice.LibreOffice"
       "org.localsend.localsend_app"
+      "org.telegram.desktop"
     ];
   };
 }

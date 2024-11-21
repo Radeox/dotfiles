@@ -188,7 +188,7 @@
       # Telegram
       "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
         name = "Telegram";
-        command = "telegram-desktop";
+        command = "flatpak run org.telegram.desktop";
         binding = "<Super>j";
       };
 

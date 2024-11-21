@@ -1,11 +1,9 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
   environment.systemPackages = with pkgs; [
     android-tools
     ansible
     autojump
     bat
-    bottom
     brave
     cargo
     cmake
@@ -31,7 +29,6 @@
     imagemagick
     killall
     lazygit
-    libreoffice-fresh
     mariadb.client
     megasync
     mongodb-compass
@@ -56,7 +53,6 @@
     sbctl
     scrcpy
     sshfs
-    telegram-desktop
     thunderbird
     tpm2-tools
     tpm2-tss
