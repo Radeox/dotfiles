@@ -1,5 +1,4 @@
-{ ... }:
-{
+{ ... }: {
   environment.shellAliases = {
     # NixOS commands
     nix-clean = "sudo nix-collect-garbage -d && nix-collect-garbage -d && sudo nixos-rebuild boot";

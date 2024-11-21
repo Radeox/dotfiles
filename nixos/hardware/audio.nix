@@ -1,5 +1,4 @@
-{ ... }:
-{
+{ ... }: {
   # Pipewire configuration
   services.pipewire = {
     enable = true;

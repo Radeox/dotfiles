@@ -1,6 +1,4 @@
-{ pkgs, config, lib, modulesPath, ... }:
-
-{
+{ pkgs, config, lib, modulesPath, ... }: {
   # Hostname
   networking.hostName = "B-Dell";
 

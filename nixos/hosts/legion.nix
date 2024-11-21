@@ -1,5 +1,4 @@
-{ config, lib, modulesPath, ... }:
-{
+{ config, lib, modulesPath, ... }: {
   # Hostname
   networking.hostName = "Legion-Nix";
 

@@ -1,5 +1,4 @@
-{ ... }:
-{
+{ ... }: {
   environment.sessionVariables = {
     # Program variables
     BROWSER = "brave";
