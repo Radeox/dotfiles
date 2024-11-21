@@ -77,9 +77,6 @@
           ./services
           ./users
 
-          # Tabby - Local AI model
-          ./podman/tabby.nix
-
           # Nvidia drivers
           ./hardware/nvidia.nix
 
