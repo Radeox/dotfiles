@@ -5,28 +5,14 @@ return {
   -- Catppuccin colorscheme
   { import = "astrocommunity.colorscheme.catppuccin" },
   
-  -- Tabby
-  {
-    "TabbyML/vim-tabby",
-    lazy = false,
-    dependencies = {
-      "AstroNvim/astrocore",
-      ---@type AstroCoreOpts
-      opts = {
-        options = {
-          g = {
-            tabby_inline_completion_keybinding_accept = "<C-l>",
-          },
-        },
-      },
-    },
-  },
+  -- Copilot
+  { import = "astrocommunity.completion.copilot-lua-cmp" },
 
   -- Override splash
   {
     "goolord/alpha-nvim",
     opts = function(_, opts)
-      -- customize the dashboard header
+      -- Customize logo
       opts.section.header.val = {
         "⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣀⡀⠀⠀⠀⠀⡶⠖⣶⠤⢀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
         "⠀⠀⠀⠀⢀⣠⡴⠚⡉⠡⢈⠙⢦⣴⠞⠛⠳⣦⡘⠛⢩⣿⣦⠀⠀⠀⠀⠀⠀⢀⣀⣀⠀⠀⠀⠀⢀⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
