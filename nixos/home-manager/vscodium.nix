@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
   programs.vscode = {
     enable = true;
     package = pkgs.vscodium;
@@ -139,7 +138,6 @@
       redhat.vscode-xml
       redhat.vscode-yaml
       ritwickdey.liveserver
-      tabbyml.vscode-tabby
       vscodevim.vim
       xdebug.php-debug
       yzhang.markdown-all-in-one
@@ -155,6 +153,9 @@
         colorOverrides = { };
         customUIColors = { };
       })
-    ];
+    ] ++ (with pkgs.vscode-marketplace-release; [
+      github.copilot
+      github.copilot-chat
+    ]);
   };
 }

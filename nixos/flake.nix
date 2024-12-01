@@ -2,25 +2,31 @@
   description = "Radeox - NixOS";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+    # nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
+    # Flatpak manager
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.4.1";
 
+    # Catppuccin theme
     catppuccin.url = "github:catppuccin/nix";
     catppuccin-vsc.url = "https://flakehub.com/f/catppuccin/vscode/*.tar.gz";
 
+    # Manage dotfiles
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    lanzaboote = {
-      url = "github:Nix-Community/lanzaboote";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
+    # VSCode extensions manager
     nix-vscode-extensions = {
       url = "github:nix-community/nix-vscode-extensions";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # Secure boot
+    lanzaboote = {
+      url = "github:Nix-Community/lanzaboote";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
