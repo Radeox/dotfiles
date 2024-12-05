@@ -2,11 +2,11 @@
   description = "Radeox - NixOS";
 
   inputs = {
+    # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
-    # nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
     # Flatpak manager
-    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.5.0";
+    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.5.1";
 
     # Catppuccin theme
     catppuccin.url = "github:catppuccin/nix";
