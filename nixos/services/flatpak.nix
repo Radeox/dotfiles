@@ -13,7 +13,6 @@
       "com.bitwarden.desktop"
       "com.github.tchx84.Flatseal"
       "com.spotify.Client"
-      "io.ente.auth"
       "io.github.hmlendea.geforcenow-electron"
       "org.bleachbit.BleachBit"
       "org.deluge_torrent.deluge"

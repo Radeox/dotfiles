@@ -155,7 +155,6 @@
       })
     ] ++ (with pkgs.vscode-marketplace-release; [
       github.copilot
-      github.copilot-chat
     ]);
   };
 }
