@@ -1,18 +1,10 @@
 { ... }: {
   programs = {
-    # Configure Steam
-    steam = {
-      enable = true;
-      gamescopeSession.enable = true;
-    };
-
-    # Enable Fish
+    # Fish shell
     fish.enable = true;
 
-    # Enable Gamemode
+    # Other stuff
     gamemode.enable = true;
-
-    # Enable GTK themes in Wayland
     dconf.enable = true;
   };
 }

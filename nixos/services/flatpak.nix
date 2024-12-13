@@ -12,7 +12,9 @@
     packages = [
       "com.bitwarden.desktop"
       "com.github.tchx84.Flatseal"
+      "com.heroicgameslauncher.hgl"
       "com.spotify.Client"
+      "com.valvesoftware.Steam"
       "io.github.hmlendea.geforcenow-electron"
       "org.bleachbit.BleachBit"
       "org.deluge_torrent.deluge"

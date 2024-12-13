@@ -23,7 +23,6 @@
     gnumake
     gparted
     grc
-    heroic
     home-manager
     htop
     imagemagick
