@@ -153,8 +153,10 @@
         colorOverrides = { };
         customUIColors = { };
       })
-    ] ++ (with pkgs.vscode-marketplace-release; [
+    ] ++ (with pkgs.vscode-extensions; [
       github.copilot
+      github.copilot-chat
+      ms-vscode-remote.vscode-remote-extensionpack
     ]);
   };
 }
