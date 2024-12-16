@@ -28,6 +28,6 @@
 
     # Scripts
     myip = "bash ~/Sources/scripts/my-ip.sh";
-    venv = "source ~/Sources/scripts/activate_poetry.fish";
+    venv = "source ~/Sources/scripts/activate_venv.fish";
   };
 }

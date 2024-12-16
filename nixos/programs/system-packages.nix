@@ -39,7 +39,6 @@
     orchis-theme
     pciutils
     php84
-    poetry
     postman
     prismlauncher
     python312
@@ -59,6 +58,7 @@
     tree-sitter
     udiskie
     unzip
+    uv
     veracrypt
     vlc
     wget
