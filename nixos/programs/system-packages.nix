@@ -36,7 +36,6 @@
     nmap
     nodejs_20
     noto-fonts
-    orchis-theme
     pciutils
     php84
     postman
@@ -62,6 +61,7 @@
     veracrypt
     vlc
     wget
+    whois
     wl-clipboard
     zip
   ] ++ (with pkgs.fishPlugins; [
