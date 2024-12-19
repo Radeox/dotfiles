@@ -1,8 +1,6 @@
-{ ... }:
-{
+{ ... }: {
   programs.tofi = {
     enable = true;
-    catppuccin.enable = false;
 
     settings = {
       anchor = "top";
