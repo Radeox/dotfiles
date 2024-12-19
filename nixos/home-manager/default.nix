@@ -5,7 +5,6 @@
     ./gnome.nix
     ./neovim.nix
     ./ranger.nix
-    ./theme.nix
     ./vscodium.nix
   ];
 

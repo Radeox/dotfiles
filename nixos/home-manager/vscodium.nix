@@ -74,7 +74,7 @@
 
       # Theme
       "workbench.startupEditor" = "none";
-      "workbench.colorTheme" = "Catppuccin Mocha";
+      "workbench.colorTheme" = "Kanagawa Wave";
       "workbench.iconTheme" = "catppuccin-mocha";
 
       # Window style
@@ -128,6 +128,7 @@
       esbenp.prettier-vscode
       hediet.vscode-drawio
       jnoortheen.nix-ide
+      metaphore.kanagawa-vscode-color-theme
       mongodb.mongodb-vscode
       monosans.djlint
       ms-python.black-formatter
@@ -141,18 +142,6 @@
       vscodevim.vim
       xdebug.php-debug
       yzhang.markdown-all-in-one
-
-      (pkgs.catppuccin-vsc.override {
-        accent = "teal";
-        boldKeywords = true;
-        italicComments = false;
-        italicKeywords = false;
-        extraBordersEnabled = false;
-        workbenchMode = "default";
-        bracketMode = "rainbow";
-        colorOverrides = { };
-        customUIColors = { };
-      })
     ] ++ (with pkgs.vscode-extensions; [
       github.copilot
       github.copilot-chat

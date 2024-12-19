@@ -8,10 +8,6 @@
     # Flatpak manager
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.5.1";
 
-    # Catppuccin theme
-    catppuccin.url = "github:catppuccin/nix";
-    catppuccin-vsc.url = "https://flakehub.com/f/catppuccin/vscode/*.tar.gz";
-
     # Manage dotfiles
     home-manager = {
       url = "github:nix-community/home-manager/release-24.11";
@@ -31,7 +27,7 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, lanzaboote, nix-flatpak, nix-vscode-extensions, catppuccin, catppuccin-vsc, ... }: {
+  outputs = { nixpkgs, home-manager, lanzaboote, nix-flatpak, nix-vscode-extensions, ... }: {
     nixosConfigurations = {
       Legion-Nix = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -43,14 +39,10 @@
           # Flatpak module
           nix-flatpak.nixosModules.nix-flatpak
 
-          # Catppuccin module
-          catppuccin.nixosModules.catppuccin
-
           # Custom overlays
           {
             nixpkgs.overlays = [
               nix-vscode-extensions.overlays.default
-              catppuccin-vsc.overlays.default
 
               # Brave override
               (self: super: {
@@ -70,7 +62,6 @@
             home-manager.users.radeox = {
               imports = [
                 ./home-manager
-                catppuccin.homeManagerModules.catppuccin
               ];
             };
           }
@@ -100,14 +91,10 @@
           # Flatpak module
           nix-flatpak.nixosModules.nix-flatpak
 
-          # Catppuccin module
-          catppuccin.nixosModules.catppuccin
-
           # Custom overlays
           {
             nixpkgs.overlays = [
               nix-vscode-extensions.overlays.default
-              catppuccin-vsc.overlays.default
             ];
           }
 
@@ -120,7 +107,6 @@
             home-manager.users.radeox = {
               imports = [
                 ./home-manager
-                catppuccin.homeManagerModules.catppuccin
               ];
             };
           }
