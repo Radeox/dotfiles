@@ -4,7 +4,7 @@
     backend = "podman";
 
     containers.homeassistant = {
-      image = "ghcr.io/home-assistant/home-assistant:stable";
+      image = "homeassistant/home-assistant:stable";
 
       volumes = [
         "/etc/home-assistant-data:/config"
