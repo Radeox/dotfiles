@@ -50,6 +50,7 @@
     rpiboot
     sbctl
     scrcpy
+    speedtest-cli
     sshfs
     thunderbird
     tpm2-tools
