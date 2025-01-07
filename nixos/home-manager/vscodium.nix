@@ -28,11 +28,11 @@
       }
       {
         key = "f1";
-        command = "workbench.action.toggleZenMode";
+        command = "workbench.action.terminal.toggleTerminal";
       }
       {
-        key = "f2";
-        command = "workbench.action.terminal.toggleTerminal";
+        key = "f4";
+        command = "workbench.action.toggleZenMode";
       }
       {
         key = "f5";
