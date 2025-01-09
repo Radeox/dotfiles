@@ -29,7 +29,6 @@
     killall
     lazygit
     mariadb.client
-    megasync
     mongodb-compass
     mongodb-tools
     nautilus
