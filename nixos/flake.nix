@@ -6,7 +6,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
 
     # Flatpak manager
-    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.5.1";
+    nix-flatpak.url = "github:gmodena/nix-flatpak/latest";
 
     # Manage dotfiles
     home-manager = {
