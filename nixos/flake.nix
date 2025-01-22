@@ -48,7 +48,7 @@
               # Brave override
               (self: super: {
                 brave = super.brave.override {
-                  commandLineArgs = " - -enable-features=TouchpadOverscrollHistoryNavigation --ozone-platform=wayland";
+                  commandLineArgs = " --enable-features=TouchpadOverscrollHistoryNavigation --ozone-platform=wayland";
                 };
               })
             ];
