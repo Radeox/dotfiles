@@ -27,7 +27,6 @@
     htop
     imagemagick
     killall
-    lazygit
     mariadb.client
     mongodb-compass
     mongodb-tools

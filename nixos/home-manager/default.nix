@@ -3,6 +3,7 @@
     ./alacritty.nix
     ./git.nix
     ./gnome.nix
+    ./lazygit.nix
     ./megasync.nix
     ./neovim.nix
     ./ranger.nix
