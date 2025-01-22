@@ -3,7 +3,7 @@
     enable = true;
 
     settings = {
-      "notARepository" = "exit";
+      "notARepository" = "quit";
     };
   };
 }
