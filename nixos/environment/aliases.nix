@@ -7,8 +7,7 @@
     nix-rebuild = "sudo nixos-rebuild switch --flake /etc/nixos";
 
     # Aliases
-    c = "codium .";
-    code = "codium";
+    c = "code .";
     d = "podman-tui";
     dc = "docker compose";
     g = "lazygit";
