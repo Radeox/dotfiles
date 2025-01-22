@@ -29,6 +29,7 @@
 
   outputs = { nixpkgs, home-manager, lanzaboote, nix-flatpak, nix-vscode-extensions, ... }: {
     nixosConfigurations = {
+      # ----- Legion Nix configuration -----
       Legion-Nix = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
 
@@ -47,7 +48,7 @@
               # Brave override
               (self: super: {
                 brave = super.brave.override {
-                  commandLineArgs = "--enable-features=TouchpadOverscrollHistoryNavigation --ozone-platform=wayland";
+                  commandLineArgs = " - -enable-features=TouchpadOverscrollHistoryNavigation --ozone-platform=wayland";
                 };
               })
             ];
@@ -82,6 +83,7 @@
         ];
       };
 
+      # ----- B-Dell Nix configuration -----
       B-Dell = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
