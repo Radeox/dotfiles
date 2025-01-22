@@ -142,9 +142,10 @@
       xdebug.php-debug
       yzhang.markdown-all-in-one
     ] ++ (with pkgs.vscode-extensions; [
+      ms-vscode-remote.vscode-remote-extensionpack
+    ]) ++ (with pkgs.vscode-marketplace-release; [
       github.copilot
       github.copilot-chat
-      ms-vscode-remote.vscode-remote-extensionpack
     ]);
   };
 }
