@@ -44,38 +44,33 @@
         };
       };
 
-      # Colors (Kanagawa)
+      # Colors (Ayu Dark)
       colors = {
         primary = {
-          background = "#1f1f28";
-          foreground = "#dcd7ba";
-        };
-
-        selection = {
-          background = "#2d4f67";
-          foreground = "#c8c093";
+          background = "#0A0E14";
+          foreground = "#B3B1AD";
         };
 
         normal = {
-          black = "#090618";
-          red = "#c34043";
-          green = "#76946a";
-          yellow = "#c0a36e";
-          blue = "#7e9cd8";
-          magenta = "#957fb8";
-          cyan = "#6a9589";
-          white = "#c8c093";
+          black = "#01060E";
+          red = "#EA6C73";
+          green = "#91B362";
+          yellow = "#F9AF4F";
+          blue = "#53BDFA";
+          magenta = "#FAE994";
+          cyan = "#90E1C6";
+          white = "#C7C7C7";
         };
 
         bright = {
-          black = "#727169";
-          red = "#e82424";
-          green = "#98bb6c";
-          yellow = "#e6c384";
-          blue = "#7fb4ca";
-          magenta = "#938aa9";
-          cyan = "#7aa89f";
-          white = "#dcd7ba";
+          black = "#686868";
+          red = "#F07178";
+          green = "#C2D94C";
+          yellow = "#FFB454";
+          blue = "#59C2FF";
+          magenta = "#FFEE99";
+          cyan = "#95E6CB";
+          white = "#FFFFFF";
         };
       };
 

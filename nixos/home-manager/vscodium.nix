@@ -73,7 +73,7 @@
 
       # Theme
       "workbench.startupEditor" = "none";
-      "workbench.colorTheme" = "Kanagawa Wave";
+      "workbench.colorTheme" = "Ayu Dark";
       "workbench.iconTheme" = "catppuccin-mocha";
 
       # Window style
@@ -127,7 +127,6 @@
       esbenp.prettier-vscode
       hediet.vscode-drawio
       jnoortheen.nix-ide
-      metaphore.kanagawa-vscode-color-theme
       mongodb.mongodb-vscode
       monosans.djlint
       ms-python.black-formatter
@@ -138,6 +137,7 @@
       redhat.vscode-xml
       redhat.vscode-yaml
       ritwickdey.liveserver
+      teabyii.ayu
       vscodevim.vim
       xdebug.php-debug
       yzhang.markdown-all-in-one

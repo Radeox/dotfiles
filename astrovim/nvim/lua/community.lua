@@ -2,8 +2,8 @@
 return {
   "AstroNvim/astrocommunity",
 
-  -- Kanagawa colorscheme
-  { import = "astrocommunity.colorscheme.kanagawa-nvim" },
+  -- Ayu theme colorscheme
+  { "Shatur/neovim-ayu" },
 
   -- Copilot
   { import = "astrocommunity.completion.copilot-lua-cmp" },
