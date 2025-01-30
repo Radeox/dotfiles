@@ -7,13 +7,13 @@
     nix-rebuild = "sudo nixos-rebuild switch --flake /etc/nixos";
 
     # Aliases
+    ai = "aichat";
     c = "code .";
     d = "podman-tui";
     dc = "docker compose";
     g = "lazygit";
     ll = "ls -l";
     p = "ps aux | grep ";
-    pr = "poetry run python";
     r = "ranger";
     rgrep = "rg";
     sl = "ls";
