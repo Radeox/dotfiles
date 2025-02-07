@@ -20,22 +20,22 @@
       package = config.boot.kernelPackages.nvidiaPackages.beta;
     };
 
+    # Nvidia toolkit
+    nvidia-container-toolkit.enable = true;
+
     # Nvidia vaapi driver
     graphics = {
       enable = true;
       extraPackages = with pkgs; [ nvidia-vaapi-driver ];
     };
-
-    # Nvidia toolkit
-    nvidia-container-toolkit.enable = true;
   };
+
+  # Use Nvidia drivers
+  services.xserver.videoDrivers = [ "nvidia" ];
 
   # Cuda packages
   environment.systemPackages = with pkgs; [
     cudaPackages.cudatoolkit
     cudaPackages.cudnn
   ];
-
-  # Use Nvidia drivers
-  services.xserver.videoDrivers = [ "nvidia" ];
 }

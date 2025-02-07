@@ -4,7 +4,9 @@
     isNormalUser = true;
     description = "Radeox";
     extraGroups = [
+      "adbusers"
       "docker"
+      "kvm"
       "lp"
       "networkmanager"
       "scanner"

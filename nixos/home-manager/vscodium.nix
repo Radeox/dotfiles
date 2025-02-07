@@ -1,8 +1,6 @@
 { pkgs, ... }: {
   programs.vscode = {
     enable = true;
-
-    # Disable auto-update
     enableUpdateCheck = false;
     enableExtensionUpdateCheck = false;
     mutableExtensionsDir = false;
@@ -122,6 +120,8 @@
       batisteo.vscode-django
       bmewburn.vscode-intelephense-client
       catppuccin.catppuccin-vsc-icons
+      dart-code.dart-code
+      dart-code.flutter
       dreamcatcher45.podmanager
       eamodio.gitlens
       esbenp.prettier-vscode
@@ -142,10 +142,9 @@
       xdebug.php-debug
       yzhang.markdown-all-in-one
     ] ++ (with pkgs.vscode-extensions; [
-      ms-vscode-remote.vscode-remote-extensionpack
-    ]) ++ (with pkgs.vscode-marketplace-release; [
       github.copilot
       github.copilot-chat
+      ms-vscode-remote.vscode-remote-extensionpack
     ]);
   };
 }
