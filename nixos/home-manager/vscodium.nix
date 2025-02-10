@@ -92,6 +92,9 @@
       # Vim
       "vim.useSystemClipboard" = true;
 
+      # Copilot
+      "chat.editing.alwaysSaveWithGeneratedChanges" = true;
+
       # Extra
       "redhat.telemetry.enabled" = false;
 
