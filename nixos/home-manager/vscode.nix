@@ -98,11 +98,23 @@
       # Extra
       "redhat.telemetry.enabled" = false;
 
-      # Editor config
+      # Python config
+      "[python]" = {
+        "editor.defaultFormatter" = "ms-python.black-formatter";
+        "editor.formatOnSave" = true;
+        "editor.codeActionsOnSave" = {
+          "source.organizeImports" = true;
+        };
+      };
+
+      "isort.args" = [ "--profile" "black" ];
+
+      # Javascript config
       "[javascript]" = {
         "editor.defaultFormatter" = "esbenp.prettier-vscode";
       };
 
+      # SCSS config
       "[scss]" = {
         "editor.defaultFormatter" = "esbenp.prettier-vscode";
       };

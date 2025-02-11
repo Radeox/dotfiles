@@ -7,7 +7,7 @@
     ./megasync.nix
     ./neovim.nix
     ./ranger.nix
-    ./vscodium.nix
+    ./vscode.nix
   ];
 
   # Enable Home Manager
