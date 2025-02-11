@@ -103,7 +103,7 @@
         "editor.defaultFormatter" = "ms-python.black-formatter";
         "editor.formatOnSave" = true;
         "editor.codeActionsOnSave" = {
-          "source.organizeImports" = true;
+          "source.organizeImports" = "explicit";
         };
       };
 
@@ -125,6 +125,7 @@
       ];
 
       "hediet.vscode-drawio.resizeImages" = null;
+      "postman.settings.dotenv-detection-notification-visibility" = false;
     };
 
     # Configure extensions
