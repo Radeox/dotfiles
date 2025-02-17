@@ -114,6 +114,18 @@
         vertical-margin-bottom = 12;
         vertical-margin = 12;
         window-gap = 16;
+
+        # Height/Widht steps
+        cycle-height-steps = [ 0.38 0.5 0.61 ];
+        cycle-width-steps = [ 0.5 1.0 ];
+
+        winprops = [
+          # All windows open at 100% width
+          "{\"wm_class\":\"*\",\"preferredWidth\":\"100%\"}"
+
+          # Pixel Access window opens in scratch layer
+          "{\"wm_class\":\"\",\"title\":\"Pixel Access\",\"scratch_layer\":true}"
+        ];
       };
 
       # PaperWM keybindings
