@@ -1,7 +1,6 @@
 { pkgs, ... }: {
   environment.systemPackages = with pkgs; [
     aichat
-    android-tools
     ansible
     autojump
     bat
@@ -46,7 +45,6 @@
     remmina
     ripgrep
     rpi-imager
-    rpiboot
     sbctl
     scrcpy
     speedtest-cli
