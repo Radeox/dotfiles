@@ -36,7 +36,6 @@
     noto-fonts
     pciutils
     php84
-    postman
     prismlauncher
     python312
     python313

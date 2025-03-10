@@ -11,6 +11,7 @@
     # Packages list
     packages = [
       "com.bitwarden.desktop"
+      "com.getpostman.Postman"
       "com.github.tchx84.Flatseal"
       "com.heroicgameslauncher.hgl"
       "com.spotify.Client"
@@ -24,5 +25,9 @@
       "org.localsend.localsend_app"
       "org.telegram.desktop"
     ];
+  };
+
+  environment.shellAliases = {
+    gimp = "flatpak run org.gimp.GIMP";
   };
 }
