@@ -1,10 +1,8 @@
 { ... }: {
   # Secure boot
-  boot = {
-    lanzaboote = {
-      enable = true;
-      pkiBundle = "/etc/secureboot";
-    };
+  boot.lanzaboote = {
+    enable = true;
+    pkiBundle = "/etc/secureboot";
   };
 
   # TPM2

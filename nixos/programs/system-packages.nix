@@ -4,6 +4,7 @@
     ansible
     autojump
     bat
+    borgbackup
     brave
     cargo
     cmake
