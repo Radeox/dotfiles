@@ -34,6 +34,12 @@
     fsType = "ext4";
   };
 
+  fileSystems."/home/radeox/Storage" = {
+    device = "/dev/disk/by-uuid/876c35ed-939a-4d89-9729-7a9878357ac6";
+    fsType = "ext4";
+    options = [ "user" "nofail" ];
+  };
+
   swapDevices = [{ device = "/dev/disk/by-uuid/a1cdc93e-c7f5-49eb-94ce-20168fb08297"; }];
 
   networking.useDHCP = lib.mkDefault true;
@@ -63,4 +69,12 @@
 
   # Turn off firewall
   networking.firewall.enable = lib.mkForce false;
+
+  # Add secondary storage
+  environment.etc.crypttab = {
+    mode = "0600";
+    text = ''
+      cryptstorage UUID=f166bd0d-8887-40df-b237-35ba6bb7c6ee /root/storage.key
+    '';
+  };
 }
