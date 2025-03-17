@@ -73,9 +73,9 @@
 
   # Configure extra fonts
   fonts.packages = with pkgs; [
-    (nerdfonts.override {
-      fonts = [ "DroidSansMono" "FiraCode" "JetBrainsMono" ];
-    })
+    nerd-fonts.droid-sans-mono
+    nerd-fonts.fira-code
+    nerd-fonts.jetbrains-mono
   ];
 
   # Remove GNOME apps
