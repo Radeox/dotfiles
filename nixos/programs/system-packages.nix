@@ -5,7 +5,6 @@
     autojump
     bat
     borgbackup
-    brave
     cargo
     cmake
     dig
@@ -54,6 +53,7 @@
     tpm2-tss
     tree-sitter
     udiskie
+    ungoogled-chromium
     unzip
     uv
     veracrypt

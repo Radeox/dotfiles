@@ -10,6 +10,7 @@
 
     # Packages list
     packages = [
+      "app.zen_browser.zen"
       "com.bitwarden.desktop"
       "com.getpostman.Postman"
       "com.github.tchx84.Flatseal"
@@ -29,5 +30,6 @@
 
   environment.shellAliases = {
     gimp = "flatpak run org.gimp.GIMP";
+    zen = "flatpak run app.zen_browser.zen";
   };
 }
