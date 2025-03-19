@@ -92,13 +92,13 @@
     services.home-assistant-update = {
       serviceConfig.Type = "oneshot";
       script = ''
-        podman pull ghcr.io/home-assistant/home-assistant:stable
+        /run/current-system/sw/bin/podman pull ghcr.io/home-assistant/home-assistant:stable
         systemctl restart podman-homeassistant.service
 
-        podman pull lscr.io/linuxserver/duckdns:latest
+        /run/current-system/sw/bin/podman pull lscr.io/linuxserver/duckdns:latest
         systemctl restart podman-duckdns.service
 
-        podman system prune -f
+        /run/current-system/sw/bin/podman system prune -f
       '';
     };
   };
