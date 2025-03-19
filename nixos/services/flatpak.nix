@@ -30,6 +30,7 @@
 
   environment.shellAliases = {
     gimp = "flatpak run org.gimp.GIMP";
+    inkscape = "flatpak run org.inkscape.Inkscape";
     zen = "flatpak run app.zen_browser.zen";
   };
 }
