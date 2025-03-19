@@ -3,6 +3,7 @@
     ./aliases.nix
     ./environment.nix
     ./locale.nix
+    ./scripts.nix
   ];
 
   # Add ./local/bin to PATH

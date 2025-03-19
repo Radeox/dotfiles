@@ -24,9 +24,5 @@
     df = "duf";
     du = "dust";
     ls = "eza --icons --group-directories-first";
-
-    # Scripts
-    myip = "bash ~/Sources/scripts/my-ip.sh";
-    venv = "source ~/Sources/scripts/activate_venv.fish";
   };
 }
