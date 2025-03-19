@@ -77,4 +77,29 @@
       cryptstorage UUID=f166bd0d-8887-40df-b237-35ba6bb7c6ee /root/storage.key
     '';
   };
+
+  # Periodically update home-assistant
+  systemd = {
+    timers.home-assistant-update = {
+      wantedBy = [ "timers.target" ];
+      partOf = [ "home-assistant-update.service" ];
+      timerConfig = {
+        OnCalendar = "daily";
+        Persistent = true;
+      };
+    };
+
+    services.home-assistant-update = {
+      serviceConfig.Type = "oneshot";
+      script = ''
+        podman pull ghcr.io/home-assistant/home-assistant:stable
+        systemctl restart podman-homeassistant.service
+
+        podman pull lscr.io/linuxserver/duckdns:latest
+        systemctl restart podman-duckdns.service
+
+        podman system prune -f
+      '';
+    };
+  };
 }
