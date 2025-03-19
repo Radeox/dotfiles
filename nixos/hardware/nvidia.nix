@@ -11,7 +11,7 @@
       forceFullCompositionPipeline = false;
 
       # Open source driver
-      open = false;
+      open = true;
 
       # Nvidia settings GUI
       nvidiaSettings = true;
@@ -23,7 +23,13 @@
     # Nvidia vaapi driver
     graphics = {
       enable = true;
-      extraPackages = with pkgs; [ nvidia-vaapi-driver ];
+      extraPackages = with pkgs; [
+        nvidia-vaapi-driver
+        vaapiVdpau
+        libvdpau-va-gl
+        mesa
+        egl-wayland
+      ];
     };
 
     # Nvidia toolkit
@@ -38,4 +44,11 @@
     cudaPackages.cudatoolkit
     cudaPackages.cudnn
   ];
+
+  nix.settings = {
+    substituters = [ "https://cuda-maintainers.cachix.org" ];
+    trusted-public-keys = [
+      "cuda-maintainers.cachix.org-1:0dq3bujKpuEPMCX6U4WylrUDZ9JyUG0VpVZa7CNfq5E="
+    ];
+  };
 }
