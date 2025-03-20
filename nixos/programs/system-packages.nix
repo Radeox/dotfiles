@@ -83,13 +83,17 @@
     atomix
     epiphany
     geary
+    gnome-characters
+    gnome-font-viewer
     gnome-music
     gnome-photos
     gnome-terminal
     gnome-tour
+    gnome-user-docs
     hitori
     iagno
     tali
     totem
+    yelp
   ]);
 }
