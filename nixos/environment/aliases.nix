@@ -1,10 +1,9 @@
 { ... }: {
   environment.shellAliases = {
     # NixOS commands
-    nix-clean = "sudo nix-collect-garbage -d && nix-collect-garbage -d && sudo nixos-rebuild boot";
-    nix-config = "cd /etc/nixos && vim";
     nix-update = "sudo nix-channel --update && sudo nix flake update --flake /etc/nixos && sudo nixos-rebuild switch --accept-flake-config --flake /etc/nixos && flatpak update -y";
-    nix-rebuild = "sudo nixos-rebuild switch --flake /etc/nixos";
+    nix-config = "cd /etc/nixos && vim";
+    nix-full-clean = "sudo nix-store --gc && sudo nix-collect-garbage -d && nix-collect-garbage -d && sudo nixos-rebuild boot";
 
     # Aliases
     ai = "aichat";
