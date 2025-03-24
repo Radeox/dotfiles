@@ -4,7 +4,7 @@
     backend = "podman";
 
     containers.homeassistant = {
-      image = "homeassistant/home-assistant:stable";
+      image = "docker.io/homeassistant/home-assistant:latest";
 
       volumes = [
         "/etc/home-assistant-data:/config"

@@ -92,7 +92,7 @@
     services.home-assistant-update = {
       serviceConfig.Type = "oneshot";
       script = ''
-        /run/current-system/sw/bin/podman pull ghcr.io/home-assistant/home-assistant:stable
+        /run/current-system/sw/bin/podman pull docker.io/homeassistant/home-assistant:latest
         systemctl restart podman-homeassistant.service
 
         /run/current-system/sw/bin/podman pull lscr.io/linuxserver/duckdns:latest
