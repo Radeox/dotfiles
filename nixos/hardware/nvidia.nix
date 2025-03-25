@@ -17,7 +17,7 @@
       nvidiaSettings = true;
 
       # Use lastest drivers
-      package = config.boot.kernelPackages.nvidiaPackages.stable;
+      package = config.boot.kernelPackages.nvidiaPackages.latest;
     };
 
     # Nvidia vaapi driver
@@ -45,6 +45,7 @@
     cudaPackages.cudnn
   ];
 
+  # Cachix cache for CUDA
   nix.settings = {
     substituters = [ "https://cuda-maintainers.cachix.org" ];
     trusted-public-keys = [

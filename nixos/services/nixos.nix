@@ -1,9 +1,29 @@
 { pkgs, ... }: {
+  boot = {
+    # Use latest stock kernel
+    kernelPackages = pkgs.linuxPackages_latest;
+
+    # NTFS support
+    supportedFilesystems = [ "ntfs" ];
+  };
+
+  nix = {
+    # Enable flakes
+    settings.experimental-features = [ "nix-command" "flakes" ];
+
+    # Enable automatic garbage collection
+    gc = {
+      automatic = true;
+      dates = "daily";
+      options = "--delete-older-than 7d";
+    };
+
+    # Enable auto-optimisation of the store
+    settings.auto-optimise-store = true;
+  };
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-
-  # Enable flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   system = {
     stateVersion = "24.05";

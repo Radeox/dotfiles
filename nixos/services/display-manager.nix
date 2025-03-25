@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ ... }: {
   services = {
     xserver = {
       enable = true;
@@ -19,9 +19,6 @@
         layout = "us";
         variant = "";
       };
-
-      # Remove xterm from the default packages
-      excludePackages = [ pkgs.xterm ];
     };
   };
 }

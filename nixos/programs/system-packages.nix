@@ -96,4 +96,7 @@
     totem
     yelp
   ]);
+
+  # Remove xterm from the default packages
+  services.xserver.excludePackages = [ pkgs.xterm ];
 }
