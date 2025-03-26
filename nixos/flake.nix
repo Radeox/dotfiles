@@ -42,16 +42,7 @@
 
           # Custom overlays
           {
-            nixpkgs.overlays = [
-              nix-vscode-extensions.overlays.default
-
-              # Brave override
-              (self: super: {
-                brave = super.brave.override {
-                  commandLineArgs = " --enable-features=TouchpadOverscrollHistoryNavigation --ozone-platform=wayland";
-                };
-              })
-            ];
+            nixpkgs.overlays = [ nix-vscode-extensions.overlays.default ];
           }
 
           # Setup Home Manager
@@ -95,9 +86,7 @@
 
           # Custom overlays
           {
-            nixpkgs.overlays = [
-              nix-vscode-extensions.overlays.default
-            ];
+            nixpkgs.overlays = [ nix-vscode-extensions.overlays.default ];
           }
 
           # Setup Home Manager

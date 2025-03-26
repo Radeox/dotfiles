@@ -9,7 +9,8 @@
     kernelModules = [ "nvidia" ];
 
     # Add legion module
-    extraModulePackages = [ config.boot.kernelPackages.lenovo-legion-module ];
+    # extraModulePackages = [ config.boot.kernelPackages.lenovo-legion-module ];
+    extraModulePackages = [ ];
 
     initrd = {
       # TPM2
@@ -51,4 +52,7 @@
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+
+  # RTC time standard to localtime (dual boot)
+  time.hardwareClockInLocalTime = true;
 }
