@@ -97,10 +97,8 @@
         # Copilot
         "chat.editing.alwaysSaveWithGeneratedChanges" = true;
 
-        # Extra
-        "redhat.telemetry.enabled" = false;
-
         # Python config
+        "isort.args" = [ "--profile" "black" ];
         "[python]" = {
           "editor.defaultFormatter" = "ms-python.black-formatter";
           "editor.formatOnSave" = true;
@@ -108,8 +106,6 @@
             "source.organizeImports" = "explicit";
           };
         };
-
-        "isort.args" = [ "--profile" "black" ];
 
         # Javascript config
         "[javascript]" = {
@@ -126,8 +122,11 @@
           "/home/radeox/Sources"
         ];
 
+        # Extra
+        "extensions.ignoreRecommendations" = true;
         "hediet.vscode-drawio.resizeImages" = null;
         "postman.settings.dotenv-detection-notification-visibility" = false;
+        "redhat.telemetry.enabled" = false;
       };
 
       # Configure extensions
