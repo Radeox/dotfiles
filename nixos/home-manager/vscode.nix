@@ -162,6 +162,7 @@
         github.copilot
         github.copilot-chat
         ms-vscode-remote.vscode-remote-extensionpack
+        ms-vscode.cpptools
       ]);
     };
   };
