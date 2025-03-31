@@ -24,6 +24,7 @@
       "org.inkscape.Inkscape"
       "org.libreoffice.LibreOffice"
       "org.localsend.localsend_app"
+      "org.raspberrypi.rpi-imager"
       "org.telegram.desktop"
     ];
   };

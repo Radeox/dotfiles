@@ -43,7 +43,7 @@
     rar
     remmina
     ripgrep
-    rpi-imager
+    rpiboot
     sbctl
     scrcpy
     speedtest-cli
