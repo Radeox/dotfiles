@@ -127,6 +127,7 @@
         "hediet.vscode-drawio.resizeImages" = null;
         "postman.settings.dotenv-detection-notification-visibility" = false;
         "redhat.telemetry.enabled" = false;
+        "chat.commandCenter.enabled" = false;
       };
 
       # Configure extensions
@@ -158,9 +159,10 @@
         vscodevim.vim
         xdebug.php-debug
         yzhang.markdown-all-in-one
+        continue.continue
       ] ++ (with pkgs.vscode-extensions; [
-        github.copilot
-        github.copilot-chat
+        # github.copilot
+        # github.copilot-chat
         ms-vscode-remote.vscode-remote-extensionpack
         ms-vscode.cpptools
       ]);
