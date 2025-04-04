@@ -1,7 +1,7 @@
 { pkgs, ... }: {
   boot = {
-    # Use latest stock kernel
-    kernelPackages = pkgs.linuxPackages_latest;
+    # Use 6.12 stock kernel
+    kernelPackages = pkgs.linuxPackages_6_12;
 
     # NTFS support
     supportedFilesystems = [ "ntfs" ];
