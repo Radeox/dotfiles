@@ -12,6 +12,7 @@
     packages = [
       "app.zen_browser.zen"
       "com.bitwarden.desktop"
+      "com.borgbase.Vorta"
       "com.getpostman.Postman"
       "com.github.tchx84.Flatseal"
       "com.heroicgameslauncher.hgl"

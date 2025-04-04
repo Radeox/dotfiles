@@ -58,7 +58,6 @@
     uv
     veracrypt
     vlc
-    vorta
     wget
     whois
     wl-clipboard
