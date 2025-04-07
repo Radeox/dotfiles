@@ -1,4 +1,4 @@
-{ pkgs, config, ... }: {
+{ pkgs, ... }: {
   hardware = {
     nvidia = {
       # Modesetting is needed for most wayland compositors
@@ -7,17 +7,11 @@
       # Power management
       powerManagement.enable = true;
 
-      # Force full composition pipeline
-      forceFullCompositionPipeline = false;
-
       # Open source driver
       open = true;
 
       # Nvidia settings GUI
       nvidiaSettings = true;
-
-      # Use lastest drivers
-      # package = config.boot.kernelPackages.nvidiaPackages.latest;
     };
 
     # Nvidia vaapi driver

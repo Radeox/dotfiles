@@ -62,9 +62,7 @@
           ./environment
           ./hardware
           ./podman
-          ./programs
-          ./services
-          ./users
+          ./software
 
           # Nvidia drivers
           ./hardware/nvidia.nix
@@ -109,15 +107,10 @@
           ./environment
           ./hardware
           ./podman
-          ./programs
-          ./services
-          ./users
+          ./software
 
-          # Home Assistant + Lets encrypt
+          # Home Assistant + DuckDNS + Lets encrypt
           ./podman/home-assistant.nix
-
-          # DuckDns
-          ./podman/duckdns.nix
 
           # Host specific configuration
           ./hosts/b-dell.nix

@@ -2,9 +2,11 @@
   imports = [
     ./display-manager.nix
     ./flatpak.nix
-    ./misc.nix
     ./networking.nix
-    ./nixos.nix
+    ./packages.nix
+    ./programs.nix
     ./secureboot.nix
+    ./services.nix
+    ./system.nix
   ];
 }
