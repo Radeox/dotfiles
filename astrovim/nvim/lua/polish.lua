@@ -3,6 +3,9 @@ vim.opt.expandtab = true
 vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
 
+-- Views can only be fully collapsed with the global statusline
+vim.opt.laststatus = 3
+
 -- Remove auto-commenting on newline
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "*",
