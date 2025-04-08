@@ -117,18 +117,13 @@
         "/home/radeox/Sources"
       ];
 
-      # Cody
-      "cody.commandCodeLenses" = true;
-      "cody.autocomplete.formatOnAccept" = true;
-      "cody.chat.preInstruction" = "Answer all my questions in Italian";
-
       # Extra
+      "chat.commandCenter.enabled" = false;
+      "editor.inlineSuggest.suppressSuggestions" = true;
       "extensions.ignoreRecommendations" = true;
       "hediet.vscode-drawio.resizeImages" = null;
       "postman.settings.dotenv-detection-notification-visibility" = false;
       "redhat.telemetry.enabled" = false;
-      "chat.commandCenter.enabled" = false;
-      "editor.inlineSuggest.suppressSuggestions" = true;
     };
 
     # Configure extensions
@@ -139,6 +134,7 @@
       batisteo.vscode-django
       bmewburn.vscode-intelephense-client
       catppuccin.catppuccin-vsc-icons
+      continue.continue
       dart-code.dart-code
       dart-code.flutter
       eamodio.gitlens
@@ -150,10 +146,9 @@
       ms-python.isort
       ms-python.python
       naumovs.color-highlight
-      postman.postman-for-vscode
       redhat.vscode-xml
       redhat.vscode-yaml
-      sourcegraph.cody-ai
+      supermaven.supermaven
       teabyii.ayu
       vscodevim.vim
       xdebug.php-debug

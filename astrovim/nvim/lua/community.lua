@@ -26,6 +26,14 @@ return {
     end,
   },
 
+  -- Supermaven
+  {
+    "supermaven-inc/supermaven-nvim",
+    config = function()
+      require("supermaven-nvim").setup({})
+    end,
+  },
+
   -- Override splash
   {
     "goolord/alpha-nvim",
