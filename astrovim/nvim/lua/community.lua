@@ -5,6 +5,9 @@ return {
   -- Ayu theme colorscheme
   { "Shatur/neovim-ayu" },
 
+  -- Copilot
+  { import = "astrocommunity.completion.copilot-lua-cmp" },
+
   -- Codecompanion
   {
     "olimorris/codecompanion.nvim",
@@ -23,14 +26,6 @@ return {
           },
         },
       })
-    end,
-  },
-
-  -- Supermaven
-  {
-    "supermaven-inc/supermaven-nvim",
-    config = function()
-      require("supermaven-nvim").setup({})
     end,
   },
 

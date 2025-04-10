@@ -118,7 +118,6 @@
       ];
 
       # Extra
-      "chat.commandCenter.enabled" = false;
       "editor.inlineSuggest.suppressSuggestions" = true;
       "extensions.ignoreRecommendations" = true;
       "hediet.vscode-drawio.resizeImages" = null;
@@ -134,7 +133,6 @@
       batisteo.vscode-django
       bmewburn.vscode-intelephense-client
       catppuccin.catppuccin-vsc-icons
-      continue.continue
       dart-code.dart-code
       dart-code.flutter
       eamodio.gitlens
@@ -148,12 +146,13 @@
       naumovs.color-highlight
       redhat.vscode-xml
       redhat.vscode-yaml
-      supermaven.supermaven
       teabyii.ayu
       vscodevim.vim
       xdebug.php-debug
       yzhang.markdown-all-in-one
     ] ++ (with pkgs.vscode-extensions; [
+      github.copilot
+      github.copilot-chat
       ms-vscode.cpptools
     ]);
   };
