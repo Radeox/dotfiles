@@ -5,6 +5,9 @@
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
 
+    # Nixpkgs - unstable
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+
     # Flatpak manager
     nix-flatpak.url = "github:gmodena/nix-flatpak/latest";
 
@@ -27,95 +30,105 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, lanzaboote, nix-flatpak, nix-vscode-extensions, ... }: {
-    nixosConfigurations = {
-      # ----- Legion Nix configuration -----
-      Legion-Nix = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+  outputs = { nixpkgs, nixpkgs-unstable, home-manager, lanzaboote, nix-flatpak, nix-vscode-extensions, ... }:
+    let unstable = import nixpkgs-unstable { system = "x86_64-linux"; config.allowUnfree = true; };
 
-        modules = [
-          # Lanzaboote - Secure boot
-          lanzaboote.nixosModules.lanzaboote
+    in
+    {
+      nixosConfigurations = {
+        # ----- Legion Nix configuration -----
+        Legion-Nix = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
 
-          # Flatpak module
-          nix-flatpak.nixosModules.nix-flatpak
+          modules = [
+            # Lanzaboote - Secure boot
+            lanzaboote.nixosModules.lanzaboote
 
-          # Custom overlays
-          {
-            nixpkgs.overlays = [ nix-vscode-extensions.overlays.default ];
-          }
+            # Flatpak module
+            nix-flatpak.nixosModules.nix-flatpak
 
-          # Setup Home Manager
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.backupFileExtension = "backup";
-            home-manager.users.radeox = {
-              imports = [
-                ./home-manager
-              ];
-            };
-          }
+            # Custom overlays
+            {
+              nixpkgs.overlays = [ nix-vscode-extensions.overlays.default ];
+            }
 
-          # My NixOS configuration
-          ./environment
-          ./hardware
-          ./podman
-          ./software
+            # Setup Home Manager
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.backupFileExtension = "backup";
+              home-manager.extraSpecialArgs = {
+                inherit unstable;
+              };
+              home-manager.users.radeox = {
+                imports = [
+                  ./home-manager
+                ];
+              };
+            }
 
-          # Nvidia drivers
-          ./hardware/nvidia.nix
+            # My NixOS configuration
+            ./environment
+            ./hardware
+            ./podman
+            ./software
 
-          # Ollama
-          ./podman/ollama.nix
+            # Nvidia drivers
+            ./hardware/nvidia.nix
 
-          # Host specific configuration
-          ./hosts/legion.nix
-        ];
-      };
+            # Ollama
+            ./podman/ollama.nix
 
-      # ----- B-Dell Nix configuration -----
-      B-Dell = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          # Lanzaboote - Secure boot
-          lanzaboote.nixosModules.lanzaboote
+            # Host specific configuration
+            ./hosts/legion.nix
+          ];
+        };
 
-          # Flatpak module
-          nix-flatpak.nixosModules.nix-flatpak
+        # ----- B-Dell Nix configuration -----
+        B-Dell = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            # Lanzaboote - Secure boot
+            lanzaboote.nixosModules.lanzaboote
 
-          # Custom overlays
-          {
-            nixpkgs.overlays = [ nix-vscode-extensions.overlays.default ];
-          }
+            # Flatpak module
+            nix-flatpak.nixosModules.nix-flatpak
 
-          # Setup Home Manager
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.backupFileExtension = "backup";
-            home-manager.users.radeox = {
-              imports = [
-                ./home-manager
-              ];
-            };
-          }
+            # Custom overlays
+            {
+              nixpkgs.overlays = [ nix-vscode-extensions.overlays.default ];
+            }
 
-          # My NixOS configuration
-          ./environment
-          ./hardware
-          ./podman
-          ./software
+            # Setup Home Manager
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.backupFileExtension = "backup";
+              home-manager.extraSpecialArgs = {
+                inherit unstable;
+              };
+              home-manager.users.radeox = {
+                imports = [
+                  ./home-manager
+                ];
+              };
+            }
 
-          # Home Assistant + DuckDNS + Lets encrypt
-          ./podman/home-assistant.nix
+            # My NixOS configuration
+            ./environment
+            ./hardware
+            ./podman
+            ./software
 
-          # Host specific configuration
-          ./hosts/b-dell.nix
-        ];
+            # Home Assistant + DuckDNS + Lets encrypt
+            ./podman/home-assistant.nix
+
+            # Host specific configuration
+            ./hosts/b-dell.nix
+          ];
+        };
       };
     };
-  };
 }

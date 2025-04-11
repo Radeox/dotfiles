@@ -1,9 +1,12 @@
-{ pkgs, ... }: {
+{ pkgs, unstable, ... }: {
   programs.vscode = {
     enable = true;
     mutableExtensionsDir = false;
     enableUpdateCheck = false;
     enableExtensionUpdateCheck = false;
+
+    # Use the latest version of VSCode
+    package = unstable.vscode;
 
     # Configure keybindings
     keybindings = [
@@ -92,6 +95,16 @@
       # Vim
       "vim.useSystemClipboard" = true;
 
+      # Copilot
+      "github.copilot.nextEditSuggestions.enabled" = true;
+
+      # Extra
+      "editor.inlineSuggest.suppressSuggestions" = true;
+      "extensions.ignoreRecommendations" = true;
+      "hediet.vscode-drawio.resizeImages" = null;
+      "postman.settings.dotenv-detection-notification-visibility" = false;
+      "redhat.telemetry.enabled" = false;
+
       # Python config
       "isort.args" = [ "--profile" "black" ];
       "[python]" = {
@@ -116,13 +129,6 @@
       "projectManager.git.baseFolders" = [
         "/home/radeox/Sources"
       ];
-
-      # Extra
-      "editor.inlineSuggest.suppressSuggestions" = true;
-      "extensions.ignoreRecommendations" = true;
-      "hediet.vscode-drawio.resizeImages" = null;
-      "postman.settings.dotenv-detection-notification-visibility" = false;
-      "redhat.telemetry.enabled" = false;
     };
 
     # Configure extensions
@@ -150,10 +156,9 @@
       vscodevim.vim
       xdebug.php-debug
       yzhang.markdown-all-in-one
-    ] ++ (with pkgs.vscode-extensions; [
+    ] ++ (with pkgs.vscode-marketplace-release; [
       github.copilot
       github.copilot-chat
-      ms-vscode.cpptools
     ]);
   };
 }
