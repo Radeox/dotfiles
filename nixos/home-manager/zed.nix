@@ -13,12 +13,8 @@
 
         default_model = {
           provider = "ollama";
-          model = "llama3.1:8b";
+          model = "mistral:7b";
         };
-      };
-
-      features = {
-        copilot = true;
       };
 
       # Theme configuration
@@ -83,6 +79,7 @@
         "python-lsp"
         "ruff"
         "scss"
+        "toml"
       ];
     };
 
