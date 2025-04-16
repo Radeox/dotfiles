@@ -84,28 +84,14 @@
     };
 
     # Keymaps
-    userKeymaps = [
-      {
-        context = "Workspace";
-        bindings = {
-          ctrl-space = "file_finder::Toggle";
-          ctrl-shift-r = "pane::DeploySearch";
-          ctrl-b = "project_panel::ToggleFocus";
-          ctrl-g = "git_panel::ToggleFocus";
-          ctrl-q = "pane::CloseActiveItem";
-        };
-      }
-
-      {
-        context = "Editor";
-        bindings = {
-          ctrl-space = "file_finder::Toggle";
-          ctrl-shift-r = "pane::DeploySearch";
-          ctrl-b = "project_panel::ToggleFocus";
-          ctrl-g = "git_panel::ToggleFocus";
-          ctrl-q = "pane::CloseActiveItem";
-        };
-      }
-    ];
+    userKeymaps = [{
+      bindings = {
+        ctrl-space = "file_finder::Toggle";
+        ctrl-shift-r = "pane::DeploySearch";
+        ctrl-b = "project_panel::ToggleFocus";
+        ctrl-g = "git_panel::ToggleFocus";
+        ctrl-q = [ "pane::CloseActiveItem" { "close_pinned" = false; } ];
+      };
+    }];
   };
 }
