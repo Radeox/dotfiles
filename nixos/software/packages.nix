@@ -4,7 +4,6 @@
     ansible
     autojump
     bat
-    borgbackup
     cargo
     cmake
     dig
@@ -28,7 +27,6 @@
     imagemagick
     killall
     mariadb.client
-    mongodb-compass
     mongodb-tools
     nautilus
     nmap
@@ -36,7 +34,6 @@
     noto-fonts
     pciutils
     php84
-    prismlauncher
     python312
     python313
     qogir-icon-theme
@@ -53,7 +50,6 @@
     tpm2-tss
     tree-sitter
     udiskie
-    ungoogled-chromium
     unzip
     uv
     veracrypt

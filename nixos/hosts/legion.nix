@@ -9,8 +9,7 @@
     kernelModules = [ "nvidia" ];
 
     # Add legion module
-    # extraModulePackages = [ config.boot.kernelPackages.lenovo-legion-module ];
-    extraModulePackages = [ ];
+    extraModulePackages = [ config.boot.kernelPackages.lenovo-legion-module ];
 
     initrd = {
       # TPM2
