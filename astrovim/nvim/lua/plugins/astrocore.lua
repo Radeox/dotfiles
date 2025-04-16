@@ -47,15 +47,12 @@ return {
         -- Ripgrep files
         ["<C-S-r>"] = {"<cmd>Telescope live_grep<cr>", desc = "Ripgrep files"},
 
-        -- Show buffers
-        ["<C-b>"] = {"<cmd>Telescope buffers<cr>", desc = "Show buffers"},
-
         -- Cycle buffers
         ["<Tab>"] = {"<cmd>bnext<cr>", desc = "Cycle buffers"},
         ["<S-Tab>"] = {"<cmd>bprevious<cr>", desc = "Cycle buffers"},
 
         -- Toggle Explorer
-        ["<C-n>"] = {"<cmd>Neotree toggle<cr>", desc = "Toggle Explorer"},
+        ["<C-b>"] = {"<cmd>Neotree toggle<cr>", desc = "Toggle Explorer"},
 
         -- Session manager
         ["<leader>ss"] = {"<cmd>lua require 'resession'.save()<cr>", desc = "Save session"},
@@ -72,7 +69,8 @@ return {
         ["<esc>"] = {"<cmd>noh<cr>", desc = "Clear search"},
 
         -- Toggle terminal
-        ["<F1>"] = {"<Cmd>execute v:count . 'ToggleTerm'<CR>", desc = "Toggle terminal" },
+        ["<C-\\>"] = {"<Cmd>execute v:count . 'ToggleTerm'<CR>", desc = "Toggle terminal" },
+        ["<C-`>"] = {"<Cmd>execute v:count . 'ToggleTerm'<CR>", desc = "Toggle terminal" },
 
         -- Close buffer
         ["<C-q>"] = { function() require("astrocore.buffer").close() end, desc = "Close buffer" },

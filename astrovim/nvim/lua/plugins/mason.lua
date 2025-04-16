@@ -24,14 +24,16 @@ return {
       -- Add more things to the ensure_installed table protecting against community packs modifying it
       opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, {
         -- Python
-        "black",
-        "isort",
+        "ruff",
         
         -- Django
         "djlint",
 
-        -- SCSS, Javascript
+        -- SCSS
         "prettier",
+
+        -- Javascript
+        "deno",
 
         -- Nix
         "nil",
@@ -51,7 +53,6 @@ return {
     opts = function(_, opts)
       -- Add more things to the ensure_installed table protecting against community packs modifying it
       opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, {
-        "python",
       })
     end,
   },
