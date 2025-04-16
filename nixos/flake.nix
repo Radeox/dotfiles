@@ -17,12 +17,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # VSCode extensions manager
-    nix-vscode-extensions = {
-      url = "github:nix-community/nix-vscode-extensions";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # Secure boot
     lanzaboote = {
       url = "github:Nix-Community/lanzaboote";
@@ -30,7 +24,8 @@
     };
   };
 
-  outputs = { nixpkgs, nixpkgs-unstable, home-manager, lanzaboote, nix-flatpak, nix-vscode-extensions, ... }:
+  outputs = { nixpkgs, nixpkgs-unstable, home-manager, lanzaboote, nix-flatpak, ... }:
+    # Unstable branch of nixpkgs
     let unstable = import nixpkgs-unstable { system = "x86_64-linux"; config.allowUnfree = true; };
 
     in
@@ -47,20 +42,13 @@
             # Flatpak module
             nix-flatpak.nixosModules.nix-flatpak
 
-            # Custom overlays
-            {
-              nixpkgs.overlays = [ nix-vscode-extensions.overlays.default ];
-            }
-
             # Setup Home Manager
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.backupFileExtension = "backup";
-              home-manager.extraSpecialArgs = {
-                inherit unstable;
-              };
+              home-manager.extraSpecialArgs = { inherit unstable; };
               home-manager.users.radeox = {
                 imports = [
                   ./home-manager
@@ -95,20 +83,13 @@
             # Flatpak module
             nix-flatpak.nixosModules.nix-flatpak
 
-            # Custom overlays
-            {
-              nixpkgs.overlays = [ nix-vscode-extensions.overlays.default ];
-            }
-
             # Setup Home Manager
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.backupFileExtension = "backup";
-              home-manager.extraSpecialArgs = {
-                inherit unstable;
-              };
+              home-manager.extraSpecialArgs = { inherit unstable; };
               home-manager.users.radeox = {
                 imports = [
                   ./home-manager
