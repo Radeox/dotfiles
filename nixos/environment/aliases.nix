@@ -7,7 +7,6 @@
 
     # Aliases
     ai = "aichat";
-    c = "code .";
     d = "podman-tui";
     dc = "docker compose";
     g = "lazygit";
@@ -17,6 +16,7 @@
     rgrep = "rg";
     sl = "ls";
     sudo = "sudo ";
+    z = "zeditor .";
 
     # Basic commands
     cat = "bat -p";
