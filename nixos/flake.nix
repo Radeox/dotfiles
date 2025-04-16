@@ -25,15 +25,17 @@
   };
 
   outputs = { nixpkgs, nixpkgs-unstable, home-manager, lanzaboote, nix-flatpak, ... }:
-    # Unstable branch of nixpkgs
-    let unstable = import nixpkgs-unstable { system = "x86_64-linux"; config.allowUnfree = true; };
+    let
+      system = "x86_64-linux";
 
+      # Unstable branch of nixpkgs
+      pkgs-unstable = import nixpkgs-unstable { system = "x86_64-linux"; config.allowUnfree = true; };
     in
     {
       nixosConfigurations = {
         # ----- Legion Nix configuration -----
         Legion-Nix = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
+          inherit system;
 
           modules = [
             # Lanzaboote - Secure boot
@@ -48,7 +50,7 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.backupFileExtension = "backup";
-              home-manager.extraSpecialArgs = { inherit unstable; };
+              home-manager.extraSpecialArgs = { inherit pkgs-unstable; };
               home-manager.users.radeox = {
                 imports = [
                   ./home-manager
@@ -71,11 +73,16 @@
             # Host specific configuration
             ./hosts/legion.nix
           ];
+
+          specialArgs = {
+            inherit pkgs-unstable;
+          };
         };
 
         # ----- B-Dell Nix configuration -----
         B-Dell = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
+          inherit system;
+
           modules = [
             # Lanzaboote - Secure boot
             lanzaboote.nixosModules.lanzaboote
@@ -89,7 +96,7 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.backupFileExtension = "backup";
-              home-manager.extraSpecialArgs = { inherit unstable; };
+              home-manager.extraSpecialArgs = { inherit pkgs-unstable; };
               home-manager.users.radeox = {
                 imports = [
                   ./home-manager
@@ -109,6 +116,10 @@
             # Host specific configuration
             ./hosts/b-dell.nix
           ];
+
+          specialArgs = {
+            inherit pkgs-unstable;
+          };
         };
       };
     };

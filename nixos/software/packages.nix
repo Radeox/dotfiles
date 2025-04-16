@@ -11,6 +11,7 @@
     duf
     eza
     fastfetch
+    fd
     ffmpeg
     fzf
     gcc
