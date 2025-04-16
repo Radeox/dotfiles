@@ -1,4 +1,3 @@
----@type LazySpec
 return {
   "AstroNvim/astrolsp",
   ---@type AstroLSPOpts
@@ -27,20 +26,14 @@ return {
 
     -- Configure buffer local auto commands to add when attaching a language server
     autocmds = {
-      -- Girst key is the `augroup` to add the auto commands to (:h augroup)
-      lsp_document_highlight = {
-        cond = "textDocument/documentHighlight",
+      lsp_codelens_refresh = {
+        cond = "textDocument/codeLens",
         {
-          -- events to trigger
-          event = { "CursorHold", "CursorHoldI" },
-          -- the rest of the autocmd options (:h nvim_create_autocmd)
-          desc = "Document Highlighting",
-          callback = function() vim.lsp.buf.document_highlight() end,
-        },
-        {
-          event = { "CursorMoved", "CursorMovedI", "BufLeave" },
-          desc = "Document Highlighting Clear",
-          callback = function() vim.lsp.buf.clear_references() end,
+          event = { "InsertLeave", "BufEnter" },
+          desc = "Refresh codelens (buffer)",
+          callback = function(args)
+            if require("astrolsp").config.features.codelens then vim.lsp.codelens.refresh { bufnr = args.buf } end
+          end,
         },
       },
     },
@@ -48,7 +41,19 @@ return {
     -- Mappings to be set up on attaching of a language server
     mappings = {
       n = {
-        gl = { function() vim.diagnostic.open_float() end, desc = "Hover diagnostics" },
+        gD = {
+          function() vim.lsp.buf.declaration() end,
+          desc = "Declaration of current symbol",
+          cond = "textDocument/declaration",
+        },
+
+        ["<Leader>uY"] = {
+          function() require("astrolsp.toggles").buffer_semantic_tokens() end,
+          desc = "Toggle LSP semantic highlight (buffer)",
+          cond = function(client)
+            return client.supports_method "textDocument/semanticTokens/full" and vim.lsp.semantic_tokens ~= nil
+          end,
+        },
       },
     },
 

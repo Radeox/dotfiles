@@ -5,10 +5,10 @@ return {
   opts = {
     -- Configure core features of AstroNvim
     features = {
-      large_buf = { size = 1024 * 500, lines = 10000 },
+      large_buf = { size = 1024 * 256, lines = 10000 },
       autopairs = true,
       cmp = true,
-      diagnostics_mode = 3,
+      diagnostics = { virtual_text = true, virtual_lines = false },
       highlighturl = true,
       notifications = true,
     },
@@ -23,11 +23,11 @@ return {
     options = {
       opt = {
         mousescroll = "ver:1,hor:4",
-        number = true,
         relativenumber = false,
-        signcolumn = "auto",
-        spell = false,
+        number = true,
+        signcolumn = "yes",
         wrap = false,
+        spell = false,
       },
     },
 
@@ -39,25 +39,25 @@ return {
         ["<C-s>"] = {"<cmd>w<cr>", desc = "Save file"},
 
         -- Find files
-        ["<C-Space>"] = {"<cmd>Telescope find_files<cr>", desc = "Find files"},
+        ["<C-Space>"] = {function() Snacks.picker.smart() end, desc = "Find files"},
 
         -- Find recent files
-        ["<C-S-Space>"] = {"<cmd>Telescope oldfiles<cr>", desc = "Find recent files"},
+        ["<C-S-Space>"] = {function() Snacks.picker.recent() end, desc = "Find recent files"},
 
         -- Ripgrep files
-        ["<C-S-r>"] = {"<cmd>Telescope live_grep<cr>", desc = "Ripgrep files"},
+        ["<C-S-r>"] = {function() Snacks.picker.grep() end, desc = "Ripgrep files"},
 
         -- Cycle buffers
         ["<Tab>"] = {"<cmd>bnext<cr>", desc = "Cycle buffers"},
         ["<S-Tab>"] = {"<cmd>bprevious<cr>", desc = "Cycle buffers"},
 
         -- Toggle Explorer
-        ["<C-b>"] = {"<cmd>Neotree toggle<cr>", desc = "Toggle Explorer"},
+        ["<C-b>"] = {function() Snacks.explorer() end, desc = "Toggle Explorer"},
 
         -- Session manager
-        ["<leader>ss"] = {"<cmd>lua require 'resession'.save()<cr>", desc = "Save session"},
-        ["<leader>sf"] = {"<cmd>lua require 'resession'.load()<cr>", desc = "Load session"},
-        ["<leader>sd"] = {"<cmd>lua require 'resession'.delete()<cr>", desc = "Delete session"},
+        ["<Leader>ss"] = {"<cmd>lua require 'resession'.save()<cr>", desc = "Save session"},
+        ["<Leader>sf"] = {"<cmd>lua require 'resession'.load()<cr>", desc = "Load session"},
+        ["<Leader>sd"] = {"<cmd>lua require 'resession'.delete()<cr>", desc = "Delete session"},
 
         -- Switch between windows
         ["<A-up>"] = {"<C-w>k", desc = "Switch between windows"},
@@ -70,7 +70,6 @@ return {
 
         -- Toggle terminal
         ["<C-\\>"] = {"<Cmd>execute v:count . 'ToggleTerm'<CR>", desc = "Toggle terminal" },
-        ["<C-`>"] = {"<Cmd>execute v:count . 'ToggleTerm'<CR>", desc = "Toggle terminal" },
 
         -- Close buffer
         ["<C-q>"] = { function() require("astrocore.buffer").close() end, desc = "Close buffer" },
@@ -91,7 +90,7 @@ return {
       -- Terminal mode
       t = {
         -- Toggle terminal
-        ["<F1>"] = {"<Cmd>execute v:count . 'ToggleTerm'<CR>", desc = "Toggle terminal" },
+        ["<C-\\>"] = {"<Cmd>execute v:count . 'ToggleTerm'<CR>", desc = "Toggle terminal" },
 
         -- Close buffer
         ["<C-q>"] = { function() require("astrocore.buffer").close() end, desc = "Close buffer" },
