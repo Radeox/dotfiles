@@ -13,6 +13,7 @@
 
         default_model = {
           provider = "ollama";
+          model = "llama3.1:8b";
         };
       };
 
@@ -46,7 +47,7 @@
       # LSP configuration
       languages = {
         Python = {
-          languages_servers = [ "pyright" "ruff" ];
+          languages_servers = [ "pylsp" "ruff" ];
           format_on_save = "on";
           formatter = [
             {
@@ -94,6 +95,7 @@
           ctrl-shift-r = "pane::DeploySearch";
           ctrl-b = "project_panel::ToggleFocus";
           ctrl-g = "git_panel::ToggleFocus";
+          ctrl-q = "pane::CloseActiveItem";
         };
       }
 
@@ -104,6 +106,7 @@
           ctrl-shift-r = "pane::DeploySearch";
           ctrl-b = "project_panel::ToggleFocus";
           ctrl-g = "git_panel::ToggleFocus";
+          ctrl-q = "pane::CloseActiveItem";
         };
       }
     ];

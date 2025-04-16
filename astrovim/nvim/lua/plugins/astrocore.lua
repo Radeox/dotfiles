@@ -69,7 +69,8 @@ return {
         ["<esc>"] = {"<cmd>noh<cr>", desc = "Clear search"},
 
         -- Toggle terminal
-        ["<C-\\>"] = {"<Cmd>execute v:count . 'ToggleTerm'<CR>", desc = "Toggle terminal" },
+        ["<C-\\>"] = {"<cmd>ToggleTerm<cr>", desc = "Toggle terminal" },
+        ["<C-`>"] = {"<cmd>ToggleTerm<cr>", desc = "Toggle terminal" },
 
         -- Close buffer
         ["<C-q>"] = { function() require("astrocore.buffer").close() end, desc = "Close buffer" },
@@ -90,10 +91,11 @@ return {
       -- Terminal mode
       t = {
         -- Toggle terminal
-        ["<C-\\>"] = {"<Cmd>execute v:count . 'ToggleTerm'<CR>", desc = "Toggle terminal" },
+        ["<C-\\>"] = {"<cmd>ToggleTerm<cr>", desc = "Toggle terminal" },
+        ["<C-`>"] = {"<cmd>ToggleTerm<cr>", desc = "Toggle terminal" },
 
         -- Close buffer
-        ["<C-q>"] = { function() require("astrocore.buffer").close() end, desc = "Close buffer" },
+        ["<C-q>"] = {"<cmd>q<cr>", desc = "Close buffer" },
       }
     },
   },
