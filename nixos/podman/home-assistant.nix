@@ -15,20 +15,20 @@
         "--network=host"
       ];
     };
-  };
 
-  # DuckDNS
-  duckdns = {
-    image = "lscr.io/linuxserver/duckdns:latest";
-    autoStart = true;
+    # DuckDNS
+    duckdns = {
+      image = "lscr.io/linuxserver/duckdns:latest";
+      autoStart = true;
 
-    environmentFiles = [
-      "/etc/duckdns/.env"
-    ];
+      environmentFiles = [
+        "/etc/duckdns/.env"
+      ];
 
-    extraOptions = [
-      "--network=host"
-    ];
+      extraOptions = [
+        "--network=host"
+      ];
+    };
   };
 
   # Lets encrypt 
