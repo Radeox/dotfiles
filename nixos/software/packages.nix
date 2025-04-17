@@ -46,7 +46,6 @@
     scrcpy
     speedtest-cli
     sshfs
-    thunderbird
     tpm2-tools
     tpm2-tss
     tree-sitter
