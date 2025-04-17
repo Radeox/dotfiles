@@ -4,6 +4,7 @@
     ansible
     autojump
     bat
+    borgbackup
     cargo
     cmake
     dig
