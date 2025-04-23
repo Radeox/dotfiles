@@ -1,8 +1,7 @@
-{ pkgs-unstable, ... }: {
+{ ... }: {
   programs.neovim = {
     enable = true;
     defaultEditor = true;
-    package = pkgs-unstable.neovim-unwrapped;
 
     # Enable aliases
     viAlias = true;

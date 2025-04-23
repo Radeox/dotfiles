@@ -3,17 +3,14 @@
 
   inputs = {
     # Nixpkgs
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
-
-    # Nixpkgs - unstable
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     # Flatpak manager
     nix-flatpak.url = "github:gmodena/nix-flatpak/latest";
 
     # Manage dotfiles
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.11";
+      url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -24,12 +21,9 @@
     };
   };
 
-  outputs = { nixpkgs, nixpkgs-unstable, home-manager, lanzaboote, nix-flatpak, ... }:
+  outputs = { nixpkgs, home-manager, lanzaboote, nix-flatpak, ... }:
     let
       system = "x86_64-linux";
-
-      # Unstable branch of nixpkgs
-      pkgs-unstable = import nixpkgs-unstable { system = "x86_64-linux"; config.allowUnfree = true; };
     in
     {
       nixosConfigurations = {
@@ -50,7 +44,6 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.backupFileExtension = "backup";
-              home-manager.extraSpecialArgs = { inherit pkgs-unstable; };
               home-manager.users.radeox = {
                 imports = [
                   ./home-manager
@@ -73,10 +66,6 @@
             # Host specific configuration
             ./hosts/legion.nix
           ];
-
-          specialArgs = {
-            inherit pkgs-unstable;
-          };
         };
 
         # ----- B-Dell Nix configuration -----
@@ -96,7 +85,6 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.backupFileExtension = "backup";
-              home-manager.extraSpecialArgs = { inherit pkgs-unstable; };
               home-manager.users.radeox = {
                 imports = [
                   ./home-manager
@@ -116,10 +104,6 @@
             # Host specific configuration
             ./hosts/b-dell.nix
           ];
-
-          specialArgs = {
-            inherit pkgs-unstable;
-          };
         };
       };
     };

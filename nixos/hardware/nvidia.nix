@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ config, pkgs, ... }: {
   hardware = {
     nvidia = {
       # Modesetting is needed for most wayland compositors
@@ -12,6 +12,9 @@
 
       # Nvidia settings GUI
       nvidiaSettings = true;
+
+      # Use the latest Nvidia driver
+      package = config.boot.kernelPackages.nvidiaPackages.beta;
     };
 
     # Nvidia vaapi driver
