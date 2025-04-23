@@ -24,14 +24,12 @@
         enabled-extensions = with pkgs.gnomeExtensions; [
           appindicator.extensionUuid
           battery-health-charging.extensionUuid
-          blur-my-shell.extensionUuid
           clipboard-indicator.extensionUuid
           color-picker.extensionUuid
           gsconnect.extensionUuid
           paperwm.extensionUuid
           quick-settings-tweaker.extensionUuid
           user-themes.extensionUuid
-          vertical-workspaces.extensionUuid
         ];
       };
 
@@ -99,21 +97,28 @@
 
       # PaperWM config
       "org/gnome/shell/extensions/paperwm" = {
-        disable-topbar-styling = false;
+        # Style
         edge-preview-scale = 0.14;
         horizontal-margin = 12;
+        selection-border-radius-bottom = 4;
+        selection-border-radius-top = 4;
+        selection-border-size = 2;
+        vertical-margin = 4;
+        vertical-margin-bottom = 4;
+        window-gap = 4;
+
+        # Misc
+        disable-scratch-in-overview = true;
+        disable-topbar-styling = false;
         last-used-display-server = "Wayland";
+        only-scratch-in-overview = false;
         restore-attach-modal-dialogs = false;
         restore-edge-tiling = false;
         restore-workspaces-only-on-primary = false;
-        selection-border-radius-bottom = 4;
-        selection-border-radius-top = 4;
-        selection-border-size = 6;
+        show-focus-mode-icon = false;
+        show-open-position-icon = false;
         show-window-position-bar = false;
         show-workspace-indicator = false;
-        vertical-margin-bottom = 12;
-        vertical-margin = 12;
-        window-gap = 16;
 
         # Height/Widht steps
         cycle-height-steps = [ 0.38 0.5 0.61 ];
