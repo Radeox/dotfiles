@@ -3,14 +3,12 @@
   home.packages = with pkgs.gnomeExtensions; [
     appindicator
     battery-health-charging
-    blur-my-shell
     clipboard-indicator
     color-picker
     gsconnect
     paperwm
     quick-settings-tweaker
     user-themes
-    vertical-workspaces
   ];
 
   # Configure GNOME
