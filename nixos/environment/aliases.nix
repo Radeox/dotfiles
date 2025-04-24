@@ -3,7 +3,7 @@
     # NixOS commands
     nix-update = "sudo nixos-rebuild switch --upgrade --accept-flake-config --flake /etc/nixos && flatpak update -y";
     nix-config = "cd /etc/nixos && vim";
-    nix-full-clean = "sudo nix-store --gc && sudo nix-collect-garbage -d && nix-collect-garbage -d";
+    nix-full-clean = "sudo nix-store --gc && sudo nix-collect-garbage -d && sudo nixos-rebuild boot";
 
     # Aliases
     ai = "aichat";
