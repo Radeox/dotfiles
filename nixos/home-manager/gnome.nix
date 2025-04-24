@@ -97,15 +97,16 @@
 
       # PaperWM config
       "org/gnome/shell/extensions/paperwm" = {
-        # Style
-        edge-preview-scale = 0.14;
-        horizontal-margin = 12;
+        # Selection style
+        selection-border-size = 2;
         selection-border-radius-bottom = 4;
         selection-border-radius-top = 4;
-        selection-border-size = 2;
-        vertical-margin = 4;
-        vertical-margin-bottom = 4;
-        window-gap = 4;
+
+        # Gaps
+        window-gap = 8;
+        horizontal-margin = 8;
+        vertical-margin = 8;
+        vertical-margin-bottom = 8;
 
         # Misc
         disable-scratch-in-overview = true;
@@ -119,6 +120,7 @@
         show-open-position-icon = false;
         show-window-position-bar = false;
         show-workspace-indicator = false;
+        edge-preview-scale = 0.14;
 
         # Height/Widht steps
         cycle-height-steps = [ 0.38 0.5 0.61 ];
