@@ -3,7 +3,17 @@ return {
   "AstroNvim/astrocommunity",
 
   -- Ayu theme colorscheme
-  { "Shatur/neovim-ayu" },
+  {
+    "Shatur/neovim-ayu",
+    config = function()
+      require("ayu").setup({
+        -- Override non text color since it is too dark
+        overrides = {
+          NonText = { fg = "#484848" },
+        },
+      })
+    end,
+  },
 
   -- Copilot
   { import = "astrocommunity.completion.copilot-lua-cmp" },
