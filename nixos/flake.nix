@@ -101,6 +101,9 @@
             # Home Assistant + DuckDNS + Lets encrypt
             ./podman/home-assistant.nix
 
+            # Jellyfin
+            ./podman/jellyfin.nix
+
             # Host specific configuration
             ./hosts/b-dell.nix
           ];
