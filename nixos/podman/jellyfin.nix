@@ -10,6 +10,10 @@
         "/home/radeox/Storage/Media/:/media:ro"
       ];
 
+      devices = [
+        "/dev/dri:/dev/dri"
+      ];
+
       extraOptions = [
         "--network=host"
       ];
