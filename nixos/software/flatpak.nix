@@ -22,6 +22,7 @@
       "com.valvesoftware.Steam"
       "io.ente.photos"
       "org.bleachbit.BleachBit"
+      "org.deluge_torrent.deluge"
       "org.gimp.GIMP"
       "org.inkscape.Inkscape"
       "org.libreoffice.LibreOffice"
