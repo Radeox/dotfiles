@@ -17,6 +17,11 @@
         };
       };
 
+      # Prediction configuration
+      features = {
+        edit_prediction_provider = "supermaven";
+      };
+
       # Theme configuration
       theme = {
         mode = "dark";
@@ -84,14 +89,16 @@
     };
 
     # Keymaps
-    userKeymaps = [{
-      bindings = {
-        ctrl-space = "file_finder::Toggle";
-        ctrl-shift-r = "pane::DeploySearch";
-        ctrl-b = "project_panel::ToggleFocus";
-        ctrl-g = "git_panel::ToggleFocus";
-        ctrl-q = [ "pane::CloseActiveItem" { "close_pinned" = false; } ];
-      };
-    }];
+    userKeymaps = [
+      {
+        bindings = {
+          ctrl-space = "file_finder::Toggle";
+          ctrl-shift-r = "pane::DeploySearch";
+          ctrl-b = "project_panel::ToggleFocus";
+          ctrl-g = "git_panel::ToggleFocus";
+          ctrl-q = [ "pane::CloseActiveItem" { "close_pinned" = false; } ];
+        };
+      }
+    ];
   };
 }

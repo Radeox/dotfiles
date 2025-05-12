@@ -16,8 +16,8 @@ return {
     end,
   },
 
-  -- Copilot
-  { import = "astrocommunity.completion.copilot-lua-cmp" },
+  -- SuperMaven
+  { import = "astrocommunity.completion.supermaven-nvim" },
 
   -- Codecompanion
   {
