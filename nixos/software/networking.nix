@@ -7,9 +7,9 @@
     firewall = {
       enable = true;
 
-      # Dev ports = 8080 8082
+      # Dev ports = 8080 8082 9080
       # LocalSend = 53317
-      allowedTCPPorts = [ 8080 8082 53317 ];
+      allowedTCPPorts = [ 8080 8082 9080 53317 ];
       allowedUDPPorts = [ 53317 ];
 
       # KDE Connect

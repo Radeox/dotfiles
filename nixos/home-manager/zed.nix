@@ -4,23 +4,23 @@
     package = pkgs.zed-editor-fhs;
 
     userSettings = {
-      # Vim 4ever
-      vim_mode = true;
-
       # Ollama integration
-      assistant = {
-        version = "2";
-
+      agent = {
         default_model = {
           provider = "ollama";
           model = "mistral:7b";
         };
+
+        version = "2";
       };
 
       # Prediction configuration
       features = {
         edit_prediction_provider = "supermaven";
       };
+
+      # Vim 4ever
+      vim_mode = true;
 
       # Theme configuration
       theme = {
@@ -50,6 +50,7 @@
         Python = {
           languages_servers = [ "pylsp" "ruff" ];
           format_on_save = "on";
+
           formatter = [
             {
               language_server = {
