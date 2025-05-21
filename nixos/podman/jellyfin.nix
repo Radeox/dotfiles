@@ -2,7 +2,7 @@
   virtualisation.oci-containers.containers = {
     # Jellyfin
     jellyfin = {
-      image = "jellyfin/jellyfin";
+      image = "docker.io/jellyfin/jellyfin:latest";
 
       volumes = [
         "/etc/jellyfin-config:/config"
@@ -30,7 +30,7 @@
     services.jellyfin-update = {
       serviceConfig.Type = "oneshot";
       script = ''
-        /run/current-system/sw/bin/podman pull jellyfin/jellyfin
+        /run/current-system/sw/bin/podman pull docker.io/jellyfin/jellyfin:latest
         systemctl restart podman-jellyfin.service
 
         /run/current-system/sw/bin/podman system prune -f
