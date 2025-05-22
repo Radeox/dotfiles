@@ -4,11 +4,16 @@
     package = pkgs.zed-editor-fhs;
 
     userSettings = {
-      # Ollama integration
+      # Ollama
       agent = {
         default_model = {
           provider = "ollama";
-          model = "mistral:7b";
+          model = "qwen2.5-coder:7b";
+        };
+
+        commit_message_mode = {
+          provider = "ollama";
+          model = "gemma3:4b-it-qat";
         };
 
         version = "2";
