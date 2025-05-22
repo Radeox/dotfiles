@@ -22,7 +22,7 @@
       wantedBy = [ "timers.target" ];
       partOf = [ "jellyfin-update.service" ];
       timerConfig = {
-        OnCalendar = "daily";
+        OnCalendar = "*-*-* 04:00:00";
         Persistent = true;
       };
     };
