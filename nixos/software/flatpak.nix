@@ -21,6 +21,7 @@
       "com.spotify.Client"
       "com.valvesoftware.Steam"
       "io.ente.photos"
+      "io.github.nozwock.Packet"
       "org.bleachbit.BleachBit"
       "org.deluge_torrent.deluge"
       "org.gimp.GIMP"
