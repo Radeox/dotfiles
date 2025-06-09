@@ -202,10 +202,10 @@
         binding = "<Super>t";
       };
 
-      # Telegram
+      # Ferdium
       "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
-        name = "Telegram";
-        command = "flatpak run org.telegram.desktop";
+        name = "Ferdium";
+        command = "flatpak run org.ferdium.Ferdium";
         binding = "<Super>j";
       };
 
