@@ -7,21 +7,14 @@
       # Ollama
       agent = {
         default_model = {
-          provider = "ollama";
-          model = "qwen2.5-coder:7b";
+          model = "claude-sonnet-4";
+          provider = "copilot_chat";
         };
-
-        commit_message_mode = {
-          provider = "ollama";
-          model = "gemma3:4b-it-qat";
-        };
-
-        version = "2";
       };
 
       # Prediction configuration
       features = {
-        edit_prediction_provider = "supermaven";
+        edit_prediction_provider = "copilot";
       };
 
       # Vim 4ever
@@ -86,6 +79,7 @@
         "graphql"
         "html"
         "make"
+        "mcp-server-sequential-thinking"
         "php"
         "python-lsp"
         "ruff"
