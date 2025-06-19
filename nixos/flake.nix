@@ -60,9 +60,6 @@
             # Nvidia drivers
             ./hardware/nvidia.nix
 
-            # Ollama
-            ./podman/ollama.nix
-
             # Host specific configuration
             ./hosts/legion.nix
           ];

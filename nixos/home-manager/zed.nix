@@ -46,7 +46,6 @@
       # LSP configuration
       languages = {
         Python = {
-          languages_servers = [ "pylsp" "ruff" ];
           format_on_save = "on";
 
           formatter = [
@@ -79,6 +78,7 @@
         "graphql"
         "html"
         "make"
+        "mcp-server-puppeteer"
         "mcp-server-sequential-thinking"
         "php"
         "python-lsp"
