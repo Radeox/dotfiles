@@ -4,11 +4,42 @@
     package = pkgs.zed-editor-fhs;
 
     userSettings = {
-      # Ollama
+      # AI agent configuration
       agent = {
+        default_profile = "write";
+        always_allow_tool_actions = true;
+        version = "2";
+
         default_model = {
-          model = "claude-sonnet-4";
+          model = "gpt-4.1";
           provider = "copilot_chat";
+        };
+
+        profiles = {
+          write = {
+            name = "Write";
+            tools = {
+              copy_path = true;
+              create_directory = true;
+              create_file = true;
+              delete_path = true;
+              diagnostics = true;
+              edit_file = true;
+              fetch = true;
+              list_directory = true;
+              move_path = true;
+              now = true;
+              find_path = true;
+              read_file = true;
+              grep = true;
+              terminal = true;
+              thinking = true;
+              web_search = true;
+              open = true;
+            };
+            enable_all_context_servers = true;
+            context_servers = { };
+          };
         };
       };
 
