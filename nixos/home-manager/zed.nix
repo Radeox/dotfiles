@@ -74,6 +74,11 @@
       buffer_font_size = 16;
       buffer_font_family = "JetBrainsMono Nerd Font";
 
+      # Add line length and wrap guides
+      show_wrap_guides = true;
+      wrap_guides = [ 120 ];
+      preferred_line_length = 120;
+
       # LSP configuration
       languages = {
         Python = {
