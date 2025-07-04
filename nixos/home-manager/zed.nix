@@ -76,8 +76,8 @@
 
       # Add line length and wrap guides
       show_wrap_guides = true;
-      wrap_guides = [ 120 ];
-      preferred_line_length = 120;
+      wrap_guides = [ 200 ];
+      preferred_line_length = 200;
 
       # LSP configuration
       languages = {
