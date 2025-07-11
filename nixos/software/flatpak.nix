@@ -23,13 +23,13 @@
       "io.ente.photos"
       "io.github.nozwock.Packet"
       "org.bleachbit.BleachBit"
-      "org.deluge_torrent.deluge"
       "org.ferdium.Ferdium"
       "org.gimp.GIMP"
       "org.inkscape.Inkscape"
       "org.libreoffice.LibreOffice"
       "org.localsend.localsend_app"
       "org.mozilla.Thunderbird"
+      "org.qbittorrent.qBittorrent"
       "org.raspberrypi.rpi-imager"
     ];
   };
