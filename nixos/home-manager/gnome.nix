@@ -7,7 +7,6 @@
     color-picker
     gsconnect
     paperwm
-    quick-settings-tweaker
     user-themes
   ];
 
@@ -26,7 +25,6 @@
           color-picker.extensionUuid
           gsconnect.extensionUuid
           paperwm.extensionUuid
-          quick-settings-tweaker.extensionUuid
           user-themes.extensionUuid
         ];
       };
