@@ -12,6 +12,7 @@
     g = "lazygit";
     ll = "ls -l";
     p = "ps aux | grep ";
+    pixel-vpn = "sudo bash /home/radeox/Sources/Projects/PixelVPN/check_vpn.sh";
     r = "ranger";
     rgrep = "rg";
     sl = "ls";

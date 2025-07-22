@@ -35,6 +35,7 @@
     nmap
     nodejs_20
     noto-fonts
+    openfortivpn
     pciutils
     php84
     python312
