@@ -8,7 +8,6 @@
       agent = {
         default_profile = "write";
         always_allow_tool_actions = true;
-        version = "2";
 
         default_model = {
           model = "gpt-4.1";
@@ -101,6 +100,15 @@
               };
             }
           ];
+        };
+
+        PHP = {
+          format_on_save = "on";
+          prettier = {
+            allowed = true;
+            parser = "php";
+            plugins = [ "@prettier/plugin-php" ];
+          };
         };
       };
 
