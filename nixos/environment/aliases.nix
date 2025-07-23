@@ -7,7 +7,7 @@
 
     # Aliases
     ai = "aichat";
-    d = "podman-tui";
+    d = "lazydocker";
     dc = "docker compose";
     g = "lazygit";
     ll = "ls -l";

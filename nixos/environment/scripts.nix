@@ -11,10 +11,10 @@ let
     end
   '';
 
-  # Podman cleaning - Removes every container, image, and volume
-  podman-clean = pkgs.writeShellScriptBin "podman-clean" ''
-    podman rmi $(podman images -qa) -f
-    podman system prune --all --force && podman rmi --all
+  # Docker cleaning - Removes every container, image, and volume
+  docker-clean = pkgs.writeShellScriptBin "docker-clean" ''
+    docker rmi $(docker images -qa) -f
+    docker system prune --all --force && docker rmi --all
   '';
 
   # Retrive the IP address
@@ -31,7 +31,7 @@ in
   environment.systemPackages = [
     activate-venv
     myip
-    podman-clean
+    docker-clean
   ];
 
   # Add the aliases to the shell
