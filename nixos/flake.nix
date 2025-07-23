@@ -54,7 +54,7 @@
             # My NixOS configuration
             ./environment
             ./hardware
-            ./podman
+            ./docker
             ./software
 
             # Nvidia drivers
