@@ -14,12 +14,13 @@
       extraOptions = [
         "--network=host"
       ];
+
+      autoStart = true;
     };
 
     # DuckDNS
     duckdns = {
       image = "lscr.io/linuxserver/duckdns:latest";
-      autoStart = true;
 
       environmentFiles = [
         "/etc/duckdns/.env"
@@ -28,6 +29,8 @@
       extraOptions = [
         "--network=host"
       ];
+
+      autoStart = true;
     };
   };
 
@@ -63,7 +66,7 @@
       wantedBy = [ "timers.target" ];
       partOf = [ "home-assistant-update.service" ];
       timerConfig = {
-        OnCalendar = "daily";
+        OnCalendar = "*-*-* 04:00:00";
         Persistent = true;
       };
     };
@@ -71,13 +74,13 @@
     services.home-assistant-update = {
       serviceConfig.Type = "oneshot";
       script = ''
-        /run/current-system/sw/bin/podman pull docker.io/homeassistant/home-assistant:latest
-        systemctl restart podman-homeassistant.service
+        /run/current-system/sw/bin/docker pull docker.io/homeassistant/home-assistant:latest
+        systemctl restart docker-homeassistant.service
 
-        /run/current-system/sw/bin/podman pull lscr.io/linuxserver/duckdns:latest
-        systemctl restart podman-duckdns.service
+        /run/current-system/sw/bin/docker pull lscr.io/linuxserver/duckdns:latest
+        systemctl restart docker-duckdns.service
 
-        /run/current-system/sw/bin/podman system prune -f
+        /run/current-system/sw/bin/docker system prune -f
       '';
     };
   };

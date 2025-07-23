@@ -92,14 +92,14 @@
             # My NixOS configuration
             ./environment
             ./hardware
-            ./podman
+            ./docker
             ./software
 
             # Home Assistant + DuckDNS + Lets encrypt
-            ./podman/home-assistant.nix
+            ./docker/home-assistant.nix
 
             # Jellyfin
-            ./podman/jellyfin.nix
+            ./docker/jellyfin.nix
 
             # Host specific configuration
             ./hosts/b-dell.nix

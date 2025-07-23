@@ -13,6 +13,8 @@
       extraOptions = [
         "--network=host"
       ];
+
+      autoStart = true;
     };
   };
 
@@ -30,10 +32,10 @@
     services.jellyfin-update = {
       serviceConfig.Type = "oneshot";
       script = ''
-        /run/current-system/sw/bin/podman pull jellyfin/jellyfin
-        systemctl restart podman-jellyfin.service
+        /run/current-system/sw/bin/docker pull jellyfin/jellyfin
+        systemctl restart docker-jellyfin.service
 
-        /run/current-system/sw/bin/podman system prune -f
+        /run/current-system/sw/bin/docker system prune -f
       '';
     };
   };
