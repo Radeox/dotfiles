@@ -113,23 +113,24 @@
       };
 
       # Extensions
-      extensions = [
-        "catppuccin-icons"
-        "dart"
-        "deno"
-        "docker-compose"
-        "dockerfile"
-        "graphql"
-        "html"
-        "make"
-        "mcp-server-puppeteer"
-        "mcp-server-sequential-thinking"
-        "php"
-        "python-lsp"
-        "ruff"
-        "scss"
-        "toml"
-      ];
+      auto_install_extensions = {
+        "catppuccin-icons" = true;
+        "dart" = true;
+        "deno" = true;
+        "docker-compose" = true;
+        "dockerfile" = true;
+        "graphql" = true;
+        "html" = true;
+        "make" = true;
+        "mcp-server-puppeteer" = true;
+        "mcp-server-sequential-thinking" = true;
+        "php" = true;
+        "python-lsp" = true;
+        "ruff" = true;
+        "scss" = true;
+        "toml" = true;
+        "xml" = true;
+      };
     };
 
     # Keymaps
