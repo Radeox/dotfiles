@@ -64,7 +64,6 @@
     done
     fzf-fish
     grc
-    hydro
     sponge
   ]);
 
