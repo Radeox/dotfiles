@@ -193,6 +193,15 @@
         toggle-top-and-position-bar = [ ];
       };
 
+      # Override CapsLock to Escape
+      "org/gnome/desktop/input-sources" = {
+        xkb-options = [
+          "caps:escape"
+          "lv3:ralt_switch"
+          "terminate:ctrl_alt_bksp"
+        ];
+      };
+
       # Alacritty
       "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
         name = "Terminal";
