@@ -209,15 +209,22 @@
         binding = "<Super>t";
       };
 
-      # Ferdium
+      # Obsidian
       "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
+        name = "Obsidian";
+        command = "flatpak run md.obsidian.Obsidian";
+        binding = "<Super>h";
+      };
+
+      # Ferdium
+      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2" = {
         name = "Ferdium";
         command = "flatpak run org.ferdium.Ferdium";
         binding = "<Super>j";
       };
 
       # Spotify
-      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2" = {
+      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3" = {
         name = "Spotify";
         command = "flatpak run com.spotify.Client";
         binding = "<Super>n";

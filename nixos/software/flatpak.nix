@@ -22,6 +22,7 @@
       "com.valvesoftware.Steam"
       "io.ente.photos"
       "io.github.nozwock.Packet"
+      "md.obsidian.Obsidian"
       "org.bleachbit.BleachBit"
       "org.ferdium.Ferdium"
       "org.gimp.GIMP"
@@ -37,6 +38,7 @@
   environment.shellAliases = {
     gimp = "flatpak run org.gimp.GIMP";
     inkscape = "flatpak run org.inkscape.Inkscape";
+    obsidian = "flatpak run md.obsidian.Obsidian";
     zen = "flatpak run app.zen_browser.zen";
   };
 }
