@@ -14,7 +14,8 @@
       nvidiaSettings = true;
 
       # Use the latest Nvidia driver
-      package = config.boot.kernelPackages.nvidiaPackages.beta;
+      # package = config.boot.kernelPackages.nvidiaPackages.beta;
+      package = config.boot.kernelPackages.nvidiaPackages.latest;
     };
 
     # Nvidia vaapi driver
