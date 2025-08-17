@@ -65,7 +65,42 @@
           ];
         };
 
-        # ----- B-Dell Nix configuration -----
+        # ----- Monoco configuration -----
+        Monoco = nixpkgs.lib.nixosSystem {
+          inherit system;
+
+          modules = [
+            # Lanzaboote - Secure boot
+            lanzaboote.nixosModules.lanzaboote
+
+            # Flatpak module
+            nix-flatpak.nixosModules.nix-flatpak
+
+            # Setup Home Manager
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.backupFileExtension = "backup";
+              home-manager.users.radeox = {
+                imports = [
+                  ./home-manager
+                ];
+              };
+            }
+
+            # My NixOS configuration
+            ./environment
+            ./hardware
+            ./docker
+            ./software
+
+            # Host specific configuration
+            ./hosts/monoco.nix
+          ];
+        };
+
+        # ----- B-Dell configuration -----
         B-Dell = nixpkgs.lib.nixosSystem {
           inherit system;
 
