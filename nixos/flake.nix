@@ -22,14 +22,11 @@
   };
 
   outputs = { nixpkgs, home-manager, lanzaboote, nix-flatpak, ... }:
-    let
-      system = "x86_64-linux";
-    in
     {
       nixosConfigurations = {
         # ----- Legion Nix configuration -----
         Legion-Nix = nixpkgs.lib.nixosSystem {
-          inherit system;
+          system = "x86_64-linux";
 
           modules = [
             # Lanzaboote - Secure boot
@@ -67,7 +64,7 @@
 
         # ----- Monoco configuration -----
         Monoco = nixpkgs.lib.nixosSystem {
-          inherit system;
+          system = "x86_64-linux";
 
           modules = [
             # Lanzaboote - Secure boot
@@ -102,7 +99,7 @@
 
         # ----- B-Dell configuration -----
         B-Dell = nixpkgs.lib.nixosSystem {
-          inherit system;
+          system = "x86_64-linux";
 
           modules = [
             # Lanzaboote - Secure boot
