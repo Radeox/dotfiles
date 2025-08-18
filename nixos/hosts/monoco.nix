@@ -1,4 +1,4 @@
-{ config, lib, modulesPath, ... }: {
+{ config, lib, modulesPath, pkgs, ... }: {
   # Hostname
   networking.hostName = "Monoco";
 
@@ -45,4 +45,7 @@
 
   # RTC time standard to localtime (dual boot)
   time.hardwareClockInLocalTime = true;
+
+  # Add OpenRGB service
+  services.hardware.openrgb.enable = true;
 }
