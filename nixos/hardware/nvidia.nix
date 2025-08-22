@@ -14,7 +14,7 @@
       nvidiaSettings = true;
 
       # Use the latest Nvidia driver
-      package = config.boot.kernelPackages.nvidiaPackages.stable;
+      package = config.boot.kernelPackages.nvidiaPackages.beta;
 
       # Enable PRIME
       prime = {
