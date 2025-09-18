@@ -44,7 +44,9 @@
     options = [ "uid=1000" "gid=100" "dmask=022" "fmask=113" "umask=0022" ];
   };
 
-  swapDevices = [{ device = "/dev/disk/by-uuid/098a4c16-20fd-4ed3-90d0-2a0d6c67785a"; }];
+  # Enable zram swap
+  zramSwap.enable = true;
+  swapDevices = [ ];
 
   # Enables DHCP on each ethernet and wireless interface
   networking.useDHCP = lib.mkDefault true;

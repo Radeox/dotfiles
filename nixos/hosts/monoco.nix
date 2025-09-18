@@ -35,6 +35,8 @@
     fsType = "btrfs";
   };
 
+  # Enable zram swap
+  zramSwap.enable = true;
   swapDevices = [ ];
 
   # Enables DHCP on each ethernet and wireless interface
