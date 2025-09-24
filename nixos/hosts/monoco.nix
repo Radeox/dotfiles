@@ -35,6 +35,12 @@
     fsType = "btrfs";
   };
 
+  fileSystems."/home/radeox/Vault" = {
+    device = "/dev/disk/by-uuid/10042D64042D4E52";
+    fsType = "ntfs";
+    options = [ "uid=1000" "gid=100" "dmask=022" "fmask=113" "umask=0022" ];
+  };
+
   # Enable zram swap
   zramSwap.enable = true;
   swapDevices = [ ];
