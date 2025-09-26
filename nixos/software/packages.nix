@@ -30,7 +30,7 @@
     nautilus
     nautilus-python
     nmap
-    nodejs_20
+    nodejs_22
     noto-fonts
     openfortivpn
     pciutils
