@@ -1,11 +1,11 @@
-{ pkgs, ... }: {
+{ ... }: {
   environment = {
     sessionVariables = {
       # Program variables
-      BROWSER = "brave";
-      EDITOR = "nvim";
+      BROWSER = "zen";
+      EDITOR = "zeditor";
       GIT_EDITOR = "nvim";
-      TERMINAL = "kitty";
+      TERMINAL = "alacritty";
 
       # NixOS variables
       NIXOS_OZONE_WL = "1";
@@ -14,8 +14,5 @@
 
     # Add ./local/bin to PATH
     localBinInPath = true;
-
-    # Add fish to the list of shells
-    shells = with pkgs; [ fish ];
   };
 }
