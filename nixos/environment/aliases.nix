@@ -23,6 +23,5 @@
     cat = "bat -p";
     df = "duf";
     du = "dust";
-    ls = "eza --icons --group-directories-first";
   };
 }

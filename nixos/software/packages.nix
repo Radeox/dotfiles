@@ -2,15 +2,12 @@
   environment.systemPackages = with pkgs; [
     aichat
     ansible
-    autojump
-    bat
     borgbackup
     cargo
     cmake
     dig
     du-dust
     duf
-    eza
     fastfetch
     fd
     ffmpeg
@@ -60,11 +57,7 @@
     whois
     wl-clipboard
     zip
-  ] ++ (with pkgs.fishPlugins; [
-    done
-    fzf-fish
-    grc
-  ]);
+  ];
 
   # Configure extra fonts
   fonts.packages = with pkgs; [
@@ -94,4 +87,20 @@
 
   # Remove xterm from the default packages
   services.xserver.excludePackages = [ pkgs.xterm ];
+
+  # Enable and configure some additional programs
+  programs = {
+    # Fish shell
+    fish.enable = true;
+
+    # Android development
+    adb.enable = true;
+
+    # Nix ld
+    nix-ld.enable = true;
+
+    # Other stuff
+    gamemode.enable = true;
+    dconf.enable = true;
+  };
 }
