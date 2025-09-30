@@ -37,6 +37,7 @@
     php84
     python313
     qogir-icon-theme
+    quickemu
     rar
     remmina
     ripgrep
