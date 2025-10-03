@@ -14,14 +14,7 @@
       nvidiaSettings = true;
 
       # Use the latest Nvidia driver
-      package = config.boot.kernelPackages.nvidiaPackages.beta;
-
-      # Enable PRIME
-      prime = {
-        reverseSync.enable = true;
-        nvidiaBusId = "PCI:1:0:0";
-        intelBusId = "PCI:0:2:0";
-      };
+      package = config.boot.kernelPackages.nvidiaPackages.latest;
     };
 
     # Nvidia vaapi driver
