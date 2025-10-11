@@ -6,6 +6,7 @@
       description = "Radeox";
       extraGroups = [
         "adbusers"
+        "dialout"
         "docker"
         "kvm"
         "lp"
