@@ -41,15 +41,15 @@
     options = [ "uid=1000" "gid=100" "dmask=022" "fmask=113" "umask=0022" ];
   };
 
+  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+
   # Enable zram swap
   zramSwap.enable = true;
   swapDevices = [ ];
 
   # Enables DHCP on each ethernet and wireless interface
   networking.useDHCP = lib.mkDefault true;
-
-  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
   # RTC time standard to localtime (dual boot)
   time.hardwareClockInLocalTime = true;

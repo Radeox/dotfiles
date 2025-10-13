@@ -42,9 +42,11 @@
 
   swapDevices = [{ device = "/dev/disk/by-uuid/a1cdc93e-c7f5-49eb-94ce-20168fb08297"; }];
 
-  networking.useDHCP = lib.mkDefault true;
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+
+  # Enables DHCP on each ethernet and wireless interface
+  networking.useDHCP = lib.mkDefault true;
 
   # Add vaapi driver
   hardware.graphics.extraPackages = with pkgs; [
