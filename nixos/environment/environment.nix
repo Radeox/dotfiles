@@ -15,4 +15,7 @@
     # Add ./local/bin to PATH
     localBinInPath = true;
   };
+
+  # Spice USB redirection
+  virtualisation.spiceUSBRedirection.enable = true;
 }
