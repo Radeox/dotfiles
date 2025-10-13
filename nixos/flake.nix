@@ -8,6 +8,9 @@
     # Flatpak manager
     nix-flatpak.url = "github:gmodena/nix-flatpak/latest";
 
+    # NixOS hardware configurations
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
     # Manage dotfiles
     home-manager = {
       url = "github:nix-community/home-manager/master";
@@ -21,7 +24,7 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, lanzaboote, nix-flatpak, ... }:
+  outputs = { nixpkgs, home-manager, lanzaboote, nix-flatpak, nixos-hardware, ... }:
     {
       nixosConfigurations = {
         # ----- Legion Nix configuration -----
@@ -54,8 +57,8 @@
             ./docker
             ./software
 
-            # Nvidia drivers
-            ./hardware/nvidia.nix
+            # NixOS hardware configuration for Lenovo Legion 5
+            nixos-hardware.nixosModules.lenovo-legion-16iah7h
 
             # Host specific configuration
             ./hosts/legion.nix
