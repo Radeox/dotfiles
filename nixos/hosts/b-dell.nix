@@ -48,6 +48,9 @@
   # Enables DHCP on each ethernet and wireless interface
   networking.useDHCP = lib.mkDefault true;
 
+  # Enable TRIM for SSDs
+  services.fstrim.enable = lib.mkDefault true;
+
   # Add vaapi driver
   hardware.graphics.extraPackages = with pkgs; [
     intel-vaapi-driver

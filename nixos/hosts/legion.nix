@@ -51,6 +51,9 @@
   zramSwap.enable = true;
   swapDevices = [ ];
 
+  # Enable TRIM for SSDs
+  services.fstrim.enable = lib.mkDefault true;
+
   # Enables DHCP on each ethernet and wireless interface
   networking.useDHCP = lib.mkDefault true;
 
