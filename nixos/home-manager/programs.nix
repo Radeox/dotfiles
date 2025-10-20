@@ -51,8 +51,10 @@
     # Git configuration
     git = {
       enable = true;
-      userName = "Dawid Weglarz";
-      userEmail = "dawid.weglarz95@gmail.com";
+      settings.user = {
+        name = "Dawid Weglarz";
+        email = "dawid.weglarz95@gmail.com";
+      };
     };
 
     # Lazygit configuration
