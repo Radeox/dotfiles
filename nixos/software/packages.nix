@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, flakes, ... }: {
   environment.systemPackages = with pkgs; [
     aichat
     ansible
@@ -11,6 +11,7 @@
     fastfetch
     fd
     ffmpeg
+    freerdp
     fzf
     gcc
     git
@@ -58,6 +59,8 @@
     whois
     wl-clipboard
     zip
+  ] ++ [
+    flakes.winboat.packages.${pkgs.system}.winboat
   ];
 
   # Configure extra fonts

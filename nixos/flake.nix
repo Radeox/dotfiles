@@ -12,28 +12,34 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     # Manage dotfiles
-    home-manager = {
-      url = "github:nix-community/home-manager/master";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    home-manager.url = "github:nix-community/home-manager/master";
 
     # Secure boot
-    lanzaboote = {
-      url = "github:nix-community/lanzaboote/v0.4.2";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    lanzaboote.url = "github:nix-community/lanzaboote/v0.4.2";
+
+    # WinBoat
+    winboat.url = "github:TibixDev/winboat";
   };
 
-  outputs = { nixpkgs, home-manager, lanzaboote, nix-flatpak, nixos-hardware, ... }:
+  outputs = { nixpkgs, home-manager, lanzaboote, nix-flatpak, nixos-hardware, winboat, ... }:
     {
       nixosConfigurations = {
         # ----- Legion Nix configuration -----
         Legion-Nix = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
 
+          specialArgs = {
+            flakes = {
+              inherit winboat;
+            };
+          };
+
           modules = [
             # Lanzaboote - Secure boot
             lanzaboote.nixosModules.lanzaboote
+
+            # NixOS hardware configuration for Lenovo Legion 5
+            nixos-hardware.nixosModules.lenovo-legion-16iah7h
 
             # Flatpak module
             nix-flatpak.nixosModules.nix-flatpak
@@ -57,9 +63,6 @@
             ./docker
             ./software
 
-            # NixOS hardware configuration for Lenovo Legion 5
-            nixos-hardware.nixosModules.lenovo-legion-16iah7h
-
             # Host specific configuration
             ./hosts/legion.nix
           ];
@@ -68,6 +71,12 @@
         # ----- Monoco configuration -----
         Monoco = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
+
+          specialArgs = {
+            flakes = {
+              inherit winboat;
+            };
+          };
 
           modules = [
             # Lanzaboote - Secure boot
@@ -103,6 +112,12 @@
         # ----- B-Dell configuration -----
         B-Dell = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
+
+          specialArgs = {
+            flakes = {
+              inherit winboat;
+            };
+          };
 
           modules = [
             # Lanzaboote - Secure boot
