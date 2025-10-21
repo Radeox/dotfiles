@@ -89,15 +89,13 @@
                 name = "ruff";
               };
             }
-
             {
-              code_actions = {
-                # Fix all auto-fixable lint violations
-                "source.fixAll.ruff" = true;
-
-                # Organize imports
-                "source.organizeImports.ruff" = true;
-              };
+              # Fix all auto-fixable lint violations
+              code_action = { "source.fixAll.ruff" = true; };
+            }
+            {
+              # Organize imports
+              code_action = { "source.organizeImports.ruff" = true; };
             }
           ];
         };
