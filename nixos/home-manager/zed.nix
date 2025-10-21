@@ -91,11 +91,11 @@
             }
             {
               # Fix all auto-fixable lint violations
-              code_action = { "source.fixAll.ruff" = true; };
+              code_action = "source.fixAll.ruff";
             }
             {
               # Organize imports
-              code_action = { "source.organizeImports.ruff" = true; };
+              code_action = "source.organizeImports.ruff";
             }
           ];
         };
