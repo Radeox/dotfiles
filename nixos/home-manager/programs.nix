@@ -75,6 +75,16 @@
         map dd shell mv %s ~/.local/share/Trash/files/
       '';
     };
+
+    # Pay Respects configuration
+    pay-respects = {
+      enable = true;
+      options = [
+        "--alias"
+        "f"
+      ];
+      enableFishIntegration = true;
+    };
   };
 
   services = {
