@@ -6,18 +6,19 @@ return {
   {
     "Shatur/neovim-ayu",
     config = function()
-      require("ayu").setup({
+      require("ayu").setup {
         -- Override some colors since the theme is not perfect
         overrides = {
           NonText = { fg = "#484848" },
-          Pmenu = { bg = "#0b0e14"},
+          Pmenu = { bg = "#0b0e14" },
         },
-      })
+      }
     end,
   },
 
   -- Copilot
-  { import = "astrocommunity.completion.copilot-lua-cmp" },
+  { import = "astrocommunity.recipes.ai" },
+  { import = "astrocommunity.completion.copilot-lua" },
 
   -- Override splash
   {
