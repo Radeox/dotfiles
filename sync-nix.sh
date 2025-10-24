@@ -29,6 +29,7 @@ push_nix_config() {
 
 	COMMIT_FILE="/etc/nixos/.commit"
 	REPO_NIXOS="./nixos"
+	SHOULD_UPDATE=false
 
 	# Check if repo nixos directory exists
 	if [ ! -d "$REPO_NIXOS" ]; then
@@ -41,36 +42,61 @@ push_nix_config() {
 		# File doesn't exist - get short commit hash and create it
 		echo -e "${YELLOW}No .commit file found, creating one...${NC}"
 
+		# Get short commit hash
 		SHORT_COMMIT=$(git rev-parse --short HEAD 2>/dev/null || echo "unknown")
-
-		echo "$SHORT_COMMIT" > "$COMMIT_FILE" >/dev/null
+		echo "$SHORT_COMMIT" >"$COMMIT_FILE"
 
 		# Copy new config to /etc/nixos
 		cp -r "$REPO_NIXOS"/* /etc/nixos/
 		echo -e "${GREEN}✓ .commit file created with: $SHORT_COMMIT${NC}"
 		echo -e "${GREEN}✓ nix-config pushed to /etc/nixos${NC}"
+		SHOULD_UPDATE=true
 	else
-		# File exists - compare configurations
-		echo -e "${YELLOW}Comparing configurations...${NC}"
+		# File exists - compare commit hashes
+		echo -e "${YELLOW}Comparing commit hashes...${NC}"
 
-		DIFF_OUTPUT=$(diff -r "$REPO_NIXOS" /etc/nixos --exclude=.commit 2>&1 || true)
+		STORED_COMMIT=$(cat "$COMMIT_FILE")
+		CURRENT_COMMIT=$(git rev-parse --short HEAD 2>/dev/null || echo "unknown")
 
-		if [ -n "$DIFF_OUTPUT" ]; then
-			echo -e "${RED}✗ Differences found between repo and /etc/nixos:${NC}"
-			echo -e "${RED}$DIFF_OUTPUT${NC}"
-			echo -e "${RED}✗ Aborting push operation${NC}"
-			return 1
+		if [ "$CURRENT_COMMIT" = "$STORED_COMMIT" ]; then
+			# Commits match - verify /etc/nixos has no changes
+			echo -e "${GREEN}✓ Commit hashes match ($CURRENT_COMMIT)${NC}"
+			echo -e "${YELLOW}Checking for changes in /etc/nixos...${NC}"
+
+			DIFF_OUTPUT=$(diff -r "$REPO_NIXOS" /etc/nixos --exclude=.commit 2>&1 || true)
+
+			if [ -n "$DIFF_OUTPUT" ]; then
+				echo -e "${RED}✗ Differences found between repo and /etc/nixos:${NC}"
+				echo -e "${RED}$DIFF_OUTPUT${NC}"
+				echo -e "${RED}✗ Aborting push operation${NC}"
+				return 1
+			else
+				echo -e "${GREEN}✓ Configurations are identical${NC}"
+				echo -e "${GREEN}✓ nix-config already synced${NC}"
+			fi
 		else
-			echo -e "${GREEN}✓ Configurations are identical${NC}"
-			echo -e "${GREEN}✓ nix-config already synced${NC}"
+			# Commits don't match - current commit is newer
+			echo -e "${YELLOW}Current commit ($CURRENT_COMMIT) differs from stored commit ($STORED_COMMIT)${NC}"
+			echo -e "${YELLOW}Updating .commit file and syncing /etc/nixos...${NC}"
+
+			# Update the commit file with current commit
+			echo "$CURRENT_COMMIT" >"$COMMIT_FILE"
+
+			# Copy new config to /etc/nixos
+			cp -r "$REPO_NIXOS"/* /etc/nixos/
+			echo -e "${GREEN}✓ .commit file updated to: $CURRENT_COMMIT${NC}"
+			echo -e "${GREEN}✓ nix-config pushed to /etc/nixos${NC}"
+			SHOULD_UPDATE=true
 		fi
 	fi
 
-	# Launch nix-update if we pushed
-	echo -e "${YELLOW}Launching nix-update...${NC}"
+	# Launch nix-update only if we made changes
+	if [ "$SHOULD_UPDATE" = true ]; then
+		echo -e "${YELLOW}Launching nix-update...${NC}"
 
-	# Alias: nix-update
-	sudo nix flake update --flake /etc/nixos && sudo nixos-rebuild switch --upgrade --accept-flake-config --flake /etc/nixos && flatpak update -y
+		# Alias: nix-update
+		sudo nix flake update --flake /etc/nixos && sudo nixos-rebuild switch --upgrade --accept-flake-config --flake /etc/nixos && flatpak update -y
+	fi
 }
 
 # Main script logic
