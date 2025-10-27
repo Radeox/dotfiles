@@ -16,23 +16,14 @@
 
     # Secure boot
     lanzaboote.url = "github:nix-community/lanzaboote/v0.4.2";
-
-    # WinBoat
-    winboat.url = "github:TibixDev/winboat";
   };
 
-  outputs = { nixpkgs, home-manager, lanzaboote, nix-flatpak, nixos-hardware, winboat, ... }:
+  outputs = { nixpkgs, home-manager, lanzaboote, nix-flatpak, nixos-hardware, ... }:
     {
       nixosConfigurations = {
         # ----- Legion Nix configuration -----
         Legion-Nix = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-
-          specialArgs = {
-            flakes = {
-              inherit winboat;
-            };
-          };
 
           modules = [
             # Lanzaboote - Secure boot
@@ -72,12 +63,6 @@
         Monoco = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
 
-          specialArgs = {
-            flakes = {
-              inherit winboat;
-            };
-          };
-
           modules = [
             # Lanzaboote - Secure boot
             lanzaboote.nixosModules.lanzaboote
@@ -112,12 +97,6 @@
         # ----- B-Dell configuration -----
         B-Dell = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-
-          specialArgs = {
-            flakes = {
-              inherit winboat;
-            };
-          };
 
           modules = [
             # Lanzaboote - Secure boot
