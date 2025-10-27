@@ -1,6 +1,5 @@
 { ... }: {
   imports = [
-    ./alacritty.nix
     ./ghostty.nix
     ./gnome.nix
     ./neovim.nix

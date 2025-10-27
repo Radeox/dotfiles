@@ -206,10 +206,10 @@
         ];
       };
 
-      # Alacritty
+      # Ghostty
       "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
         name = "Terminal";
-        command = "alacritty";
+        command = "ghostty";
         binding = "<Super>t";
       };
 
