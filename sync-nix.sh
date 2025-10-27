@@ -16,6 +16,7 @@ pull_nix_config() {
 	if [ -d /etc/nixos ]; then
 		rm -rf nixos
 		cp -r /etc/nixos .
+		rm nixos/flake.lock
 		echo -e "${GREEN}✓ nix-config pulled successfully${NC}"
 	else
 		echo -e "${RED}✗ Error: /etc/nixos directory not found${NC}"
@@ -63,7 +64,7 @@ push_nix_config() {
 			echo -e "${GREEN}✓ Commit hashes match ($CURRENT_COMMIT)${NC}"
 			echo -e "${YELLOW}Checking for changes in /etc/nixos...${NC}"
 
-			DIFF_OUTPUT=$(diff -r "$REPO_NIXOS" /etc/nixos --exclude=.commit 2>&1 || true)
+			DIFF_OUTPUT=$(diff -r "$REPO_NIXOS" /etc/nixos --exclude=.commit --exclude=flake.lock 2>&1 || true)
 
 			if [ -n "$DIFF_OUTPUT" ]; then
 				echo -e "${RED}✗ Differences found between repo and /etc/nixos:${NC}"
