@@ -6,8 +6,10 @@
     clipboard-indicator
     color-picker
     gsconnect
+    media-controls
     paperwm
     user-themes
+    vertical-workspaces
   ];
 
   # Configure GNOME
@@ -24,8 +26,10 @@
           clipboard-indicator.extensionUuid
           color-picker.extensionUuid
           gsconnect.extensionUuid
+          media-controls.extensionUuid
           paperwm.extensionUuid
           user-themes.extensionUuid
+          vertical-workspaces.extensionUuid
         ];
       };
 
