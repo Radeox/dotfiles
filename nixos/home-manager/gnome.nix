@@ -3,6 +3,7 @@
   home.packages = with pkgs.gnomeExtensions; [
     appindicator
     battery-health-charging
+    blur-my-shell
     clipboard-indicator
     color-picker
     gsconnect
@@ -23,6 +24,7 @@
         enabled-extensions = with pkgs.gnomeExtensions; [
           appindicator.extensionUuid
           battery-health-charging.extensionUuid
+          blur-my-shell.extensionUuid
           clipboard-indicator.extensionUuid
           color-picker.extensionUuid
           gsconnect.extensionUuid
@@ -129,10 +131,20 @@
         winprops = [
           # All windows open at 100% width
           "{\"wm_class\":\"*\",\"preferredWidth\":\"100%\"}"
-
-          # Pixel Access window opens in scratch layer
-          "{\"wm_class\":\"\",\"title\":\"Pixel Access\",\"scratch_layer\":true}"
         ];
+      };
+
+      # V-Shell config
+      "org/gnome/shell/extensions/vertical-workspaces" = {
+        center-app-grid = true;
+        center-dash-to-ws = true;
+        dash-bg-gs3-style = false;
+        dash-position = 1;
+        secondary-ws-preview-shift = false;
+        show-app-icon-position = 1;
+        ws-thumbnails-full = false;
+        ws-thumbnails-position = 9;
+        wst-position-adjust = 100;
       };
 
       # PaperWM keybindings
