@@ -103,6 +103,7 @@
         center-dash-to-ws = true;
         dash-bg-gs3-style = false;
         dash-position = 1;
+        dash-position-adjust = 0;
         secondary-ws-preview-shift = false;
         show-app-icon-position = 1;
         ws-thumbnails-full = false;
