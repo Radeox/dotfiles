@@ -6,6 +6,11 @@
     settings = {
       theme = "Ayu";
       font-size = 13;
+      window-decoration = "none";
+      resize-overlay = "never";
+
+      # Fix for legacy SSH terminal issues
+      shell-integration-features = "ssh-terminfo,ssh-env";
 
       # --- Key bindings ---
       keybind = [
