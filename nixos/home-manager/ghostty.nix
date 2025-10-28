@@ -10,7 +10,7 @@
       resize-overlay = "never";
 
       # Fix for legacy SSH terminal issues
-      shell-integration-features = "ssh-terminfo,ssh-env";
+      shell-integration-features = "ssh-env";
 
       # --- Key bindings ---
       keybind = [
