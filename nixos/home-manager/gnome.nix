@@ -97,6 +97,26 @@
         rotate-video-lock-static = [ ];
       };
 
+      # V-Shell config
+      "org/gnome/shell/extensions/vertical-workspaces" = {
+        center-app-grid = true;
+        center-dash-to-ws = true;
+        dash-bg-gs3-style = false;
+        dash-position = 1;
+        secondary-ws-preview-shift = false;
+        show-app-icon-position = 1;
+        ws-thumbnails-full = false;
+        ws-thumbnails-position = 9;
+        wst-position-adjust = 100;
+      };
+
+      # Media controls config
+      "org/gnome/shell/extensions/mediacontrols" = {
+        extension-index = "uint32 1";
+        extension-position = "Left";
+        fixed-label-width = false;
+      };
+
       # PaperWM config
       "org/gnome/shell/extensions/paperwm" = {
         # Selection style
@@ -132,19 +152,6 @@
           # All windows open at 100% width
           "{\"wm_class\":\"*\",\"preferredWidth\":\"100%\"}"
         ];
-      };
-
-      # V-Shell config
-      "org/gnome/shell/extensions/vertical-workspaces" = {
-        center-app-grid = true;
-        center-dash-to-ws = true;
-        dash-bg-gs3-style = false;
-        dash-position = 1;
-        secondary-ws-preview-shift = false;
-        show-app-icon-position = 1;
-        ws-thumbnails-full = false;
-        ws-thumbnails-position = 9;
-        wst-position-adjust = 100;
       };
 
       # PaperWM keybindings
