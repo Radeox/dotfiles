@@ -25,6 +25,7 @@
     htop
     imagemagick
     killall
+    libxcrypt
     mariadb.client
     mongodb-tools
     nautilus
@@ -98,8 +99,13 @@
     # Android development
     adb.enable = true;
 
-    # Nix ld
-    nix-ld.enable = true;
+    # Help programs expecting FHS environment
+    nix-ld = {
+      enable = true;
+      libraries = with pkgs; [
+        # Add libraries as needed
+      ];
+    };
 
     # Other stuff
     gamemode.enable = true;
