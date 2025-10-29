@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, lib, ... }: {
   # Install GNOME extensions
   home.packages = with pkgs.gnomeExtensions; [
     appindicator
@@ -113,9 +113,10 @@
 
       # Media controls config
       "org/gnome/shell/extensions/mediacontrols" = {
-        extension-index = "uint32 1";
+        extension-index = lib.hm.gvariant.mkUint32 1;
         extension-position = "Left";
         fixed-label-width = false;
+        scroll-labels = false;
       };
 
       # PaperWM config
