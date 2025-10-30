@@ -6,8 +6,8 @@
     cargo
     cmake
     dig
-    du-dust
     duf
+    dust
     fastfetch
     fd
     ffmpeg
