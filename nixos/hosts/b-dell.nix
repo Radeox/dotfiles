@@ -54,8 +54,8 @@
   # Add vaapi driver
   hardware.graphics.extraPackages = with pkgs; [
     intel-vaapi-driver
+    libva-vdpau-driver
     libvdpau-va-gl
-    vaapiVdpau
   ];
 
   # SSH server
