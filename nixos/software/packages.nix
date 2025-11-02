@@ -37,6 +37,7 @@
     pciutils
     php84
     python313
+    python314
     qogir-icon-theme
     quickemu
     rar
