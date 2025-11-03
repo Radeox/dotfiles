@@ -80,6 +80,7 @@
         two-finger-scrolling-enabled = true;
       };
 
+      # Custom keybindings
       "org/gnome/settings-daemon/plugins/media-keys" = {
         # Lock screen
         screensaver = [ "<Super>l" ];
@@ -87,14 +88,56 @@
         # Filemanager
         home = [ "<Super>f" ];
 
-        # Thunderbird
-        email = [ "<Super>m" ];
-
         # Firefox
         www = [ "<Super>b" ];
 
         # Disable
+        email = [ ];
         rotate-video-lock-static = [ ];
+
+        # Add more custom keybindings
+        custom-keybindings = [
+          "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
+          "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
+          "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/"
+          "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/"
+          "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/"
+        ];
+      };
+
+      # Ghostty
+      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
+        name = "Terminal";
+        command = "ghostty";
+        binding = "<Super>t";
+      };
+
+      # Obsidian
+      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
+        name = "Obsidian";
+        command = "flatpak run md.obsidian.Obsidian";
+        binding = "<Super>h";
+      };
+
+      # Thunderbird
+      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2" = {
+        name = "Thunderbird";
+        command = "flatpak run org.mozilla.Thunderbird";
+        binding = "<Super>m";
+      };
+
+      # Ferdium
+      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3" = {
+        name = "Ferdium";
+        command = "flatpak run org.ferdium.Ferdium";
+        binding = "<Super>j";
+      };
+
+      # Spotify
+      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4" = {
+        name = "Spotify";
+        command = "flatpak run com.spotify.Client";
+        binding = "<Super>n";
       };
 
       # V-Shell config
@@ -225,34 +268,6 @@
           "lv3:ralt_switch"
           "terminate:ctrl_alt_bksp"
         ];
-      };
-
-      # Ghostty
-      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
-        name = "Terminal";
-        command = "ghostty";
-        binding = "<Super>t";
-      };
-
-      # Obsidian
-      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
-        name = "Obsidian";
-        command = "flatpak run md.obsidian.Obsidian";
-        binding = "<Super>h";
-      };
-
-      # Ferdium
-      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2" = {
-        name = "Ferdium";
-        command = "flatpak run org.ferdium.Ferdium";
-        binding = "<Super>j";
-      };
-
-      # Spotify
-      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3" = {
-        name = "Spotify";
-        command = "flatpak run com.spotify.Client";
-        binding = "<Super>n";
       };
 
       "org/gnome/mutter" = {
