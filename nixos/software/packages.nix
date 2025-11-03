@@ -30,6 +30,7 @@
     mongodb-tools
     nautilus
     nautilus-python
+    nix-search-cli
     nmap
     nodejs_22
     noto-fonts
@@ -44,6 +45,7 @@
     remmina
     ripgrep
     rpiboot
+    ruff
     sbctl
     scrcpy
     speedtest-cli

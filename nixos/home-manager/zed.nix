@@ -124,7 +124,6 @@
         "mcp-server-sequential-thinking" = true;
         "php" = true;
         "python-lsp" = true;
-        "ruff" = true;
         "scss" = true;
         "toml" = true;
         "xml" = true;
