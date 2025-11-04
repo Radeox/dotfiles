@@ -5,7 +5,7 @@
       enable = true;
       extraPackages = with pkgs.bat-extras; [
         batdiff
-        # batgrep
+        batgrep
         batman
         batwatch
         prettybat
@@ -17,6 +17,7 @@
 
       extraConfig = ''
         set preview_images true
+        set preview_images_method kitty
         map dd shell mv %s ~/.local/share/Trash/files/
       '';
     };
