@@ -25,7 +25,6 @@
     htop
     imagemagick
     killall
-    libxcrypt
     mariadb.client
     mongodb-tools
     nautilus
@@ -56,6 +55,7 @@
     udiskie
     unzip
     uv
+    uv-sort
     veracrypt
     vlc
     wget
@@ -107,6 +107,7 @@
       enable = true;
       libraries = with pkgs; [
         # Add libraries as needed
+        libxcrypt
       ];
     };
 
