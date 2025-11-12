@@ -15,6 +15,7 @@
     gcc
     git
     git-extras
+    github-copilot-cli
     gnome-shell-extensions
     gnome-text-editor
     gnome-tweaks
