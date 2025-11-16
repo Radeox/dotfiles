@@ -15,7 +15,6 @@
         "waybar"
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
-        "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
       ];
 
       # Input configuration
@@ -23,9 +22,11 @@
         kb_layout = "us";
         kb_variant = "";
         kb_model = "";
+
         # CapsLock to Escape
         kb_options = "caps:escape";
 
+        # Focus follows mouse
         follow_mouse = 1;
 
         touchpad = {
@@ -40,14 +41,13 @@
       # General window and workspace settings
       general = {
         gaps_in = 8;
-        gaps_out = 8;
+        gaps_out = 16;
         border_size = 2;
 
         "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
         "col.inactive_border" = "rgba(595959aa)";
 
         layout = "dwindle";
-
         allow_tearing = false;
       };
 
@@ -100,6 +100,12 @@
         force_zero_scaling = true;
       };
 
+      # Hide unnecessary nags
+      ecosystem = {
+        no_update_news = true;
+        no_donation_nag = true;
+      };
+
       # Variables
       "$mod" = "SUPER";
       "$terminal" = "ghostty";
@@ -113,20 +119,23 @@
 
       # Key bindings
       bind = [
-        # Application launchers (custom keybindings from GNOME)
-        "$mod, T, exec, $terminal" # Terminal
-        "$mod, H, exec, $obsidian" # Obsidian
-        "$mod, M, exec, $mail" # Thunderbird
-        "$mod, J, exec, $ferdium" # Ferdium
-        "$mod, N, exec, $spotify" # Spotify
-        "$mod, F, exec, $fileManager" # File manager
-        "$mod, B, exec, $browser" # Firefox
+        # Launchers
+        "$mod, T, exec, $terminal"
+        "$mod, H, exec, $obsidian"
+        "$mod, M, exec, $mail"
+        "$mod, J, exec, $ferdium"
+        "$mod, N, exec, $spotify"
+        "$mod, Y, exec, $fileManager"
+        "$mod, B, exec, $browser"
 
-        # Window management
-        "$mod, Q, killactive," # Close window
-        "ALT, F4, killactive," # Close window (alternative)
-        "$mod, Y, fullscreen, 0" # Toggle fullscreen (like PaperWM)
-        "$mod, SPACE, exec, $menu" # Toggle overview / app launcher
+        # Close window
+        "$mod, Q, killactive,"
+
+        # Toggle fullscreen
+        "$mod, F, fullscreen, 0"
+
+        # App launcher
+        "$mod, SPACE, exec, $menu"
 
         # Lock screen
         "$mod, L, exec, hyprlock"
@@ -135,25 +144,25 @@
         "$mod SHIFT, S, exec, grimblast copy area" # Screenshot selection
         ", PRINT, exec, grimblast copy screen" # Full screenshot
 
-        # Clipboard history (like GNOME clipboard-indicator extension)
+        # Clipboard history
         "$mod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
 
-        # Color picker (like GNOME color-picker extension)
+        # Color picker
         "$mod SHIFT, C, exec, hyprpicker -a"
 
-        # Focus movement (like PaperWM switch-global-*)
+        # Focus movement
         "$mod, LEFT, movefocus, l"
         "$mod, RIGHT, movefocus, r"
         "$mod, UP, movefocus, u"
         "$mod, DOWN, movefocus, d"
 
-        # Move windows (like PaperWM move-*)
+        # Move windows
         "$mod SHIFT, LEFT, movewindow, l"
         "$mod SHIFT, RIGHT, movewindow, r"
         "$mod SHIFT, UP, movewindow, u"
         "$mod SHIFT, DOWN, movewindow, d"
 
-        # Switch workspaces with mainMod + [0-9]
+        # Switch workspaces
         "$mod, 1, workspace, 1"
         "$mod, 2, workspace, 2"
         "$mod, 3, workspace, 3"
@@ -165,7 +174,7 @@
         "$mod, 9, workspace, 9"
         "$mod, 0, workspace, 10"
 
-        # Move active window to a workspace with mainMod + SHIFT + [0-9]
+        # Move active window to a workspace
         "$mod SHIFT, 1, movetoworkspace, 1"
         "$mod SHIFT, 2, movetoworkspace, 2"
         "$mod SHIFT, 3, movetoworkspace, 3"
@@ -177,20 +186,16 @@
         "$mod SHIFT, 9, movetoworkspace, 9"
         "$mod SHIFT, 0, movetoworkspace, 10"
 
-        # Special workspace (like toggle-scratch-layer)
+        # Scratchpad
         "$mod, ESCAPE, togglespecialworkspace, scratch"
         "$mod SHIFT, ESCAPE, movetoworkspace, special:scratch"
 
-        # Window resizing (PaperWM barf/slurp concept)
-        "$mod, bracketleft, resizeactive, -40 0" # Barf out (make narrower)
-        "$mod, bracketright, resizeactive, 40 0" # Slurp in (make wider)
-
-        # Scroll through existing workspaces
-        "$mod, mouse_down, workspace, e+1"
-        "$mod, mouse_up, workspace, e-1"
+        # Window resizing
+        "$mod, bracketleft, resizeactive, -40 0"
+        "$mod, bracketright, resizeactive, 40 0"
 
         # Toggle floating
-        "$mod SHIFT, F, togglefloating,"
+        "$mod, GRAVE, togglefloating,"
 
         # Toggle split direction
         "$mod, E, togglesplit,"
@@ -205,13 +210,10 @@
         "$mod, mouse:273, resizewindow"
       ];
 
-      # Alt+Space for input source switching (handled by system)
-      # This would typically be configured through your input method framework
-
       # Window rules
       windowrulev2 = [
         # Make all windows start pseudo-tiled (similar to PaperWM behavior)
-        "suppressevent maximize, class:.*"
+        # "suppressevent maximize, class:.*"
 
         # Floating windows
         "float, title:^(Picture-in-Picture)$"
@@ -238,6 +240,7 @@
     hyprpicker
     hyprpolkitagent
     hyprsunset
+    nwg-displays
     pyprland
     rofi
     slurp
@@ -313,8 +316,12 @@
       splash = false;
       splash_offset = 2.0;
 
+      preload = [
+        "/home/radeox/Pictures/Wallpapers/wall12.jpg"
+      ];
+
       wallpaper = [
-        "/home/radeox/Pictures/Wallpapers/wall01.jpg"
+        ", /home/radeox/Pictures/Wallpapers/wall12.jpg"
       ];
     };
   };

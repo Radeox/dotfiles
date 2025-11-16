@@ -37,4 +37,7 @@
 
   # Enable polkit
   security.polkit.enable = true;
+
+  # Enable Hyprland PAM integration with GNOME keyring
+  security.pam.services.hyprland.enableGnomeKeyring = true;
 }
