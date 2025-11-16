@@ -20,7 +20,6 @@
     settings = {
       "org/gnome/shell" = {
         # Enable GNOME extensions
-        disable-user-extensions = false;
         enabled-extensions = with pkgs.gnomeExtensions; [
           appindicator.extensionUuid
           battery-health-charging.extensionUuid
@@ -33,6 +32,8 @@
           user-themes.extensionUuid
           vertical-workspaces.extensionUuid
         ];
+
+        disable-user-extensions = false;
       };
 
       "org/gnome/desktop/wm/keybindings" = {
@@ -272,7 +273,16 @@
 
       "org/gnome/mutter" = {
         edge-tiling = false;
-        experimental-features = [ "scale-monitor-framebuffer" ];
+        experimental-features = [
+          # Enables fractional scaling (125% 150% 175%)
+          "scale-monitor-framebuffer"
+
+          # Enables Variable Refresh Rate (VRR) on compatible displays
+          "variable-refresh-rate"
+
+          # Scales Xwayland applications to look crisp on HiDPI screens
+          "xwayland-native-scaling"
+        ];
         overlay-key = "";
         workspaces-only-on-primary = false;
       };
