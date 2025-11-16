@@ -1,4 +1,11 @@
-{ pkgs, config, lib, modulesPath, ... }: {
+{
+  pkgs,
+  config,
+  lib,
+  modulesPath,
+  ...
+}:
+{
   # Hostname
   networking.hostName = "B-Dell";
 
@@ -18,7 +25,13 @@
       # LUKS2
       luks.devices.cryptroot.device = "/dev/disk/by-uuid/c24c7c1c-87cf-453d-b4d1-8b78d0164d5d";
 
-      availableKernelModules = [ "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
+      availableKernelModules = [
+        "xhci_pci"
+        "ahci"
+        "usbhid"
+        "usb_storage"
+        "sd_mod"
+      ];
       kernelModules = [ ];
     };
   };
@@ -26,7 +39,10 @@
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/ECA2-CE6F";
     fsType = "vfat";
-    options = [ "fmask=0022" "dmask=0022" ];
+    options = [
+      "fmask=0022"
+      "dmask=0022"
+    ];
   };
 
   fileSystems."/" = {
@@ -37,10 +53,13 @@
   fileSystems."/home/radeox/Storage" = {
     device = "/dev/disk/by-uuid/876c35ed-939a-4d89-9729-7a9878357ac6";
     fsType = "ext4";
-    options = [ "user" "nofail" ];
+    options = [
+      "user"
+      "nofail"
+    ];
   };
 
-  swapDevices = [{ device = "/dev/disk/by-uuid/a1cdc93e-c7f5-49eb-94ce-20168fb08297"; }];
+  swapDevices = [ { device = "/dev/disk/by-uuid/a1cdc93e-c7f5-49eb-94ce-20168fb08297"; } ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;

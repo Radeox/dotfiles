@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   environment.systemPackages = with pkgs; [
     borgbackup
     dig
@@ -9,11 +10,14 @@
     ffmpeg
     fzf
     gparted
+    gparted
     grc
     home-manager
     htop
     imagemagick
     killall
+    nautilus
+    nautilus-python
     nil
     nix-search-cli
     nmap

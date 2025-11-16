@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   # Install fonts
   environment.systemPackages = with pkgs; [
     noto-fonts

@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   programs.zed-editor = {
     enable = true;
     package = pkgs.zed-editor-fhs;
@@ -138,7 +139,10 @@
           ctrl-shift-r = "pane::DeploySearch";
           ctrl-b = "project_panel::ToggleFocus";
           ctrl-g = "git_panel::ToggleFocus";
-          ctrl-q = [ "pane::CloseActiveItem" { "close_pinned" = false; } ];
+          ctrl-q = [
+            "pane::CloseActiveItem"
+            { "close_pinned" = false; }
+          ];
         };
       }
     ];

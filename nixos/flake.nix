@@ -18,7 +18,15 @@
     lanzaboote.url = "github:nix-community/lanzaboote/v0.4.3";
   };
 
-  outputs = { nixpkgs, home-manager, lanzaboote, nix-flatpak, nixos-hardware, ... }:
+  outputs =
+    {
+      nixpkgs,
+      home-manager,
+      lanzaboote,
+      nix-flatpak,
+      nixos-hardware,
+      ...
+    }:
     {
       nixosConfigurations = {
         # ----- Legion Nix configuration -----
@@ -53,7 +61,6 @@
             ./hardware
             ./docker
             ./software
-            ./display-managers
 
             # Host specific configuration
             ./hosts/legion.nix
@@ -89,7 +96,6 @@
             ./hardware
             ./docker
             ./software
-            ./display-managers
 
             # Host specific configuration
             ./hosts/monoco.nix
@@ -125,7 +131,6 @@
             ./hardware
             ./docker
             ./software
-            ./display-managers
 
             # Home Assistant + DuckDNS + Lets encrypt
             ./docker/home-assistant.nix

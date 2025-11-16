@@ -1,4 +1,5 @@
-{ ... }: {
+{ ... }:
+{
   environment = {
     sessionVariables = {
       # Program variables

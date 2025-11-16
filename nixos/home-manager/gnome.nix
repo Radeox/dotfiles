@@ -1,4 +1,5 @@
-{ pkgs, lib, ... }: {
+{ pkgs, lib, ... }:
+{
   # Install GNOME extensions
   home.packages = with pkgs.gnomeExtensions; [
     appindicator
@@ -40,7 +41,10 @@
         # Set keybinds
         switch-input-source = [ "<Alt>space" ];
         switch-input-source-backward = [ "<Shift><Alt>space" ];
-        close = [ "<Super>q" "<alt>f4" ];
+        close = [
+          "<Super>q"
+          "<alt>f4"
+        ];
 
         # Disable some default keybinds
         switch-to-workspace-up = [ ];
@@ -191,8 +195,15 @@
         edge-preview-scale = 0.14;
 
         # Height/Widht steps
-        cycle-height-steps = [ 0.38 0.5 0.61 ];
-        cycle-width-steps = [ 0.5 1.0 ];
+        cycle-height-steps = [
+          0.38
+          0.5
+          0.61
+        ];
+        cycle-width-steps = [
+          0.5
+          1.0
+        ];
 
         winprops = [
           # All windows open at 100% width

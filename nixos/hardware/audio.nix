@@ -1,4 +1,5 @@
-{ ... }: {
+{ ... }:
+{
   services = {
     # Pipewire configuration
     pipewire = {

@@ -1,8 +1,9 @@
-{ ... }: {
+{ ... }:
+{
   imports = [
+    ./display-managers.nix
     ./ghostty.nix
     ./git.nix
-    ./gnome.nix
     ./neovim.nix
     ./programs.nix
     ./shell.nix

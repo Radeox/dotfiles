@@ -1,4 +1,5 @@
-{ ... }: {
+{ ... }:
+{
   virtualisation.oci-containers.containers = {
     # Jellyfin
     jellyfin = {

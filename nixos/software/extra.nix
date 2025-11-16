@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   # Enable and configure some additional programs
   programs = {
     # Fish shell

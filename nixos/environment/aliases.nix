@@ -1,4 +1,5 @@
-{ ... }: {
+{ ... }:
+{
   environment.shellAliases = {
     # NixOS commands
     nix-update = "sudo nix flake update --flake /etc/nixos && sudo nixos-rebuild switch --upgrade --accept-flake-config --flake /etc/nixos && flatpak update -y";

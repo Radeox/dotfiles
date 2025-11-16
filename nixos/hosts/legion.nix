@@ -1,4 +1,10 @@
-{ config, lib, modulesPath, ... }: {
+{
+  config,
+  lib,
+  modulesPath,
+  ...
+}:
+{
   # Hostname
   networking.hostName = "Legion-Nix";
 
@@ -19,18 +25,29 @@
       };
 
       # Kernel modules
-      availableKernelModules = [ "xhci_pci" "thunderbolt" "nvme" "usbhid" "usb_storage" "sd_mod" ];
+      availableKernelModules = [
+        "xhci_pci"
+        "thunderbolt"
+        "nvme"
+        "usbhid"
+        "usb_storage"
+        "sd_mod"
+      ];
       kernelModules = [ ];
 
       # LUKS Partition
-      luks.devices."luks-69acb90d-0127-4ce8-a157-a8abb1fe7ed3".device = "/dev/disk/by-uuid/69acb90d-0127-4ce8-a157-a8abb1fe7ed3";
+      luks.devices."luks-69acb90d-0127-4ce8-a157-a8abb1fe7ed3".device =
+        "/dev/disk/by-uuid/69acb90d-0127-4ce8-a157-a8abb1fe7ed3";
     };
   };
 
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/8D2A-3CC3";
     fsType = "vfat";
-    options = [ "fmask=0022" "dmask=0022" ];
+    options = [
+      "fmask=0022"
+      "dmask=0022"
+    ];
   };
 
   fileSystems."/" = {
@@ -41,7 +58,13 @@
   fileSystems."/home/radeox/Vault" = {
     device = "/dev/disk/by-uuid/6EF497832FF9AE12";
     fsType = "ntfs";
-    options = [ "uid=1000" "gid=100" "dmask=022" "fmask=113" "umask=0022" ];
+    options = [
+      "uid=1000"
+      "gid=100"
+      "dmask=022"
+      "fmask=113"
+      "umask=0022"
+    ];
   };
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";

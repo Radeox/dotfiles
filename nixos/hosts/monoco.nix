@@ -1,4 +1,10 @@
-{ config, lib, modulesPath, ... }: {
+{
+  config,
+  lib,
+  modulesPath,
+  ...
+}:
+{
   # Hostname
   networking.hostName = "Monoco";
 
@@ -6,7 +12,10 @@
 
   boot = {
     # Kernel modules
-    kernelModules = [ "amdgpu" "kvm-amd" ];
+    kernelModules = [
+      "amdgpu"
+      "kvm-amd"
+    ];
 
     initrd = {
       # TPM2
@@ -16,7 +25,14 @@
       };
 
       # Kernel modules
-      availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
+      availableKernelModules = [
+        "nvme"
+        "xhci_pci"
+        "ahci"
+        "usb_storage"
+        "usbhid"
+        "sd_mod"
+      ];
       kernelModules = [ "dm-snapshot" ];
 
       # LUKS Partition
@@ -27,7 +43,10 @@
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/50D7-A73D";
     fsType = "vfat";
-    options = [ "fmask=0022" "dmask=0022" ];
+    options = [
+      "fmask=0022"
+      "dmask=0022"
+    ];
   };
 
   fileSystems."/" = {
@@ -38,7 +57,13 @@
   fileSystems."/home/radeox/Vault" = {
     device = "/dev/disk/by-uuid/10042D64042D4E52";
     fsType = "ntfs";
-    options = [ "uid=1000" "gid=100" "dmask=022" "fmask=113" "umask=0022" ];
+    options = [
+      "uid=1000"
+      "gid=100"
+      "dmask=022"
+      "fmask=113"
+      "umask=0022"
+    ];
   };
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";

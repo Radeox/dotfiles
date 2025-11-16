@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   services = {
     # Enable Gnome
     desktopManager.gnome.enable = true;
@@ -12,18 +13,15 @@
     };
   };
 
-  # Additional GNOME packages
+  # Extra GNOME packages
   environment.systemPackages = with pkgs; [
     gnome-shell-extensions
     gnome-text-editor
     gnome-tweaks
-    gparted
-    nautilus
-    nautilus-python
   ];
 
-  # Remove GNOME apps
-  environment.gnome.excludePackages = (with pkgs; [
+  # Exclude unwanted GNOME applications
+  environment.gnome.excludePackages = with pkgs; [
     atomix
     epiphany
     geary
@@ -39,7 +37,7 @@
     tali
     totem
     yelp
-  ]);
+  ];
 
   # Remove xterm from the default packages
   services.xserver.excludePackages = [ pkgs.xterm ];

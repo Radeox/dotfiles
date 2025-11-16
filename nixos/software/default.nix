@@ -1,7 +1,9 @@
-{ ... }: {
+{ ... }:
+{
   imports = [
     ./auto-upgrade.nix
     ./dev-extra.nix
+    ./display-managers.nix
     ./extra.nix
     ./flatpak.nix
     ./fonts.nix

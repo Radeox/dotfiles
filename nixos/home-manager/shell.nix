@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   programs = {
     # Fish shell configuration
     fish = {
@@ -6,9 +7,18 @@
 
       # Fish plugins
       plugins = [
-        { name = "done"; src = pkgs.fishPlugins.done; }
-        { name = "fzf-fish"; src = pkgs.fishPlugins.fzf-fish; }
-        { name = "grc"; src = pkgs.fishPlugins.grc; }
+        {
+          name = "done";
+          src = pkgs.fishPlugins.done;
+        }
+        {
+          name = "fzf-fish";
+          src = pkgs.fishPlugins.fzf-fish;
+        }
+        {
+          name = "grc";
+          src = pkgs.fishPlugins.grc;
+        }
       ];
 
       # Disable greeting

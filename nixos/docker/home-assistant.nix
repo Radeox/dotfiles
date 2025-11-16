@@ -1,4 +1,5 @@
-{ ... }: {
+{ ... }:
+{
   virtualisation.oci-containers.containers = {
     # Home-assistant
     homeassistant = {
@@ -36,7 +37,7 @@
     };
   };
 
-  # Lets encrypt 
+  # Lets encrypt
   services.nginx = {
     enable = true;
     recommendedProxySettings = true;

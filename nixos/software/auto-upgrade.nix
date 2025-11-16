@@ -1,4 +1,5 @@
-{ ... }: {
+{ ... }:
+{
   system.autoUpgrade = {
     enable = true;
     operation = "boot";

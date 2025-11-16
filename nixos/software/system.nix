@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   boot = {
     # Use 6.17 stock kernel
     kernelPackages = pkgs.linuxPackages_6_17;
@@ -9,7 +10,10 @@
 
   nix = {
     # Enable flakes
-    settings.experimental-features = [ "nix-command" "flakes" ];
+    settings.experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
 
     # Enable auto-optimisation of the store
     optimise.automatic = true;

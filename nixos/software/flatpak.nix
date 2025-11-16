@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   services.flatpak = {
     enable = true;
 
@@ -43,7 +44,11 @@
       description = "Automatic Flatpak Upgrade";
       serviceConfig = {
         Type = "oneshot";
-        ExecStart = [ "${pkgs.flatpak}/bin/flatpak" "update" "-y" ];
+        ExecStart = [
+          "${pkgs.flatpak}/bin/flatpak"
+          "update"
+          "-y"
+        ];
       };
     };
 

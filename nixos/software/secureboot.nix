@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   # Enable Secure Boot support
   boot.lanzaboote = {
     enable = true;
