@@ -10,6 +10,7 @@
       # NixOS variables
       NIXOS_OZONE_WL = "1";
       NIXOS_XDG_OPEN_USE_PORTAL = "1";
+      WLR_NO_HARDWARE_CURSORS = "1";
     };
 
     # Add ./local/bin to PATH

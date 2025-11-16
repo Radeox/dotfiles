@@ -53,6 +53,7 @@
             ./hardware
             ./docker
             ./software
+            ./display-managers
 
             # Host specific configuration
             ./hosts/legion.nix
@@ -88,6 +89,7 @@
             ./hardware
             ./docker
             ./software
+            ./display-managers
 
             # Host specific configuration
             ./hosts/monoco.nix
@@ -123,6 +125,7 @@
             ./hardware
             ./docker
             ./software
+            ./display-managers
 
             # Home Assistant + DuckDNS + Lets encrypt
             ./docker/home-assistant.nix
