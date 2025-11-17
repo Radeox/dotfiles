@@ -8,6 +8,10 @@
       # Startup applications
       exec-once = [
         "waybar"
+        "blueman-applet"
+        "nm-applet"
+        "megasync"
+        "com.borgbase.Vorta"
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
       ];
@@ -48,7 +52,7 @@
 
       # Decoration settings
       decoration = {
-        rounding = 16;
+        rounding = 8;
 
         blur = {
           enabled = true;
@@ -88,11 +92,6 @@
         enable_swallow = true;
         swallow_regex = "^(ghostty)$";
         vfr = true;
-      };
-
-      # XWayland
-      xwayland = {
-        force_zero_scaling = true;
       };
 
       # Hide unnecessary nags
@@ -207,17 +206,12 @@
 
       # Window rules
       windowrulev2 = [
-        # Make all windows start pseudo-tiled (similar to PaperWM behavior)
-        # "suppressevent maximize, class:.*"
-
         # Floating windows
         "float, title:^(Picture-in-Picture)$"
         "float, class:^(org.gnome.Calculator)$"
-        "float, class:^(pavucontrol)$"
-
-        # Specific app workspace assignments (optional)
-        # "workspace 2, class:^(firefox)$"
-        # "workspace 3, class:^(obsidian)$"
+        "float, class:^(org.pulseaudio.pavucontrol)$"
+        "float, class:^(MEGAsync)$"
+        "float, class:^(.blueman-manager-wrapped)$"
       ];
 
       # Monitor configuration
@@ -235,6 +229,7 @@
 
   # Additional packages for Hyprland
   home.packages = with pkgs; [
+    blueman
     cliphist
     dunst
     grim
@@ -246,301 +241,21 @@
     hyprpicker
     hyprpolkitagent
     hyprsunset
-    networkmanager-openvpn
     networkmanagerapplet
     nwg-displays
+    pavucontrol
     pyprland
     rofi
     slurp
     waybar
   ];
 
-  # Hyprlock configuration
-  programs.hyprlock = {
-    enable = true;
-    settings = {
-      general = {
-        disable_loading_bar = true;
-        hide_cursor = true;
-        grace = 0;
-        no_fade_in = false;
-      };
-
-      background = [
-        {
-          path = "screenshot";
-          blur_passes = 3;
-          blur_size = 7;
-        }
-      ];
-
-      input-field = [
-        {
-          size = "200, 50";
-          position = "0, -80";
-          monitor = "";
-          dots_center = true;
-          fade_on_empty = false;
-          font_color = "rgb(202, 211, 245)";
-          inner_color = "rgb(91, 96, 120)";
-          outer_color = "rgb(24, 25, 38)";
-          outline_thickness = 5;
-          placeholder_text = ''<span foreground="##cad3f5">Password...</span>'';
-          shadow_passes = 2;
-        }
-      ];
-    };
-  };
-
-  # Hypridle configuration
-  services.hypridle = {
-    enable = true;
-    settings = {
-      general = {
-        lock_cmd = "pidof hyprlock || hyprlock";
-        before_sleep_cmd = "loginctl lock-session";
-        after_sleep_cmd = "hyprctl dispatch dpms on";
-      };
-
-      listener = [
-        {
-          timeout = 300; # 5 minutes
-          on-timeout = "loginctl lock-session";
-        }
-        {
-          timeout = 600; # 10 minutes
-          on-timeout = "hyprctl dispatch dpms off";
-          on-resume = "hyprctl dispatch dpms on";
-        }
-      ];
-    };
-  };
-
-  # HyprPaper configuration
-  services.hyprpaper = {
-    enable = true;
-    settings = {
-      ipc = "on";
-      splash = false;
-      splash_offset = 2.0;
-
-      preload = [
-        "/home/radeox/Pictures/Wallpapers/wall10.png"
-      ];
-
-      wallpaper = [
-        ", /home/radeox/Pictures/Wallpapers/wall10.png"
-      ];
-    };
-  };
-
-  # Waybar configuration (replaces GNOME top bar)
-  programs.waybar = {
-    enable = true;
-    settings = {
-      mainBar = {
-        layer = "top";
-        position = "top";
-        height = 30;
-        spacing = 4;
-
-        modules-left = [
-          "hyprland/workspaces"
-          "hyprland/window"
-        ];
-        modules-center = [ "clock" ];
-        modules-right = [
-          "pulseaudio"
-          "network"
-          "battery"
-          "tray"
-        ];
-
-        "hyprland/workspaces" = {
-          disable-scroll = false;
-          all-outputs = true;
-          format = "{icon}";
-          format-icons = {
-            "1" = "1";
-            "2" = "2";
-            "3" = "3";
-            "4" = "4";
-            "5" = "5";
-            "6" = "6";
-            "7" = "7";
-            "8" = "8";
-            "9" = "9";
-            "10" = "10";
-            urgent = "";
-            focused = "";
-            default = "";
-          };
-        };
-
-        "hyprland/window" = {
-          format = "{}";
-          max-length = 50;
-          separate-outputs = true;
-        };
-
-        clock = {
-          format = "{:%H:%M:%S %Y-%m-%d}";
-          format-alt = "{:%A, %B %d, %Y (%R)}";
-          tooltip-format = "<tt><small>{calendar}</small></tt>";
-          interval = 1;
-        };
-
-        battery = {
-          states = {
-            warning = 30;
-            critical = 15;
-          };
-          format = "{icon} {capacity}%";
-          format-charging = " {capacity}%";
-          format-plugged = " {capacity}%";
-          format-alt = "{icon} {time}";
-          format-icons = [
-            ""
-            ""
-            ""
-            ""
-            ""
-          ];
-        };
-
-        network = {
-          format-wifi = " {essid}";
-          format-ethernet = " {ifname}";
-          format-linked = " {ifname} (No IP)";
-          format-disconnected = "⚠ Disconnected";
-          tooltip-format = "{ifname}: {ipaddr}/{cidr}";
-        };
-
-        pulseaudio = {
-          format = "{icon} {volume}%";
-          format-bluetooth = "{icon} {volume}%";
-          format-bluetooth-muted = " {icon}";
-          format-muted = " {volume}%";
-          format-icons = {
-            headphone = "";
-            hands-free = "";
-            headset = "";
-            phone = "";
-            portable = "";
-            car = "";
-            default = [
-              ""
-              ""
-              ""
-            ];
-          };
-          on-click = "pavucontrol";
-        };
-
-        tray = {
-          icon-size = 16;
-          spacing = 10;
-        };
-      };
-    };
-
-    style = ''
-      * {
-        border: none;
-        border-radius: 0;
-        font-family: "JetBrainsMono Nerd Font", monospace;
-        font-size: 13px;
-        min-height: 0;
-      }
-
-      window#waybar {
-        background-color: rgba(30, 30, 46, 0.9);
-        color: #cdd6f4;
-      }
-
-      #workspaces button {
-        padding: 0 5px;
-        color: #cdd6f4;
-        background-color: transparent;
-      }
-
-      #workspaces button.active {
-        background-color: rgba(137, 180, 250, 0.3);
-        color: #89b4fa;
-      }
-
-      #workspaces button.urgent {
-        background-color: #f38ba8;
-        color: #1e1e2e;
-      }
-
-      #workspaces button:hover {
-        background-color: rgba(205, 214, 244, 0.2);
-      }
-
-      #window,
-      #clock,
-      #battery,
-      #pulseaudio,
-      #network,
-      #tray {
-        padding: 0 10px;
-        margin: 0 2px;
-        background-color: rgba(30, 30, 46, 0.8);
-        color: #cdd6f4;
-      }
-
-      #battery.charging {
-        color: #a6e3a1;
-      }
-
-      #battery.warning:not(.charging) {
-        color: #f9e2af;
-      }
-
-      #battery.critical:not(.charging) {
-        color: #f38ba8;
-      }
-
-      #pulseaudio.muted {
-        color: #585b70;
-      }
-    '';
-  };
-
-  # Dunst notification daemon configuration (replaces GNOME notifications)
-  services.dunst = {
-    enable = true;
-    settings = {
-      global = {
-        width = 300;
-        height = 300;
-        offset = "10x50";
-        origin = "top-right";
-        transparency = 10;
-        frame_color = "#89b4fa";
-        font = "JetBrainsMono Nerd Font 10";
-        corner_radius = 4;
-      };
-
-      urgency_low = {
-        background = "#1e1e2e";
-        foreground = "#cdd6f4";
-        timeout = 5;
-      };
-
-      urgency_normal = {
-        background = "#1e1e2e";
-        foreground = "#cdd6f4";
-        timeout = 10;
-      };
-
-      urgency_critical = {
-        background = "#1e1e2e";
-        foreground = "#cdd6f4";
-        frame_color = "#f38ba8";
-        timeout = 0;
-      };
-    };
-  };
+  # Hypr related program configurations
+  imports = [
+    ./dunst.nix
+    ./hypridle.nix
+    ./hyprlock.nix
+    ./hyprpaper.nix
+    ./waybar.nix
+  ];
 }
