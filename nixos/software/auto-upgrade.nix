@@ -7,8 +7,6 @@
     flags = [
       "--update-input"
       "nixpkgs"
-      "--update-input"
-      "rust-overlay"
       "--commit-lock-file"
     ];
     dates = "weekly";

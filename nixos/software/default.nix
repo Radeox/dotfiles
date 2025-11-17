@@ -13,5 +13,6 @@
     ./secureboot.nix
     ./services.nix
     ./system.nix
+    ./vpn.nix
   ];
 }
