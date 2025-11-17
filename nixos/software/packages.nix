@@ -22,6 +22,7 @@
     nix-search-cli
     nmap
     openfortivpn
+    openvpn3
     pciutils
     qogir-icon-theme
     quickemu
@@ -38,7 +39,6 @@
     vlc
     wget
     whois
-    winboat
     wl-clipboard
     zip
   ];
