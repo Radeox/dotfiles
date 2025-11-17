@@ -233,7 +233,7 @@
     '';
   };
 
-  # Additional packages needed for Hyprland
+  # Additional packages for Hyprland
   home.packages = with pkgs; [
     cliphist
     dunst
@@ -246,6 +246,8 @@
     hyprpicker
     hyprpolkitagent
     hyprsunset
+    networkmanager-openvpn
+    networkmanagerapplet
     nwg-displays
     pyprland
     rofi
@@ -323,11 +325,11 @@
       splash_offset = 2.0;
 
       preload = [
-        "/home/radeox/Pictures/Wallpapers/wall12.jpg"
+        "/home/radeox/Pictures/Wallpapers/wall10.png"
       ];
 
       wallpaper = [
-        ", /home/radeox/Pictures/Wallpapers/wall12.jpg"
+        ", /home/radeox/Pictures/Wallpapers/wall10.png"
       ];
     };
   };

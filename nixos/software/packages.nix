@@ -22,7 +22,6 @@
     nix-search-cli
     nmap
     openfortivpn
-    openvpn3
     pciutils
     qogir-icon-theme
     quickemu
