@@ -34,6 +34,7 @@
     gnome-user-docs
     hitori
     iagno
+    orca
     tali
     totem
     yelp
