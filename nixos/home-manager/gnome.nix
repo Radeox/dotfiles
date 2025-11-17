@@ -3,11 +3,9 @@
   # Install GNOME extensions
   home.packages = with pkgs.gnomeExtensions; [
     appindicator
-    battery-health-charging
     blur-my-shell
     clipboard-indicator
     color-picker
-    gsconnect
     media-controls
     paperwm
     user-themes
@@ -23,11 +21,9 @@
         # Enable GNOME extensions
         enabled-extensions = with pkgs.gnomeExtensions; [
           appindicator.extensionUuid
-          battery-health-charging.extensionUuid
           blur-my-shell.extensionUuid
           clipboard-indicator.extensionUuid
           color-picker.extensionUuid
-          gsconnect.extensionUuid
           media-controls.extensionUuid
           paperwm.extensionUuid
           user-themes.extensionUuid
