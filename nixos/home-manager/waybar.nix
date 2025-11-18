@@ -50,8 +50,8 @@
         };
 
         clock = {
-          format = "{:%H:%M:%S %Y-%m-%d}";
-          format-alt = "{:%A, %B %d, %Y (%R)}";
+          format = "{:%H:%M:%S}";
+          format-alt = "{%d-%m-%Y (%R)}";
           tooltip-format = "<tt><small>{calendar}</small></tt>";
           interval = 1;
         };
