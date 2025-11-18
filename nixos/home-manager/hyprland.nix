@@ -10,8 +10,6 @@
         "waybar"
         "blueman-applet"
         "nm-applet"
-        "megasync"
-        "com.borgbase.Vorta"
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
       ];
@@ -24,6 +22,9 @@
 
         # CapsLock to Escape
         kb_options = "caps:escape";
+
+        # Enable NumLock by default
+        numlock_by_default = true;
 
         # Focus follows mouse
         follow_mouse = 1;
@@ -90,7 +91,7 @@
         disable_hyprland_logo = true;
         disable_splash_rendering = true;
         enable_swallow = true;
-        swallow_regex = "^(ghostty)$";
+        swallow_regex = "^(com.mitchellh.ghostty)$";
         vfr = true;
       };
 
