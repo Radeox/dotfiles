@@ -1,7 +1,6 @@
 { pkgs, ... }: {
   # Install VPN related packages
   environment.systemPackages = with pkgs; [
-    openfortivpn
     openvpn
     wireguard-tools
   ];
