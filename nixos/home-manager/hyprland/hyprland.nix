@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 {
   # Enable Hyprland
   wayland.windowManager.hyprland = {
@@ -238,20 +238,4 @@
       source = ~/.config/hypr/monitors.conf
     '';
   };
-
-  # Additional packages for Hyprland
-  home.packages = with pkgs; [
-    blueman
-    cliphist
-    grim
-    grimblast
-    hyprcursor
-    hyprpicker
-    hyprpolkitagent
-    networkmanagerapplet
-    nwg-displays
-    pavucontrol
-    pyprland
-    slurp
-  ];
 }
