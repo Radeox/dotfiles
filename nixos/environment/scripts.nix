@@ -7,7 +7,7 @@ let
       uv sync
       source .venv/bin/activate.fish
     else
-      echo "Not in a poetry project!"
+      echo "No pyproject.toml found in the current directory."
     end
   '';
 
