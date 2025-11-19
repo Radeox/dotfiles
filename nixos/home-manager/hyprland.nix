@@ -95,6 +95,11 @@
         vfr = true;
       };
 
+      # Cursor settings
+      cursor = {
+        no_hardware_cursors = false;
+      };
+
       # Hide unnecessary nags
       ecosystem = {
         no_update_news = true;

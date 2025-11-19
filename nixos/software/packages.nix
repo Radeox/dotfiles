@@ -10,7 +10,6 @@
     ffmpeg
     fzf
     gparted
-    gparted
     grc
     home-manager
     htop
