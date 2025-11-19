@@ -243,27 +243,15 @@
   home.packages = with pkgs; [
     blueman
     cliphist
-    dunst
     grim
     grimblast
     hyprcursor
     hyprpicker
     hyprpolkitagent
-    hyprsunset
     networkmanagerapplet
     nwg-displays
     pavucontrol
     pyprland
     slurp
-  ];
-
-  # Hypr related program configurations
-  imports = [
-    ./dunst.nix
-    ./hypridle.nix
-    ./hyprlock.nix
-    ./hyprpaper.nix
-    ./rofi.nix
-    ./waybar.nix
   ];
 }

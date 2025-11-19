@@ -3,6 +3,7 @@
   # Dunst notification daemon
   services.dunst = {
     enable = true;
+
     settings = {
       global = {
         width = 300;
