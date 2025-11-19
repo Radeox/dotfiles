@@ -116,6 +116,8 @@
       "$mail" = "flatpak run org.mozilla.Thunderbird";
       "$spotify" = "flatpak run com.spotify.Client";
       "$menu" = "rofi -show drun";
+      "$windowSwitcher" = "rofi -show window";
+      "$powerMenu" = "rofi -show power-menu";
 
       # Key bindings
       bind = [
@@ -200,8 +202,11 @@
         # Toggle split direction
         "$mod, E, togglesplit,"
 
-        # Exit Hyprland
-        "$mod SHIFT, E, exit,"
+        # Application switching
+        "ALT, Tab, exec, $windowSwitcher"
+
+        # Rofi power menu
+        "$mod SHIFT, E, exec, $powerMenu"
       ];
 
       # Mouse bindings
@@ -241,9 +246,6 @@
     grim
     grimblast
     hyprcursor
-    hypridle
-    hyprlock
-    hyprpaper
     hyprpicker
     hyprpolkitagent
     hyprsunset
@@ -251,9 +253,7 @@
     nwg-displays
     pavucontrol
     pyprland
-    rofi
     slurp
-    waybar
   ];
 
   # Hypr related program configurations
@@ -262,6 +262,7 @@
     ./hypridle.nix
     ./hyprlock.nix
     ./hyprpaper.nix
+    ./rofi.nix
     ./waybar.nix
   ];
 }
