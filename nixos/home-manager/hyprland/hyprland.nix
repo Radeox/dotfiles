@@ -116,6 +116,8 @@
       "$menu" = "rofi -show drun";
       "$windowSwitcher" = "rofi -show window";
       "$powerMenu" = "rofi -show power-menu";
+      "$volumeUp" = "hyprpanel vol +5";
+      "$volumeDown" = "hyprpanel vol -5";
 
       # Key bindings
       bind = [
@@ -190,10 +192,6 @@
         "$mod, ESCAPE, togglespecialworkspace, scratch"
         "$mod SHIFT, ESCAPE, movetoworkspace, special:scratch"
 
-        # Window resizing
-        "$mod, bracketleft, resizeactive, -40 0"
-        "$mod, bracketright, resizeactive, 40 0"
-
         # Toggle floating
         "$mod, GRAVE, togglefloating,"
 
@@ -211,6 +209,17 @@
       bindm = [
         "$mod, mouse:272, movewindow"
         "$mod, mouse:273, resizewindow"
+      ];
+
+      # Special bindings
+      binde = [
+        # Volume control
+        ", XF86AudioRaiseVolume, exec, $volumeUp"
+        ", XF86AudioLowerVolume, exec, $volumeDown"
+
+        # Window resizing
+        "$mod, bracketleft, resizeactive, -40 0"
+        "$mod, bracketright, resizeactive, 40 0"
       ];
 
       # Window rules
