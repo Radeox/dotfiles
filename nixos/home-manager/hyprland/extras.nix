@@ -2,13 +2,11 @@
 {
   # Additional packages for Hyprland
   home.packages = with pkgs; [
-    blueman
     cliphist
     grim
     grimblast
     hyprcursor
     hyprpicker
-    networkmanagerapplet
     nwg-displays
     pavucontrol
     pyprland
