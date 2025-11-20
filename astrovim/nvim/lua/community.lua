@@ -2,17 +2,15 @@
 return {
   "AstroNvim/astrocommunity",
 
-  -- Ayu theme colorscheme
+  -- Everforest Theme
   {
-    "Shatur/neovim-ayu",
+    "sainnhe/everforest",
+    lazy = false,
+    priority = 1000,
     config = function()
-      require("ayu").setup {
-        -- Override some colors since the theme is not perfect
-        overrides = {
-          NonText = { fg = "#484848" },
-          Pmenu = { bg = "#0b0e14" },
-        },
-      }
+      vim.g.everforest_background = "hard"
+      vim.g.everforest_enable_italic = false
+      vim.cmd "colorscheme everforest"
     end,
   },
 

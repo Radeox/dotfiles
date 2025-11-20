@@ -54,8 +54,8 @@
       # Theme configuration
       theme = {
         mode = "dark";
-        light = "One Light";
-        dark = "Ayu Dark";
+        light = "Everforest Light";
+        dark = "Everforest Dark Hard";
       };
 
       icon_theme = {
@@ -118,6 +118,7 @@
         "deno" = true;
         "docker-compose" = true;
         "dockerfile" = true;
+        "everforest-theme" = true;
         "graphql" = true;
         "html" = true;
         "make" = true;
