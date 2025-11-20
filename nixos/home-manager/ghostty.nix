@@ -13,6 +13,9 @@
       # Fix for legacy SSH terminal issues
       shell-integration-features = "ssh-env";
 
+      # Disable clipboard paste protection
+      clipboard-paste-protection = false;
+
       # --- Key bindings ---
       keybind = [
         # New tab
