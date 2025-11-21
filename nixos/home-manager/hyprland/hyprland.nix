@@ -118,6 +118,8 @@
       "$powerMenu" = "rofi -show power-menu";
       "$volumeUp" = "hyprpanel vol +5";
       "$volumeDown" = "hyprpanel vol -5";
+      "$brightnessUp" = "brightnessctl set +10%";
+      "$brightnessDown" = "brightnessctl set 10%-";
 
       # Key bindings
       bind = [
@@ -216,6 +218,10 @@
         # Volume control
         ", XF86AudioRaiseVolume, exec, $volumeUp"
         ", XF86AudioLowerVolume, exec, $volumeDown"
+
+        # Brightness control
+        ", XF86MonBrightnessUp, exec, $brightnessUp"
+        ", XF86MonBrightnessDown, exec, $brightnessDown"
 
         # Window resizing
         "$mod, bracketleft, resizeactive, -40 0"

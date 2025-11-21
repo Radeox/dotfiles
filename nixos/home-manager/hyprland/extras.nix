@@ -2,6 +2,7 @@
 {
   # Additional packages for Hyprland
   home.packages = with pkgs; [
+    brightnessctl
     cliphist
     grim
     grimblast
