@@ -14,7 +14,7 @@
 
       # Input configuration
       input = {
-        kb_layout = "us";
+        kb_layout = "us,it";
         kb_variant = "";
         kb_model = "";
 
@@ -42,8 +42,8 @@
         gaps_out = 12;
         border_size = 2;
 
-        "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
-        "col.inactive_border" = "rgba(595959aa)";
+        "col.active_border" = "rgba(a7c080ee) rgba(dbbc7fee) 45deg";
+        "col.inactive_border" = "rgba(4b565cee)";
 
         layout = "dwindle";
         allow_tearing = false;
@@ -202,6 +202,8 @@
 
         # Application switching
         "ALT, Tab, exec, $windowSwitcher"
+        # Switch keyboard layout
+        "ALT, SPACE, exec, hyprctl switchxkblayout next"
 
         # Rofi power menu
         "$mod SHIFT, E, exec, $powerMenu"
