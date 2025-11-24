@@ -8,6 +8,7 @@
       # Startup applications
       exec-once = [
         "hyprpaper-random"
+        "hyprctl setcursor Qogir-Manjaro-Dark 28"
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
       ];
