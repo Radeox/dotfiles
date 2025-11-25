@@ -27,10 +27,10 @@
     theme = builtins.toString (
       pkgs.writeText "rofi-everforest.rasi" ''
         * {
-          bg0: #2d353b;
+          bg0: #2B3339;
           bg1: #343f44;
           bg2: #3d484d;
-          bg3: #475258;
+          bg3: #2d353b;
           fg0: #d3c6aa;
           fg1: #e6e2cc;
           red: #e67e80;
