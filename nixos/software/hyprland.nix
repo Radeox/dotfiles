@@ -6,6 +6,12 @@
     withUWSM = true;
   };
 
+  # Enable GDM
+  services.displayManager = {
+    gdm.enable = true;
+    gdm.wayland = true;
+  };
+
   environment.variables = {
     XCURSOR_THEME = "Qogir-Manjaro-Dark";
     XCURSOR_SIZE = "28";

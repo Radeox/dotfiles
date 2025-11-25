@@ -28,6 +28,7 @@
     ripgrep
     rpiboot
     scrcpy
+    simple-scan
     speedtest-cli
     sshfs
     udiskie
