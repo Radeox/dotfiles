@@ -14,6 +14,11 @@
     slurp
   ];
 
+  programs = {
+    # Enable mpvpaper for wallpaper management
+    mpvpaper.enable = true;
+  };
+
   services = {
     # Enable Hyprsunset for automatic screen temperature adjustment
     hyprsunset = {
