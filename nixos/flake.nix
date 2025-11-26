@@ -12,20 +12,19 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     # Manage dotfiles
-    home-manager.url = "github:nix-community/home-manager/master";
+    home-manager.url = "github:nix-community/home-manager/release-25.11";
 
     # Secure boot
     lanzaboote.url = "github:nix-community/lanzaboote/v0.4.3";
   };
 
   outputs =
-    {
-      nixpkgs,
-      home-manager,
-      lanzaboote,
-      nix-flatpak,
-      nixos-hardware,
-      ...
+    { nixpkgs
+    , home-manager
+    , lanzaboote
+    , nix-flatpak
+    , nixos-hardware
+    , ...
     }:
     {
       nixosConfigurations = {
