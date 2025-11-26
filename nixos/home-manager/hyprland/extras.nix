@@ -14,11 +14,6 @@
     slurp
   ];
 
-  programs = {
-    # Enable mpvpaper for wallpaper management
-    mpvpaper.enable = true;
-  };
-
   services = {
     # Enable Hyprsunset for automatic screen temperature adjustment
     hyprsunset = {
@@ -41,6 +36,9 @@
           ];
         };
     };
+
+    # Enable swww for wallpaper setting
+    swww.enable = true;
 
     # Enable Hyprpolkit for graphical polkit authentication
     hyprpolkitagent.enable = true;

@@ -7,8 +7,8 @@
     settings = {
       # Startup applications
       exec-once = [
+        "swww img /home/radeox/Pictures/Wallpapers/animated/aw1.gif"
         "hyprctl setcursor Qogir-Manjaro-Dark 28"
-        "mpvpaper -vs -o 'no-audio loop --panscan=1.0' all /home/radeox/Pictures/Wallpapers/animated/aw1.mp4"
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
       ];
