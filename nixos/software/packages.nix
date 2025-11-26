@@ -15,6 +15,7 @@
     htop
     imagemagick
     killall
+    mpv
     nautilus
     nautilus-python
     nil
@@ -34,7 +35,6 @@
     udiskie
     unzip
     veracrypt
-    vlc
     wget
     whois
     wl-clipboard
