@@ -21,10 +21,6 @@
         # New tab
         "ctrl+t=new_tab"
 
-        # Fullscreen
-        "ctrl+f=toggle_fullscreen"
-        "f11=toggle_fullscreen"
-
         # Splits
         "ctrl+e>up=new_split:up"
         "ctrl+e>down=new_split:down"
@@ -42,6 +38,9 @@
         "ctrl+shift+down=resize_split:down,10"
         "ctrl+shift+left=resize_split:left,10"
         "ctrl+shift+right=resize_split:right,10"
+
+        # Fullscreen
+        "f11=toggle_fullscreen"
       ];
     };
   };
