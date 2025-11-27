@@ -19,12 +19,13 @@
   };
 
   outputs =
-    { nixpkgs
-    , home-manager
-    , lanzaboote
-    , nix-flatpak
-    , nixos-hardware
-    , ...
+    {
+      nixpkgs,
+      home-manager,
+      lanzaboote,
+      nix-flatpak,
+      nixos-hardware,
+      ...
     }:
     {
       nixosConfigurations = {
@@ -58,8 +59,8 @@
             # My NixOS configuration
             ./environment
             ./hardware
-            ./docker
             ./software
+            ./system
 
             # Host specific configuration
             ./hosts/legion.nix
@@ -93,52 +94,11 @@
             # My NixOS configuration
             ./environment
             ./hardware
-            ./docker
             ./software
+            ./system
 
             # Host specific configuration
             ./hosts/monoco.nix
-          ];
-        };
-
-        # ----- B-Dell configuration -----
-        B-Dell = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-
-          modules = [
-            # Lanzaboote - Secure boot
-            lanzaboote.nixosModules.lanzaboote
-
-            # Flatpak module
-            nix-flatpak.nixosModules.nix-flatpak
-
-            # Setup Home Manager
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.backupFileExtension = "backup";
-              home-manager.users.radeox = {
-                imports = [
-                  ./home-manager
-                ];
-              };
-            }
-
-            # My NixOS configuration
-            ./environment
-            ./hardware
-            ./docker
-            ./software
-
-            # Home Assistant + DuckDNS + Lets encrypt
-            ./docker/home-assistant.nix
-
-            # Jellyfin
-            ./docker/jellyfin.nix
-
-            # Host specific configuration
-            ./hosts/b-dell.nix
           ];
         };
       };

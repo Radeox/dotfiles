@@ -1,7 +1,11 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
+    aichat
+    ansible
     borgbackup
+    cargo
+    cmake
     dig
     duf
     dust
@@ -9,19 +13,28 @@
     fd
     ffmpeg
     fzf
+    gcc
+    git
+    git-extras
+    github-copilot-cli
+    gnumake
     gparted
     grc
     home-manager
     htop
     imagemagick
     killall
+    mariadb.client
+    mongodb-tools
     mpv
     nautilus
     nautilus-python
     nil
     nix-search-cli
     nmap
+    nodejs_22
     pciutils
+    php84
     qogir-icon-theme
     quickemu
     rar
@@ -32,6 +45,7 @@
     simple-scan
     speedtest-cli
     sshfs
+    tree-sitter
     udiskie
     unzip
     veracrypt

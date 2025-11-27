@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 {
   services = {
     # Enable touchpad support
@@ -21,9 +21,6 @@
     # Enable firmware updates
     fwupd.enable = true;
 
-    # Enable gnome-settings-daemon udev rules
-    udev.packages = with pkgs; [ gnome-settings-daemon ];
-
     # Enable network discovery
     avahi = {
       enable = true;
@@ -35,9 +32,11 @@
     gnome.gnome-keyring.enable = true;
   };
 
-  # Enable polkit
-  security.polkit.enable = true;
+  security = {
+    # Enable polkit
+    polkit.enable = true;
 
-  # Enable Hyprland PAM integration with GNOME keyring
-  security.pam.services.hyprland.enableGnomeKeyring = true;
+    # Enable Hyprland PAM integration with GNOME keyring
+    pam.services.hyprland.enableGnomeKeyring = true;
+  };
 }
