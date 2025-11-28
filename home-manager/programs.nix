@@ -23,9 +23,4 @@
       '';
     };
   };
-
-  services = {
-    # MegaSync configuration
-    megasync.enable = true;
-  };
 }

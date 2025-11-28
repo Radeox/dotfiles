@@ -237,7 +237,6 @@
         "float, title:^(Picture-in-Picture)$"
         "float, class:^(org.gnome.Calculator)$"
         "float, class:^(org.pulseaudio.pavucontrol)$"
-        "float, class:^(MEGAsync)$"
         "float, class:^(.blueman-manager-wrapped)$"
       ];
 
