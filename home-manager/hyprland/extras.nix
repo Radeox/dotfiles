@@ -8,6 +8,7 @@
     grimblast
     hyprcursor
     hyprpicker
+    networkmanagerapplet
     nwg-displays
     pavucontrol
     pyprland

@@ -7,8 +7,8 @@
     settings = {
       # Startup applications
       exec-once = [
+        "swww-daemon &"
         "hyprctl setcursor Qogir-Manjaro-Dark 28"
-        "swww img /home/radeox/Pictures/Wallpapers/animated/aw2.gif"
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
       ];
