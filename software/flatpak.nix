@@ -12,7 +12,6 @@
     # Packages list
     packages = [
       "app.zen_browser.zen"
-      "com.borgbase.Vorta"
       "com.getpostman.Postman"
       "com.github.tchx84.Flatseal"
       "com.mongodb.Compass"
