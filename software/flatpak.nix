@@ -23,9 +23,9 @@
       "org.ferdium.Ferdium"
       "org.gimp.GIMP"
       "org.inkscape.Inkscape"
-      "org.libreoffice.LibreOffice"
       "org.localsend.localsend_app"
       "org.mozilla.Thunderbird"
+      "org.onlyoffice.desktopeditors"
       "org.qbittorrent.qBittorrent"
       "org.raspberrypi.rpi-imager"
     ];
