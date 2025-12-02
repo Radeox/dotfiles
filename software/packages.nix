@@ -3,7 +3,6 @@
   environment.systemPackages = with pkgs; [
     aichat
     ansible
-    borgbackup
     cargo
     cmake
     dig
