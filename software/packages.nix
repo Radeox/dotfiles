@@ -16,6 +16,7 @@
     git
     git-extras
     github-copilot-cli
+    gnome-disk-utility
     gnumake
     gparted
     grc
