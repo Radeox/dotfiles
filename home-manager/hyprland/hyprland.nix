@@ -66,11 +66,11 @@
       animations = {
         enabled = true;
 
-        bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";
+        bezier = "slideCurve, 0.05, 0.9, 0.1, 1.0";
 
         animation = [
-          "windows, 1, 7, myBezier"
-          "windowsOut, 1, 7, default, popin 80%"
+          "windows, 1, 7, slideCurve"
+          "windowsOut, 1, 7, default, slide right"
           "border, 1, 10, default"
           "borderangle, 1, 8, default"
           "fade, 1, 7, default"
@@ -81,7 +81,7 @@
       # Layout settings
       dwindle = {
         pseudotile = true;
-        preserve_split = true;
+        force_split = 2;
       };
 
       # Miscellaneous settings
@@ -230,6 +230,11 @@
         "$mod, bracketleft, resizeactive, -40 0"
         "$mod, bracketright, resizeactive, 40 0"
       ];
+
+      gestures = {
+        # Swipe between workspaces
+        gesture = "3, horizontal, workspace";
+      };
 
       # Window rules
       windowrulev2 = [
