@@ -97,6 +97,9 @@
       # Cursor settings
       cursor = {
         no_hardware_cursors = false;
+
+        # Cursor auto-hide after inactivity
+        inactive_timeout = 3;
       };
 
       # Hide unnecessary nags
