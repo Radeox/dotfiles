@@ -10,7 +10,7 @@
       # Theme customization
       "theme.bar.buttons.clock.spacing" = "0rem";
       "theme.bar.floating" = true;
-      "theme.bar.margin_sides" = "1em";
+      "theme.bar.margin_sides" = "0.9em";
       "theme.bar.outer_spacing" = "0.3em";
       "theme.font.label" = "Unifont Bold";
       "theme.font.name" = "Unifont";
