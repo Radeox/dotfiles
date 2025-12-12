@@ -12,9 +12,16 @@
       enable = true;
       powerOnBoot = true;
 
-      # Show battery levels for more devices
-      settings.General = {
-        Experimental = true;
+      settings = {
+        General = {
+          # Show battery levels for connected devices
+          Experimental = true;
+        };
+
+        Policy = {
+          # Enable all controllers when they are found
+          AutoEnable = true;
+        };
       };
     };
 
@@ -24,4 +31,7 @@
       extraBackends = [ pkgs.sane-airscan ];
     };
   };
+
+  # Enable GUI bluetooth manager
+  services.blueman.enable = true;
 }
