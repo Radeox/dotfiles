@@ -37,7 +37,7 @@
         autoHideDelay = 500;
         autoShowDelay = 150;
         backgroundOpacity = 1;
-        barType = "framed";
+        barType = "simple";
         capsuleColorKey = "none";
         capsuleOpacity = 1;
         contentPadding = 2;
