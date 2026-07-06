@@ -1,8 +1,15 @@
-{ ... }:
+{ pkgs, ... }:
 {
   networking = {
-    # Enable network manager
-    networkmanager.enable = true;
+    networkmanager = {
+      # Enable network manager
+      enable = true;
+
+      # Add OpenVPN plugin to NetworkManager
+      plugins = [
+        pkgs.networkmanager-openvpn
+      ];
+    };
 
     # Firewall configuration
     firewall = {

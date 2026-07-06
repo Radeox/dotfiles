@@ -46,6 +46,7 @@
     mongodb-tools
     nautilus
     nautilus-python
+    networkmanagerapplet
     nil
     nix-search-cli
     nmap
@@ -91,10 +92,5 @@
     wl-clipboard
     yazi
     zip
-  ];
-
-  # Add OpenVPN plugin to NetworkManager
-  networking.networkmanager.plugins = [
-    pkgs.networkmanager-openvpn
   ];
 }
