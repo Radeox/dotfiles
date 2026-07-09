@@ -20,6 +20,7 @@
     fd
     ffmpeg
     file-roller
+    filezilla
     fzf
     gcc
     gimp
