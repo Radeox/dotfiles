@@ -37,7 +37,7 @@
         [Desktop Entry]
         Name=Steam
         Comment=Steam Big Picture
-        Exec=${pkgs.gamescope}/bin/gamescope -f -e -F fsr --backend drm -- ${pkgs.steam}/bin/steam -gamepadui -steamos3
+        Exec=systemd-cat --identifier=steam-gamescope ${pkgs.gamescope}/bin/gamescope -f -e -F fsr --backend drm -- dbus-run-session ${pkgs.steam}/bin/steam -gamepadui -steamos3
         Type=Application
         EOF
       '';
