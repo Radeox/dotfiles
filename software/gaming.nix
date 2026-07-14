@@ -12,32 +12,19 @@ let
         ${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
   '';
 
-  # 2. Define MangoHud layout for the overlay
-  mangoConfig = [
-    "cpu_temp"
-    "gpu_temp"
-    "ram"
-    "vram"
-    "frame_timing=0"
-    "fps_only=0"
-  ];
 
-  # 3. Create the wrapped launch script for Steam
+  # 2. Create the wrapped launch script for Steam
   startSteamSession = pkgs.writeShellScriptBin "start-steam-session" ''
     set -xeuo pipefail
 
     # Start the key listener using our Nix-stored config
     ${pkgs.sxhkd}/bin/sxhkd -c ${steamSxhkdrc} &
 
-    # Set up MangoHud environment variables for gamescope's built-in mangoapp
-    export MANGOHUD=1
-    export MANGOHUD_CONFIG="${builtins.concatStringsSep "," mangoConfig}"
-
     # Execute Steam. We are using -steamos3 so it actively looks for your script!
     exec ${pkgs.dbus}/bin/dbus-run-session ${pkgs.steam}/bin/steam -steamos3 -gamepadui -pipewire-dmabuf
   '';
 
-  # 4. Create a mock SteamOS session selection script
+  # 3. Create a mock SteamOS session selection script
   steamosSessionSelect = pkgs.writeShellScriptBin "steamos-session-select" ''
     # Fork into the background to prevent Steam UI deadlock
     (
