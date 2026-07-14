@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   environment.systemPackages = with pkgs; [
     android-tools
@@ -91,5 +91,6 @@
     wl-clipboard
     yazi
     zip
+    inputs.pixel-access.packages.${pkgs.system}.default
   ];
 }

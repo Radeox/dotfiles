@@ -58,6 +58,9 @@
       url = "github:ToRvaLDz/monique";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Pixel Access - Custom app
+    pixel-access.url = "path:/home/radeox/Sources/Pixel/pixel-access-nix";
   };
 
   outputs =
