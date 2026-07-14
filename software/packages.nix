@@ -38,12 +38,10 @@
     imagemagick
     inkscape
     isort
-    kicad-small
     killall
     localsend
     loupe
     mariadb.client
-    # mongodb-compass
     mongodb-tools
     nautilus
     nautilus-python
