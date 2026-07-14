@@ -14,6 +14,7 @@
       input = {
         keyboard.xkb.layout = "us,it";
         keyboard.xkb.options = "caps:escape";
+        keyboard.numlock = true;
 
         touchpad = {
           tap = true;
