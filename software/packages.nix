@@ -69,7 +69,6 @@
     seahorse
     showtime
     simple-scan
-    speedtest-cli
     spotify
     sshfs
     telegram-desktop
