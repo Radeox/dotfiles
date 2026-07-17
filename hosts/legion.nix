@@ -82,7 +82,4 @@
 
   # Enables DHCP on each ethernet and wireless interface
   networking.useDHCP = lib.mkDefault true;
-
-  # RTC time standard to localtime (dual boot)
-  time.hardwareClockInLocalTime = true;
 }
