@@ -90,6 +90,6 @@
     wl-clipboard
     yazi
     zip
-    inputs.pixel-access.packages.${pkgs.system}.default
+    inputs.pixel-access.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 }
