@@ -73,8 +73,24 @@
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
   # Enable zram swap
-  zramSwap.enable = true;
-  swapDevices = [ ];
+  zramSwap = {
+    enable = true;
+    memoryPercent = 100;
+    algorithm = "zstd";
+  };
+
+  # Additional swapfile
+  swapDevices = [{
+    device = "/var/lib/swapfile";
+    size = 16 * 1024;
+    # Low priority, will be used only after zram is full
+    priority = 1;
+  }];
+
+  # Increase swappiness
+  boot.kernel.sysctl = {
+    "vm.swappiness" = 180;
+  };
 
   # Enable TRIM for SSDs
   services.fstrim.enable = lib.mkDefault true;
