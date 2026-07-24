@@ -79,14 +79,6 @@
     algorithm = "zstd";
   };
 
-  # Additional swapfile
-  swapDevices = [{
-    device = "/var/lib/swapfile";
-    size = 16 * 1024;
-    # Low priority, will be used only after zram is full
-    priority = 1;
-  }];
-
   # Increase swappiness
   boot.kernel.sysctl = {
     "vm.swappiness" = 180;
