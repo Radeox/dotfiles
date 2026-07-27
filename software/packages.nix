@@ -46,6 +46,7 @@
     nautilus
     nautilus-python
     networkmanagerapplet
+    ngrok
     nil
     nix-search-cli
     nmap
