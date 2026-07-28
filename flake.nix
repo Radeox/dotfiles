@@ -28,7 +28,8 @@
 
     # Niri Flake
     niri = {
-      url = "github:sodiboo/niri-flake";
+      # url = "github:sodiboo/niri-flake";
+      url = "github:epireyn/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -64,18 +65,17 @@
   };
 
   outputs =
-    inputs@{
-      nixpkgs,
-      home-manager,
-      lanzaboote,
-      nix-flatpak,
-      nixos-hardware,
-      stylix,
-      noctalia,
-      niri,
-      antigravity-nix,
-      monique,
-      ...
+    inputs@{ nixpkgs
+    , home-manager
+    , lanzaboote
+    , nix-flatpak
+    , nixos-hardware
+    , stylix
+    , noctalia
+    , niri
+    , antigravity-nix
+    , monique
+    , ...
     }:
     {
       nixosConfigurations = {
