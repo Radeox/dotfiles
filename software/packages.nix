@@ -8,7 +8,6 @@
     brightnessctl
     cargo
     cliphist
-    cloudflared
     cmake
     deluge
     dig

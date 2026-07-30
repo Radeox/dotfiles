@@ -4,7 +4,7 @@
   programs.niri.enable = true;
 
   # ReGreet for login
-  programs.regreet = {
+  services.displayManager.regreet = {
     enable = true;
 
     theme = {
@@ -18,6 +18,7 @@
     enable = true;
     settings = {
       default_session = {
+        user = "greeter";
         command = "${pkgs.dbus}/bin/dbus-run-session ${pkgs.sway}/bin/sway --unsupported-gpu --config ${pkgs.writeText "greetd-sway-config" ''
           # Disable borders
           default_border none
@@ -33,9 +34,8 @@
           output * pos 0 0
 
           # Start ReGreet and exit Sway when ReGreet exits (i.e. on login)
-          exec "${config.programs.regreet.package}/bin/regreet; ${pkgs.sway}/bin/swaymsg exit"
+          exec "${config.services.displayManager.regreet.package}/bin/regreet; ${pkgs.sway}/bin/swaymsg exit"
         ''}";
-        user = "greeter";
       };
     };
   };
