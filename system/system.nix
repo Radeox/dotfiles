@@ -23,10 +23,10 @@
       auto-optimise-store = true;
 
       # Increase the number of parallel download jobs (default is usually 5)
-      max-substitution-jobs = 32;
+      max-substitution-jobs = 8;
 
       # Keep HTTP connections open to reuse them for subsequent file requests
-      http-connections = 128;
+      http-connections = 16;
 
       # Configure binary cache mirrors
       substituters = [
