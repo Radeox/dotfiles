@@ -14,9 +14,9 @@
   };
 
   # Install Moonlight
-  environment.systemPackages = with pkgs; [
-    moonlight-qt
-  ];
+  # environment.systemPackages = with pkgs; [
+  #   moonlight-qt
+  # ];
 
   # Tailscale firewall config
   networking.nftables.enable = true;
