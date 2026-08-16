@@ -79,7 +79,7 @@ in {
         [Desktop Entry]
         Name=Steam
         Comment=Steam Big Picture with HDR and Audio Fixes
-        Exec=systemd-cat --identifier=steam-gamescope ${pkgs.gamescope}/bin/gamescope -f -e -F fsr --backend drm --adaptive-sync --hdr-enabled --mangoapp -- ${startSteamSession}/bin/start-steam-session
+        Exec=systemd-cat --identifier=steam-gamescope ${pkgs.gamescope}/bin/gamescope -f -e --force-composition --backend drm --adaptive-sync --mangoapp -- ${startSteamSession}/bin/start-steam-session
         Type=Application
         EOF
       '';
