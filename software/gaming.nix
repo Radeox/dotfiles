@@ -17,10 +17,10 @@ let
   startSteamSession = pkgs.writeShellScriptBin "start-steam-session" ''
     set -xeuo pipefail
 
-    # Start the key listener using our Nix-stored config
+    # Start the key listener
     ${pkgs.sxhkd}/bin/sxhkd -c ${steamSxhkdrc} &
 
-    # Execute Steam. We are using -steamos3 so it actively looks for your script!
+    # Execute Steam
     exec ${pkgs.dbus}/bin/dbus-run-session ${pkgs.steam}/bin/steam -steamos3 -gamepadui -pipewire-dmabuf
   '';
 
@@ -33,14 +33,14 @@ let
     exit 0
   '';
 
-in {
+in
+{
   programs = {
     steam = {
       # Enable steam
       enable = true;
 
-      # Disabled because the default session crashes with Regreet.
-      # We use our custom session derivation below instead.
+      # Disabled because the default session
       gamescopeSession.enable = false;
 
       # Open firewall for games
@@ -65,7 +65,7 @@ in {
     steamosSessionSelect
   ];
 
-  # Custom steam launcher for regreet to avoid DRM race conditions
+  # Custom steam launcher for regreet
   services.displayManager.sessionPackages = [
     (pkgs.stdenv.mkDerivation {
       pname = "steam-gamescope-custom-session";
@@ -78,8 +78,8 @@ in {
         cat << 'EOF' > $out/share/wayland-sessions/steam-gamescope.desktop
         [Desktop Entry]
         Name=Steam
-        Comment=Steam Big Picture with HDR and Audio Fixes
-        Exec=systemd-cat --identifier=steam-gamescope ${pkgs.gamescope}/bin/gamescope -f -e --force-composition --backend drm --adaptive-sync --mangoapp -- ${startSteamSession}/bin/start-steam-session
+        Comment=Steam Big Picture
+        Exec=systemd-cat --identifier=steam-gamescope ${pkgs.gamescope}/bin/gamescope --fullscreen --steam --backend wayland --expose-wayland --mangoapp -- ${startSteamSession}/bin/start-steam-session
         Type=Application
         EOF
       '';
