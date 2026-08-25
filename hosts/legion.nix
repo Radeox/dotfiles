@@ -56,13 +56,16 @@
 
   fileSystems."/home/radeox/Vault" = {
     device = "/dev/disk/by-uuid/6EF497832FF9AE12";
-    fsType = "ntfs";
+    fsType = "ntfs3";
     options = [
       "uid=1000"
       "gid=100"
-      "dmask=022"
-      "fmask=113"
-      "umask=0022"
+      "rw"
+      "user"
+      "exec"
+      "umask=000"
+      "nofail"
+      "iocharset=utf8"
     ];
   };
 
