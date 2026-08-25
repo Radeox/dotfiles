@@ -14,12 +14,10 @@
     duf
     dust
     ente-auth
-    evince
     fastfetch
     fd
     ffmpeg
     file-roller
-    filezilla
     fzf
     gcc
     gimp
@@ -45,9 +43,7 @@
     nautilus
     nautilus-python
     networkmanagerapplet
-    ngrok
     nil
-    nix-search-cli
     nmap
     nodejs_24
     nwg-look
@@ -67,7 +63,6 @@
     ruff
     scrcpy
     seahorse
-    showtime
     simple-scan
     spotify
     sshfs
@@ -77,7 +72,6 @@
     udiskie
     ungoogled-chromium
     unzip
-    usbimager
     uv
     uv-sort
     valent
@@ -86,7 +80,6 @@
     wget
     whois
     wireguard-tools
-    witr
     wl-clipboard
     yazi
     zip
