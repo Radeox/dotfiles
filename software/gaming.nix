@@ -79,7 +79,7 @@ in
         [Desktop Entry]
         Name=Steam
         Comment=Steam Big Picture
-        Exec=systemd-cat --identifier=steam-gamescope ${pkgs.gamescope}/bin/gamescope --fullscreen --steam --backend wayland --expose-wayland --mangoapp -- ${startSteamSession}/bin/start-steam-session
+        Exec=systemd-cat --identifier=steam-gamescope ${pkgs.gamescope}/bin/gamescope --fullscreen --steam --backend drm --mangoapp -- ${startSteamSession}/bin/start-steam-session
         Type=Application
         EOF
       '';
