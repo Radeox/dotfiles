@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, ... }:
 {
   stylix = {
     enable = true;
@@ -7,7 +7,7 @@
     polarity = "dark";
 
     # Apply everforest-dark-hard theme
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-material-dark-medium.yaml";
 
     # Enable GTK support
     targets.gtk.enable = true;
