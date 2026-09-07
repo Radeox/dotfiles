@@ -40,7 +40,5 @@
 
   home.packages = with pkgs; [
     qogir-icon-theme
-    rose-pine-icon-theme
   ];
-
 }
