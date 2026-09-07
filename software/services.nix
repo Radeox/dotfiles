@@ -13,7 +13,7 @@
 
     dbus = {
       enable = true;
-      packages = [ pkgs.gcr ];
+      packages = [ pkgs.gcr_3 ];
     };
 
     # Power services
