@@ -57,35 +57,7 @@
       };
 
       spawn-at-startup = [
-        { command = [ "noctalia-shell" ]; }
-        {
-          command = [
-            "wl-paste"
-            "--type"
-            "text"
-            "--watch"
-            "cliphist"
-            "store"
-          ];
-        }
-        {
-          command = [
-            "wl-paste"
-            "--type"
-            "image"
-            "--watch"
-            "cliphist"
-            "store"
-          ];
-        }
-        {
-          command = [
-            "systemctl"
-            "--user"
-            "start"
-            "sunshine.service"
-          ];
-        }
+        { command = [ "noctalia" ]; }
       ];
 
       binds = {
@@ -110,32 +82,38 @@
 
         # App launcher (Noctalia)
         "Mod+Space".action.spawn = [
-          "noctalia-shell"
-          "ipc"
-          "call"
+          "noctalia"
+          "msg"
+          "panel-toggle"
           "launcher"
-          "toggle"
         ];
 
         # Lock screen (Noctalia)
         "Mod+L".action.spawn = [
-          "noctalia-shell"
-          "ipc"
-          "call"
-          "lockScreen"
+          "noctalia"
+          "msg"
+          "session"
           "lock"
         ];
 
         # Screenshots
-        "Mod+Shift+S".action.screenshot = { };
-        "Print".action.screenshot-screen = { };
+        "Mod+Shift+S".action.spawn = [
+          "noctalia"
+          "msg"
+          "screenshot-region"
+        ];
+
+        "Print".action.spawn = [
+          "noctalia"
+          "msg"
+          "screenshot-fullscreen"
+        ];
 
         # Clipboard history
         "Mod+V".action.spawn = [
-          "noctalia-shell"
-          "ipc"
-          "call"
-          "launcher"
+          "noctalia"
+          "msg"
+          "panel-toggle"
           "clipboard"
         ];
 
@@ -190,11 +168,10 @@
 
         # Power menu (Noctalia)
         "Mod+Shift+E".action.spawn = [
-          "noctalia-shell"
-          "ipc"
-          "call"
-          "sessionMenu"
-          "toggle"
+          "noctalia"
+          "msg"
+          "panel-toggle"
+          "session"
         ];
 
         # Audio/Brightness
@@ -244,11 +221,11 @@
           clip-to-geometry = true;
         }
         {
-          matches = [ { title = "^Picture-in-Picture$"; } ];
+          matches = [{ title = "^Picture-in-Picture$"; }];
           open-floating = true;
         }
         {
-          matches = [ { app-id = "org.gnome.Calculator"; } ];
+          matches = [{ app-id = "org.gnome.Calculator"; }];
           open-floating = true;
         }
       ];
