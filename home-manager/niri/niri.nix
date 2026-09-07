@@ -1,16 +1,13 @@
 { config, lib, ... }:
 {
-  # Temporary fix till "include" is implemented in the flake
-  xdg.configFile."niri/config.kdl".text = ''
-    include "nix-generated-config.kdl"
-    include "monitors.kdl"
-  '';
-  xdg.configFile.niri-config.target = lib.mkForce "niri/nix-generated-config.kdl";
-
   programs.niri = {
     enable = true;
 
     settings = {
+      includes = [
+        { path = "monitors.kdl"; optional = true; }
+      ];
+
       input = {
         keyboard.xkb.layout = "us,it";
         keyboard.xkb.options = "caps:escape";
