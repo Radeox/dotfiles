@@ -7,18 +7,18 @@
 
       defaultApplications = {
         # HTML and Browser
-        "text/html" = [ "zen.desktop" ];
-        "x-scheme-handler/http" = [ "zen.desktop" ];
-        "x-scheme-handler/https" = [ "zen.desktop" ];
-        "x-scheme-handler/about" = [ "zen.desktop" ];
-        "x-scheme-handler/unknown" = [ "zen.desktop" ];
+        "text/html" = [ "zen-beta.desktop" ];
+        "x-scheme-handler/http" = [ "zen-beta.desktop" ];
+        "x-scheme-handler/https" = [ "zen-beta.desktop" ];
+        "x-scheme-handler/about" = [ "zen-beta.desktop" ];
+        "x-scheme-handler/unknown" = [ "zen-beta.desktop" ];
 
         # File Manager (Nautilus)
         "inode/directory" = [ "org.gnome.Nautilus.desktop" ];
         "x-scheme-handler/file" = [ "org.gnome.Nautilus.desktop" ];
 
         # PDF
-        "application/pdf" = [ "zen.desktop" ];
+        "application/pdf" = [ "zen-beta.desktop" ];
 
         # Images
         "image/jpeg" = [ "org.gnome.Loupe.desktop" ];
