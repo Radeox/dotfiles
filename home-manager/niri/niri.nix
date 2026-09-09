@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 {
   programs.niri = {
     enable = true;
@@ -171,7 +171,7 @@
           "session"
         ];
 
-        # Audio/Brightness
+        # Audio
         "XF86AudioRaiseVolume".action.spawn = [
           "wpctl"
           "set-volume"
@@ -190,6 +190,30 @@
           "@DEFAULT_AUDIO_SINK@"
           "toggle"
         ];
+
+        # Media
+        "XF86AudioPlay".action.spawn = [
+          "playerctl"
+          "--ignore-player=Valent"
+          "play-pause"
+        ];
+        "XF86AudioNext".action.spawn = [
+          "playerctl"
+          "--ignore-player=Valent"
+          "next"
+        ];
+        "XF86AudioPrev".action.spawn = [
+          "playerctl"
+          "--ignore-player=Valent"
+          "previous"
+        ];
+        "XF86AudioStop".action.spawn = [
+          "playerctl"
+          "--ignore-player=Valent"
+          "stop"
+        ];
+
+        # Brightness
         "XF86MonBrightnessUp".action.spawn = [
           "brightnessctl"
           "set"
@@ -200,6 +224,9 @@
           "set"
           "10%-"
         ];
+
+        # Calculator
+        "XF86Calculator".action.spawn = "gnome-calculator";
 
         # Resizing
         "Mod+BracketLeft".action.set-column-width = "-10%";
@@ -236,4 +263,9 @@
       hotkey-overlay.skip-at-startup = true;
     };
   };
+
+  home.packages = [
+    pkgs.playerctl
+  ];
+
 }
