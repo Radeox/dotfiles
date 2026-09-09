@@ -4,6 +4,7 @@
     android-tools
     ansible
     awscli2
+    bitwarden-cli
     bleachbit
     brightnessctl
     cargo
@@ -74,7 +75,6 @@
     unzip
     uv
     uv-sort
-    valent
     veracrypt
     vlc
     wget

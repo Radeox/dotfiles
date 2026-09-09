@@ -97,8 +97,18 @@
         temperature_night = 4800;
       };
 
+      caledar = {
+        enabled = true;
+      };
+
       plugins = {
-        enabled = [ ];
+        enabled = [ "noctalia/bitwarden" ];
+      };
+
+      osd = {
+        kinds = {
+          lock_keys = false;
+        };
       };
 
       shell = {
@@ -106,6 +116,10 @@
         font_family = "Liberation Sans";
         niri_overview_type_to_launch_enabled = true;
         polkit_agent = true;
+
+        greeter_sync = {
+          auto_sync = true;
+        };
 
         animation = {
           speed = 1.2;
